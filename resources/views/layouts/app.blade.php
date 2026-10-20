@@ -38,7 +38,7 @@
 <footer class="mt-20 bg-ink text-slate-300">
     <div class="container-page grid gap-10 py-12 md:grid-cols-3">
         <div><div class="text-xl font-black text-white">VietGo Travel</div><p class="mt-3 max-w-sm text-sm leading-6">Đồng hành cùng bạn trên mọi hành trình khám phá vẻ đẹp Việt Nam.</p></div>
-        <div><h2 class="font-bold text-white">Liên kết</h2><div class="mt-3 grid gap-2 text-sm"><a class="hover:text-white" href="{{ route('tours.index') }}">Tất cả tour</a><a class="hover:text-white" href="{{ route('customer.dashboard') }}">Quản lý đặt tour</a></div></div>
+        <div><h2 class="font-bold text-white">Liên kết</h2><div class="mt-3 grid gap-2 text-sm"><a class="hover:text-white" href="{{ route('tours.index') }}">Tất cả tour</a><a class="hover:text-white" href="{{ route('customer.dashboard') }}">Quản lý đặt tour</a><a class="hover:text-white" href="{{ asset('images/tours/demo/credits.html') }}">Nguồn ảnh địa danh</a></div></div>
         <div><h2 class="font-bold text-white">Liên hệ</h2><p class="mt-3 text-sm">Hotline: 1900 6868<br>Email: hello@vietgo.test</p></div>
     </div>
 </footer>

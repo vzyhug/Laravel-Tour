@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Customer extends Model
 {
+    use HasFactory;
+
     public const UPDATED_AT = null;
 
     protected $primaryKey = 'customer_id';
@@ -31,7 +34,7 @@ class Customer extends Model
         return $this->hasMany(Review::class, 'customer_id');
     }
 
-        public function favoriteTours(): BelongsToMany
+    public function favoriteTours(): BelongsToMany
     {
         return $this->belongsToMany(Tour::class, 'favorites', 'customer_id', 'tour_id');
     }

@@ -1,0 +1,694 @@
+[
+  {
+    "slug": "ha-long",
+    "title": "Khám phá Vịnh Hạ Long",
+    "province": "Quảng Ninh",
+    "region": "Bắc",
+    "category": "Tour Biển",
+    "pickup_point": "Hà Nội",
+    "min_price": 2500000,
+    "description": "Du ngoạn giữa những đảo đá vôi của vịnh Hạ Long, thăm hang động và nghỉ đêm trên du thuyền. Chương trình có thời gian ngắm cảnh trên boong tàu và thưởng thức hải sản địa phương.",
+    "days": [
+      {
+        "title": "Hà Nội – Tuần Châu – Vịnh Hạ Long",
+        "activities": "Đón khách tại Hà Nội, di chuyển đến cảng Tuần Châu và lên du thuyền. Dùng bữa trưa, tham quan hang Sửng Sốt rồi ngắm hoàng hôn trên vịnh."
+      },
+      {
+        "title": "Ngắm bình minh trên vịnh – Hà Nội",
+        "activities": "Dùng bữa sáng trên du thuyền, ngắm các đảo đá và nghỉ ngơi trên boong. Trả phòng, dùng bữa trưa trước khi cập cảng và trở về Hà Nội."
+      }
+    ]
+  },
+  {
+    "slug": "sapa",
+    "title": "Sapa – Thành phố trong sương",
+    "province": "Lào Cai",
+    "region": "Bắc",
+    "category": "Tour Núi",
+    "pickup_point": "Hà Nội",
+    "min_price": 3200000,
+    "description": "Khám phá thị trấn Sa Pa và văn hóa vùng cao giữa những thửa ruộng bậc thang. Hành trình kết hợp bản Cát Cát, thung lũng Mường Hoa và trải nghiệm cáp treo Fansipan.",
+    "days": [
+      {
+        "title": "Hà Nội – Sa Pa – Bản Cát Cát",
+        "activities": "Đi xe theo cao tốc đến Sa Pa, nhận phòng và ăn trưa. Chiều đi bộ tham quan bản Cát Cát, tìm hiểu nghề dệt và thưởng thức món ăn vùng cao."
+      },
+      {
+        "title": "Fansipan – Thung lũng Mường Hoa",
+        "activities": "Dùng điểm tâm rồi trải nghiệm cáp treo Fansipan, tham quan quần thể trên núi tùy điều kiện thời tiết. Chiều ngắm ruộng bậc thang ở thung lũng Mường Hoa."
+      },
+      {
+        "title": "Chợ Sa Pa – Trở về Hà Nội",
+        "activities": "Tự do dạo trung tâm và chợ Sa Pa, mua đặc sản địa phương. Ăn trưa, trả phòng rồi lên xe về Hà Nội."
+      }
+    ]
+  },
+  {
+    "slug": "da-nang",
+    "title": "Đà Nẵng – Hội An – Bà Nà Hills",
+    "province": "Đà Nẵng",
+    "region": "Trung",
+    "category": "Tour Văn hóa",
+    "pickup_point": "Sân bay Đà Nẵng",
+    "min_price": 4500000,
+    "description": "Từ biển Mỹ Khê đến Cầu Vàng trên Bà Nà và phố cổ Hội An, hành trình kết hợp biển, núi và di sản. Các buổi tối dành thời gian khám phá ẩm thực và cảnh sắc bên sông.",
+    "days": [
+      {
+        "title": "Đà Nẵng – Biển Mỹ Khê – Cầu Rồng",
+        "activities": "Đón khách tại sân bay, nhận phòng và ăn trưa. Chiều nghỉ ngơi ở biển Mỹ Khê, tối dạo bờ sông Hàn và ngắm Cầu Rồng."
+      },
+      {
+        "title": "Bà Nà Hills – Cầu Vàng",
+        "activities": "Lên Bà Nà bằng cáp treo, tham quan Cầu Vàng và vườn hoa. Ăn trưa tại khu du lịch, tự do khám phá trước khi trở về Đà Nẵng."
+      },
+      {
+        "title": "Ngũ Hành Sơn – Phố cổ Hội An",
+        "activities": "Khám phá Ngũ Hành Sơn và làng đá Non Nước. Chiều đến Hội An, đi bộ qua các ngôi nhà cổ và ngắm phố đèn lồng bên sông Hoài."
+      },
+      {
+        "title": "Chợ Hàn – Tiễn sân bay",
+        "activities": "Dùng điểm tâm, ghé chợ Hàn mua đặc sản làm quà. Trả phòng và đưa khách ra sân bay theo lịch hẹn."
+      }
+    ]
+  },
+  {
+    "slug": "da-lat",
+    "title": "Đà Lạt – Thành phố ngàn hoa",
+    "province": "Lâm Đồng",
+    "region": "Trung",
+    "category": "Tour Nghỉ dưỡng",
+    "pickup_point": "Sân bay Liên Khương",
+    "min_price": 3800000,
+    "description": "Nghỉ ngơi trong khí hậu cao nguyên, dạo hồ Xuân Hương và khám phá thác Pongour. Hành trình dành thời gian cho cà phê, vườn hoa và không gian rừng thông quanh Đà Lạt.",
+    "days": [
+      {
+        "title": "Liên Khương – Hồ Xuân Hương – Chợ Đà Lạt",
+        "activities": "Đón khách tại sân bay, di chuyển về trung tâm nhận phòng. Chiều dạo hồ Xuân Hương, tham quan vườn hoa và tối tự do khám phá chợ Đà Lạt."
+      },
+      {
+        "title": "Thác Pongour – Cà phê cao nguyên",
+        "activities": "Khởi hành tham quan thác Pongour, đi bộ ngắm cảnh theo lối hướng dẫn. Chiều ghé điểm giới thiệu cà phê và trở về thành phố nghỉ ngơi."
+      },
+      {
+        "title": "Thiền viện Trúc Lâm – Hồ Tuyền Lâm",
+        "activities": "Tham quan Thiền viện Trúc Lâm và ngắm cảnh hồ Tuyền Lâm. Dùng bữa trưa trước khi trả phòng và tiễn khách ra sân bay."
+      }
+    ]
+  },
+  {
+    "slug": "phu-quoc",
+    "title": "Phú Quốc – Thiên đường biển đảo",
+    "province": "An Giang",
+    "region": "Nam",
+    "category": "Tour Biển",
+    "pickup_point": "Sân bay Phú Quốc",
+    "min_price": 5200000,
+    "description": "Nghỉ dưỡng trên đảo Phú Quốc với biển xanh ở Bãi Sao và không gian sinh thái phía bắc đảo. Kết hợp tham quan cơ sở sản xuất nước mắm, hồ tiêu và chợ đêm.",
+    "days": [
+      {
+        "title": "Đón sân bay – Dương Đông – Chợ đêm",
+        "activities": "Đón khách, nhận phòng khách sạn và nghỉ ngơi. Chiều dạo khu vực Dương Đông, ngắm hoàng hôn và thưởng thức món ăn tại chợ đêm."
+      },
+      {
+        "title": "Nam đảo – Bãi Sao",
+        "activities": "Di chuyển xuống nam đảo, tham quan cơ sở nước mắm truyền thống. Dành thời gian tắm biển Bãi Sao trong khu vực an toàn, dùng bữa và về khách sạn."
+      },
+      {
+        "title": "Bắc đảo – Khám phá sinh thái",
+        "activities": "Tham quan vùng đệm vườn quốc gia cùng hướng dẫn viên, tìm hiểu hệ sinh thái rừng đảo. Chiều ghé vườn tiêu và tự do nghỉ dưỡng."
+      },
+      {
+        "title": "Mua sắm đặc sản – Tiễn sân bay",
+        "activities": "Dùng điểm tâm, tự do dạo biển và mua đặc sản. Trả phòng, đưa khách ra sân bay kết thúc chương trình."
+      }
+    ]
+  },
+  {
+    "slug": "ninh-binh",
+    "title": "Ninh Bình – Tràng An – Tam Cốc",
+    "province": "Ninh Bình",
+    "region": "Bắc",
+    "category": "Tour Văn hóa",
+    "pickup_point": "Phố cổ Hà Nội",
+    "min_price": 2150000,
+    "description": "Ngồi thuyền khám phá sông nước và núi đá vôi tại Tràng An, Tam Cốc. Kết hợp tham quan cố đô Hoa Lư và thưởng thức dê núi, cơm cháy địa phương.",
+    "days": [
+      {
+        "title": "Hà Nội – Hoa Lư – Tràng An",
+        "activities": "Khởi hành từ Hà Nội, tham quan khu di tích cố đô Hoa Lư. Sau bữa trưa, đi thuyền theo tuyến tham quan Tràng An và nhận phòng nghỉ."
+      },
+      {
+        "title": "Tam Cốc – Trở về Hà Nội",
+        "activities": "Dùng điểm tâm, trải nghiệm thuyền nan ngắm núi và đồng ruộng Tam Cốc. Ăn trưa đặc sản, mua quà rồi lên xe trở về Hà Nội."
+      }
+    ]
+  },
+  {
+    "slug": "ha-giang",
+    "title": "Hà Giang – Đồng Văn – Mã Pí Lèng",
+    "province": "Tuyên Quang",
+    "region": "Bắc",
+    "category": "Tour Núi",
+    "pickup_point": "Hà Nội",
+    "min_price": 3450000,
+    "description": "Khám phá cao nguyên đá Đồng Văn, những bản làng vùng cao và cung đường Mã Pí Lèng. Hành trình di chuyển bằng xe có lái xe quen tuyến, dừng ngắm cảnh tại các điểm phù hợp.",
+    "days": [
+      {
+        "title": "Hà Nội – Hà Giang – Quản Bạ",
+        "activities": "Đón khách sớm từ Hà Nội, di chuyển qua Hà Giang đến Quản Bạ. Dừng chân ngắm cảnh cổng trời, dùng bữa và nghỉ đêm tại địa phương."
+      },
+      {
+        "title": "Đồng Văn – Dinh họ Vương – Phố cổ",
+        "activities": "Khám phá cảnh quan cao nguyên đá Đồng Văn, ghé dinh họ Vương và các bản làng trên đường. Chiều đến phố cổ Đồng Văn, dùng bữa và nghỉ đêm."
+      },
+      {
+        "title": "Mã Pí Lèng – Hà Nội",
+        "activities": "Dừng ngắm cảnh đèo Mã Pí Lèng và hẻm vực Tu Sản từ điểm quan sát an toàn. Ăn trưa trên đường và trở về Hà Nội vào buổi tối."
+      }
+    ]
+  },
+  {
+    "slug": "ha-noi",
+    "title": "Hà Nội – Hồ Gươm – Văn Miếu – Phố cổ",
+    "province": "Hà Nội",
+    "region": "Bắc",
+    "category": "Tour Văn hóa",
+    "pickup_point": "Trung tâm Hà Nội",
+    "min_price": 1890000,
+    "description": "Tìm hiểu văn hóa kinh kỳ qua hồ Hoàn Kiếm, Văn Miếu và những con phố nghề. Hành trình có thời gian đi bộ, thưởng thức phở và cà phê trứng trong khu phố cổ.",
+    "days": [
+      {
+        "title": "Hồ Hoàn Kiếm – Đền Ngọc Sơn – Phố cổ",
+        "activities": "Đón khách tại trung tâm, đi bộ quanh hồ Hoàn Kiếm và tham quan đền Ngọc Sơn. Chiều khám phá phố cổ, dùng bữa địa phương và xem múa rối nước."
+      },
+      {
+        "title": "Văn Miếu – Hoàng thành Thăng Long",
+        "activities": "Tham quan Văn Miếu – Quốc Tử Giám, tìm hiểu truyền thống hiếu học. Sau bữa trưa, tham quan Hoàng thành Thăng Long và kết thúc tại điểm hẹn."
+      }
+    ]
+  },
+  {
+    "slug": "hue",
+    "title": "Huế – Đại Nội – Chùa Thiên Mụ – Sông Hương",
+    "province": "Huế",
+    "region": "Trung",
+    "category": "Tour Văn hóa",
+    "pickup_point": "Sân bay Phú Bài",
+    "min_price": 2790000,
+    "description": "Khám phá kiến trúc cung đình và nhịp sống bên sông Hương. Tham quan Đại Nội, chùa Thiên Mụ, các lăng tẩm và thưởng thức món ăn Huế.",
+    "days": [
+      {
+        "title": "Phú Bài – Chùa Thiên Mụ – Sông Hương",
+        "activities": "Đón khách tại Phú Bài, nhận phòng khách sạn. Chiều tham quan chùa Thiên Mụ, dạo bờ sông Hương và thưởng thức bữa tối món Huế."
+      },
+      {
+        "title": "Đại Nội – Bảo tàng cung đình",
+        "activities": "Tham quan các khu vực mở cửa trong Đại Nội cùng hướng dẫn viên. Chiều tìm hiểu hiện vật cung đình và có thời gian tự do nghỉ ngơi."
+      },
+      {
+        "title": "Lăng Minh Mạng – Chợ Đông Ba",
+        "activities": "Tham quan lăng Minh Mạng và ghé chợ Đông Ba mua đặc sản. Dùng bữa trưa, trả phòng rồi đưa khách ra sân bay."
+      }
+    ]
+  },
+  {
+    "slug": "nha-trang",
+    "title": "Nha Trang – Vịnh biển – Tháp Bà Ponagar",
+    "province": "Khánh Hòa",
+    "region": "Trung",
+    "category": "Tour Biển",
+    "pickup_point": "Sân bay Cam Ranh",
+    "min_price": 3290000,
+    "description": "Tận hưởng bãi biển Nha Trang và tìm hiểu kiến trúc Chăm tại tháp Bà Ponagar. Kết hợp tham quan vịnh theo điều kiện thời tiết và thưởng thức hải sản.",
+    "days": [
+      {
+        "title": "Cam Ranh – Bãi biển Nha Trang",
+        "activities": "Đón khách tại Cam Ranh, di chuyển về khách sạn. Chiều nghỉ ngơi, tắm biển trong khu vực có hướng dẫn và dạo quảng trường ven biển."
+      },
+      {
+        "title": "Du ngoạn vịnh Nha Trang",
+        "activities": "Lên tàu tham quan vịnh và các đảo theo tuyến được phép. Dùng bữa hải sản, nghỉ ngơi trên đảo rồi trở về đất liền vào buổi chiều."
+      },
+      {
+        "title": "Tháp Bà Ponagar – Tiễn sân bay",
+        "activities": "Tham quan tháp Bà Ponagar, tìm hiểu kiến trúc và văn hóa Chăm. Mua sắm đặc sản, ăn trưa rồi tiễn khách ra sân bay."
+      }
+    ]
+  },
+  {
+    "slug": "quy-nhon",
+    "title": "Quy Nhơn – Kỳ Co – Eo Gió – Tháp Bánh Ít",
+    "province": "Gia Lai",
+    "region": "Trung",
+    "category": "Tour Biển",
+    "pickup_point": "Sân bay Phù Cát",
+    "min_price": 3090000,
+    "description": "Khám phá biển Quy Nhơn, cảnh quan Eo Gió và dấu tích kiến trúc Chăm tại tháp Bánh Ít. Hành trình dành thời gian thư giãn tại Kỳ Co và dùng bữa hải sản địa phương.",
+    "days": [
+      {
+        "title": "Phù Cát – Tháp Bánh Ít – Quy Nhơn",
+        "activities": "Đón khách tại sân bay Phù Cát, tham quan tháp Bánh Ít trên đường về thành phố. Nhận phòng, nghỉ ngơi và đi dạo bãi biển Quy Nhơn."
+      },
+      {
+        "title": "Kỳ Co – Eo Gió",
+        "activities": "Khởi hành đến khu vực Nhơn Lý, tham quan Kỳ Co theo phương án phù hợp thời tiết. Ăn trưa, đi bộ ngắm cảnh Eo Gió và trở về khách sạn."
+      },
+      {
+        "title": "Chợ địa phương – Tiễn sân bay",
+        "activities": "Dùng điểm tâm, tự do dạo biển và mua đặc sản. Trả phòng, dùng bữa trưa rồi đưa khách ra sân bay Phù Cát."
+      }
+    ]
+  },
+  {
+    "slug": "can-tho",
+    "title": "Cần Thơ – Chợ nổi Cái Răng – Nhà cổ Bình Thủy",
+    "province": "Cần Thơ",
+    "region": "Nam",
+    "category": "Tour Sinh thái",
+    "pickup_point": "Bến Ninh Kiều, Cần Thơ",
+    "min_price": 1690000,
+    "description": "Trải nghiệm nhịp mua bán sông nước ở chợ nổi Cái Răng và kiến trúc nhà cổ Bình Thủy. Chương trình có bữa sáng trên sông, thăm vườn trái cây và thưởng thức đặc sản miền Tây.",
+    "days": [
+      {
+        "title": "Nhà cổ Bình Thủy – Bến Ninh Kiều",
+        "activities": "Đón khách tại Cần Thơ, tham quan nhà cổ Bình Thủy và tìm hiểu lịch sử gia đình chủ nhà. Chiều nhận phòng, tối dạo bến Ninh Kiều và dùng bữa đặc sản."
+      },
+      {
+        "title": "Chợ nổi Cái Răng – Miệt vườn",
+        "activities": "Khởi hành sáng sớm bằng thuyền đến chợ nổi Cái Răng, dùng bữa sáng trên sông. Ghé vườn trái cây theo mùa, ăn trưa rồi đưa khách về điểm hẹn."
+      }
+    ]
+  },
+  {
+    "slug": "con-dao",
+    "title": "Côn Đảo – Biển xanh – Di tích lịch sử",
+    "province": "TP. Hồ Chí Minh",
+    "region": "Nam",
+    "category": "Tour Văn hóa",
+    "pickup_point": "Sân bay Côn Đảo",
+    "min_price": 4690000,
+    "description": "Kết hợp nghỉ dưỡng giữa biển đảo với tìm hiểu lịch sử tại hệ thống di tích Côn Đảo. Tham quan cảnh quan vườn quốc gia theo tuyến mở cửa và tắm biển Đầm Trầu.",
+    "days": [
+      {
+        "title": "Đón sân bay – Bãi Đầm Trầu",
+        "activities": "Đón khách tại sân bay, tham quan và nghỉ ngơi tại bãi Đầm Trầu theo điều kiện thời tiết. Về khách sạn nhận phòng, ăn tối và tự do dạo thị trấn."
+      },
+      {
+        "title": "Di tích nhà tù – Nghĩa trang Hàng Dương",
+        "activities": "Tham quan bảo tàng và khu di tích nhà tù Côn Đảo cùng hướng dẫn viên. Chiều viếng nghĩa trang Hàng Dương và tìm hiểu lịch sử địa phương."
+      },
+      {
+        "title": "Vườn quốc gia – Tiễn sân bay",
+        "activities": "Tham quan tuyến sinh thái mở cửa trong vườn quốc gia, tuân thủ hướng dẫn bảo tồn. Trở về ăn trưa và tiễn khách ra sân bay."
+      }
+    ]
+  },
+  {
+    "slug": "phong-nha",
+    "title": "Phong Nha – Động Thiên Đường – Sông Son",
+    "province": "Quảng Trị",
+    "region": "Trung",
+    "category": "Tour Sinh thái",
+    "pickup_point": "Sân bay Đồng Hới",
+    "min_price": 2990000,
+    "description": "Khám phá hang động đá vôi ở Phong Nha và không gian sông Son. Chương trình kết hợp thuyền tham quan động Phong Nha với đi bộ trên lối tham quan động Thiên Đường.",
+    "days": [
+      {
+        "title": "Đồng Hới – Sông Son – Phong Nha",
+        "activities": "Đón khách tại Đồng Hới, di chuyển đến Phong Nha và nhận phòng. Chiều dạo làng ven sông Son, ngắm cảnh và dùng bữa địa phương."
+      },
+      {
+        "title": "Thuyền sông Son – Động Phong Nha",
+        "activities": "Đi thuyền theo tuyến tham quan động Phong Nha, khám phá các khoang được phép mở cửa. Chiều trở về nghỉ ngơi và tự do đi bộ ngắm cảnh làng quê."
+      },
+      {
+        "title": "Động Thiên Đường – Đồng Hới",
+        "activities": "Tham quan động Thiên Đường, đi bộ trên hệ thống sàn gỗ và ngắm thạch nhũ. Ăn trưa trước khi trở về sân bay Đồng Hới."
+      }
+    ]
+  },
+  {
+    "slug": "mui-ne",
+    "title": "Mũi Né – Đồi cát – Tháp Po Sah Inư",
+    "province": "Lâm Đồng",
+    "region": "Trung",
+    "category": "Tour Nghỉ dưỡng",
+    "pickup_point": "TP. Hồ Chí Minh",
+    "min_price": 2590000,
+    "description": "Nghỉ dưỡng ở Mũi Né, ngắm cảnh đồi cát và tìm hiểu kiến trúc tháp Po Sah Inư. Kết hợp dạo làng chài, thưởng thức hải sản và dành thời gian thư giãn bên biển.",
+    "days": [
+      {
+        "title": "TP. Hồ Chí Minh – Mũi Né – Làng chài",
+        "activities": "Đón khách tại TP. Hồ Chí Minh, di chuyển đến Mũi Né và nhận phòng. Chiều dạo làng chài, nghỉ ngơi bên biển và dùng bữa hải sản."
+      },
+      {
+        "title": "Đồi cát – Suối Tiên",
+        "activities": "Khởi hành sớm ngắm cảnh đồi cát, đi bộ theo hướng dẫn. Sau bữa sáng tham quan Suối Tiên, chiều tự do nghỉ dưỡng tại khách sạn."
+      },
+      {
+        "title": "Tháp Po Sah Inư – TP. Hồ Chí Minh",
+        "activities": "Tham quan tháp Po Sah Inư, tìm hiểu kiến trúc Chăm. Ăn trưa, mua đặc sản rồi lên xe về TP. Hồ Chí Minh."
+      }
+    ]
+  },
+  {
+    "slug": "cao-bang",
+    "title": "Cao Bằng – Bản Giốc – Pác Bó – Động Ngườm Ngao",
+    "province": "Cao Bằng",
+    "region": "Bắc",
+    "category": "Tour Văn hóa",
+    "pickup_point": "Hà Nội",
+    "min_price": 3290000,
+    "description": "Khám phá thác Bản Giốc, dòng suối Lê Nin trong xanh và cảnh quan núi đá vôi Cao Bằng. Hành trình kết hợp di tích Pác Bó, động Ngườm Ngao và các làng bản vùng biên.",
+    "days": [
+      {
+        "title": "Hà Nội – Cao Bằng – Pác Bó",
+        "activities": "Khởi hành sớm từ Hà Nội, dùng bữa trưa trên đường. Chiều tham quan khu di tích Pác Bó, đi bộ bên suối Lê Nin rồi về thành phố Cao Bằng nhận phòng."
+      },
+      {
+        "title": "Thác Bản Giốc – Ngườm Ngao – Khuổi Ky",
+        "activities": "Di chuyển tới Trùng Khánh, ngắm thác Bản Giốc từ khu tham quan được phép. Sau bữa trưa, khám phá động Ngườm Ngao và làng đá Khuổi Ky trước khi về khách sạn."
+      },
+      {
+        "title": "Chợ Cao Bằng – Trở về Hà Nội",
+        "activities": "Dùng điểm tâm, ghé chợ địa phương tìm hiểu các món đặc sản. Trả phòng, dùng bữa trưa trên đường rồi trở về Hà Nội."
+      }
+    ]
+  },
+  {
+    "slug": "ba-be",
+    "title": "Ba Bể – Hồ xanh – Động Puông – Bản Pác Ngòi",
+    "province": "Thái Nguyên",
+    "region": "Bắc",
+    "category": "Tour Sinh thái",
+    "pickup_point": "Hà Nội",
+    "min_price": 2690000,
+    "description": "Dành thời gian nghỉ ngơi bên hồ Ba Bể giữa núi rừng, đi thuyền qua những vách đá và tìm hiểu đời sống người Tày ở Pác Ngòi. Các hoạt động đi bộ và tham quan được sắp xếp vừa sức.",
+    "days": [
+      {
+        "title": "Hà Nội – Ba Bể – Bản Pác Ngòi",
+        "activities": "Đón khách tại Hà Nội, di chuyển đến khu vực hồ Ba Bể. Nhận phòng nhà nghỉ cộng đồng, đi bộ quanh bản Pác Ngòi và dùng bữa tối món ăn người Tày."
+      },
+      {
+        "title": "Du thuyền hồ Ba Bể – Động Puông",
+        "activities": "Mặc áo phao, lên thuyền khám phá cảnh quan hồ Ba Bể cùng hướng dẫn viên. Tham quan động Puông và các điểm trên tuyến được phép, nghỉ ngơi bên hồ vào buổi chiều."
+      },
+      {
+        "title": "Dạo bản ven hồ – Hà Nội",
+        "activities": "Dùng bữa sáng, tự do dạo bản và mua sản vật địa phương. Trả phòng, ăn trưa rồi lên xe trở về Hà Nội."
+      }
+    ]
+  },
+  {
+    "slug": "moc-chau",
+    "title": "Mộc Châu – Đồi chè – Thác Dải Yếm – Rừng thông",
+    "province": "Sơn La",
+    "region": "Bắc",
+    "category": "Tour Nghỉ dưỡng",
+    "pickup_point": "Hà Nội",
+    "min_price": 2590000,
+    "description": "Khám phá cao nguyên Mộc Châu với những đồi chè, thác Dải Yếm và rừng thông bản Áng. Hành trình có thời gian nghỉ ngơi, thưởng thức đặc sản và ngắm cảnh đồng quê theo mùa.",
+    "days": [
+      {
+        "title": "Hà Nội – Cao nguyên Mộc Châu – Đồi chè",
+        "activities": "Khởi hành từ Hà Nội theo tuyến đường qua Hòa Bình, dừng nghỉ trên đường. Chiều tham quan đồi chè theo lối mở cửa, tìm hiểu nghề trồng chè rồi nhận phòng khách sạn."
+      },
+      {
+        "title": "Thác Dải Yếm – Rừng thông bản Áng",
+        "activities": "Tham quan thác Dải Yếm, đi bộ trên lối tham quan và ngắm cảnh dòng suối. Chiều dạo rừng thông bản Áng, nghỉ ngơi bên hồ và thưởng thức món ăn cao nguyên."
+      },
+      {
+        "title": "Bản làng Mộc Châu – Hà Nội",
+        "activities": "Dùng điểm tâm và ghé thăm bản làng, điểm trưng bày nông sản theo mùa. Sau bữa trưa, khởi hành về Hà Nội."
+      }
+    ]
+  },
+  {
+    "slug": "mai-chau",
+    "title": "Mai Châu – Bản Lác – Thung lũng lúa – Nhà sàn",
+    "province": "Phú Thọ",
+    "region": "Bắc",
+    "category": "Tour Văn hóa",
+    "pickup_point": "Hà Nội",
+    "min_price": 1690000,
+    "description": "Trải nghiệm không gian nhà sàn và văn hóa người Thái ở thung lũng Mai Châu. Đi bộ qua bản Lác, ngắm đồng lúa và thưởng thức các món ăn địa phương trong nhịp sinh hoạt chậm rãi.",
+    "days": [
+      {
+        "title": "Hà Nội – Mai Châu – Bản Lác",
+        "activities": "Đón khách, di chuyển đến Mai Châu và dùng bữa trưa tại nhà sàn. Chiều đi bộ tham quan bản Lác, tìm hiểu dệt thổ cẩm và sinh hoạt cộng đồng."
+      },
+      {
+        "title": "Thung lũng Mai Châu – Hà Nội",
+        "activities": "Dạo quanh các cánh đồng và đường làng cùng hướng dẫn viên, ngắm cảnh theo mùa. Tự do mua sản phẩm thủ công, dùng bữa trưa rồi trở về Hà Nội."
+      }
+    ]
+  },
+  {
+    "slug": "mu-cang-chai",
+    "title": "Mù Cang Chải – Khau Phạ – Chế Cu Nha",
+    "province": "Lào Cai",
+    "region": "Bắc",
+    "category": "Tour Núi",
+    "pickup_point": "Hà Nội",
+    "min_price": 3190000,
+    "description": "Theo những cung đường vùng cao tới ruộng bậc thang Mù Cang Chải và Chế Cu Nha. Cảnh sắc thay đổi theo mùa gieo cấy, mùa lúa xanh và mùa thu hoạch; chương trình có các điểm dừng ngắm cảnh phù hợp.",
+    "days": [
+      {
+        "title": "Hà Nội – Nghĩa Lộ – Tú Lệ",
+        "activities": "Khởi hành từ Hà Nội, dừng chân tại Nghĩa Lộ dùng bữa trưa. Chiều đến Tú Lệ, đi bộ ngắm thung lũng, tìm hiểu đặc sản cốm theo mùa và nhận phòng nghỉ."
+      },
+      {
+        "title": "Đèo Khau Phạ – Ruộng bậc thang Chế Cu Nha",
+        "activities": "Di chuyển qua Khau Phạ, dừng ngắm cảnh tại điểm an toàn. Tham quan các ruộng bậc thang và bản làng khu vực Chế Cu Nha, dùng bữa rồi nghỉ đêm tại Mù Cang Chải."
+      },
+      {
+        "title": "Mù Cang Chải – Tú Lệ – Hà Nội",
+        "activities": "Ăn sáng, đi bộ ngắm cảnh quanh điểm lưu trú và chụp ảnh đồng ruộng theo mùa. Trả phòng, dùng bữa trên đường và về lại Hà Nội."
+      }
+    ]
+  },
+  {
+    "slug": "dien-bien",
+    "title": "Điện Biên – Đồi A1 – Bảo tàng Chiến thắng – Mường Phăng",
+    "province": "Điện Biên",
+    "region": "Bắc",
+    "category": "Tour Văn hóa",
+    "pickup_point": "Sân bay Điện Biên",
+    "min_price": 3490000,
+    "description": "Tìm hiểu lịch sử chiến dịch Điện Biên Phủ tại bảo tàng, đồi A1 và khu chỉ huy Mường Phăng. Hành trình kết hợp cảnh quan thung lũng Mường Thanh và ẩm thực Tây Bắc.",
+    "days": [
+      {
+        "title": "Đón sân bay – Bảo tàng Chiến thắng Điện Biên Phủ",
+        "activities": "Đón khách tại sân bay, nhận phòng và dùng bữa trưa. Chiều tham quan Bảo tàng Chiến thắng Điện Biên Phủ, tìm hiểu các hiện vật và câu chuyện lịch sử."
+      },
+      {
+        "title": "Đồi A1 – Nghĩa trang – Hầm Đờ Cát",
+        "activities": "Tham quan di tích đồi A1 và viếng nghĩa trang liệt sĩ theo hướng dẫn. Chiều tìm hiểu khu vực hầm Đờ Cát, dùng bữa địa phương và nghỉ ngơi."
+      },
+      {
+        "title": "Mường Phăng – Tiễn sân bay",
+        "activities": "Tham quan khu chỉ huy chiến dịch tại Mường Phăng trong khung giờ mở cửa. Dùng bữa trưa, trả phòng và đưa khách ra sân bay theo giờ bay."
+      }
+    ]
+  },
+  {
+    "slug": "cat-ba",
+    "title": "Cát Bà – Vịnh Lan Hạ – Vườn quốc gia",
+    "province": "Hải Phòng",
+    "region": "Bắc",
+    "category": "Tour Biển",
+    "pickup_point": "Trung tâm Hải Phòng",
+    "min_price": 3090000,
+    "description": "Nghỉ dưỡng trên đảo Cát Bà, du ngoạn vịnh Lan Hạ và khám phá sinh thái rừng đảo. Chương trình đi biển và đi bộ trong vườn quốc gia được điều chỉnh theo thời tiết, sức khỏe và tuyến mở cửa.",
+    "days": [
+      {
+        "title": "Hải Phòng – Đảo Cát Bà – Ngắm vịnh",
+        "activities": "Đón khách tại Hải Phòng, di chuyển ra đảo theo phương án vận chuyển phù hợp. Nhận phòng, dùng bữa và ngắm cảnh vịnh từ các điểm quan sát được phép."
+      },
+      {
+        "title": "Vịnh Lan Hạ – Nghỉ dưỡng biển đảo",
+        "activities": "Lên tàu tham quan vịnh Lan Hạ, ngắm các đảo đá vôi và làng chài trên tuyến. Dùng bữa trên hành trình, tắm biển trong khu vực được phép nếu thời tiết thuận lợi."
+      },
+      {
+        "title": "Vườn quốc gia Cát Bà – Hải Phòng",
+        "activities": "Đi bộ theo tuyến sinh thái phù hợp trong vườn quốc gia, tìm hiểu rừng và sinh cảnh đảo. Trả phòng, ăn trưa rồi trở về điểm hẹn ở Hải Phòng."
+      }
+    ]
+  },
+  {
+    "slug": "pu-luong",
+    "title": "Pù Luông – Bản Đôn – Đồng lúa – Bản làng",
+    "province": "Thanh Hóa",
+    "region": "Bắc",
+    "category": "Tour Sinh thái",
+    "pickup_point": "Hà Nội",
+    "min_price": 2190000,
+    "description": "Nghỉ ngơi giữa cảnh quan núi rừng và đồng ruộng Pù Luông, đi bộ qua những bản làng yên bình. Lưu trú tại khu nghỉ cộng đồng, thưởng thức ẩm thực và tìm hiểu sinh hoạt địa phương.",
+    "days": [
+      {
+        "title": "Hà Nội – Pù Luông – Bản Đôn",
+        "activities": "Khởi hành từ Hà Nội, đến Pù Luông dùng bữa trưa và nhận phòng. Chiều đi bộ ngắm cảnh ruộng bậc thang, tham quan bản Đôn và dùng bữa tối địa phương."
+      },
+      {
+        "title": "Đi bộ bản làng – Trở về Hà Nội",
+        "activities": "Dùng điểm tâm, đi bộ theo cung đường làng phù hợp thể lực cùng hướng dẫn viên. Nghỉ ngơi, trả phòng và lên xe về Hà Nội sau bữa trưa."
+      }
+    ]
+  },
+  {
+    "slug": "ly-son",
+    "title": "Lý Sơn – Đảo núi lửa – Chùa Hang – Biển xanh",
+    "province": "Quảng Ngãi",
+    "region": "Trung",
+    "category": "Tour Biển",
+    "pickup_point": "Cảng Sa Kỳ",
+    "min_price": 3090000,
+    "description": "Khám phá đảo Lý Sơn với dấu tích địa chất núi lửa, cảnh quan đá ven biển và văn hóa làng chài. Hành trình có thời gian nghỉ ngơi, tham quan chùa Hang và thưởng thức hải sản, đặc sản tỏi.",
+    "days": [
+      {
+        "title": "Sa Kỳ – Đảo Lý Sơn – Làng chài",
+        "activities": "Tập trung tại cảng Sa Kỳ, đi tàu ra đảo khi tuyến vận tải hoạt động. Nhận phòng, dùng bữa và đi bộ khám phá làng chài, ngắm cảnh biển buổi chiều."
+      },
+      {
+        "title": "Chùa Hang – Cảnh quan núi lửa – Bờ biển",
+        "activities": "Tham quan chùa Hang và những điểm quan sát địa chất được phép trên đảo. Chiều nghỉ ngơi bên biển, tìm hiểu nghề trồng tỏi và đời sống ngư dân."
+      },
+      {
+        "title": "Chợ đảo – Tàu về Sa Kỳ",
+        "activities": "Dùng bữa sáng, tự do mua đặc sản và trả phòng. Di chuyển ra cảng, đi tàu về Sa Kỳ theo lịch vận hành và kết thúc chương trình."
+      }
+    ]
+  },
+  {
+    "slug": "mang-den",
+    "title": "Măng Đen – Hồ Đăk Ke – Thác Pa Sỹ – Rừng thông",
+    "province": "Quảng Ngãi",
+    "region": "Trung",
+    "category": "Tour Nghỉ dưỡng",
+    "pickup_point": "Sân bay Pleiku",
+    "min_price": 3290000,
+    "description": "Nghỉ dưỡng tại Măng Đen trong không gian rừng thông, hồ Đăk Ke và thác Pa Sỹ. Hành trình dành thời gian thưởng thức cà phê, ẩm thực cao nguyên và đi bộ ngắm cảnh theo mùa.",
+    "days": [
+      {
+        "title": "Pleiku – Măng Đen – Hồ Đăk Ke",
+        "activities": "Đón khách tại sân bay Pleiku, di chuyển đến Măng Đen và nhận phòng. Chiều dạo hồ Đăk Ke, ngắm cảnh hồ và rừng, dùng bữa tối món ăn cao nguyên."
+      },
+      {
+        "title": "Thác Pa Sỹ – Làng Kon Pring",
+        "activities": "Tham quan thác Pa Sỹ theo lối mở cửa, nghỉ chân trong không gian xanh. Chiều ghé làng Kon Pring với hướng dẫn viên, tìm hiểu văn hóa và thưởng thức cà phê địa phương."
+      },
+      {
+        "title": "Rừng thông Măng Đen – Tiễn sân bay",
+        "activities": "Đi bộ ngắm cảnh rừng thông quanh điểm lưu trú, dùng bữa sáng và nghỉ ngơi. Trả phòng, ăn trưa rồi di chuyển về sân bay Pleiku."
+      }
+    ]
+  },
+  {
+    "slug": "buon-ma-thuot",
+    "title": "Buôn Ma Thuột – Thác Dray Nur – Văn hóa cà phê",
+    "province": "Đắk Lắk",
+    "region": "Trung",
+    "category": "Tour Văn hóa",
+    "pickup_point": "Sân bay Buôn Ma Thuột",
+    "min_price": 2990000,
+    "description": "Khám phá văn hóa cà phê và nhịp sống cao nguyên Buôn Ma Thuột. Tham quan thác Dray Nur, bảo tàng Đắk Lắk và không gian buôn làng cùng hướng dẫn viên địa phương.",
+    "days": [
+      {
+        "title": "Đón sân bay – Bảo tàng Đắk Lắk – Cà phê",
+        "activities": "Đón khách, dùng bữa trưa và nhận phòng ở Buôn Ma Thuột. Chiều tham quan bảo tàng Đắk Lắk, tìm hiểu văn hóa các dân tộc và thưởng thức cà phê."
+      },
+      {
+        "title": "Thác Dray Nur – Cảnh quan cao nguyên",
+        "activities": "Di chuyển tới thác Dray Nur, đi bộ ngắm thác theo lối tham quan được phép. Dùng bữa địa phương và trở về thành phố, dành buổi chiều nghỉ ngơi."
+      },
+      {
+        "title": "Buôn làng – Mua đặc sản – Tiễn sân bay",
+        "activities": "Ghé điểm giới thiệu văn hóa buôn làng trong khung giờ được đón khách. Mua cà phê và đặc sản, dùng bữa trưa trước khi tiễn sân bay."
+      }
+    ]
+  },
+  {
+    "slug": "cuc-phuong",
+    "title": "Cúc Phương – Rừng nguyên sinh – Khám phá sinh thái",
+    "province": "Ninh Bình",
+    "region": "Bắc",
+    "category": "Tour Sinh thái",
+    "pickup_point": "Hà Nội",
+    "min_price": 1890000,
+    "description": "Tìm hiểu hệ sinh thái rừng Cúc Phương qua các tuyến đi bộ và hoạt động giáo dục bảo tồn. Hành trình có hướng dẫn viên, thời gian nghỉ ngơi và các điểm tham quan được mở cửa theo ngày.",
+    "days": [
+      {
+        "title": "Hà Nội – Vườn quốc gia Cúc Phương",
+        "activities": "Khởi hành từ Hà Nội, đến Cúc Phương dùng bữa trưa. Chiều tìm hiểu hoạt động bảo tồn tại các khu đón khách, đi bộ ngắn quanh khu lưu trú và ăn tối."
+      },
+      {
+        "title": "Đi bộ rừng Cúc Phương – Hà Nội",
+        "activities": "Theo hướng dẫn viên khám phá tuyến rừng phù hợp thể lực, ngắm cây cổ thụ và tìm hiểu hệ sinh thái. Trả phòng, ăn trưa rồi trở về Hà Nội."
+      }
+    ]
+  },
+  {
+    "slug": "tay-ninh",
+    "title": "Tây Ninh – Núi Bà Đen – Tòa Thánh",
+    "province": "Tây Ninh",
+    "region": "Nam",
+    "category": "Tour Văn hóa",
+    "pickup_point": "TP. Hồ Chí Minh",
+    "min_price": 1990000,
+    "description": "Khám phá cảnh quan núi Bà Đen và kiến trúc Tòa Thánh Tây Ninh. Hành trình kết hợp cáp treo, tìm hiểu văn hóa tôn giáo và thưởng thức đặc sản địa phương.",
+    "days": [
+      {
+        "title": "TP. Hồ Chí Minh – Núi Bà Đen",
+        "activities": "Đón khách và di chuyển đến Tây Ninh, tham quan núi Bà Đen bằng tuyến cáp treo theo chương trình. Chiều nhận phòng, nghỉ ngơi và dùng bữa đặc sản."
+      },
+      {
+        "title": "Tòa Thánh Tây Ninh – TP. Hồ Chí Minh",
+        "activities": "Tham quan Tòa Thánh vào khung giờ đón khách, tuân thủ hướng dẫn về trang phục và khu vực tham quan. Dùng bữa trưa, mua đặc sản rồi trở về TP. Hồ Chí Minh."
+      }
+    ]
+  },
+  {
+    "slug": "ben-tre",
+    "title": "Bến Tre – Sông nước xứ dừa – Làng nghề",
+    "province": "Vĩnh Long",
+    "region": "Nam",
+    "category": "Tour Sinh thái",
+    "pickup_point": "TP. Hồ Chí Minh",
+    "min_price": 1590000,
+    "description": "Trải nghiệm đời sống ven sông ở Bến Tre, tìm hiểu nghề làm sản phẩm từ dừa và thưởng thức trái cây theo mùa. Hành trình kết hợp thuyền sông, đường làng và ẩm thực miền Tây.",
+    "days": [
+      {
+        "title": "TP. Hồ Chí Minh – Bến Tre – Thuyền sông",
+        "activities": "Di chuyển từ TP. Hồ Chí Minh đến khu vực Bến Tre, lên thuyền tham quan sông cùng hướng dẫn viên. Ghé cơ sở làm kẹo dừa, dùng bữa địa phương và nhận phòng nghỉ."
+      },
+      {
+        "title": "Làng nghề xứ dừa – Vườn trái cây – Trở về",
+        "activities": "Dùng điểm tâm, đi bộ đường làng và tìm hiểu các sản phẩm từ dừa. Tham quan vườn trái cây theo mùa, ăn trưa rồi trở về điểm hẹn ở TP. Hồ Chí Minh."
+      }
+    ]
+  },
+  {
+    "slug": "ca-mau",
+    "title": "Cà Mau – Đất Mũi – Bãi bồi – Rừng ngập mặn",
+    "province": "Cà Mau",
+    "region": "Nam",
+    "category": "Tour Sinh thái",
+    "pickup_point": "Trung tâm Cà Mau",
+    "min_price": 2790000,
+    "description": "Về Đất Mũi ngắm cảnh bãi bồi, tìm hiểu hệ sinh thái rừng ngập mặn và đời sống miền cực Nam. Chương trình kết hợp tham quan biểu tượng Mũi Cà Mau và trải nghiệm ẩm thực địa phương.",
+    "days": [
+      {
+        "title": "Đón khách Cà Mau – Khám phá thành phố",
+        "activities": "Đón khách tại trung tâm Cà Mau, dùng bữa và nhận phòng. Chiều tham quan các điểm sinh hoạt địa phương, tìm hiểu nhịp sống sông nước và thưởng thức đặc sản."
+      },
+      {
+        "title": "Đất Mũi – Mũi Cà Mau – Bãi bồi",
+        "activities": "Khởi hành đến Đất Mũi, tham quan khu du lịch quốc gia theo tuyến mở cửa. Ngắm bãi bồi và rừng ngập mặn từ điểm được phép, dùng bữa trước khi về khách sạn."
+      },
+      {
+        "title": "Chợ địa phương – Kết thúc tại Cà Mau",
+        "activities": "Dùng điểm tâm, ghé chợ mua đặc sản khô và sản phẩm địa phương. Trả phòng và đưa khách về điểm hẹn tại thành phố Cà Mau."
+      }
+    ]
+  }
+]

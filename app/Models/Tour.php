@@ -3,12 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Tour extends Model
 {
+    use HasFactory;
+
     public $timestamps = false;
 
     protected $primaryKey = 'tour_id';
@@ -65,7 +68,7 @@ class Tour extends Model
         return $this->images->firstWhere('is_thumbnail', true)?->img_url ?? $this->images->first()?->img_url;
     }
 
-        public function getAverageRatingAttribute(): float
+    public function getAverageRatingAttribute(): float
     {
         return round((float) $this->reviews()->avg('rating'), 1);
     }

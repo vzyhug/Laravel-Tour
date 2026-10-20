@@ -32,8 +32,27 @@ Mặc định `.env.example` dùng MySQL database `TourDB`. Có thể đổi san
 
 - Admin: `admin` / `Admin@123`
 - Guide: `guide` / `Guide@123`
+- Sale: `sale_linh` / `Sale@123`
+- Khách hàng: `demo01@vietgo.test` / `Customer@123`
 
-Trang quản trị: `/admin/login`.
+Đăng nhập chung cho nhân viên và khách hàng tại `/login`; trang quản trị tại `/admin/dashboard`.
+
+## Dữ liệu mẫu, factory và ảnh địa danh
+
+Seeder hiện có **30 tour**, **83 ngày lịch trình**, **120 lịch khởi hành**, **24 khách hàng**, **120 đơn đặt tour**, **300 hành khách**, **60 thanh toán**, **60 hóa đơn** và **30 đánh giá**. Có 14 factory nghiệp vụ, bên cạnh `UserFactory` có sẵn.
+
+Bộ **60 ảnh thực tế** được lưu tại `public/images/tours/demo/`, dùng trực tiếp sau khi clone, không cần tải ảnh qua mạng khi seed. Tác giả, nguồn, giấy phép và mã SHA-256 nằm trong `database/data/tour-images.json`; bản ghi nguồn dễ đọc tại `public/images/tours/demo/ATTRIBUTION.md`.
+
+```bash
+php artisan migrate --seed
+# Cập nhật dự án đã có dữ liệu:
+php artisan migrate
+php artisan db:seed
+```
+
+Bộ dữ liệu đã vượt qua cùng 15 kiểm thử trên SQLite và MySQL 8.4.3. Cấu hình kiểm thử MySQL: `phpunit.mysql.xml`.
+
+Xem [hướng dẫn seeder, factory và tải lại ảnh](docs/SEEDING.md) để biết tài khoản demo, cấu trúc dữ liệu và ví dụ sử dụng. Seeder giữ các đơn đã tồn tại và số chỗ đã giữ; chạy lại cùng ngày không tạo thêm dữ liệu trùng.
 
 ## Dữ liệu Spring cũ
 

@@ -1,0 +1,302 @@
+{
+  "ha-long": [
+    {
+      "landmark": "Hạ Long Bay",
+      "file": "File:Ha_Long_Bay_in_2019.jpg"
+    },
+    {
+      "landmark": "Vịnh Hạ Long",
+      "file": "File:Ha_Long_Bay,_Vietnam.jpg"
+    }
+  ],
+  "sapa": [
+    {
+      "landmark": "Sa Pa",
+      "file": "File:Sa_Pa.jpg"
+    },
+    {
+      "landmark": "Fansipan",
+      "file": "File:Fansipan_Summit.jpg"
+    }
+  ],
+  "da-nang": [
+    {
+      "landmark": "Golden Bridge (Vietnam)",
+      "file": "File:Golden_Bridge_at_Ba_Na_Hills_20250718.jpg"
+    },
+    {
+      "landmark": "Phố cổ Hội An",
+      "file": "File:Hoi_An_Ancient_Town,_Quang_Nam_province,_South_Central_Coast,_Vietnam.jpg"
+    }
+  ],
+  "da-lat": [
+    {
+      "landmark": "Da Lat",
+      "file": "File:Xuan_Huong_Lake_11.jpg"
+    },
+    {
+      "landmark": "Thác Pongour",
+      "file": "File:Pongour_waterfall_Da_Lat_2023.jpg"
+    }
+  ],
+  "phu-quoc": [
+    {
+      "landmark": "Phú Quốc",
+      "file": "File:Bai-sao-phu-quoc-tuonglamphotos.jpg"
+    },
+    {
+      "landmark": "Bãi Sao, Phú Quốc",
+      "file": "File:Phu_quoc_plage_sao.jpg"
+    }
+  ],
+  "ninh-binh": [
+    {
+      "landmark": "Tam Cốc – Bích Động",
+      "file": "File:Muaxuantamcoc.jpg"
+    },
+    {
+      "landmark": "Tam Cốc – Bích Động",
+      "file": "File:Tam_Coc_from_Summit_-_August_2023.jpg"
+    }
+  ],
+  "ha-giang": [
+    {
+      "landmark": "Mã Pí Lèng Pass",
+      "file": "File:Ma_Pi_Leng_Pass_winding_road_Ha_Giang_Vietnam.jpg"
+    },
+    {
+      "landmark": "Cao nguyên đá Đồng Văn",
+      "file": "File:Cao_nguyên_đá_Đồng_Văn_-_NKS.jpg"
+    }
+  ],
+  "ha-noi": [
+    {
+      "landmark": "Hoàn Kiếm Lake",
+      "file": "File:Thap_Rua.jpg"
+    },
+    {
+      "landmark": "Temple of Literature, Hanoi",
+      "file": "File:Hanoi_Temple_of_Literature_(cropped).jpg"
+    }
+  ],
+  "hue": [
+    {
+      "landmark": "Imperial City of Huế",
+      "file": "File:Đại_nội.jpg"
+    },
+    {
+      "landmark": "Thiên Mụ Temple",
+      "file": "File:ThienMuPagoda.jpg"
+    }
+  ],
+  "nha-trang": [
+    {
+      "landmark": "Nha Trang",
+      "file": "File:Nha_Trang_,_Vietnam_-_panoramio_(35).jpg"
+    },
+    {
+      "landmark": "Po Nagar",
+      "file": "File:Ganesh_Tempel_Po_Nagar_Nha_Trang.jpg"
+    }
+  ],
+  "quy-nhon": [
+    {
+      "landmark": "Quy Nhon",
+      "file": "File:Skyline_of_Quy_Nhon.jpg"
+    },
+    {
+      "landmark": "Tháp Bánh Ít",
+      "file": "File:0040323_Anthropomorphic_Shiva_at_the_Thap_Banh_It_Cham_Hindu_temples_complex,_Nhon_Hoa,_Binh_Dinh_Vietnam_011.jpg"
+    }
+  ],
+  "can-tho": [
+    {
+      "landmark": "Chợ nổi Cái Răng",
+      "file": "File:Floating_Market_Can_Tho1.jpg"
+    },
+    {
+      "landmark": "Nhà cổ Bình Thủy",
+      "file": "File:Nhà_cổ_Bình_Thủy.jpg"
+    }
+  ],
+  "con-dao": [
+    {
+      "landmark": "Vườn quốc gia Côn Đảo",
+      "file": "File:ConDao_park_dam.jpg"
+    },
+    {
+      "landmark": "Biển Côn Sơn, Côn Đảo",
+      "file": "File:Côn_Đảo_National_Park.jpg"
+    }
+  ],
+  "phong-nha": [
+    {
+      "landmark": "Động Phong Nha",
+      "file": "File:Cueva_Phong_Nha,_Vietnam_(38652790530).jpg"
+    },
+    {
+      "landmark": "Động Thiên Đường, Phong Nha – Kẻ Bàng",
+      "file": "File:Cueva Paraíso, Parque Nacional Phong Nha - Ke Bang, Vietnam (41309962172).jpg"
+    }
+  ],
+  "mui-ne": [
+    {
+      "landmark": "Mũi Né",
+      "file": "File:Mui_Ne2.jpg"
+    },
+    {
+      "landmark": "Tháp Po Sah Inư",
+      "file": "File:Po_Sha_Inu,_Vietnam.jpg"
+    }
+  ],
+  "cao-bang": [
+    {
+      "landmark": "Thác Bản Giốc",
+      "file": "File:Ban Gioc Waterfalls II.jpg"
+    },
+    {
+      "landmark": "Khu di tích Pác Bó",
+      "file": "File:Pác Bó.jpg"
+    }
+  ],
+  "ba-be": [
+    {
+      "landmark": "Hồ Ba Bể",
+      "file": "File:Ba Be Lake 2014.jpg"
+    },
+    {
+      "landmark": "Khung cảnh hồ Ba Bể",
+      "file": "File:Ba Be Lake 5.jpg"
+    }
+  ],
+  "moc-chau": [
+    {
+      "landmark": "Đồi chè Mộc Châu",
+      "file": "File:Moc-chau-tea-doi-2094890 960 720.jpg"
+    },
+    {
+      "landmark": "Thác Dải Yếm",
+      "file": "File:Thacdaiyem.jpg"
+    }
+  ],
+  "mai-chau": [
+    {
+      "landmark": "Cánh đồng Mai Châu",
+      "file": "File:Mai Chau rice field.jpg"
+    },
+    {
+      "landmark": "Ruộng lúa ở Mai Châu",
+      "file": "File:Rizkampo en Distrikto Mai Chau, Vjetnamio 01.jpg"
+    }
+  ],
+  "mu-cang-chai": [
+    {
+      "landmark": "Mù Cang Chải",
+      "file": "File:Mu Cang Chai 02.JPG"
+    },
+    {
+      "landmark": "Ruộng bậc thang Chế Cu Nha",
+      "file": "File:Chế Cu Nha, Mù Cang Chải, Yên Bái, Vietnam - panoramio (1).jpg"
+    }
+  ],
+  "dien-bien": [
+    {
+      "landmark": "Bảo tàng Chiến thắng Điện Biên Phủ",
+      "file": "File:Sculpture of Gen. Vo Nguyen Giap - Dien Bien Phu Victory Museum - Dien Bien Phu - Vietnam (48159211597).jpg"
+    },
+    {
+      "landmark": "Nghĩa trang Điện Biên Phủ",
+      "file": "File:Gravestones in Dien Bien Phu Cemetery - Dien Bien Phu - Vietnam - 02 (48159155861).jpg"
+    }
+  ],
+  "cat-ba": [
+    {
+      "landmark": "Vịnh biển Cát Bà",
+      "file": "File:View of the sea from Cannon Fort Park on Cat Ba Island, Vietnam, 20240130 1601 4441.jpg"
+    },
+    {
+      "landmark": "Ao Ếch theo mùa, Vườn quốc gia Cát Bà",
+      "file": "File:Ao Ech, Cat Ba National Park, Vietnam, 20240131 1026 4563.jpg"
+    }
+  ],
+  "pu-luong": [
+    {
+      "landmark": "Bản làng Pù Luông",
+      "file": "File:Pù Luông - 01.jpg"
+    },
+    {
+      "landmark": "Cảnh quan Pù Luông",
+      "file": "File:Pù Luông - 02.jpg"
+    }
+  ],
+  "ly-son": [
+    {
+      "landmark": "Đảo Lý Sơn",
+      "file": "File:Ly Son Island 06 - panoramio.jpg"
+    },
+    {
+      "landmark": "Đá núi lửa Lý Sơn",
+      "file": "File:Ly Son stones.jpg"
+    }
+  ],
+  "mang-den": [
+    {
+      "landmark": "Hồ Đăk Ke, Măng Đen",
+      "file": "File:Mua ho dao o mang den tinh kon tum 009.jpg"
+    },
+    {
+      "landmark": "Thác Pa Sỹ, Măng Đen",
+      "file": "File:Pa Sĩ Waterfall, Mang Den Vietnam.jpg"
+    }
+  ],
+  "buon-ma-thuot": [
+    {
+      "landmark": "Thác Dray Nur",
+      "file": "File:Dray Nur Waterfall (49483244536).jpg"
+    },
+    {
+      "landmark": "Cảnh quan thác Dray Nur",
+      "file": "File:Dray Nur Waterfall (49483462012).jpg"
+    }
+  ],
+  "cuc-phuong": [
+    {
+      "landmark": "Vườn quốc gia Cúc Phương",
+      "file": "File:Cuc.Phuong.National.Park.jpg"
+    },
+    {
+      "landmark": "Rừng Cúc Phương",
+      "file": "File:Forest in Cuc Phuong National Park (15706323528).jpg"
+    }
+  ],
+  "tay-ninh": [
+    {
+      "landmark": "Cáp treo núi Bà Đen",
+      "file": "File:Aerial tram in Black Virgin Mountain.jpg"
+    },
+    {
+      "landmark": "Tòa Thánh Tây Ninh",
+      "file": "File:Tòa Thánh Tây Ninh 042013.JPG"
+    }
+  ],
+  "ben-tre": [
+    {
+      "landmark": "Sông Bến Tre",
+      "file": "File:Ben Tre River.jpg"
+    },
+    {
+      "landmark": "Sinh hoạt trên sông Bến Tre",
+      "file": "File:20190924 Ben Tre river barge-10.jpg"
+    }
+  ],
+  "ca-mau": [
+    {
+      "landmark": "Mũi Cà Mau",
+      "file": "File:Mui Ca Mau 005.JPG"
+    },
+    {
+      "landmark": "Bãi bồi Đất Mũi",
+      "file": "File:Mudflats in Dat Mui.jpg"
+    }
+  ]
+}
