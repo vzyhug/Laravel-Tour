@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
             ['Đà Lạt – Thành phố ngàn hoa', 2, 3, 3, 2, 'Sân bay Liên Khương', 3800000],
             ['Phú Quốc – Thiên đường biển đảo', 0, 4, 4, 3, 'Sân bay Phú Quốc', 5200000],
         ];
-
+        $tourImages = ['ha-long.jpg', 'sapa.jpg', 'da-nang.jpg', 'da-lat.jpg', 'phu-quoc.jpg'];
         foreach ($tourData as $index => [$title, $category, $province, $days, $nights, $pickup, $price]) {
             $tour = Tour::create([
                 'title' => $title,
@@ -59,6 +59,12 @@ class DatabaseSeeder extends Seeder
                 'min_price' => $price,
                 'created_by' => $admin->getKey(),
             ]);
+
+            $tour->images()->create([
+                'img_url' => '/images/tours/'.$tourImages[$index],
+                'is_thumbnail' => true,
+            ]);
+
             TourDeparture::create([
                 'tour_id' => $tour->getKey(),
                 'departure_date' => today()->addDays(14 + $index * 5),

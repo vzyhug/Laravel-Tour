@@ -1,1 +1,27 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Đăng nhập quản trị · VietGo</title>@vite(['resources/css/app.css'])</head><body class="grid min-h-screen place-items-center bg-ink p-4"><main class="card w-full max-w-md p-8"><p class="font-semibold text-brand-700">VietGo Admin</p><h1 class="mt-1 text-3xl font-black text-ink">Đăng nhập quản trị</h1>@if($errors->any())<p class="mt-4 rounded-xl bg-red-50 p-3 text-sm text-red-700">{{ $errors->first() }}</p>@endif<form class="mt-7 grid gap-5" action="{{ route('admin.login.store') }}" method="POST">@csrf<label><span class="label">Tên đăng nhập</span><input class="field" name="username" value="{{ old('username') }}" autocomplete="username" required autofocus></label><label><span class="label">Mật khẩu</span><input class="field" type="password" name="password" autocomplete="current-password" required></label><button class="btn-primary">Đăng nhập</button></form><a class="mt-5 block text-center text-sm font-semibold text-brand-700" href="{{ route('home') }}">← Về trang khách hàng</a></main></body></html>
+@extends('layouts.app')
+@section('title', 'Đăng nhập quản trị · VietGo')
+@section('content')
+<section class="container-page grid min-h-[70vh] place-items-center py-12">
+    <div class="card w-full max-w-md p-7 sm:p-9">
+        <p class="font-semibold text-brand-700">Khu vực quản trị</p>
+        <h1 class="mt-1 text-3xl font-black text-ink">Đăng nhập admin</h1>
+        <form class="mt-7 grid gap-5" method="POST" action="{{ route('admin.login.store') }}">
+            @csrf
+            <label>
+                <span class="label">Tên đăng nhập</span>
+                <input class="field" type="text" name="username" value="{{ old('username') }}" autocomplete="username" required>
+                @error('username')<span class="mt-1 block text-sm text-red-600">{{ $message }}</span>@enderror
+            </label>
+            <label>
+                <span class="label">Mật khẩu</span>
+                <span style="position:relative;display:block">
+                    <input id="admin-password" class="field" style="padding-right:4.5rem" type="password" name="password" autocomplete="current-password" required>
+                    <button type="button" class="text-brand-700" style="position:absolute;top:0;bottom:0;right:1rem;font-size:.875rem;font-weight:600"
+                        onclick="const i=document.getElementById('admin-password');const s=i.type==='password';i.type=s?'text':'password';this.textContent=s?'Ẩn':'Hiện';">Hiện</button>
+                </span>
+            </label>
+            <button class="btn-primary w-full">Đăng nhập</button>
+        </form>
+    </div>
+</section>
+@endsection

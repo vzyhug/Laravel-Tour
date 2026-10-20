@@ -45,16 +45,23 @@ Route::middleware('customer.auth')->group(function () {
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/login', [AdminAuthController::class, 'create'])->name('login');
     Route::post('/login', [AdminAuthController::class, 'store'])->middleware('throttle:6,1')->name('login.store');
+
     Route::middleware('admin.auth')->group(function () {
         Route::post('/logout', [AdminAuthController::class, 'destroy'])->name('logout');
         Route::get('/dashboard', AdminDashboardController::class)->name('dashboard');
-        Route::resource('tours', AdminTourController::class)->except('show');
-        Route::resource('departures', AdminDepartureController::class)->except('show');
-        Route::get('/customers', [AdminCustomerController::class, 'index'])->name('customers.index');
-        Route::patch('/customers/{customer}/status', [AdminCustomerController::class, 'update'])->name('customers.status');
-        Route::resource('employees', AdminEmployeeController::class)->except(['show', 'destroy']);
-        Route::get('/payments', [AdminPaymentController::class, 'index'])->name('payments.index');
-        Route::get('/provinces', [AdminProvinceController::class, 'index'])->name('provinces.index');
-        Route::post('/provinces', [AdminProvinceController::class, 'store'])->name('provinces.store');
+
+        Route::middleware('admin.role:Admin,Sale')->group(function () {
+            Route::resource('tours', AdminTourController::class)->except('show');
+            Route::resource('departures', AdminDepartureController::class)->except('show');
+            Route::get('/customers', [AdminCustomerController::class, 'index'])->name('customers.index');
+            Route::patch('/customers/{customer}/status', [AdminCustomerController::class, 'update'])->name('customers.status');
+            Route::get('/payments', [AdminPaymentController::class, 'index'])->name('payments.index');
+        });
+
+        Route::middleware('admin.role:Admin')->group(function () {
+            Route::resource('employees', AdminEmployeeController::class)->except(['show', 'destroy']);
+            Route::get('/provinces', [AdminProvinceController::class, 'index'])->name('provinces.index');
+            Route::post('/provinces', [AdminProvinceController::class, 'store'])->name('provinces.store');
+        });
     });
 });
