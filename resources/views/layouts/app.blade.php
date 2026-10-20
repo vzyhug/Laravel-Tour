@@ -22,6 +22,7 @@
             <a href="{{ route('tours.index') }}" class="block rounded-lg px-4 py-2.5 font-medium hover:bg-brand-50 hover:text-brand-700">Tour du lịch</a>
             @if(session('customer_id'))
                 <a href="{{ route('customer.dashboard') }}" class="block rounded-lg px-4 py-2.5 font-medium hover:bg-brand-50 hover:text-brand-700">Chuyến đi của tôi</a>
+                <a href="{{ route('favorites.index') }}" class="block rounded-lg px-4 py-2.5 font-medium hover:bg-brand-50 hover:text-brand-700">♥ Yêu thích</a>
                 <form action="{{ route('logout') }}" method="POST" class="md:ml-2">@csrf<button class="btn-secondary w-full">Đăng xuất</button></form>
             @else
                 <a href="{{ route('login') }}" class="block rounded-lg px-4 py-2.5 font-semibold text-brand-700">Đăng nhập</a>

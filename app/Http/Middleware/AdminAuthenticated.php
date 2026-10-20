@@ -11,7 +11,7 @@ class AdminAuthenticated
     public function handle(Request $request, Closure $next): Response
     {
         if (! session()->has('employee_id')) {
-            return redirect()->route('admin.login')->with('error', 'Vui lòng đăng nhập trang quản trị.');
+            return redirect()->route('login')->with('error', 'Vui lòng đăng nhập trang quản trị.');
         }
 
         return $next($request);

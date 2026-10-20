@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\EmployeeController as AdminEmployeeController;
 use App\Http\Controllers\Admin\PaymentController as AdminPaymentController;
 use App\Http\Controllers\Admin\ProvinceController as AdminProvinceController;
 use App\Http\Controllers\Admin\TourController as AdminTourController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CustomerDashboardController;
@@ -40,11 +41,11 @@ Route::middleware('customer.auth')->group(function () {
     Route::get('/account/bookings/{booking}', [CustomerDashboardController::class, 'show'])->name('customer.bookings.show');
     Route::get('/account/bookings/{booking}/invoice', [CustomerDashboardController::class, 'invoice'])->name('customer.bookings.invoice');
     Route::post('/account/bookings/{booking}/review', [CustomerDashboardController::class, 'review'])->name('customer.bookings.review');
-});
+    Route::get('/account/favorites', [FavoriteController::class, 'index'])->name('favorites.index');
+    Route::post('/favorites/{tour}', [FavoriteController::class, 'toggle'])->name('favorites.toggle');
+    });
 
 Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('/login', [AdminAuthController::class, 'create'])->name('login');
-    Route::post('/login', [AdminAuthController::class, 'store'])->middleware('throttle:6,1')->name('login.store');
 
     Route::middleware('admin.auth')->group(function () {
         Route::post('/logout', [AdminAuthController::class, 'destroy'])->name('logout');

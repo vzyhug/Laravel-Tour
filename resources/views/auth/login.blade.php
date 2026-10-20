@@ -8,8 +8,8 @@
         <form class="mt-7 grid gap-5" method="POST" action="{{ route('login.store') }}">
             @csrf
             <label>
-                <span class="label">Email</span>
-                <input class="field" type="email" name="email" value="{{ old('email') }}" autocomplete="email" required>
+                <span class="label">Email hoặc tên đăng nhập</span>
+                <input class="field" type="text" name="login" value="{{ old('login') }}" autocomplete="username" required>
             </label>
             <label>
                 <span class="label">Mật khẩu</span>

@@ -64,4 +64,14 @@ class Tour extends Model
     {
         return $this->images->firstWhere('is_thumbnail', true)?->img_url ?? $this->images->first()?->img_url;
     }
+
+        public function getAverageRatingAttribute(): float
+    {
+        return round((float) $this->reviews()->avg('rating'), 1);
+    }
+
+    public function getReviewTotalAttribute(): int
+    {
+        return $this->reviews()->count();
+    }
 }

@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
+use App\Models\Employee;
 
 class AuthController extends Controller
 {
@@ -21,17 +22,30 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-    public function login(Request $request): RedirectResponse
+        public function login(Request $request): RedirectResponse
     {
-        $credentials = $request->validate(['email' => ['required', 'email'], 'password' => ['required', 'string']]);
-        $customer = Customer::where('email', $credentials['email'])->first();
-        if (! $customer || ! $customer->is_active || ! Hash::check($credentials['password'], $customer->password_hash)) {
-            return back()->withErrors(['email' => 'Email hoặc mật khẩu không đúng.'])->onlyInput('email');
-        }
-        $request->session()->regenerate();
-        session(['customer_id' => $customer->getKey(), 'customer_name' => $customer->full_name]);
+        $data = $request->validate(['login' => ['required', 'string'], 'password' => ['required', 'string']]);
 
-        return redirect()->intended(route('home'))->with('success', 'Đăng nhập thành công.');
+        $employee = Employee::with('role')
+            ->where('username', $data['login'])
+            ->orWhere('email', $data['login'])
+            ->first();
+        if ($employee && $employee->is_active && Hash::check($data['password'], $employee->password_hash)) {
+            $request->session()->regenerate();
+            session(['employee_id' => $employee->getKey(), 'employee_name' => $employee->full_name, 'employee_role' => $employee->role->role_name]);
+
+            return redirect()->route('admin.dashboard');
+        }
+
+        $customer = Customer::where('email', $data['login'])->first();
+        if ($customer && $customer->is_active && Hash::check($data['password'], $customer->password_hash)) {
+            $request->session()->regenerate();
+            session(['customer_id' => $customer->getKey(), 'customer_name' => $customer->full_name]);
+
+            return redirect()->intended(route('home'))->with('success', 'Đăng nhập thành công.');
+        }
+
+        return back()->withErrors(['login' => 'Tài khoản hoặc mật khẩu không đúng.'])->onlyInput('login');
     }
 
     public function register(RegisterCustomerRequest $request): RedirectResponse

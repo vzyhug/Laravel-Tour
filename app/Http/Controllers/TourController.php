@@ -10,12 +10,23 @@ use Illuminate\View\View;
 
 class TourController extends Controller
 {
-    public function index(Request $request): View
+        public function index(Request $request): View
     {
+        $min = preg_replace('/\D/', '', (string) $request->input('price_min'));
+        $max = preg_replace('/\D/', '', (string) $request->input('price_max'));
+        if ($min !== '' && $max !== '' && (int) $min > (int) $max) {
+            [$min, $max] = [$max, $min];
+        }
+
         $tours = Tour::query()->active()->with(['province', 'category', 'images'])
             ->when($request->filled('q'), fn ($q) => $q->where('title', 'like', '%'.$request->string('q')->trim().'%'))
             ->when($request->filled('region'), fn ($q) => $q->whereHas('province', fn ($p) => $p->where('region', $request->string('region'))))
             ->when($request->filled('category'), fn ($q) => $q->where('category_id', $request->integer('category')))
+            ->when($min !== '', fn ($q) => $q->where('min_price', '>=', (int) $min))
+            ->when($max !== '', fn ($q) => $q->where('min_price', '<=', (int) $max))
+            ->when($request->filled('days'), fn ($q) => $q->where('duration_days', '<=', $request->integer('days')))
+            ->when($request->input('sort') === 'price_desc', fn ($q) => $q->orderByDesc('min_price'))
+            ->when($request->input('sort') === 'price_asc', fn ($q) => $q->orderBy('min_price'))
             ->orderBy('tour_id')->paginate(9)->withQueryString();
 
         return view('tours.index', ['tours' => $tours, 'categories' => TourCategory::orderBy('category_name')->get()]);
