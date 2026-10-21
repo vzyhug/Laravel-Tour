@@ -25,7 +25,7 @@ class StoreDepartureRequest extends FormRequest
             'max_seats' => ['required', 'integer', 'min:1', 'max:200'],
             'available_seats' => ['required', 'integer', 'min:0', 'lte:max_seats'],
             'adult_price' => ['required', 'numeric', 'min:0'],
-            'child_price' => ['required', 'numeric', 'min:0'],
+            'child_price' => ['required', 'numeric', 'min:0', 'lte:adult_price'],
             'guide_id' => ['nullable', 'exists:employees,employee_id'],
             'status' => ['required', Rule::in(['open', 'full', 'cancelled'])],
         ];
@@ -44,6 +44,7 @@ class StoreDepartureRequest extends FormRequest
             'available_seats.lte' => 'Số chỗ còn lại không được lớn hơn tổng số chỗ.',
             'adult_price.required' => 'Giá người lớn không được để trống.',
             'child_price.required' => 'Giá trẻ em không được để trống.',
+            'child_price.lte' => 'Giá vé trẻ em phải nhỏ hơn hoặc bằng giá vé người lớn.',
         ];
     }
 }

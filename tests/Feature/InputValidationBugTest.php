@@ -157,7 +157,7 @@ class InputValidationBugTest extends TestCase
     /**
      * BUG #5: Admin thêm lịch khởi hành cho phép giá trẻ em đắt hơn giá người lớn.
      */
-    public function test_bug_admin_departure_allows_child_price_greater_than_adult_price(): void
+    public function test_admin_departure_rejects_child_price_greater_than_adult_price(): void
     {
         $admin = $this->createAdminEmployee();
         $tour = $this->createTour();
@@ -177,13 +177,12 @@ class InputValidationBugTest extends TestCase
             'status' => 'open',
         ]);
 
-        // Hiện tại: Cho phép lưu mà không hề có validation lte:adult_price
-        $this->assertDatabaseHas('tour_departures', [
+        $response->assertSessionHasErrors(['child_price']);
+        $this->assertDatabaseMissing('tour_departures', [
             'tour_id' => $tour->getKey(),
             'adult_price' => 1000000,
             'child_price' => 9000000,
         ]);
-        // KHUYẾN NGHỊ: Thêm rule 'lte:adult_price' cho child_price.
     }
 
     /**
