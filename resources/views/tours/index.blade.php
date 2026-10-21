@@ -33,11 +33,13 @@
             </label>
             <label>
                 <span class="label">Giá từ (₫)</span>
-                <input class="field" type="text" inputmode="numeric" data-money name="price_min" value="{{ request('price_min') !== null && request('price_min') !== '' ? number_format((int) preg_replace('/\D/', '', request('price_min')), 0, ',', '.') : '' }}" placeholder="VD: 2.000.000">
+                <input class="field @error('price_min') border-red-500 @enderror" type="text" inputmode="numeric" data-money name="price_min" value="{{ old('price_min', request('price_min') !== null && request('price_min') !== '' ? number_format((int) preg_replace('/\D/', '', request('price_min')), 0, ',', '.') : '') }}" placeholder="VD: 2.000.000">
+                @error('price_min') <span class="text-xs font-semibold text-red-600 mt-1 block">{{ $message }}</span> @enderror
             </label>
             <label>
                 <span class="label">Giá đến (₫)</span>
-                <input class="field" type="text" inputmode="numeric" data-money name="price_max" value="{{ request('price_max') !== null && request('price_max') !== '' ? number_format((int) preg_replace('/\D/', '', request('price_max')), 0, ',', '.') : '' }}" placeholder="VD: 5.000.000">
+                <input class="field @error('price_max') border-red-500 @enderror" type="text" inputmode="numeric" data-money name="price_max" value="{{ old('price_max', request('price_max') !== null && request('price_max') !== '' ? number_format((int) preg_replace('/\D/', '', request('price_max')), 0, ',', '.') : '') }}" placeholder="VD: 5.000.000">
+                @error('price_max') <span class="text-xs font-semibold text-red-600 mt-1 block">{{ $message }}</span> @enderror
             </label>
             <label>
                 <span class="label">Số ngày tối đa</span>
@@ -78,6 +80,23 @@
             input.value = digits === '' ? '' : Number(digits).toLocaleString('vi-VN');
         });
     });
+
+    const filterForm = document.querySelector('form');
+    if (filterForm) {
+        filterForm.addEventListener('submit', function (e) {
+            const minEl = filterForm.querySelector('input[name="price_min"]');
+            const maxEl = filterForm.querySelector('input[name="price_max"]');
+            if (minEl && maxEl) {
+                const minVal = parseInt(minEl.value.replace(/\D/g, ''), 10);
+                const maxVal = parseInt(maxEl.value.replace(/\D/g, ''), 10);
+                if (!isNaN(minVal) && !isNaN(maxVal) && minVal > maxVal) {
+                    e.preventDefault();
+                    alert('Giá đến phải lớn hơn hoặc bằng Giá từ.');
+                    maxEl.focus();
+                }
+            }
+        });
+    }
 </script>
 @endpush
 @endsection

@@ -65,14 +65,12 @@ class InputValidationBugTest extends TestCase
      * BUG #1: Trang tìm kiếm /tours - 'price_min' > 'price_max' không hề bị chặn hoặc báo lỗi,
      * mà bị controller âm thầm hoán đổi vị trí (silent swap).
      */
-    public function test_bug_filter_tour_price_min_greater_than_max_silently_swaps(): void
+    public function test_filter_tour_price_min_greater_than_max_returns_validation_error(): void
     {
         $response = $this->get('/tours?price_min=10.000.000&price_max=2.000.000');
 
-        // Hiện tại: hệ thống không báo lỗi validation mà trả về 200 OK
-        $response->assertOk();
-        $response->assertSessionHasNoErrors();
-        // KHUYẾN NGHỊ: Cần validate price_max >= price_min và trả về lỗi nếu price_min > price_max.
+        $response->assertRedirect(route('tours.index'));
+        $response->assertSessionHasErrors(['price_max' => 'Giá đến phải lớn hơn hoặc bằng Giá từ.']);
     }
 
     /**
