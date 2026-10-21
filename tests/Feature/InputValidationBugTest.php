@@ -97,7 +97,7 @@ class InputValidationBugTest extends TestCase
     /**
      * BUG #3: Trang đặt tour (/bookings) cho phép hành khách 'child' không nhập ngày sinh.
      */
-    public function test_bug_booking_child_passenger_allows_null_date_of_birth(): void
+    public function test_booking_child_passenger_requires_date_of_birth(): void
     {
         $customer = $this->createCustomer();
         $tour = $this->createTour();
@@ -121,9 +121,7 @@ class InputValidationBugTest extends TestCase
                 ],
             ]);
 
-        // Hiện tại: Cho phép tạo vé trẻ em mà không cần ngày sinh để xác minh độ tuổi
-        $response->assertSessionHasNoErrors();
-        // KHUYẾN NGHỊ: required_if:passengers.*.passenger_type,child kèm kiểm tra tuổi < 12.
+        $response->assertSessionHasErrors(['passengers.1.date_of_birth']);
     }
 
     /**
