@@ -192,7 +192,7 @@ class InputValidationBugTest extends TestCase
     {
         $admin = $this->createAdminEmployee();
         $category = TourCategory::firstOrCreate(['category_name' => 'Tour Núi']);
-        $province = Province::firstOrCreate(['province_name' => 'Lào Cai', 'region' => 'B?c']);
+        $province = Province::firstOrCreate(['province_name' => 'Lâm Đồng', 'region' => 'Trung']);
 
         $response = $this->withSession([
             'employee_id' => $admin->getKey(),
@@ -248,7 +248,7 @@ class InputValidationBugTest extends TestCase
             ]);
 
         $response->assertForbidden();
-        $this->assertDatabaseMissing('reviews', [
+        $this->assertDatabaseMissing('review', [
             'customer_id' => $customer->getKey(),
             'tour_id' => $tour->getKey(),
         ]);
