@@ -9,9 +9,49 @@
 @push('scripts')
 <template id="passenger-template"><fieldset class="relative grid gap-4 rounded-2xl border border-slate-200 p-5 sm:grid-cols-2"><legend class="px-2 font-bold">Hành khách <span data-number></span></legend><button type="button" data-remove class="absolute right-4 top-3 text-sm font-semibold text-red-600">Xóa</button><label class="sm:col-span-2"><span class="label">Họ và tên</span><input class="field" data-name="full_name" required></label><label><span class="label">Loại hành khách</span><select class="field" data-name="passenger_type"><option value="adult">Người lớn</option><option value="child">Trẻ em</option></select></label><label><span class="label">Ngày sinh</span><input class="field" type="date" data-name="date_of_birth"></label><label class="sm:col-span-2"><span class="label">CCCD / Hộ chiếu</span><input class="field" data-name="id_card"></label></fieldset></template>
 <script>
-const list=document.querySelector('#passengers'),template=document.querySelector('#passenger-template');
-function renumber(){[...list.children].forEach((row,i)=>{row.querySelector('[data-number]').textContent=i+1;row.querySelectorAll('[data-name]').forEach(input=>input.name=`passengers[${i}][${input.dataset.name}]`);row.querySelector('[data-remove]').classList.toggle('hidden',list.children.length===1)})}
-function add(){list.append(template.content.cloneNode(true));renumber()} document.querySelector('#add-passenger').addEventListener('click',add);list.addEventListener('click',e=>{if(e.target.matches('[data-remove]')){e.target.closest('fieldset').remove();renumber()}});add();
+const list = document.querySelector('#passengers');
+const template = document.querySelector('#passenger-template');
+const maxSeats = {{ $departure->available_seats }};
+const initialPassengers = @json(old('passengers', []));
+
+function renumber() {
+    [...list.children].forEach((row, i) => {
+        row.querySelector('[data-number]').textContent = i + 1;
+        row.querySelectorAll('[data-name]').forEach(input => {
+            input.name = `passengers[${i}][${input.dataset.name}]`;
+        });
+        row.querySelector('[data-remove]').classList.toggle('hidden', list.children.length === 1);
+    });
+}
+
+function add(data = {}) {
+    if (list.children.length >= maxSeats) {
+        alert('Số lượng hành khách không được vượt quá số chỗ còn lại (' + maxSeats + ' chỗ).');
+        return;
+    }
+    const node = template.content.cloneNode(true);
+    if (data.full_name) node.querySelector('[data-name="full_name"]').value = data.full_name;
+    if (data.passenger_type) node.querySelector('[data-name="passenger_type"]').value = data.passenger_type;
+    if (data.date_of_birth) node.querySelector('[data-name="date_of_birth"]').value = data.date_of_birth;
+    if (data.id_card) node.querySelector('[data-name="id_card"]').value = data.id_card;
+    list.append(node);
+    renumber();
+}
+
+document.querySelector('#add-passenger').addEventListener('click', () => add());
+
+list.addEventListener('click', e => {
+    if (e.target.matches('[data-remove]')) {
+        e.target.closest('fieldset').remove();
+        renumber();
+    }
+});
+
+if (Array.isArray(initialPassengers) && initialPassengers.length > 0) {
+    initialPassengers.forEach(p => add(p));
+} else {
+    add();
+}
 </script>
 @endpush
 @endsection
