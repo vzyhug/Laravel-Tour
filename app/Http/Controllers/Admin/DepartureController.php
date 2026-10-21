@@ -29,14 +29,29 @@ class DepartureController extends Controller
 
     public function store(StoreDepartureRequest $request): RedirectResponse
     {
-        TourDeparture::create($request->validated());
+        $data = $request->validated();
+        $default = config('booking.default_departure_time');
+
+        // Chỉ Admin được đặt giờ, người khác dùng giờ mặc định
+        $data['departure_time'] = $this->canEditTime(new TourDeparture())
+            ? ($data['departure_time'] ?? $default)
+            : $default;
+
+        TourDeparture::create($data);
 
         return redirect()->route('admin.departures.index')->with('success', 'Đã thêm lịch khởi hành.');
     }
 
     public function update(StoreDepartureRequest $request, TourDeparture $departure): RedirectResponse
     {
-        $departure->update($request->validated());
+        $data = $request->validated();
+
+        // Không có quyền, đã quá mốc khóa hoặc không gửi giờ thì giữ nguyên giờ cũ
+        if (! $this->canEditTime($departure) || empty($data['departure_time'])) {
+            unset($data['departure_time']);
+        }
+
+        $departure->update($data);
 
         return redirect()->route('admin.departures.index')->with('success', 'Đã cập nhật lịch khởi hành.');
     }
@@ -48,8 +63,29 @@ class DepartureController extends Controller
         return back()->with('success', 'Đã hủy lịch khởi hành.');
     }
 
+    // Chỉ Admin được sửa giờ, và chỉ khi còn cách ngày khởi hành đủ số ngày quy định
+    private function canEditTime(TourDeparture $departure): bool
+    {
+        if (session('employee_role') !== 'Admin') {
+            return false;
+        }
+
+        if (! $departure->exists) {
+            return true;
+        }
+
+        $lockDays = (int) config('booking.departure_time_lock_days');
+
+        return today()->lte($departure->departure_date->copy()->subDays($lockDays));
+    }
+
     private function formData(TourDeparture $departure): array
     {
-        return ['departure' => $departure, 'tours' => Tour::active()->orderBy('title')->get(), 'guides' => Employee::whereHas('role', fn ($q) => $q->where('role_name', 'Guide'))->where('is_active', true)->orderBy('full_name')->get()];
+        return [
+            'departure' => $departure,
+            'canEditTime' => $this->canEditTime($departure),
+            'tours' => Tour::active()->orderBy('title')->get(),
+            'guides' => Employee::whereHas('role', fn ($q) => $q->where('role_name', 'Guide'))->where('is_active', true)->orderBy('full_name')->get(),
+        ];
     }
 }

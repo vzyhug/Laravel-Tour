@@ -11,7 +11,7 @@
         <div class="flex items-center justify-between"><a href="{{ route('admin.dashboard') }}" class="text-xl font-black text-white">VietGo Admin</a><button class="rounded-lg p-2 lg:hidden" data-menu-toggle="admin-menu" aria-expanded="false" aria-label="Mở menu">☰</button></div>
         <nav id="admin-menu" class="mt-8 hidden gap-2 lg:grid" aria-label="Menu quản trị">
             @foreach([
-                ['admin.dashboard','Tổng quan'], ['admin.tours.index','Quản lý tour'], ['admin.departures.index','Lịch khởi hành'], ['admin.customers.index','Khách hàng'], ['admin.employees.index','Nhân viên'], ['admin.payments.index','Thanh toán'], ['admin.provinces.index','Địa điểm']
+                ['admin.dashboard','Tổng quan'], ['admin.tours.index','Quản lý tour'], ['admin.departures.index','Lịch khởi hành'], ['admin.bookings.index','Đơn đặt tour'], ['admin.coupons.index','Mã giảm giá'], ['admin.customers.index','Khách hàng'], ['admin.employees.index','Nhân viên'], ['admin.payments.index','Thanh toán'], ['admin.provinces.index','Địa điểm']
             ] as [$name,$label])
                 <a href="{{ route($name) }}" class="rounded-xl px-4 py-3 font-medium transition {{ request()->routeIs($name) ? 'bg-brand-600 text-white' : 'hover:bg-white/10 hover:text-white' }}">{{ $label }}</a>
             @endforeach
