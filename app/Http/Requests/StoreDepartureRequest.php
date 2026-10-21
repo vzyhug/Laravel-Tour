@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Tour;
+use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -29,6 +31,29 @@ class StoreDepartureRequest extends FormRequest
             'guide_id' => ['nullable', 'exists:employees,employee_id'],
             'status' => ['required', Rule::in(['open', 'full', 'cancelled'])],
         ];
+    }
+
+    public function withValidator($validator): void
+    {
+        $validator->after(function ($validator) {
+            $tourId = $this->input('tour_id');
+            $depDate = $this->input('departure_date');
+            $retDate = $this->input('return_date');
+
+            if ($tourId && $depDate && $retDate) {
+                $tour = Tour::find($tourId);
+                if ($tour && $tour->duration_days) {
+                    $dep = Carbon::parse($depDate);
+                    $ret = Carbon::parse($retDate);
+                    if ($ret->greaterThanOrEqualTo($dep)) {
+                        $diffDays = (int) $dep->diffInDays($ret) + 1;
+                        if ($diffDays !== (int) $tour->duration_days) {
+                            $validator->errors()->add('return_date', "Số ngày đi thực tế ({$diffDays} ngày) phải khớp với thời lượng của tour ({$tour->duration_days} ngày).");
+                        }
+                    }
+                }
+            }
+        });
     }
 
     public function messages(): array
