@@ -127,7 +127,7 @@ class InputValidationBugTest extends TestCase
     /**
      * BUG #4: Admin thêm lịch khởi hành (/admin/departures) cho phép chọn ngày khởi hành trong quá khứ.
      */
-    public function test_bug_admin_departure_date_allows_past_dates(): void
+    public function test_admin_departure_date_rejects_past_dates(): void
     {
         $admin = $this->createAdminEmployee();
         $tour = $this->createTour();
@@ -147,12 +147,11 @@ class InputValidationBugTest extends TestCase
             'status' => 'open',
         ]);
 
-        // Hiện tại: Chấp nhận lưu lịch trong quá khứ vào hệ thống
-        $this->assertDatabaseHas('tour_departures', [
+        $response->assertSessionHasErrors(['departure_date']);
+        $this->assertDatabaseMissing('tour_departures', [
             'tour_id' => $tour->getKey(),
             'departure_date' => '2020-01-01 00:00:00',
         ]);
-        // KHUYẾN NGHỊ: Thêm rule 'after_or_equal:today' cho StoreDepartureRequest.
     }
 
     /**
