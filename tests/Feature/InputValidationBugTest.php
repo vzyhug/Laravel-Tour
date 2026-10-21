@@ -222,7 +222,7 @@ class InputValidationBugTest extends TestCase
      * BUG #7: Đánh giá tour (/account/bookings/{booking}/review) cho phép khách hàng review
      * ngay khi chuyến đi còn chưa khởi hành (status=confirmed nhưng departure_date ở tương lai).
      */
-    public function test_bug_customer_can_review_tour_before_departure_date(): void
+    public function test_customer_cannot_review_tour_before_departure_date(): void
     {
         $customer = $this->createCustomer();
         $tour = $this->createTour();
@@ -243,7 +243,7 @@ class InputValidationBugTest extends TestCase
             'total_adults' => 2,
             'total_children' => 0,
             'total_amount' => 6000000,
-            'status' => 'confirmed', // Đã thanh toán xác nhận
+            'status' => 'confirmed',
         ]);
 
         $response = $this->withSession(['customer_id' => $customer->getKey()])
@@ -252,12 +252,10 @@ class InputValidationBugTest extends TestCase
                 'feedback' => 'Tour tuyệt vời dù tôi chưa đi!',
             ]);
 
-        // Hiện tại: Hệ thống lưu đánh giá vào bảng reviews thành công!
-        $this->assertDatabaseHas('reviews', [
+        $response->assertForbidden();
+        $this->assertDatabaseMissing('reviews', [
             'customer_id' => $customer->getKey(),
             'tour_id' => $tour->getKey(),
-            'rating' => 5,
         ]);
-        // KHUYẾN NGHỊ: Chỉ cho phép review khi booking status = 'completed' hoặc return_date < today().
     }
 }

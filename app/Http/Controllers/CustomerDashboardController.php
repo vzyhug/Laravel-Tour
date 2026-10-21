@@ -75,9 +75,22 @@ class CustomerDashboardController extends Controller
     public function review(Request $request, Booking $booking): RedirectResponse
     {
         $this->owned($booking);
-        abort_unless(in_array($booking->status, ['confirmed', 'completed'], true), 403);
         $booking->loadMissing('departure');
-        $data = $request->validate(['rating' => ['required', 'integer', 'between:1,5'], 'feedback' => ['required', 'string', 'max:2000']]);
+
+        $canReview = $booking->status === 'completed' || ($booking->status === 'confirmed' && $booking->departure->return_date->isPast());
+        abort_unless($canReview, 403, 'Chuyến đi chưa kết thúc, bạn chưa thể đánh giá.');
+
+        $data = $request->validate([
+            'rating' => ['required', 'integer', 'between:1,5'],
+            'feedback' => ['required', 'string', 'min:5', 'max:2000'],
+        ], [
+            'rating.required' => 'Vui lòng chọn số sao đánh giá.',
+            'rating.between' => 'Số sao đánh giá phải từ 1 đến 5.',
+            'feedback.required' => 'Vui lòng chia sẻ cảm nhận về chuyến đi.',
+            'feedback.min' => 'Cảm nhận phải có ít nhất 5 ký tự.',
+            'feedback.max' => 'Cảm nhận không được vượt quá 2000 ký tự.',
+        ]);
+
         Review::updateOrCreate(['customer_id' => $booking->customer_id, 'tour_id' => $booking->departure->tour_id], $data);
 
         return back()->with('success', 'Cảm ơn bạn đã đánh giá chuyến đi.');
