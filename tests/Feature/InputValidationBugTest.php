@@ -76,7 +76,7 @@ class InputValidationBugTest extends TestCase
     /**
      * BUG #2: Trang cập nhật hồ sơ khách hàng (/account/profile) cho phép nhập số điện thoại tùy tiện (không check định dạng SĐT Việt Nam).
      */
-    public function test_bug_customer_profile_phone_lacks_vietnam_phone_regex(): void
+    public function test_customer_profile_phone_requires_vietnam_phone_regex(): void
     {
         $customer = $this->createCustomer();
 
@@ -87,12 +87,11 @@ class InputValidationBugTest extends TestCase
                 'phone' => 'so-dien-thoai-sai-dinh-dang-1234',
             ]);
 
-        // Hiện tại: Hệ thống chấp nhận số điện thoại sai định dạng và lưu thành công vào DB!
-        $this->assertDatabaseHas('customers', [
+        $response->assertSessionHasErrors(['phone']);
+        $this->assertDatabaseMissing('customers', [
             'customer_id' => $customer->getKey(),
             'phone' => 'so-dien-thoai-sai-dinh-dang-1234',
         ]);
-        // KHUYẾN NGHỊ: Đồng bộ regex /^(0|\+84)[0-9]{9}$/ giống như bên RegisterCustomerRequest.
     }
 
     /**

@@ -52,7 +52,20 @@ class CustomerDashboardController extends Controller
     public function updateProfile(Request $request): RedirectResponse
     {
         $customer = $this->customer();
-        $data = $request->validate(['full_name' => ['required', 'string', 'max:100'], 'email' => ['required', 'email', Rule::unique('customers', 'email')->ignore($customer->getKey(), 'customer_id')], 'phone' => ['required', 'string', 'max:20'], 'address' => ['nullable', 'string', 'max:255']]);
+        $data = $request->validate([
+            'full_name' => ['required', 'string', 'max:100'],
+            'email' => ['required', 'email', 'max:100', Rule::unique('customers', 'email')->ignore($customer->getKey(), 'customer_id')],
+            'phone' => ['required', 'regex:/^(0|\+84)[0-9]{9}$/', Rule::unique('customers', 'phone')->ignore($customer->getKey(), 'customer_id')],
+            'address' => ['nullable', 'string', 'max:255'],
+        ], [
+            'full_name.required' => 'Họ và tên không được để trống.',
+            'email.required' => 'Email không được để trống.',
+            'email.email' => 'Email không đúng định dạng.',
+            'email.unique' => 'Email này đã được sử dụng bởi tài khoản khác.',
+            'phone.required' => 'Số điện thoại không được để trống.',
+            'phone.regex' => 'Số điện thoại không đúng định dạng Việt Nam (VD: 0901234567).',
+            'phone.unique' => 'Số điện thoại này đã được sử dụng bởi tài khoản khác.',
+        ]);
         $customer->update($data);
         session(['customer_name' => $customer->full_name]);
 
