@@ -19,7 +19,7 @@ class StoreBookingRequest extends FormRequest
             'passengers' => ['required', 'array', 'min:1', 'max:20'],
             'passengers.*.full_name' => ['required', 'string', 'max:100'],
             'passengers.*.passenger_type' => ['required', 'in:adult,child'],
-            'passengers.*.id_card' => ['nullable', 'string', 'max:20'],
+            'passengers.*.id_card' => ['required_if:passengers.*.passenger_type,adult', 'nullable', 'string', 'max:20', 'regex:/^[0-9A-Za-z]{8,20}$/'],
             'passengers.*.date_of_birth' => ['required_if:passengers.*.passenger_type,child', 'nullable', 'date', 'before:today'],
         ];
     }
@@ -49,6 +49,8 @@ class StoreBookingRequest extends FormRequest
             'passengers.required' => 'Vui lòng nhập danh sách hành khách.',
             'passengers.min' => 'Chuyến đi cần ít nhất một hành khách.',
             'passengers.*.full_name.required' => 'Họ tên hành khách không được để trống.',
+            'passengers.*.id_card.required_if' => 'CCCD hoặc Hộ chiếu là bắt buộc đối với hành khách người lớn.',
+            'passengers.*.id_card.regex' => 'CCCD hoặc Hộ chiếu phải từ 8 đến 20 ký tự chữ và số.',
             'passengers.*.date_of_birth.required_if' => 'Ngày sinh là bắt buộc đối với hành khách trẻ em.',
             'passengers.*.date_of_birth.before' => 'Ngày sinh phải trước ngày hôm nay.',
         ];
