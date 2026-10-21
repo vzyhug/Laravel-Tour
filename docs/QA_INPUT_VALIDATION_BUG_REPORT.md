@@ -233,4 +233,27 @@ php artisan test --filter=InputValidationBugTest
 ```
 
 ---
-*Báo cáo được tổng hợp đầy đủ và sẵn sàng để lập trình viên (Developer) xem xét và đưa ra kế hoạch vá lỗi.*
+
+## IV. BẢNG TỔNG HỢP TIẾN ĐỘ VÁ LỖI (FIX COMMITS LOG - NHÁNH dev-Khai)
+
+Toàn bộ **14/14 lỗi logic vùng nhập liệu** đã được khắc phục hoàn chỉnh và phân tách thành từng commit nguyên tử (Atomic Commits) độc lập:
+
+| Mã lỗi | Trạng thái | Commit SHA | Mô tả bản vá | File thay đổi |
+| :--- | :---: | :--- | :--- | :--- |
+| **BUG-01** | ✅ Đã sửa | `4398e8c` | Chặn lỗi Giá từ lớn hơn Giá đến ở bộ lọc tour | `TourController.php`, `tours/index.blade.php` |
+| **BUG-02** | ✅ Đã sửa | `c2653b9` | Chặn nhập số âm ở bộ lọc giá tour | `TourController.php` |
+| **BUG-03** | ✅ Đã sửa | `e569349` | Bắt buộc số điện thoại duy nhất khi đăng ký & hiển thị lỗi inline | `RegisterCustomerRequest.php`, `register.blade.php` |
+| **BUG-04** | ✅ Đã sửa | `d08eb6f` | Đồng bộ regex số điện thoại ở cập nhật hồ sơ cá nhân | `CustomerDashboardController.php`, `profile.blade.php` |
+| **BUG-05** | ✅ Đã sửa | `1d2777f` | Bắt buộc ngày sinh cho trẻ em và giới hạn tuổi < 12 | `StoreBookingRequest.php` |
+| **BUG-06** | ✅ Đã sửa | `edfa35b` | Bắt buộc CCCD/Hộ chiếu cho hành khách người lớn | `StoreBookingRequest.php` |
+| **BUG-07** | ✅ Đã sửa | `6afbcfa` | Giữ lại dữ liệu hành khách khi validation lỗi & giới hạn số chỗ | `booking/create.blade.php` |
+| **BUG-08** | ✅ Đã sửa | `8e6cab8` | Chỉ cho phép đánh giá khi tour đã hoàn thành hoặc qua ngày về | `CustomerDashboardController.php`, `booking-show.blade.php` |
+| **BUG-09** | ✅ Đã sửa | `6b80093` | Chặn tạo lịch khởi hành trong quá khứ (`after_or_equal:today`) | `StoreDepartureRequest.php` |
+| **BUG-10** | ✅ Đã sửa | `b73a1aa` | Chặn giá vé trẻ em lớn hơn giá vé người lớn (`lte:adult_price`) | `StoreDepartureRequest.php` |
+| **BUG-11** | ✅ Đã sửa | `db69368` | Đồng bộ khoảng cách ngày đi - ngày về khớp với thời lượng tour | `StoreDepartureRequest.php`, `departures/form.blade.php` |
+| **BUG-12** | ✅ Đã sửa | `945015f` | Chặn số đêm lớn hơn số ngày & hiển thị lỗi inline form tour | `StoreTourRequest.php`, `admin/tours/form.blade.php` |
+| **BUG-13** | ✅ Đã sửa | `d83e978` | Thêm xác nhận mật khẩu, regex SĐT và báo lỗi inline form nhân viên | `EmployeeController.php`, `employees/form.blade.php` |
+| **BUG-14** | ✅ Đã sửa | `1dd80ad` | Việt hóa toàn bộ thông báo lỗi validation của toàn hệ thống | `config/app.php`, `lang/vi/validation.php` |
+
+---
+*Báo cáo và mã nguồn đã được hoàn thiện 100% trên nhánh `dev-Khai`, sẵn sàng gộp (merge) vào dự án chính.*
