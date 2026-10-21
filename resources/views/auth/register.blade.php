@@ -1,5 +1,36 @@
 @extends('layouts.app')
 @section('title', 'Đăng ký · VietGo')
 @section('content')
-<section class="container-page grid place-items-center py-12"><div class="card w-full max-w-2xl p-7 sm:p-9"><p class="font-semibold text-brand-700">Bắt đầu hành trình</p><h1 class="mt-1 text-3xl font-black text-ink">Tạo tài khoản</h1><form class="mt-7 grid gap-5 sm:grid-cols-2" method="POST" action="{{ route('register.store') }}">@csrf<label class="sm:col-span-2"><span class="label">Họ và tên</span><input class="field" name="full_name" value="{{ old('full_name') }}" autocomplete="name" required></label><label><span class="label">Email</span><input class="field" type="email" name="email" value="{{ old('email') }}" required></label><label><span class="label">Số điện thoại</span><input class="field" name="phone" value="{{ old('phone') }}" required></label><label class="sm:col-span-2"><span class="label">Địa chỉ</span><input class="field" name="address" value="{{ old('address') }}"></label><label><span class="label">Mật khẩu</span><input class="field" type="password" name="password" required></label><label><span class="label">Xác nhận mật khẩu</span><input class="field" type="password" name="password_confirmation" required></label><button class="btn-primary sm:col-span-2">Tạo tài khoản</button></form></div></section>
+<section class="container-page grid place-items-center py-12"><div class="card w-full max-w-2xl p-7 sm:p-9"><p class="font-semibold text-brand-700">Bắt đầu hành trình</p><h1 class="mt-1 text-3xl font-black text-ink">Tạo tài khoản</h1><form class="mt-7 grid gap-5 sm:grid-cols-2" method="POST" action="{{ route('register.store') }}">@csrf
+    <label class="sm:col-span-2">
+        <span class="label">Họ và tên</span>
+        <input class="field @error('full_name') border-red-500 @enderror" name="full_name" value="{{ old('full_name') }}" autocomplete="name" required>
+        @error('full_name') <span class="text-xs font-semibold text-red-600 mt-1 block">{{ $message }}</span> @enderror
+    </label>
+    <label>
+        <span class="label">Email</span>
+        <input class="field @error('email') border-red-500 @enderror" type="email" name="email" value="{{ old('email') }}" required>
+        @error('email') <span class="text-xs font-semibold text-red-600 mt-1 block">{{ $message }}</span> @enderror
+    </label>
+    <label>
+        <span class="label">Số điện thoại</span>
+        <input class="field @error('phone') border-red-500 @enderror" name="phone" value="{{ old('phone') }}" required>
+        @error('phone') <span class="text-xs font-semibold text-red-600 mt-1 block">{{ $message }}</span> @enderror
+    </label>
+    <label class="sm:col-span-2">
+        <span class="label">Địa chỉ</span>
+        <input class="field @error('address') border-red-500 @enderror" name="address" value="{{ old('address') }}">
+        @error('address') <span class="text-xs font-semibold text-red-600 mt-1 block">{{ $message }}</span> @enderror
+    </label>
+    <label>
+        <span class="label">Mật khẩu</span>
+        <input class="field @error('password') border-red-500 @enderror" type="password" name="password" required>
+        @error('password') <span class="text-xs font-semibold text-red-600 mt-1 block">{{ $message }}</span> @enderror
+    </label>
+    <label>
+        <span class="label">Xác nhận mật khẩu</span>
+        <input class="field" type="password" name="password_confirmation" required>
+    </label>
+    <button class="btn-primary sm:col-span-2">Tạo tài khoản</button>
+</form></div></section>
 @endsection
