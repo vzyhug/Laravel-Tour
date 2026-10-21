@@ -188,7 +188,7 @@ class InputValidationBugTest extends TestCase
     /**
      * BUG #6: Admin thêm Tour (/admin/tours) cho phép số đêm lớn hơn số ngày vô lý (ví dụ 1 ngày 10 đêm).
      */
-    public function test_bug_admin_tour_duration_nights_greater_than_days(): void
+    public function test_admin_tour_rejects_duration_nights_greater_than_days(): void
     {
         $admin = $this->createAdminEmployee();
         $category = TourCategory::firstOrCreate(['category_name' => 'Tour Núi']);
@@ -207,13 +207,10 @@ class InputValidationBugTest extends TestCase
             'min_price' => 2000000,
         ]);
 
-        // Hiện tại: Hệ thống chấp nhận lưu tour vô lý này
-        $this->assertDatabaseHas('tours', [
+        $response->assertSessionHasErrors(['duration_nights']);
+        $this->assertDatabaseMissing('tours', [
             'title' => 'Tour Vô Lý 1 Ngày 10 Đêm',
-            'duration_days' => 1,
-            'duration_nights' => 10,
         ]);
-        // KHUYẾN NGHỊ: Rule 'lte:duration_days' cho duration_nights.
     }
 
     /**
