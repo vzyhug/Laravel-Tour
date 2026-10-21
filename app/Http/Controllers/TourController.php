@@ -15,6 +15,18 @@ class TourController extends Controller
     {
         $rawMin = (string) $request->input('price_min');
         $rawMax = (string) $request->input('price_max');
+
+        if ($rawMin !== '' && str_contains($rawMin, '-')) {
+            return redirect()->route('tours.index')
+                ->withErrors(['price_min' => 'Giá từ không được là số âm.'])
+                ->withInput();
+        }
+        if ($rawMax !== '' && str_contains($rawMax, '-')) {
+            return redirect()->route('tours.index')
+                ->withErrors(['price_max' => 'Giá đến không được là số âm.'])
+                ->withInput();
+        }
+
         $min = preg_replace('/\D/', '', $rawMin);
         $max = preg_replace('/\D/', '', $rawMax);
 
