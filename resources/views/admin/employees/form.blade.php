@@ -20,27 +20,31 @@
 
         <label class="md:col-span-2">
             <span class="label">Họ và tên</span>
-            <input class="field" name="full_name" value="{{ old('full_name', $employee->full_name) }}" required>
+            <input class="field @error('full_name') border-red-500 @enderror" name="full_name" value="{{ old('full_name', $employee->full_name) }}" required>
+            @error('full_name') <span class="text-xs font-semibold text-red-600">{{ $message }}</span> @enderror
         </label>
 
         <label>
             <span class="label">Tên đăng nhập</span>
-            <input class="field" name="username" value="{{ old('username', $employee->username) }}" required>
+            <input class="field @error('username') border-red-500 @enderror" name="username" value="{{ old('username', $employee->username) }}" required>
+            @error('username') <span class="text-xs font-semibold text-red-600">{{ $message }}</span> @enderror
         </label>
 
         <label>
             <span class="label">Email</span>
-            <input class="field" type="email" name="email" value="{{ old('email', $employee->email) }}" required>
+            <input class="field @error('email') border-red-500 @enderror" type="email" name="email" value="{{ old('email', $employee->email) }}" required>
+            @error('email') <span class="text-xs font-semibold text-red-600">{{ $message }}</span> @enderror
         </label>
 
         <label>
             <span class="label">Số điện thoại</span>
-            <input class="field" name="phone" value="{{ old('phone', $employee->phone) }}">
+            <input class="field @error('phone') border-red-500 @enderror" name="phone" value="{{ old('phone', $employee->phone) }}">
+            @error('phone') <span class="text-xs font-semibold text-red-600">{{ $message }}</span> @enderror
         </label>
 
         <label>
             <span class="label">Vai trò</span>
-            <select class="field" name="role_id">
+            <select class="field @error('role_id') border-red-500 @enderror" name="role_id">
                 @foreach($roles as $role)
                     <option value="{{ $role->getKey() }}"
                         @selected(old('role_id', $employee->role_id) == $role->getKey())>
@@ -48,6 +52,7 @@
                     </option>
                 @endforeach
             </select>
+            @error('role_id') <span class="text-xs font-semibold text-red-600">{{ $message }}</span> @enderror
         </label>
 
         <label>
@@ -55,7 +60,7 @@
                 Mật khẩu {{ $employee->exists ? '(để trống nếu không đổi)' : '' }}
             </span>
             <div style="position: relative;">
-                <input id="password" class="field" style="padding-right: 44px;" type="password" name="password"
+                <input id="password" class="field @error('password') border-red-500 @enderror" style="padding-right: 44px;" type="password" name="password"
                     @required(!$employee->exists)>
                 <button type="button" id="togglePassword"
                         style="position: absolute; top: 50%; right: 12px; transform: translateY(-50%); background: none; border: none; padding: 0; cursor: pointer; color: #64748b; display: flex; align-items: center;"
@@ -74,6 +79,14 @@
                     </svg>
                 </button>
             </div>
+            @error('password') <span class="text-xs font-semibold text-red-600">{{ $message }}</span> @enderror
+        </label>
+
+        <label>
+            <span class="label">
+                Xác nhận mật khẩu
+            </span>
+            <input class="field" type="password" name="password_confirmation" @required(!$employee->exists)>
         </label>
 
         <label class="flex items-center gap-3 self-end rounded-xl bg-slate-50 p-4">

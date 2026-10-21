@@ -57,9 +57,22 @@ class EmployeeController extends Controller
         return $request->validate([
             'username' => ['required', 'string', 'max:50', Rule::unique('employees', 'username')->ignore($id, 'employee_id')],
             'email' => ['required', 'email', Rule::unique('employees', 'email')->ignore($id, 'employee_id')],
-            'full_name' => ['required', 'string', 'max:100'], 'phone' => ['nullable', 'string', 'max:20'],
-            'role_id' => ['required', 'exists:roles,role_id'], 'is_active' => ['nullable', 'boolean'],
-            'password' => [$employee ? 'nullable' : 'required', 'string', 'min:8'],
+            'full_name' => ['required', 'string', 'max:100'],
+            'phone' => ['nullable', 'regex:/^(0|\+84)[0-9]{9}$/'],
+            'role_id' => ['required', 'exists:roles,role_id'],
+            'is_active' => ['nullable', 'boolean'],
+            'password' => [$employee ? 'nullable' : 'required', 'string', 'min:8', 'confirmed'],
+        ], [
+            'username.required' => 'Tên đăng nhập không được để trống.',
+            'username.unique' => 'Tên đăng nhập này đã tồn tại.',
+            'email.required' => 'Email không được để trống.',
+            'email.unique' => 'Email này đã tồn tại.',
+            'full_name.required' => 'Họ và tên không được để trống.',
+            'phone.regex' => 'Số điện thoại không đúng định dạng Việt Nam (VD: 0901234567).',
+            'role_id.required' => 'Vui lòng chọn vai trò.',
+            'password.required' => 'Mật khẩu không được để trống.',
+            'password.min' => 'Mật khẩu phải có ít nhất 8 ký tự.',
+            'password.confirmed' => 'Xác nhận mật khẩu không khớp.',
         ]);
     }
 }
