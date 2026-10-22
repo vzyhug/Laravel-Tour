@@ -15,7 +15,7 @@ class TourDeparture extends Model
 
     protected $primaryKey = 'departure_id';
 
-    protected $fillable = ['tour_id', 'departure_date', 'return_date', 'max_seats', 'available_seats', 'adult_price', 'child_price', 'guide_id', 'status'];
+    protected $fillable = ['tour_id', 'departure_date', 'return_date', 'max_seats', 'available_seats', 'adult_price', 'child_price', 'guide_id', 'status', 'departure_time'];
 
     protected function casts(): array
     {
@@ -35,5 +35,12 @@ class TourDeparture extends Model
     public function bookings(): HasMany
     {
         return $this->hasMany(Booking::class, 'departure_id');
+    }
+
+    public function getTimeLabelAttribute(): ?string
+    {
+        return $this->departure_time
+            ? \Carbon\Carbon::parse($this->departure_time)->format('h:i A')
+            : null;
     }
 }

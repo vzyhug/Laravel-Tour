@@ -3,6 +3,7 @@
 namespace App\Actions;
 
 use App\Models\Booking;
+use App\Models\Coupon;
 use App\Models\TourDeparture;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -27,14 +28,39 @@ class CreateBooking
                 throw ValidationException::withMessages(['passengers' => 'Lịch khởi hành không còn đủ chỗ.']);
             }
 
+            $subtotal = ($adults * (float) $departure->adult_price) + ($children * (float) $departure->child_price);
+
+            // Mã giảm giá: mỗi đơn 1 mã, kiểm tra lại ở server và khóa dòng để không dùng trùng
+            $coupon = null;
+            $discount = 0;
+            $code = Coupon::normalize((string) ($data['coupon_code'] ?? ''));
+
+            if ($code !== '') {
+                $coupon = Coupon::where('code', $code)->lockForUpdate()->first();
+                $error = $coupon ? $coupon->check($customerId, $subtotal) : 'Mã giảm giá không tồn tại.';
+
+                if ($error) {
+                    throw ValidationException::withMessages(['coupon_code' => $error]);
+                }
+
+                $discount = $coupon->discountFor($subtotal);
+            }
+
+            $pickupType = $data['pickup_type'] ?? 'self';
+
             $booking = Booking::create([
                 'booking_code' => 'BK'.now()->format('ymd').Str::upper(Str::random(6)),
                 'customer_id' => $customerId,
                 'departure_id' => $departure->getKey(),
                 'total_adults' => $adults,
                 'total_children' => $children,
-                'total_amount' => ($adults * $departure->adult_price) + ($children * $departure->child_price),
+                'total_amount' => $subtotal - $discount,
+                'coupon_id' => $coupon?->getKey(),
+                'discount_amount' => $discount,
                 'status' => 'pending',
+                'pickup_type' => $pickupType,
+                'pickup_address' => $pickupType === 'door' ? ($data['pickup_address'] ?? null) : null,
+                'pickup_note' => $data['pickup_note'] ?? null,
             ]);
 
             $booking->passengers()->createMany($passengers->all());

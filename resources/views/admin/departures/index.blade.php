@@ -1,5 +1,62 @@
 @extends('layouts.admin')
-@section('title','Lịch khởi hành')
+
+@section('title', 'Lịch khởi hành')
+
 @section('content')
-<div class="flex flex-wrap items-end justify-between gap-4"><div><p class="font-semibold text-brand-700">Điều hành</p><h1 class="text-3xl font-black text-ink">Lịch khởi hành</h1></div><a class="btn-primary" href="{{ route('admin.departures.create') }}">+ Thêm lịch</a></div><div class="card mt-8 overflow-hidden"><div class="overflow-x-auto"><table class="w-full min-w-225 text-left text-sm"><thead class="bg-slate-50 text-slate-500"><tr><th class="p-4">Tour</th><th class="p-4">Khởi hành</th><th class="p-4">Chỗ trống</th><th class="p-4">Hướng dẫn viên</th><th class="p-4">Trạng thái</th><th class="p-4 text-right">Thao tác</th></tr></thead><tbody class="divide-y divide-slate-100">@foreach($departures as $departure)<tr><td class="p-4 font-semibold">{{ $departure->tour->title }}</td><td class="p-4">{{ $departure->departure_date->format('d/m/Y') }} → {{ $departure->return_date->format('d/m/Y') }}</td><td class="p-4">{{ $departure->available_seats }}/{{ $departure->max_seats }}</td><td class="p-4">{{ $departure->guide?->full_name ?? 'Chưa phân công' }}</td><td class="p-4"><span class="badge">{{ $departure->status }}</span></td><td class="p-4"><div class="flex justify-end gap-2"><a class="font-semibold text-brand-700" href="{{ route('admin.departures.edit',$departure) }}">Sửa</a>@if($departure->status!=='cancelled')<form method="POST" action="{{ route('admin.departures.destroy',$departure) }}">@csrf @method('DELETE')<button class="font-semibold text-red-600" onclick="return confirm('Hủy lịch này?')">Hủy</button></form>@endif</div></td></tr>@endforeach</tbody></table></div></div><div class="mt-6">{{ $departures->links() }}</div>
+    <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+            <p class="font-semibold text-brand-700">Điều hành</p>
+            <h1 class="text-3xl font-black text-ink">Lịch khởi hành</h1>
+        </div>
+        <a class="btn-primary" href="{{ route('admin.departures.create') }}">+ Thêm lịch</a>
+    </div>
+
+    <div class="card mt-8 overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="w-full min-w-225 text-left text-sm">
+                <thead class="bg-slate-50 text-slate-500">
+                    <tr>
+                        <th class="p-4">Tour</th>
+                        <th class="p-4">Khởi hành</th>
+                        <th class="p-4">Chỗ trống</th>
+                        <th class="p-4">Hướng dẫn viên</th>
+                        <th class="p-4">Trạng thái</th>
+                        <th class="p-4 text-right">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    @foreach($departures as $departure)
+                        <tr>
+                            <td class="p-4 font-semibold">{{ $departure->tour->title }}</td>
+                            <td class="p-4">
+                                {{ $departure->departure_date->format('d/m/Y') }} → {{ $departure->return_date->format('d/m/Y') }}
+                                <p class="text-xs text-slate-500">
+                                    Giờ tập trung: {{ $departure->time_label ?? 'Chưa có giờ' }}
+                                </p>
+                            </td>
+                            <td class="p-4">{{ $departure->available_seats }}/{{ $departure->max_seats }}</td>
+                            <td class="p-4">{{ $departure->guide?->full_name ?? 'Chưa phân công' }}</td>
+                            <td class="p-4"><span class="badge">{{ $departure->status }}</span></td>
+                            <td class="p-4">
+                                <div class="flex justify-end gap-2">
+                                    <a class="font-semibold text-brand-700"
+                                       href="{{ route('admin.departures.edit', $departure) }}">Sửa</a>
+                                    @if($departure->status !== 'cancelled')
+                                        <form method="POST" action="{{ route('admin.departures.destroy', $departure) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="font-semibold text-red-600"
+                                                    onclick="return confirm('Hủy lịch này?')">Hủy</button>
+                                        </form>
+                                    @endif
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mt-6">{{ $departures->links() }}</div>
 @endsection

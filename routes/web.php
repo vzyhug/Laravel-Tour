@@ -16,6 +16,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TourController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\CouponController as AdminCouponController;
+use App\Http\Controllers\Admin\BookingController as AdminBookingController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/tours', [TourController::class, 'index'])->name('tours.index');
@@ -33,6 +35,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware('customer.auth')->group(function () {
     Route::get('/booking/{departure}', [BookingController::class, 'create'])->name('bookings.create');
     Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+    Route::post('/coupons/check', [BookingController::class, 'checkCoupon'])->name('coupons.check');
     Route::get('/payments/{booking}', [PaymentController::class, 'create'])->name('payments.create');
     Route::post('/payments/{booking}', [PaymentController::class, 'store'])->name('payments.store');
     Route::get('/account', [CustomerDashboardController::class, 'index'])->name('customer.dashboard');
@@ -41,6 +44,7 @@ Route::middleware('customer.auth')->group(function () {
     Route::get('/account/bookings/{booking}', [CustomerDashboardController::class, 'show'])->name('customer.bookings.show');
     Route::get('/account/bookings/{booking}/invoice', [CustomerDashboardController::class, 'invoice'])->name('customer.bookings.invoice');
     Route::post('/account/bookings/{booking}/review', [CustomerDashboardController::class, 'review'])->name('customer.bookings.review');
+    Route::post('/account/bookings/{booking}/cancel', [CustomerDashboardController::class, 'cancel'])->name('customer.bookings.cancel');
     Route::get('/account/favorites', [FavoriteController::class, 'index'])->name('favorites.index');
     Route::post('/favorites/{tour}', [FavoriteController::class, 'toggle'])->name('favorites.toggle');
     });
@@ -57,12 +61,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('/customers', [AdminCustomerController::class, 'index'])->name('customers.index');
             Route::patch('/customers/{customer}/status', [AdminCustomerController::class, 'update'])->name('customers.status');
             Route::get('/payments', [AdminPaymentController::class, 'index'])->name('payments.index');
+            Route::get('/bookings', [AdminBookingController::class, 'index'])->name('bookings.index');
+            Route::get('/bookings/{booking}', [AdminBookingController::class, 'show'])->name('bookings.show');
+            Route::patch('/bookings/{booking}/status', [AdminBookingController::class, 'updateStatus'])->name('bookings.status');
         });
 
         Route::middleware('admin.role:Admin')->group(function () {
             Route::resource('employees', AdminEmployeeController::class)->except(['show', 'destroy']);
             Route::get('/provinces', [AdminProvinceController::class, 'index'])->name('provinces.index');
             Route::post('/provinces', [AdminProvinceController::class, 'store'])->name('provinces.store');
+            Route::resource('coupons', AdminCouponController::class)->except(['show', 'destroy']);
         });
     });
 });

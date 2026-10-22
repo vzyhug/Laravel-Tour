@@ -10,6 +10,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
+use App\Models\TourDeparture;
+use Illuminate\Support\Facades\DB;
 
 class CustomerDashboardController extends Controller
 {
@@ -88,5 +90,62 @@ class CustomerDashboardController extends Controller
         Review::updateOrCreate(['customer_id' => $booking->customer_id, 'tour_id' => $booking->departure->tour_id], $data);
 
         return back()->with('success', 'Cảm ơn bạn đã đánh giá chuyến đi.');
+    }
+
+    public function cancel(Request $request, Booking $booking): RedirectResponse
+    {
+        $this->owned($booking);
+
+        $data = $request->validate(
+            ['cancel_reason' => ['required', 'string', 'max:255']],
+            [
+                'cancel_reason.required' => 'Vui lòng nhập lý do hủy tour.',
+                'cancel_reason.max' => 'Lý do hủy không được quá 255 ký tự.',
+            ]
+        );
+
+        $error = DB::transaction(function () use ($booking, $data) {
+            $booking = Booking::with(['departure', 'payment'])->lockForUpdate()->findOrFail($booking->getKey());
+
+            if (! $booking->canBeCancelled()) {
+                return 'Đơn này không còn đủ điều kiện để hủy.';
+            }
+
+            $payment = $booking->payment;
+            $percent = null;
+            $refund = null;
+
+            if ($payment && $payment->status === 'completed') {
+                $percent = $booking->refundPercentNow();
+                $refund = round($payment->amount * $percent / 100);
+                $payment->update(['status' => 'refunded']);
+            }
+
+            $departure = TourDeparture::lockForUpdate()->findOrFail($booking->departure_id);
+            $departure->available_seats = min(
+                $departure->max_seats,
+                $departure->available_seats + $booking->total_adults + $booking->total_children
+            );
+            if ($departure->status === 'full') {
+                $departure->status = 'open';
+            }
+            $departure->save();
+
+            $booking->update([
+                'status' => 'cancelled',
+                'cancelled_at' => now(),
+                'cancel_reason' => $data['cancel_reason'],
+                'refund_percent' => $percent,
+                'refund_amount' => $refund,
+            ]);
+
+            return null;
+        });
+
+        if ($error) {
+            return back()->withErrors(['cancel' => $error]);
+        }
+
+        return back()->with('success', 'Đã hủy tour. Chỗ của bạn đã được trả lại cho chuyến đi.');
     }
 }

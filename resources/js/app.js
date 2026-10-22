@@ -56,6 +56,12 @@ if (bookingForm) {
     const maximum = Number(bookingForm.dataset.maxPassengers);
     const adultPrice = Number(bookingForm.dataset.adultPrice);
     const childPrice = Number(bookingForm.dataset.childPrice);
+    const couponInput = document.getElementById('coupon-code');
+    const applyCouponButton = document.getElementById('apply-coupon');
+    const couponMessage = document.getElementById('coupon-message');
+    const discountRow = document.querySelector('[data-discount-row]');
+    let discount = 0;
+    let couponRequestVersion = 0;
     const money = (value) => value.toLocaleString('vi-VN') + '₫';
     const setText = (selector, value) => {
         const element = document.querySelector(selector);
@@ -69,7 +75,22 @@ if (bookingForm) {
         setText('[data-child-count]', children);
         setText('[data-adult-total]', money(adults * adultPrice));
         setText('[data-child-total]', money(children * childPrice));
-        setText('[data-booking-total]', money(adults * adultPrice + children * childPrice));
+        setText('[data-booking-total]', money(Math.max(0, adults * adultPrice + children * childPrice - discount)));
+    };
+    const resetCoupon = (message = '') => {
+        discount = 0;
+        couponRequestVersion++;
+        discountRow?.classList.add('hidden');
+        discountRow?.classList.remove('flex');
+        if (couponMessage) {
+            couponMessage.textContent = message;
+            couponMessage.classList.remove('text-sage', 'text-red-700');
+        }
+        if (applyCouponButton) { applyCouponButton.disabled = false; }
+    };
+    const passengerChanges = () => {
+        resetCoupon(couponInput?.value.trim() ? 'Hành khách đã thay đổi. Vui lòng áp dụng lại mã giảm giá.' : '');
+        updateSummary();
     };
     const renumberPassengers = () => {
         [...passengers.children].forEach((row, index) => {
@@ -80,7 +101,7 @@ if (bookingForm) {
             row.querySelector('[data-remove]').hidden = passengers.children.length === 1;
         });
         addButton.disabled = passengers.children.length >= maximum;
-        updateSummary();
+        passengerChanges();
     };
     addButton.addEventListener('click', () => {
         if (passengers.children.length >= maximum) { return; }
@@ -99,6 +120,75 @@ if (bookingForm) {
             nextRow?.querySelector('input')?.focus();
         }
     });
-    passengers.addEventListener('change', updateSummary);
+    passengers.addEventListener('change', passengerChanges);
+    const pickupFields = bookingForm.querySelector('[data-pickup-fields]');
+    const updatePickup = () => {
+        const doorPickup = bookingForm.querySelector('[name="pickup_type"]:checked')?.value === 'door';
+        pickupFields?.classList.toggle('hidden', !doorPickup);
+        const address = pickupFields?.querySelector('[name="pickup_address"]');
+        if (address) { address.required = doorPickup; }
+    };
+    bookingForm.querySelectorAll('[name="pickup_type"]').forEach((input) => input.addEventListener('change', updatePickup));
+    updatePickup();
+
+    const checkCoupon = async () => {
+        resetCoupon();
+        updateSummary();
+        const code = couponInput.value.trim();
+        if (!code) { return; }
+        const requestVersion = ++couponRequestVersion;
+        const types = [...passengers.querySelectorAll('[data-name="passenger_type"]')];
+        applyCouponButton.disabled = true;
+        couponMessage.textContent = 'Đang kiểm tra mã giảm giá…';
+        try {
+            const response = await fetch(bookingForm.dataset.couponUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': bookingForm.querySelector('[name="_token"]').value,
+                },
+                body: JSON.stringify({
+                    departure_id: bookingForm.querySelector('[name="departure_id"]').value,
+                    adults: types.filter((input) => input.value === 'adult').length,
+                    children: types.filter((input) => input.value === 'child').length,
+                    code,
+                }),
+            });
+            const result = await response.json();
+            if (requestVersion !== couponRequestVersion) { return; }
+            if (!response.ok || !result.valid) {
+                couponMessage.textContent = result.message || 'Không thể áp dụng mã giảm giá.';
+                couponMessage.classList.add('text-red-700');
+                return;
+            }
+            discount = Number(result.discount);
+            setText('[data-discount-amount]', '−' + money(discount));
+            setText('[data-applied-coupon]', code.toUpperCase());
+            discountRow.classList.remove('hidden');
+            discountRow.classList.add('flex');
+            couponMessage.textContent = result.message;
+            couponMessage.classList.add('text-sage');
+            updateSummary();
+        } catch {
+            if (requestVersion === couponRequestVersion) {
+                couponMessage.textContent = 'Không kiểm tra được mã giảm giá. Vui lòng thử lại.';
+                couponMessage.classList.add('text-red-700');
+            }
+        } finally {
+            if (requestVersion === couponRequestVersion) { applyCouponButton.disabled = false; }
+        }
+    };
+    if (couponInput && applyCouponButton) {
+        applyCouponButton.addEventListener('click', checkCoupon);
+        couponInput.addEventListener('input', () => { resetCoupon(); updateSummary(); });
+        couponInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') { event.preventDefault(); checkCoupon(); }
+        });
+        bookingForm.querySelectorAll('[data-coupon-code]').forEach((button) => {
+            button.addEventListener('click', () => { couponInput.value = button.dataset.couponCode; checkCoupon(); });
+        });
+    }
     renumberPassengers();
+    if (couponInput?.value.trim()) { checkCoupon(); }
 }
