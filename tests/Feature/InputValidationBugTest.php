@@ -63,16 +63,30 @@ class InputValidationBugTest extends TestCase
         ]);
     }
 
-    /**
-     * BUG #1: Trang tìm kiếm /tours - 'price_min' > 'price_max' không hề bị chặn hoặc báo lỗi,
-     * mà bị controller âm thầm hoán đổi vị trí (silent swap).
-     */
-    public function test_filter_tour_price_min_greater_than_max_returns_validation_error(): void
+    public function test_reversed_price_range_filters_inclusively_and_sorts_from_high_to_low(): void
     {
+        $this->withoutVite();
+        $tour = $this->createTour();
+        $lower = $tour->replicate();
+        $lower->min_price = 2000000;
+        $lower->save();
+        $upper = $tour->replicate();
+        $upper->min_price = 10000000;
+        $upper->save();
+        foreach ([1000000, 11000000] as $price) {
+            $outside = $tour->replicate();
+            $outside->min_price = $price;
+            $outside->save();
+        }
+
         $response = $this->get('/tours?price_min=10.000.000&price_max=2.000.000');
 
-        $response->assertRedirect(route('tours.index'));
-        $response->assertSessionHasErrors(['price_max' => 'Giá đến phải lớn hơn hoặc bằng Giá từ.']);
+        $response->assertOk()->assertSessionHasNoErrors()
+            ->assertViewHas('tours', fn ($tours) => $tours->pluck('min_price')->map(fn ($price) => (int) $price)->all() === [10000000, 3000000, 2000000]);
+        $this->get('/tours?price_min=2.000.000&price_max=10.000.000&sort=price_asc')
+            ->assertOk()->assertViewHas('tours', fn ($tours) => $tours->pluck('min_price')->map(fn ($price) => (int) $price)->all() === [2000000, 3000000, 10000000]);
+        $this->get('/tours?price_min=10.000.000&price_max=2.000.000&sort=price_asc')
+            ->assertOk()->assertViewHas('tours', fn ($tours) => $tours->pluck('min_price')->map(fn ($price) => (int) $price)->all() === [2000000, 3000000, 10000000]);
     }
 
     /**

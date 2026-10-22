@@ -30,11 +30,11 @@ class TourController extends Controller
         $min = preg_replace('/\D/', '', $rawMin);
         $max = preg_replace('/\D/', '', $rawMax);
 
-        if ($min !== '' && $max !== '' && (int) $min > (int) $max) {
-            return redirect()->route('tours.index')
-                ->withErrors(['price_max' => 'Giá đến phải lớn hơn hoặc bằng Giá từ.'])
-                ->withInput();
+        $descendingRange = $min !== '' && $max !== '' && (int) $min > (int) $max;
+        if ($descendingRange) {
+            [$min, $max] = [$max, $min];
         }
+        $sort = $request->input('sort') ?: ($descendingRange ? 'price_desc' : '');
 
         $tours = Tour::query()->active()->with(['province', 'category', 'images'])
             ->when($request->filled('q'), fn ($q) => $q->where('title', 'like', '%'.$request->string('q')->trim().'%'))
@@ -43,11 +43,11 @@ class TourController extends Controller
             ->when($min !== '', fn ($q) => $q->where('min_price', '>=', (int) $min))
             ->when($max !== '', fn ($q) => $q->where('min_price', '<=', (int) $max))
             ->when($request->filled('days'), fn ($q) => $q->where('duration_days', '<=', $request->integer('days')))
-            ->when($request->input('sort') === 'price_desc', fn ($q) => $q->orderByDesc('min_price'))
-            ->when($request->input('sort') === 'price_asc', fn ($q) => $q->orderBy('min_price'))
+            ->when($sort === 'price_desc', fn ($q) => $q->orderByDesc('min_price'))
+            ->when($sort === 'price_asc', fn ($q) => $q->orderBy('min_price'))
             ->orderBy('tour_id')->paginate(9)->withQueryString();
 
-        return view('tours.index', ['tours' => $tours, 'categories' => TourCategory::orderBy('category_name')->get(), 'priceCeiling' => Tour::active()->max('min_price')]);
+        return view('tours.index', ['tours' => $tours, 'categories' => TourCategory::orderBy('category_name')->get(), 'sort' => $sort]);
     }
 
     public function show(Tour $tour): View
@@ -62,6 +62,6 @@ class TourController extends Controller
     {
         $tours = $province->tours()->active()->with(['province', 'category', 'images'])->paginate(9);
 
-        return view('tours.index', ['tours' => $tours, 'categories' => TourCategory::orderBy('category_name')->get(), 'priceCeiling' => Tour::active()->max('min_price'), 'heading' => 'Tour tại '.$province->province_name]);
+        return view('tours.index', ['tours' => $tours, 'categories' => TourCategory::orderBy('category_name')->get(), 'heading' => 'Tour tại '.$province->province_name]);
     }
 }
