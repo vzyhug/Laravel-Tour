@@ -30,6 +30,7 @@ class BookingTourTest extends TestCase
 
         $response = $this->withSession(['customer_id' => $customer->getKey()])->post(route('bookings.store'), [
             'departure_id' => $departure->getKey(),
+            'pickup_type' => 'self',
             'passengers' => [
                 ['full_name' => 'Nguyễn Văn A', 'passenger_type' => 'adult', 'id_card' => '012345678901'],
                 ['full_name' => 'Nguyễn Văn B', 'passenger_type' => 'child', 'date_of_birth' => '2018-01-01'],

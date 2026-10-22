@@ -55,12 +55,13 @@
             <span class="label">Tour</span>
             <select class="field" name="tour_id">
                 @foreach($tours as $tour)
-                    <option value="{{ $tour->getKey() }}"
+                    <option value="{{ $tour->getKey() }}" data-days="{{ $tour->duration_days }}"
                         @selected(old('tour_id', $departure->tour_id) == $tour->getKey())>
-                        {{ $tour->title }}
+                        {{ $tour->title }} ({{ $tour->duration_days }} ngày)
                     </option>
                 @endforeach
             </select>
+            @error('tour_id')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
         </label>
 
         @foreach($dateFields as $field => $label)
@@ -133,12 +134,14 @@
             <span class="label">Tổng số chỗ</span>
             <input class="field" type="number" name="max_seats"
                    value="{{ old('max_seats', $departure->max_seats ?? 20) }}" required>
+            @error('max_seats')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
         </label>
 
         <label>
             <span class="label">Chỗ còn lại</span>
             <input class="field" type="number" name="available_seats"
                    value="{{ old('available_seats', $departure->available_seats ?? 20) }}" required>
+            @error('available_seats')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
         </label>
 
         <label>

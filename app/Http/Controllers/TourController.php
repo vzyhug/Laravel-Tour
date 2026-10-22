@@ -5,17 +5,35 @@ namespace App\Http\Controllers;
 use App\Models\Province;
 use App\Models\Tour;
 use App\Models\TourCategory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class TourController extends Controller
 {
-        public function index(Request $request): View
+    public function index(Request $request): View|RedirectResponse
     {
-        $min = preg_replace('/\D/', '', (string) $request->input('price_min'));
-        $max = preg_replace('/\D/', '', (string) $request->input('price_max'));
+        $rawMin = (string) $request->input('price_min');
+        $rawMax = (string) $request->input('price_max');
+
+        if ($rawMin !== '' && str_contains($rawMin, '-')) {
+            return redirect()->route('tours.index')
+                ->withErrors(['price_min' => 'Giá từ không được là số âm.'])
+                ->withInput();
+        }
+        if ($rawMax !== '' && str_contains($rawMax, '-')) {
+            return redirect()->route('tours.index')
+                ->withErrors(['price_max' => 'Giá đến không được là số âm.'])
+                ->withInput();
+        }
+
+        $min = preg_replace('/\D/', '', $rawMin);
+        $max = preg_replace('/\D/', '', $rawMax);
+
         if ($min !== '' && $max !== '' && (int) $min > (int) $max) {
-            [$min, $max] = [$max, $min];
+            return redirect()->route('tours.index')
+                ->withErrors(['price_max' => 'Giá đến phải lớn hơn hoặc bằng Giá từ.'])
+                ->withInput();
         }
 
         $tours = Tour::query()->active()->with(['province', 'category', 'images'])

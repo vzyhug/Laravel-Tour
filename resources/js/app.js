@@ -29,12 +29,34 @@ document.addEventListener('keydown', (event) => {
 
 document.querySelectorAll('[data-money]').forEach((input) => {
     const formatMoney = () => {
+        const negative = input.value.includes('-');
         const digits = input.value.replace(/\D/g, '');
-        input.value = digits === '' ? '' : Number(digits).toLocaleString('vi-VN');
+        input.value = (negative ? '-' : '') + (digits === '' ? '' : Number(digits).toLocaleString('vi-VN'));
     };
     input.addEventListener('input', formatMoney);
     formatMoney();
 });
+
+const tourFilters = document.getElementById('tour-filters');
+if (tourFilters) {
+    const minPrice = tourFilters.querySelector('[name="price_min"]');
+    const maxPrice = tourFilters.querySelector('[name="price_max"]');
+    const validatePrices = () => {
+        minPrice.setCustomValidity(minPrice.value.includes('-') ? 'Giá từ không được là số âm.' : '');
+        maxPrice.setCustomValidity(maxPrice.value.includes('-') ? 'Giá đến không được là số âm.' : '');
+        if (minPrice.value && maxPrice.value && !minPrice.value.includes('-') && !maxPrice.value.includes('-')) {
+            const min = Number(minPrice.value.replace(/\D/g, ''));
+            const max = Number(maxPrice.value.replace(/\D/g, ''));
+            if (min > max) { maxPrice.setCustomValidity('Giá đến phải lớn hơn hoặc bằng Giá từ.'); }
+        }
+    };
+    [minPrice, maxPrice].forEach((input) => input.addEventListener('input', validatePrices));
+    tourFilters.addEventListener('submit', (event) => {
+        validatePrices();
+        if (!tourFilters.reportValidity()) { event.preventDefault(); }
+    });
+    validatePrices();
+}
 
 document.querySelector('[data-sort-tours]')?.addEventListener('change', (event) => {
     event.target.form?.requestSubmit();
@@ -69,6 +91,14 @@ if (bookingForm) {
     };
     const updateSummary = () => {
         const types = [...passengers.querySelectorAll('[data-name="passenger_type"]')];
+        [...passengers.children].forEach((row) => {
+            const isChild = row.querySelector('[data-name="passenger_type"]').value === 'child';
+            const date = row.querySelector('[data-name="date_of_birth"]');
+            const identity = row.querySelector('[data-name="id_card"]');
+            date.required = isChild;
+            if (isChild) { date.min = date.dataset.childMin; } else { date.removeAttribute('min'); }
+            identity.required = !isChild;
+        });
         const adults = types.filter((input) => input.value === 'adult').length;
         const children = types.filter((input) => input.value === 'child').length;
         setText('[data-adult-count]', adults);

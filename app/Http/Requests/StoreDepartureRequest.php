@@ -2,8 +2,11 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Tour;
+use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Validator;
 
 class StoreDepartureRequest extends FormRequest
 {
@@ -28,7 +31,7 @@ class StoreDepartureRequest extends FormRequest
         // Giá nhập dạng 5.000.000 -> bỏ dấu chấm, chỉ giữ chữ số
         foreach (['adult_price', 'child_price'] as $field) {
             if ($this->has($field)) {
-                $merge[$field] = preg_replace('/\D/', '', (string) $this->input($field));
+                $merge[$field] = str_replace(['.', ',', ' '], '', trim((string) $this->input($field)));
             }
         }
 
@@ -49,22 +52,45 @@ class StoreDepartureRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'tour_id' => ['required', 'exists:tours,tour_id'],
-            'departure_date' => ['required', 'date_format:Y-m-d'],
+            'tour_id' => ['required', 'integer', 'exists:tours,tour_id'],
+            'departure_date' => $this->isMethod('post') ? ['required', 'date_format:Y-m-d', 'after_or_equal:today'] : ['required', 'date_format:Y-m-d'],
             'departure_time' => ['nullable', 'date_format:H:i'],
             'return_date' => ['required', 'date_format:Y-m-d', 'after_or_equal:departure_date'],
             'max_seats' => ['required', 'integer', 'min:1', 'max:200'],
             'available_seats' => ['required', 'integer', 'min:0', 'lte:max_seats'],
             'adult_price' => ['required', 'numeric', 'min:0'],
-            'child_price' => ['required', 'numeric', 'min:0'],
+            'child_price' => ['required', 'numeric', 'min:0', 'lte:adult_price'],
             'guide_id' => ['nullable', 'exists:employees,employee_id'],
             'status' => ['required', Rule::in(['open', 'full', 'cancelled'])],
         ];
     }
 
+    public function withValidator(Validator $validator): void
+    {
+        $validator->after(function (Validator $validator): void {
+            if ($validator->errors()->hasAny(['tour_id', 'departure_date', 'return_date'])) {
+                return;
+            }
+
+            $tour = Tour::find($this->integer('tour_id'));
+            if ($tour) {
+                $departure = Carbon::parse($this->input('departure_date'));
+                $return = Carbon::parse($this->input('return_date'));
+                $days = (int) $departure->diffInDays($return) + 1;
+                if ($days !== (int) $tour->duration_days) {
+                    $validator->errors()->add('return_date', "Số ngày đi thực tế ({$days} ngày) phải khớp với thời lượng của tour ({$tour->duration_days} ngày).");
+                }
+            }
+        });
+    }
+
     public function messages(): array
     {
         return [
+            'departure_date.after_or_equal' => 'Ngày khởi hành phải từ ngày hôm nay trở đi.',
+            'child_price.lte' => 'Giá vé trẻ em phải nhỏ hơn hoặc bằng giá vé người lớn.',
+            'available_seats.lte' => 'Số chỗ còn lại không được lớn hơn tổng số chỗ.',
+            'tour_id.required' => 'Vui lòng chọn tour.',
             'departure_time.date_format' => 'Giờ khởi hành không hợp lệ.',
             'departure_date.date_format' => 'Ngày khởi hành không hợp lệ, hãy nhập dạng dd/mm/yyyy.',
             'departure_date.required' => 'Vui lòng nhập ngày khởi hành.',

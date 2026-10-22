@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Models\Customer;
 use App\Models\Review;
+use App\Models\TourDeparture;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
-use App\Models\TourDeparture;
-use Illuminate\Support\Facades\DB;
 
 class CustomerDashboardController extends Controller
 {
@@ -74,7 +74,20 @@ class CustomerDashboardController extends Controller
     public function updateProfile(Request $request): RedirectResponse
     {
         $customer = $this->customer();
-        $data = $request->validate(['full_name' => ['required', 'string', 'max:100'], 'email' => ['required', 'email', Rule::unique('customers', 'email')->ignore($customer->getKey(), 'customer_id')], 'phone' => ['required', 'string', 'max:20'], 'address' => ['nullable', 'string', 'max:255']]);
+        $data = $request->validate([
+            'full_name' => ['required', 'string', 'max:100'],
+            'email' => ['required', 'email', 'max:100', Rule::unique('customers', 'email')->ignore($customer->getKey(), 'customer_id')],
+            'phone' => ['required', 'regex:/^(0|\+84)[0-9]{9}$/', Rule::unique('customers', 'phone')->ignore($customer->getKey(), 'customer_id')],
+            'address' => ['nullable', 'string', 'max:255'],
+        ], [
+            'full_name.required' => 'Họ và tên không được để trống.',
+            'email.required' => 'Email không được để trống.',
+            'email.email' => 'Email không đúng định dạng.',
+            'email.unique' => 'Email này đã được sử dụng bởi tài khoản khác.',
+            'phone.required' => 'Số điện thoại không được để trống.',
+            'phone.regex' => 'Số điện thoại không đúng định dạng Việt Nam (VD: 0901234567).',
+            'phone.unique' => 'Số điện thoại này đã được sử dụng bởi tài khoản khác.',
+        ]);
         $customer->update($data);
         session(['customer_name' => $customer->full_name]);
 
@@ -84,9 +97,22 @@ class CustomerDashboardController extends Controller
     public function review(Request $request, Booking $booking): RedirectResponse
     {
         $this->owned($booking);
-        abort_unless(in_array($booking->status, ['confirmed', 'completed'], true), 403);
         $booking->loadMissing('departure');
-        $data = $request->validate(['rating' => ['required', 'integer', 'between:1,5'], 'feedback' => ['required', 'string', 'max:2000']]);
+
+        $canReview = $booking->status === 'completed' || ($booking->status === 'confirmed' && $booking->departure->return_date->isPast());
+        abort_unless($canReview, 403, 'Chuyến đi chưa kết thúc, bạn chưa thể đánh giá.');
+
+        $data = $request->validate([
+            'rating' => ['required', 'integer', 'between:1,5'],
+            'feedback' => ['required', 'string', 'min:5', 'max:2000'],
+        ], [
+            'rating.required' => 'Vui lòng chọn số sao đánh giá.',
+            'rating.between' => 'Số sao đánh giá phải từ 1 đến 5.',
+            'feedback.required' => 'Vui lòng chia sẻ cảm nhận về chuyến đi.',
+            'feedback.min' => 'Cảm nhận phải có ít nhất 5 ký tự.',
+            'feedback.max' => 'Cảm nhận không được vượt quá 2000 ký tự.',
+        ]);
+
         Review::updateOrCreate(['customer_id' => $booking->customer_id, 'tour_id' => $booking->departure->tour_id], $data);
 
         return back()->with('success', 'Cảm ơn bạn đã đánh giá chuyến đi.');

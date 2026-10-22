@@ -80,8 +80,9 @@ class TravelPortalTest extends TestCase
         $response = $this->withSession(['customer_id' => $customer->getKey()])
             ->from($bookingUrl)->post(route('bookings.store'), [
                 'departure_id' => $departure->getKey(),
+                'pickup_type' => 'self',
                 'passengers' => [
-                    ['full_name' => 'Nguyễn An <script>', 'passenger_type' => 'adult'],
+                    ['full_name' => 'Nguyễn An <script>', 'passenger_type' => 'adult', 'id_card' => '012345678901'],
                     ['full_name' => 'Nguyễn Bình', 'passenger_type' => 'child', 'date_of_birth' => today()->addDay()->toDateString()],
                 ],
             ]);

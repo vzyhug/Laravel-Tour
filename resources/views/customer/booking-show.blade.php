@@ -64,7 +64,7 @@
                     </div>
                 </dl>
 
-                @if(!$booking->payment && $booking->status !== 'cancelled')
+                @if(!$booking->payment && in_array($booking->status, ['pending', 'confirmed'], true))
                     <a class="btn-primary mt-5 w-full" href="{{ route('payments.create', $booking) }}">Thanh toán ngay</a>
                 @endif
             </div>
@@ -155,7 +155,7 @@
             </div>
         @endif
 
-        @if(in_array($booking->status, ['confirmed', 'completed']))
+        @if($booking->status === 'completed' || ($booking->status === 'confirmed' && $booking->departure->return_date->isPast()))
             <form class="card mt-6 p-6" method="POST" action="{{ route('customer.bookings.review', $booking) }}">
                 @csrf
                 <h2 class="text-lg font-bold">Đánh giá chuyến đi</h2>
@@ -170,7 +170,8 @@
                     </label>
                     <label>
                         <span class="label">Chia sẻ trải nghiệm</span>
-                        <textarea class="field" name="feedback" rows="4" required></textarea>
+                        <textarea class="field" name="feedback" rows="4" minlength="5" maxlength="2000" required>{{ old('feedback') }}</textarea>
+                        @error('feedback')<p class="mt-2 text-xs text-red-700">{{ $message }}</p>@enderror
                     </label>
                     <button class="btn-primary">Gửi đánh giá</button>
                 </div>
