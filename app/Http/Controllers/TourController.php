@@ -47,7 +47,7 @@ class TourController extends Controller
             ->when($request->input('sort') === 'price_asc', fn ($q) => $q->orderBy('min_price'))
             ->orderBy('tour_id')->paginate(9)->withQueryString();
 
-        return view('tours.index', ['tours' => $tours, 'categories' => TourCategory::orderBy('category_name')->get()]);
+        return view('tours.index', ['tours' => $tours, 'categories' => TourCategory::orderBy('category_name')->get(), 'priceCeiling' => Tour::active()->max('min_price')]);
     }
 
     public function show(Tour $tour): View
@@ -62,6 +62,6 @@ class TourController extends Controller
     {
         $tours = $province->tours()->active()->with(['province', 'category', 'images'])->paginate(9);
 
-        return view('tours.index', ['tours' => $tours, 'categories' => TourCategory::orderBy('category_name')->get(), 'heading' => 'Tour tại '.$province->province_name]);
+        return view('tours.index', ['tours' => $tours, 'categories' => TourCategory::orderBy('category_name')->get(), 'priceCeiling' => Tour::active()->max('min_price'), 'heading' => 'Tour tại '.$province->province_name]);
     }
 }

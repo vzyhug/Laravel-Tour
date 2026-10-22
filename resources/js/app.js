@@ -37,26 +37,41 @@ document.querySelectorAll('[data-money]').forEach((input) => {
     formatMoney();
 });
 
-const tourFilters = document.getElementById('tour-filters');
-if (tourFilters) {
-    const minPrice = tourFilters.querySelector('[name="price_min"]');
-    const maxPrice = tourFilters.querySelector('[name="price_max"]');
-    const validatePrices = () => {
-        minPrice.setCustomValidity(minPrice.value.includes('-') ? 'Giá từ không được là số âm.' : '');
-        maxPrice.setCustomValidity(maxPrice.value.includes('-') ? 'Giá đến không được là số âm.' : '');
-        if (minPrice.value && maxPrice.value && !minPrice.value.includes('-') && !maxPrice.value.includes('-')) {
-            const min = Number(minPrice.value.replace(/\D/g, ''));
-            const max = Number(maxPrice.value.replace(/\D/g, ''));
-            if (min > max) { maxPrice.setCustomValidity('Giá đến phải lớn hơn hoặc bằng Giá từ.'); }
+document.querySelectorAll('[data-price-range]').forEach((range) => {
+    const minimum = range.querySelector('[data-price-min]');
+    const maximum = range.querySelector('[data-price-max]');
+    const ceiling = Number(maximum.max);
+    const update = (changed) => {
+        if (Number(minimum.value) > Number(maximum.value)) {
+            changed.value = changed === minimum ? maximum.value : minimum.value;
+        }
+        const min = Number(minimum.value);
+        const max = Number(maximum.value);
+        range.style.setProperty('--price-start', `${min / ceiling * 100}%`);
+        range.style.setProperty('--price-end', `${max / ceiling * 100}%`);
+        minimum.style.zIndex = min === ceiling ? '3' : '2';
+        for (const [input, value, label] of [[minimum, min, 'min'], [maximum, max, 'max']]) {
+            const formatted = value.toLocaleString('vi-VN') + '₫';
+            range.querySelector(`[data-price-${label}-label]`).textContent = formatted;
+            input.setAttribute('aria-valuetext', formatted);
+        }
+        if (changed) {
+            range.querySelector('[name="price_min"]').value = min || '';
+            range.querySelector('[name="price_max"]').value = max === ceiling ? '' : max;
         }
     };
-    [minPrice, maxPrice].forEach((input) => input.addEventListener('input', validatePrices));
-    tourFilters.addEventListener('submit', (event) => {
-        validatePrices();
-        if (!tourFilters.reportValidity()) { event.preventDefault(); }
+    [minimum, maximum].forEach((input) => {
+        input.addEventListener('input', () => update(input));
+        input.addEventListener('keydown', (event) => {
+            if (!['ArrowLeft', 'ArrowDown', 'ArrowRight', 'ArrowUp'].includes(event.key)) { return; }
+            event.preventDefault();
+            const direction = ['ArrowLeft', 'ArrowDown'].includes(event.key) ? -1 : 1;
+            input.value = Math.max(0, Math.min(ceiling, Number(input.value) + direction * 100000));
+            update(input);
+        });
     });
-    validatePrices();
-}
+    update();
+});
 
 document.querySelector('[data-sort-tours]')?.addEventListener('change', (event) => {
     event.target.form?.requestSubmit();
