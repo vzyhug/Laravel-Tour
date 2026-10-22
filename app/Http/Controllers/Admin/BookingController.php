@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Actions\ExpireBooking;
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
 use Illuminate\Http\RedirectResponse;
@@ -13,7 +14,7 @@ class BookingController extends Controller
 {
     // Admin chỉ được xác nhận và hoàn thành đơn, không được hủy đơn của khách
     private const TRANSITIONS = [
-        'pending'   => ['confirmed'],
+        'pending' => ['confirmed'],
         'confirmed' => ['completed'],
         'completed' => [],
         'cancelled' => [],
@@ -28,9 +29,9 @@ class BookingController extends Controller
             ->when($keyword !== '', function ($q) use ($keyword) {
                 $q->where(function ($w) use ($keyword) {
                     $w->where('booking_code', 'like', "%{$keyword}%")
-                      ->orWhereHas('customer', fn ($c) => $c
-                          ->where('full_name', 'like', "%{$keyword}%")
-                          ->orWhere('email', 'like', "%{$keyword}%"));
+                        ->orWhereHas('customer', fn ($c) => $c
+                            ->where('full_name', 'like', "%{$keyword}%")
+                            ->orWhere('email', 'like', "%{$keyword}%"));
                 });
             })
             ->orderByDesc('booking_date')
@@ -52,12 +53,17 @@ class BookingController extends Controller
 
     public function updateStatus(Request $request, Booking $booking): RedirectResponse
     {
+        app(ExpireBooking::class)->handle($booking);
         $data = $request->validate([
             'status' => ['required', 'in:confirmed,completed'],
         ]);
 
         $error = DB::transaction(function () use ($booking, $data) {
             $booking = Booking::with('departure')->lockForUpdate()->findOrFail($booking->getKey());
+
+            if ($booking->status === 'pending' && $booking->payment_expires_at?->isPast()) {
+                return 'Đơn đã hết hạn giữ chỗ, không thể xác nhận.';
+            }
 
             if (! in_array($data['status'], self::TRANSITIONS[$booking->status] ?? [], true)) {
                 return 'Không thể chuyển đơn sang trạng thái này.';
@@ -68,6 +74,7 @@ class BookingController extends Controller
             }
 
             $booking->update(['status' => $data['status']]);
+            $booking->recordEvent('admin_status_changed', ['status' => $data['status'], 'employee_id' => (int) session('employee_id')]);
 
             return null;
         });

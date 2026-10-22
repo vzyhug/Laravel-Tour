@@ -7,17 +7,17 @@
 
 @theme {
     --font-sans: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
-    --font-serif: 'Playfair Display', Georgia, serif;
-    --color-brand-50: #fcf0e9;
-    --color-brand-100: #ffdbce;
-    --color-brand-500: #b85a32;
-    --color-brand-600: #98421c;
-    --color-brand-700: #7c2e08;
-    --color-ink: #1d1b18;
-    --color-sand: #fff8f3;
-    --color-linen: #f3ede7;
-    --color-muted: #76675e;
-    --color-sage: #4e6358;
+    --font-serif: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+    --color-brand-50: #eef8ff;
+    --color-brand-100: #d1f0ff;
+    --color-brand-500: #0a9af2;
+    --color-brand-600: #006bb6;
+    --color-brand-700: #00518d;
+    --color-ink: #24313a;
+    --color-sand: #ffffff;
+    --color-linen: #f0f5f9;
+    --color-muted: #526570;
+    --color-sage: #167545;
 }
 
 @layer base {
@@ -27,32 +27,32 @@
     button, summary, select { cursor: pointer; }
     button:disabled { cursor: not-allowed; }
     input[type='radio'], input[type='checkbox'] { accent-color: var(--color-brand-600); }
-    ::selection { background: #ffdbce; color: #370e00; }
+    ::selection { background: #d1f0ff; color: #082c5c; }
     [hidden] { display: none !important; }
 }
 
 @layer components {
-    .container-page { @apply mx-auto w-full max-w-[1360px] px-5 sm:px-8 lg:px-14; }
+    .container-page { @apply mx-auto w-full max-w-[1280px] px-5 sm:px-8 lg:px-10; }
     .btn-primary { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-700 disabled:opacity-50; }
-    .btn-secondary { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#dccdc1] bg-white/70 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-500 hover:bg-brand-50 hover:text-brand-700; }
-    .field { @apply min-h-12 w-full rounded-lg border border-[#dfd4ca] bg-white px-4 py-3 text-sm text-ink placeholder:text-muted/70 focus:border-brand-500; }
+    .btn-secondary { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#d4dce2] bg-white/70 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-500 hover:bg-brand-50 hover:text-brand-700; }
+    .field { @apply min-h-12 w-full rounded-lg border border-[#d4dce2] bg-white px-4 py-3 text-sm text-ink placeholder:text-muted/70 focus:border-brand-500; }
     .label { @apply mb-2 block text-xs font-semibold tracking-wide text-muted; }
-    .card { @apply rounded-xl border border-[#e9dfd6] bg-white shadow-[0_3px_16px_rgba(58,40,25,0.025)]; }
+    .card { @apply rounded-xl border border-[#d4dce2] bg-white shadow-[0_3px_16px_rgba(58,40,25,0.025)]; }
     .badge { @apply inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-widest text-brand-700; }
     .eyebrow { @apply text-[10px] font-semibold uppercase leading-5 tracking-[0.2em] text-brand-600 sm:text-[11px]; }
     .section-title { @apply font-serif text-3xl font-normal leading-tight tracking-tight text-ink sm:text-[40px]; }
     .text-link { @apply inline-flex min-h-11 items-center gap-2 text-xs font-semibold text-brand-600 transition hover:text-brand-700; }
     .nav-link { @apply flex min-h-11 items-center rounded-lg px-3 py-2 text-xs font-medium text-muted transition hover:bg-linen hover:text-ink; }
     .nav-link-active { @apply bg-linen font-semibold text-ink; }
-    .icon-button { @apply inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-[#e5d9cf] bg-white/90 text-ink transition hover:border-brand-500 hover:text-brand-600; }
-    .tour-card { @apply relative flex h-full flex-col overflow-hidden rounded-xl border border-[#e8ded5] bg-white transition duration-300 hover:-translate-y-1 hover:shadow-lg; }
+    .icon-button { @apply inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-[#d4dce2] bg-white/90 text-ink transition hover:border-brand-500 hover:text-brand-600; }
+    .tour-card { @apply relative flex h-full flex-col overflow-hidden rounded-xl border border-[#d4dce2] bg-white transition duration-300 hover:-translate-y-1 hover:shadow-lg; }
     .tour-card-image { @apply relative aspect-[4/3] overflow-hidden bg-linen; }
     .tour-card-image img { @apply size-full object-cover transition duration-700 group-hover:scale-105; }
     .editorial-image { @apply relative isolate overflow-hidden rounded-xl bg-linen; }
     .editorial-image img { @apply absolute inset-0 -z-20 size-full object-cover transition duration-700; }
     .editorial-image::after { content: ''; @apply absolute inset-0 -z-10 bg-gradient-to-t from-black/80 via-black/15 to-transparent; }
-    .detail-section { @apply scroll-mt-32 border-b border-[#e5d9cf] py-9 first:pt-0 last:border-0; }
-    .itinerary-day { @apply rounded-xl border border-[#e7dcd1] bg-white; }
+    .detail-section { @apply scroll-mt-32 border-b border-[#d4dce2] py-9 first:pt-0 last:border-0; }
+    .itinerary-day { @apply rounded-xl border border-[#d4dce2] bg-white; }
     .itinerary-day summary { @apply flex min-h-20 list-none items-center gap-4 p-5; }
     .itinerary-day summary::-webkit-details-marker { display: none; }
     .itinerary-day[open] .itinerary-chevron { transform: rotate(180deg); }
@@ -63,6 +63,14 @@
     .step-complete { @apply bg-[#d1e8da] text-sage; }
     .travel-site h1, .travel-site h2, .travel-site h3 { text-wrap: pretty; }
 }
+
+.travel-site :where(h1, h2, h3) { font-weight: 700; }
+.travel-site :where([class~='text-[9px]'], [class~='text-[10px]'], [class~='text-[11px]']) { font-size: 12px; }
+.price-text { color: #b94700; }
+.ota-footer .text-muted, .ota-footer .text-brand-600 { color: #d1f0ff; }
+.demo-notice { background: #eef8ff; border-bottom: 1px solid #d4e6f4; color: #00518d; }
+.booking-timeline { display: grid; gap: 16px; }
+@media (min-width: 640px) { .booking-timeline { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }

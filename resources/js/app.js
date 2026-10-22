@@ -5,6 +5,45 @@ const closeMainMenu = () => {
     toggle?.setAttribute('aria-expanded', 'false');
 };
 
+document.querySelectorAll('[data-copy-coupon]').forEach((button) => {
+    button.addEventListener('click', async () => {
+        const status = document.querySelector('[data-copy-status]');
+        try {
+            await navigator.clipboard.writeText(button.dataset.copyCoupon);
+            status.textContent = `Đã sao chép ${button.dataset.copyCoupon}. Nhập mã tại bước đặt tour để kiểm tra điều kiện.`;
+        } catch {
+            status.textContent = `Bạn có thể nhập mã ${button.dataset.copyCoupon} tại bước đặt tour.`;
+        }
+    });
+});
+
+document.querySelectorAll('[data-payment-countdown]').forEach((timer) => {
+    const deadline = Date.parse(timer.dataset.paymentCountdown);
+    const offset = Date.parse(timer.dataset.serverNow) - Date.now();
+    const tick = () => {
+        const seconds = Math.max(0, Math.ceil((deadline - Date.now() - offset) / 1000));
+        timer.textContent = seconds > 0 ? `${Math.floor(seconds / 60)} phút ${seconds % 60} giây` : 'Đã hết hạn; vui lòng chọn lại lịch';
+        if (seconds === 0) {
+            document.querySelectorAll('button[form="payment-form"], #payment-form button').forEach((button) => { button.disabled = true; });
+        }
+    };
+    tick();
+    setInterval(tick, 1000);
+});
+
+document.addEventListener('submit', (event) => {
+    const form = event.target;
+    if (event.defaultPrevented || form.method.toLowerCase() !== 'post') { return; }
+    const buttons = [...form.querySelectorAll('button:not([type]), button[type="submit"]'),
+        ...document.querySelectorAll(`button[type="submit"][form="${form.id}"]`)];
+    buttons.forEach((button) => { button.disabled = true; button.dataset.submitting = 'true'; });
+    form.setAttribute('aria-busy', 'true');
+});
+window.addEventListener('pageshow', () => {
+    document.querySelectorAll('[data-submitting]').forEach((button) => { button.disabled = false; delete button.dataset.submitting; });
+    document.querySelectorAll('form[aria-busy]').forEach((form) => form.removeAttribute('aria-busy'));
+});
+
 document.addEventListener('click', (event) => {
     const toggle = event.target.closest('[data-menu-toggle]');
     if (toggle) {
@@ -101,6 +140,8 @@ if (bookingForm) {
         setText('[data-adult-total]', money(adults * adultPrice));
         setText('[data-child-total]', money(children * childPrice));
         setText('[data-booking-total]', money(Math.max(0, adults * adultPrice + children * childPrice - discount)));
+        const expected = bookingForm.querySelector('[name="expected_total"]');
+        if (expected) { expected.value = Math.max(0, adults * adultPrice + children * childPrice - discount); }
     };
     const resetCoupon = (message = '') => {
         discount = 0;

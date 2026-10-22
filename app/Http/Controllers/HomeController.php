@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Coupon;
 use App\Models\Province;
 use App\Models\Tour;
 use App\Models\TourCategory;
@@ -21,6 +22,10 @@ class HomeController extends Controller
             'tours' => $tours,
             'provinces' => Province::orderBy('province_name')->get(),
             'categories' => TourCategory::orderBy('category_name')->get(),
+            'coupons' => Coupon::where('is_active', true)
+                ->where(fn ($q) => $q->whereNull('starts_on')->orWhereDate('starts_on', '<=', today()))
+                ->where(fn ($q) => $q->whereNull('expires_on')->orWhereDate('expires_on', '>=', today()))
+                ->limit(4)->get(),
         ]);
     }
 }

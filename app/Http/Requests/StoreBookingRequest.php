@@ -17,6 +17,13 @@ class StoreBookingRequest extends FormRequest
     {
         return [
             'departure_id' => ['required', 'integer', 'exists:tour_departures,departure_id'],
+            'checkout_key' => ['required', 'uuid'],
+            'quote_token' => ['required', 'string', 'max:10000'],
+            'expected_total' => ['required', 'integer', 'min:0'],
+            'policy_accepted' => ['required', 'accepted'],
+            'contact_name' => ['required', 'string', 'max:100'],
+            'contact_email' => ['required', 'email', 'max:100'],
+            'contact_phone' => ['required', 'regex:/^(0|\+84)[0-9]{9}$/'],
             'passengers' => ['required', 'array', 'min:1', 'max:20'],
             'passengers.*' => ['array'],
             'passengers.*.full_name' => ['required', 'string', 'max:100'],

@@ -15,9 +15,12 @@
         <div class="mt-5 flex flex-wrap justify-between gap-4">
             <div>
                 <p class="text-sm text-slate-500">{{ $booking->booking_code }}</p>
-                <h1 class="text-3xl font-black text-ink">{{ $departure->tour->title }}</h1>
+                <h1 class="text-3xl font-black text-ink">{{ $booking->serviceValue('title', $departure->tour->title) }}</h1>
             </div>
             <div class="flex items-center gap-3">
+                @if(in_array($booking->status, ['confirmed', 'completed']) && $booking->payment?->status === 'completed')
+                    <a class="btn-primary" href="{{ route('customer.bookings.voucher', $booking) }}">Chứng từ tour demo</a>
+                @endif
                 <span class="badge h-fit">{{ $labels[$booking->status] ?? $booking->status }}</span>
                 @if($booking->bill)
                     <a class="btn-secondary" href="{{ route('customer.bookings.invoice', $booking) }}">Xem hóa đơn</a>
@@ -25,6 +28,10 @@
             </div>
         </div>
 
+        <x-booking-progress :booking="$booking" />
+        @if($booking->events->isNotEmpty())
+            <details class="card my-6 p-5"><summary class="cursor-pointer text-sm font-semibold">Lịch sử xử lý đơn</summary><ol class="mt-4 grid gap-3 text-sm">@foreach($booking->events as $event)<li><time class="mr-3 text-xs text-muted">{{ $event->occurred_at->copy()->timezone('Asia/Ho_Chi_Minh')->format('H:i d/m/Y') }} (UTC+7)</time>{{ ['held' => 'Đã giữ chỗ', 'hold_expired' => 'Hết hạn; đã giải phóng chỗ', 'payment_failed_demo' => 'Thanh toán mô phỏng thất bại', 'payment_captured_demo' => 'Đã nhận thanh toán mô phỏng', 'voucher_available_demo' => 'Chứng từ demo sẵn sàng', 'cancelled' => 'Đã hủy tour', 'refund_succeeded_demo' => 'Đã hoàn tiền mô phỏng', 'admin_status_changed' => 'Nhân viên cập nhật trạng thái'][$event->type] ?? 'Đã cập nhật đơn' }}</li>@endforeach</ol></details>
+        @endif
         <div class="mt-8 grid gap-6 md:grid-cols-2">
             <div class="card p-6">
                 <h2 class="text-lg font-bold">Thông tin chuyến đi</h2>
@@ -32,7 +39,7 @@
                     <div class="flex justify-between">
                         <dt>Khởi hành</dt>
                         <dd class="font-semibold">
-                            {{ $departure->departure_date->format('d/m/Y') }}@if($departure->time_label) · {{ $departure->time_label }}@endif
+                            {{ \Carbon\Carbon::parse($booking->serviceValue('departure_date', $departure->departure_date))->format('d/m/Y') }}@if($booking->serviceValue('departure_time', $departure->time_label)) · {{ $booking->serviceValue('departure_time', $departure->time_label) }}@endif
                         </dd>
                     </div>
                     <div class="flex justify-between">
@@ -48,7 +55,7 @@
                                     <span class="block text-xs font-normal text-slate-500">{{ $booking->pickup_note }}</span>
                                 @endif
                             @else
-                                Tự đến: {{ $departure->tour->pickup_point ?: 'điểm tập trung sẽ thông báo' }}
+                                Tự đến: {{ $booking->serviceValue('pickup_point', $departure->tour->pickup_point) ?: 'điểm tập trung sẽ thông báo' }}
                             @endif
                         </dd>
                     </div>
@@ -127,7 +134,7 @@
                         @endif
                     </p>
                     <p class="mt-1 text-xs text-slate-500">
-                        Hủy trong {{ config('booking.full_refund_hours') }} giờ sau khi đặt được hoàn 100%, sau đó hoàn {{ config('booking.partial_refund_percent') }}%.
+                        Hủy trong {{ $booking->policyValue('full_refund_hours') }} giờ sau khi đặt được hoàn 100%, sau đó hoàn {{ $booking->policyValue('partial_refund_percent') }}%.
                     </p>
 
                     <form class="mt-4 grid gap-4" method="POST" action="{{ route('customer.bookings.cancel', $booking) }}"

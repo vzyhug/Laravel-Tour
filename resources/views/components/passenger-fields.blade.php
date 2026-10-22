@@ -1,5 +1,5 @@
 @props(['index', 'passenger' => []])
-<fieldset class="relative grid gap-4 rounded-xl border border-[#e5d9cf] bg-white p-5 sm:grid-cols-2 sm:p-6" data-passenger>
+<fieldset class="relative grid gap-4 rounded-xl border border-[#d4dce2] bg-white p-5 sm:grid-cols-2 sm:p-6" data-passenger>
     <legend class="px-2 font-serif text-lg">Hành khách <span data-number>{{ is_numeric($index) ? $index + 1 : '' }}</span></legend>
     <button type="button" data-remove class="absolute right-4 top-1 flex min-h-11 items-center gap-1 text-[10px] font-semibold text-brand-600"><x-icon name="close" class="size-3.5"/> Xóa</button>
     <label class="sm:col-span-2"><span class="label">Họ và tên <span class="text-brand-600">*</span></span><input class="field" data-name="full_name" name="passengers[{{ $index }}][full_name]" value="{{ $passenger['full_name'] ?? '' }}" placeholder="Nhập đúng như CCCD / Hộ chiếu" maxlength="100" required>@error('passengers.'.$index.'.full_name')<span class="mt-2 block text-xs text-red-700">{{ $message }}</span>@enderror</label>

@@ -9,7 +9,9 @@ use App\Models\Employee;
 use App\Models\Payment;
 use App\Models\Tour;
 use App\Models\TourDeparture;
+use App\Services\TourQuote;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Str;
 use Tests\TestCase;
 
 class BranchIntegrationTest extends TestCase
@@ -46,6 +48,7 @@ class BranchIntegrationTest extends TestCase
         $payload['passengers'][] = ['full_name' => 'Nguyễn Chi', 'passenger_type' => 'child', 'date_of_birth' => today()->subYears(7)->toDateString()];
         $payload += ['coupon_code' => ' welcome10 ', 'pickup_address' => '123 Đường Mới', 'pickup_note' => 'Liên hệ trước khi đón'];
         $payload['pickup_type'] = 'door';
+        $payload['expected_total'] = 2300000;
         $response = $this->post(route('bookings.store'), $payload);
 
         $booking = $customer->bookings()->firstOrFail();
@@ -85,9 +88,11 @@ class BranchIntegrationTest extends TestCase
         $coupon = $this->coupon(['usage_limit' => 1]);
         $this->withSession(['customer_id' => $customer->getKey()]);
         $payload = $this->bookingPayload($departure) + ['coupon_code' => $coupon->code];
+        $payload['expected_total'] = 900000;
         $this->post(route('bookings.store'), $payload)->assertSessionHasNoErrors();
         $booking = $customer->bookings()->firstOrFail();
         $seats = $departure->fresh()->available_seats;
+        $payload['checkout_key'] = (string) Str::uuid();
         $this->post(route('bookings.store'), $payload)->assertSessionHasErrors('coupon_code');
         $this->assertSame($seats, $departure->fresh()->available_seats);
         $this->withSession(['customer_id' => $otherCustomer->getKey()])
@@ -247,6 +252,10 @@ class BranchIntegrationTest extends TestCase
     {
         return [
             'departure_id' => $departure->getKey(), 'pickup_type' => 'self',
+            'checkout_key' => (string) Str::uuid(),
+            'quote_token' => app(TourQuote::class)->issue($departure->fresh(), (int) session('customer_id')),
+            'expected_total' => (int) $departure->adult_price, 'policy_accepted' => '1',
+            'contact_name' => 'Test Contact', 'contact_email' => 'contact@example.test', 'contact_phone' => '0901234567',
             'passengers' => [['full_name' => 'Nguyễn An', 'passenger_type' => 'adult', 'id_card' => '012345678901']],
         ];
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\ExpireBooking;
 use App\Models\Booking;
 use App\Models\Customer;
 use App\Models\Review;
@@ -54,6 +55,8 @@ class CustomerDashboardController extends Controller
     public function show(Booking $booking): View
     {
         $this->owned($booking);
+        app(ExpireBooking::class)->handle($booking);
+        $booking->refresh();
 
         return view('customer.booking-show', ['booking' => $booking->load(['departure.tour', 'passengers', 'payment', 'bill'])]);
     }
@@ -69,6 +72,14 @@ class CustomerDashboardController extends Controller
     public function profile(): View
     {
         return view('customer.profile', ['customer' => $this->customer()]);
+    }
+
+    public function voucher(Booking $booking): View
+    {
+        $this->owned($booking);
+        abort_unless(in_array($booking->status, ['confirmed', 'completed'], true) && $booking->payment?->status === 'completed', 404);
+
+        return view('customer.voucher', ['booking' => $booking->load('departure.tour', 'passengers')]);
     }
 
     public function updateProfile(Request $request): RedirectResponse
@@ -121,6 +132,7 @@ class CustomerDashboardController extends Controller
     public function cancel(Request $request, Booking $booking): RedirectResponse
     {
         $this->owned($booking);
+        app(ExpireBooking::class)->handle($booking);
 
         $data = $request->validate(
             ['cancel_reason' => ['required', 'string', 'max:255']],
@@ -164,6 +176,10 @@ class CustomerDashboardController extends Controller
                 'refund_percent' => $percent,
                 'refund_amount' => $refund,
             ]);
+            $booking->recordEvent('cancelled', ['released_seats' => $booking->total_adults + $booking->total_children, 'customer_id' => $booking->customer_id]);
+            if ($refund !== null) {
+                $booking->recordEvent('refund_succeeded_demo', ['amount_vnd' => (int) $refund, 'percent' => $percent]);
+            }
 
             return null;
         });

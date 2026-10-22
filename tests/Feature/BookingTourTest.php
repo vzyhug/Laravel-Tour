@@ -7,8 +7,10 @@ use App\Models\Province;
 use App\Models\Tour;
 use App\Models\TourCategory;
 use App\Models\TourDeparture;
+use App\Services\TourQuote;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Tests\TestCase;
 
 class BookingTourTest extends TestCase
@@ -30,6 +32,10 @@ class BookingTourTest extends TestCase
 
         $response = $this->withSession(['customer_id' => $customer->getKey()])->post(route('bookings.store'), [
             'departure_id' => $departure->getKey(),
+            'checkout_key' => (string) Str::uuid(),
+            'quote_token' => app(TourQuote::class)->issue($departure, $customer->getKey()),
+            'expected_total' => 1500000, 'policy_accepted' => '1',
+            'contact_name' => 'Test Customer', 'contact_email' => 'contact@example.test', 'contact_phone' => '0901234567',
             'pickup_type' => 'self',
             'passengers' => [
                 ['full_name' => 'Nguyễn Văn A', 'passenger_type' => 'adult', 'id_card' => '012345678901'],

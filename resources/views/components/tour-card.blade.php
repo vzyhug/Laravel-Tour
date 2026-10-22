@@ -5,7 +5,7 @@
     $reviewCount = $tour->review_total;
 @endphp
 <article class="tour-card group">
-    <a href="{{ route('tours.show', $tour) }}" class="tour-card-image block" tabindex="-1" aria-hidden="true">
+    <a href="{{ route('tours.show', ['tour' => $tour, ...request()->only('departure_date', 'guests')]) }}" class="tour-card-image block" tabindex="-1" aria-hidden="true">
         @if($tour->thumbnail_url)<img src="{{ $tour->thumbnail_url }}" alt="" loading="lazy">@endif
         <span class="absolute left-4 top-4 rounded-full bg-sand/95 px-3 py-1.5 text-[10px] font-semibold">{{ $tour->duration_days }} ngày · {{ $tour->duration_nights }} đêm</span>
         @if($reviewCount > 0)<span class="absolute bottom-4 left-4 flex items-center gap-1.5 rounded-full bg-sand/95 px-2.5 py-1.5 text-[10px]"><x-icon name="star" class="size-3.5 fill-brand-500 text-brand-500"/><strong>{{ number_format($tour->average_rating, 1) }}</strong><span class="text-muted">({{ $reviewCount }} đánh giá)</span></span>@endif
@@ -17,8 +17,8 @@
     @endif
     <div class="flex flex-1 flex-col p-5 sm:p-6">
         <p class="eyebrow text-[9px] text-sage">{{ $tour->province->province_name }} · {{ $tour->category->category_name }}</p>
-        <h3 class="mt-2 font-serif text-[22px] leading-snug"><a href="{{ route('tours.show', $tour) }}" class="transition hover:text-brand-600">{{ $tour->title }}</a></h3>
+        <h3 class="mt-2 font-serif text-[22px] leading-snug"><a href="{{ route('tours.show', ['tour' => $tour, ...request()->only('departure_date', 'guests')]) }}" class="transition hover:text-brand-600">{{ $tour->title }}</a></h3>
         <p class="mt-3 line-clamp-2 text-xs leading-6 text-muted">{{ $tour->description }}</p>
-        <div class="mt-5 flex flex-1 items-end"><div class="flex w-full items-end justify-between gap-3 border-t border-[#eee5dd] pt-5"><div><span class="block text-[9px] uppercase tracking-widest text-muted">Giá từ / người lớn</span><strong class="mt-1 block font-serif text-xl font-medium">{{ number_format($tour->min_price, 0, ',', '.') }}₫</strong></div><a href="{{ route('tours.show', $tour) }}" class="inline-flex min-h-11 items-center gap-1.5 rounded-lg bg-linen px-3 text-[10px] font-semibold transition hover:bg-brand-600 hover:text-white">Xem tour <x-icon name="arrow-up" class="size-3.5"/></a></div></div>
+        <div class="mt-5 flex flex-1 items-end"><div class="flex w-full items-end justify-between gap-3 border-t border-[#eee5dd] pt-5"><div><span class="block text-[9px] uppercase tracking-widest text-muted">Giá từ / người lớn</span><strong class="price-text mt-1 block font-serif text-xl font-bold">{{ number_format($tour->min_price, 0, ',', '.') }}₫</strong></div><a href="{{ route('tours.show', ['tour' => $tour, ...request()->only('departure_date', 'guests')]) }}" class="inline-flex min-h-11 items-center gap-1.5 rounded-lg bg-linen px-3 text-[10px] font-semibold transition hover:bg-brand-600 hover:text-white">Xem tour <x-icon name="arrow-up" class="size-3.5"/></a></div></div>
     </div>
 </article>

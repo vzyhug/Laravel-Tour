@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'quote_minutes' => 10,
+    'payment_minutes' => 15,
     // Khách chỉ được hủy khi còn cách ngày khởi hành tối thiểu số ngày này
     'cancel_before_days' => 5,
 

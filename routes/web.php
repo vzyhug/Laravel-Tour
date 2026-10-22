@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\BookingController as AdminBookingController;
+use App\Http\Controllers\Admin\CouponController as AdminCouponController;
 use App\Http\Controllers\Admin\CustomerController as AdminCustomerController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\DepartureController as AdminDepartureController;
@@ -8,18 +10,17 @@ use App\Http\Controllers\Admin\EmployeeController as AdminEmployeeController;
 use App\Http\Controllers\Admin\PaymentController as AdminPaymentController;
 use App\Http\Controllers\Admin\ProvinceController as AdminProvinceController;
 use App\Http\Controllers\Admin\TourController as AdminTourController;
-use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CustomerDashboardController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TourController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\CouponController as AdminCouponController;
-use App\Http\Controllers\Admin\BookingController as AdminBookingController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::view('/support', 'support')->name('support');
 Route::get('/tours', [TourController::class, 'index'])->name('tours.index');
 Route::get('/tours/{tour}', [TourController::class, 'show'])->name('tours.show');
 Route::get('/provinces/{province}/tours', [TourController::class, 'province'])->name('provinces.tours');
@@ -43,11 +44,12 @@ Route::middleware('customer.auth')->group(function () {
     Route::put('/account/profile', [CustomerDashboardController::class, 'updateProfile'])->name('customer.profile.update');
     Route::get('/account/bookings/{booking}', [CustomerDashboardController::class, 'show'])->name('customer.bookings.show');
     Route::get('/account/bookings/{booking}/invoice', [CustomerDashboardController::class, 'invoice'])->name('customer.bookings.invoice');
+    Route::get('/account/bookings/{booking}/voucher', [CustomerDashboardController::class, 'voucher'])->name('customer.bookings.voucher');
     Route::post('/account/bookings/{booking}/review', [CustomerDashboardController::class, 'review'])->name('customer.bookings.review');
     Route::post('/account/bookings/{booking}/cancel', [CustomerDashboardController::class, 'cancel'])->name('customer.bookings.cancel');
     Route::get('/account/favorites', [FavoriteController::class, 'index'])->name('favorites.index');
     Route::post('/favorites/{tour}', [FavoriteController::class, 'toggle'])->name('favorites.toggle');
-    });
+});
 
 Route::prefix('admin')->name('admin.')->group(function () {
 

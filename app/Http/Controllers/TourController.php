@@ -13,6 +13,11 @@ class TourController extends Controller
 {
     public function index(Request $request): View|RedirectResponse
     {
+        $request->validate([
+            'departure_date' => ['nullable', 'date_format:Y-m-d', 'after_or_equal:today'],
+            'guests' => ['nullable', 'integer', 'between:1,20'],
+            'province' => ['nullable', 'integer', 'exists:provinces,province_id'],
+        ]);
         $rawMin = (string) $request->input('price_min');
         $rawMax = (string) $request->input('price_max');
 
@@ -40,6 +45,11 @@ class TourController extends Controller
             ->when($request->filled('q'), fn ($q) => $q->where('title', 'like', '%'.$request->string('q')->trim().'%'))
             ->when($request->filled('region'), fn ($q) => $q->whereHas('province', fn ($p) => $p->where('region', $request->string('region'))))
             ->when($request->filled('category'), fn ($q) => $q->where('category_id', $request->integer('category')))
+            ->when($request->filled('province'), fn ($q) => $q->where('province_id', $request->integer('province')))
+            ->when($request->filled('departure_date') || $request->filled('guests'), fn ($q) => $q->whereHas('departures', fn ($departure) => $departure
+                ->where('status', 'open')->whereDate('departure_date', '>=', today())
+                ->when($request->filled('departure_date'), fn ($d) => $d->whereDate('departure_date', $request->input('departure_date')))
+                ->where('available_seats', '>=', $request->integer('guests', 1))))
             ->when($min !== '', fn ($q) => $q->where('min_price', '>=', (int) $min))
             ->when($max !== '', fn ($q) => $q->where('min_price', '<=', (int) $max))
             ->when($request->filled('days'), fn ($q) => $q->where('duration_days', '<=', $request->integer('days')))
@@ -50,18 +60,26 @@ class TourController extends Controller
         return view('tours.index', ['tours' => $tours, 'categories' => TourCategory::orderBy('category_name')->get(), 'sort' => $sort]);
     }
 
-    public function show(Tour $tour): View
+    public function show(Request $request, Tour $tour): View
     {
+        $request->validate([
+            'departure_date' => ['nullable', 'date_format:Y-m-d', 'after_or_equal:today'],
+            'guests' => ['nullable', 'integer', 'between:1,20'],
+        ]);
         abort_unless($tour->is_active, 404);
-        $tour->load(['province', 'category', 'images', 'schedules', 'reviews.customer', 'departures' => fn ($q) => $q->where('status', 'open')->whereDate('departure_date', '>=', today())->orderBy('departure_date')]);
+        $tour->load(['province', 'category', 'images', 'schedules', 'reviews.customer', 'departures' => fn ($q) => $q->where('status', 'open')->whereDate('departure_date', '>=', today())
+            ->where('available_seats', '>=', $request->integer('guests', 1))
+            ->when($request->filled('departure_date'), fn ($d) => $d->whereDate('departure_date', $request->input('departure_date')))
+            ->orderBy('departure_date')]);
 
         return view('tours.show', ['tour' => $tour]);
     }
 
-    public function province(Province $province): View
+    public function province(Request $request, Province $province): View|RedirectResponse
     {
-        $tours = $province->tours()->active()->with(['province', 'category', 'images'])->paginate(9);
+        $request->merge(['province' => $province->getKey()]);
+        $response = $this->index($request);
 
-        return view('tours.index', ['tours' => $tours, 'categories' => TourCategory::orderBy('category_name')->get(), 'heading' => 'Tour tại '.$province->province_name]);
+        return $response instanceof View ? $response->with('heading', 'Tour tại '.$province->province_name) : $response;
     }
 }

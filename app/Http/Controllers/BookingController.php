@@ -3,26 +3,39 @@
 namespace App\Http\Controllers;
 
 use App\Actions\CreateBooking;
+use App\Actions\ExpireBooking;
 use App\Http\Requests\StoreBookingRequest;
 use App\Models\Coupon;
+use App\Models\Customer;
 use App\Models\TourDeparture;
+use App\Services\TourQuote;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class BookingController extends Controller
 {
-        public function create(TourDeparture $departure): View
+    public function create(Request $request, TourDeparture $departure): View
     {
-        abort_unless($departure->status === 'open' && $departure->available_seats > 0, 404);
+        $request->validate(['guests' => ['nullable', 'integer', 'between:1,20']]);
+        app(ExpireBooking::class)->forDeparture($departure->getKey());
+        $departure->refresh()->load('tour.images');
+        abort_unless($departure->tour->is_active && $departure->departure_date->gte(today()) && $departure->status === 'open' && $departure->available_seats > 0, 404);
+        abort_if($request->integer('guests', 1) > $departure->available_seats, 409, 'Lịch khởi hành không còn đủ chỗ cho nhóm khách này.');
 
         $customerId = (int) session('customer_id');
         $coupons = Coupon::all()
             ->filter(fn (Coupon $coupon) => $coupon->check($customerId, (float) $coupon->min_order) === null)
             ->values();
 
-        return view('booking.create', ['departure' => $departure->load('tour.images'), 'coupons' => $coupons]);
+        return view('booking.create', [
+            'departure' => $departure, 'coupons' => $coupons,
+            'customer' => Customer::findOrFail($customerId),
+            'quoteToken' => app(TourQuote::class)->issue($departure, $customerId),
+            'checkoutKey' => old('checkout_key', (string) Str::uuid()),
+        ]);
     }
 
     public function store(StoreBookingRequest $request, CreateBooking $createBooking): RedirectResponse
