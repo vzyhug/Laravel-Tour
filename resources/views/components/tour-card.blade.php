@@ -1,35 +1,24 @@
 @props(['tour'])
-<article class="card group relative overflow-hidden transition hover:-translate-y-1 hover:shadow-lg">
-    @php
-        $liked = session('customer_id') && \Illuminate\Support\Facades\DB::table('favorites')
-            ->where('customer_id', session('customer_id'))
-            ->where('tour_id', $tour->getKey())
-            ->exists();
-    @endphp
-    @if (session('customer_id'))
-        <form method="POST" action="{{ route('favorites.toggle', $tour) }}" style="position:absolute;top:1rem;right:1rem;z-index:10">
-            @csrf
-            <button type="submit" aria-label="Yêu thích" style="width:2.25rem;height:2.25rem;border-radius:9999px;background:rgba(255,255,255,.9);font-size:1.25rem;line-height:1;color:{{ $liked ? '#e11d48' : '#64748b' }}">{{ $liked ? '♥' : '♡' }}</button>
-        </form>
-    @else
-        <a href="{{ route('login') }}" aria-label="Đăng nhập để lưu tour" style="position:absolute;top:1rem;right:1rem;z-index:10;display:grid;place-items:center;width:2.25rem;height:2.25rem;border-radius:9999px;background:rgba(255,255,255,.9);font-size:1.25rem;color:#64748b">♡</a>
-    @endif
-    <a href="{{ route('tours.show', $tour) }}" class="block">
-        <div class="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-brand-100 via-cyan-100 to-amber-100">
-            @if ($tour->thumbnail_url)
-                <img src="{{ $tour->thumbnail_url }}" alt="{{ $tour->title }}" class="size-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
-            @endif
-            <span class="badge absolute left-4 top-4 bg-white/90">{{ $tour->category->category_name }}</span>
-        </div>
-        <div class="grid gap-3 p-5">
-            <p class="text-sm font-semibold text-brand-700">{{ $tour->province->province_name }} · {{ $tour->duration_days }}N{{ $tour->duration_nights }}Đ</p>
-            <h3 class="line-clamp-2 text-lg font-bold text-slate-900 group-hover:text-brand-700">{{ $tour->title }}</h3>
-            @if ($tour->review_total > 0)
-                <p class="text-sm font-semibold text-amber-600">★ {{ number_format($tour->average_rating, 1) }} <span class="font-normal text-slate-500">({{ $tour->review_total }} đánh giá)</span></p>
-            @else
-                <p class="text-sm text-slate-400">Chưa có đánh giá</p>
-            @endif
-            <div class="flex items-end justify-between gap-3 border-t border-slate-100 pt-3"><span class="text-sm text-slate-500">Từ</span><strong class="text-xl text-orange-600">{{ number_format($tour->min_price, 0, ',', '.') }}₫</strong></div>
-        </div>
+@php
+    $liked = session('customer_id') && \Illuminate\Support\Facades\DB::table('favorites')
+        ->where('customer_id', session('customer_id'))->where('tour_id', $tour->getKey())->exists();
+    $reviewCount = $tour->review_total;
+@endphp
+<article class="tour-card group">
+    <a href="{{ route('tours.show', $tour) }}" class="tour-card-image block" tabindex="-1" aria-hidden="true">
+        @if($tour->thumbnail_url)<img src="{{ $tour->thumbnail_url }}" alt="" loading="lazy">@endif
+        <span class="absolute left-4 top-4 rounded-full bg-sand/95 px-3 py-1.5 text-[10px] font-semibold">{{ $tour->duration_days }} ngày · {{ $tour->duration_nights }} đêm</span>
+        @if($reviewCount > 0)<span class="absolute bottom-4 left-4 flex items-center gap-1.5 rounded-full bg-sand/95 px-2.5 py-1.5 text-[10px]"><x-icon name="star" class="size-3.5 fill-brand-500 text-brand-500"/><strong>{{ number_format($tour->average_rating, 1) }}</strong><span class="text-muted">({{ $reviewCount }} đánh giá)</span></span>@endif
     </a>
+    @if(session('customer_id'))
+        <form method="POST" action="{{ route('favorites.toggle', $tour) }}" class="absolute right-3 top-3 z-10">@csrf<button type="submit" @class(['icon-button size-10 border-0', 'text-brand-600' => $liked]) aria-label="{{ $liked ? 'Bỏ lưu tour' : 'Lưu tour yêu thích' }}" aria-pressed="{{ $liked ? 'true' : 'false' }}"><x-icon name="bookmark" class="size-4 {{ $liked ? 'fill-brand-100' : '' }}"/></button></form>
+    @else
+        <a href="{{ route('login') }}" class="icon-button absolute right-3 top-3 z-10 size-10 border-0" aria-label="Đăng nhập để lưu tour"><x-icon name="bookmark" class="size-4"/></a>
+    @endif
+    <div class="flex flex-1 flex-col p-5 sm:p-6">
+        <p class="eyebrow text-[9px] text-sage">{{ $tour->province->province_name }} · {{ $tour->category->category_name }}</p>
+        <h3 class="mt-2 font-serif text-[22px] leading-snug"><a href="{{ route('tours.show', $tour) }}" class="transition hover:text-brand-600">{{ $tour->title }}</a></h3>
+        <p class="mt-3 line-clamp-2 text-xs leading-6 text-muted">{{ $tour->description }}</p>
+        <div class="mt-5 flex flex-1 items-end"><div class="flex w-full items-end justify-between gap-3 border-t border-[#eee5dd] pt-5"><div><span class="block text-[9px] uppercase tracking-widest text-muted">Giá từ / người lớn</span><strong class="mt-1 block font-serif text-xl font-medium">{{ number_format($tour->min_price, 0, ',', '.') }}₫</strong></div><a href="{{ route('tours.show', $tour) }}" class="inline-flex min-h-11 items-center gap-1.5 rounded-lg bg-linen px-3 text-[10px] font-semibold transition hover:bg-brand-600 hover:text-white">Xem tour <x-icon name="arrow-up" class="size-3.5"/></a></div></div>
+    </div>
 </article>

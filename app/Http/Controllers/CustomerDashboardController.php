@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Models\Customer;
 use App\Models\Review;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -22,11 +23,30 @@ class CustomerDashboardController extends Controller
         abort_unless($booking->customer_id === (int) session('customer_id'), 403);
     }
 
-    public function index(): View
+    public function index(Request $request): View
     {
-        $bookings = $this->customer()->bookings()->with(['departure.tour.images', 'payment'])->orderByDesc('booking_date')->paginate(8);
+        $customer = $this->customer();
+        $tab = in_array($request->input('tab'), ['upcoming', 'saved', 'history'], true)
+            ? $request->input('tab') : 'upcoming';
+        $upcomingBookings = $customer->bookings()->whereIn('status', ['pending', 'confirmed'])
+            ->whereHas('departure', fn (Builder $query) => $query->whereDate('return_date', '>=', today()));
+        $historyBookings = $customer->bookings()->where(function (Builder $query): void {
+            $query->whereNotIn('status', ['pending', 'confirmed'])
+                ->orWhereHas('departure', fn (Builder $departureQuery) => $departureQuery->whereDate('return_date', '<', today()));
+        });
+        $summary = [
+            'upcoming' => (clone $upcomingBookings)->count(),
+            'completed' => $customer->bookings()->where('status', 'completed')->count(),
+            'history' => (clone $historyBookings)->count(),
+            'saved' => $customer->favoriteTours()->active()->count(),
+            'total' => $customer->bookings()->count(),
+        ];
+        $bookings = ($tab === 'history' ? $historyBookings : $upcomingBookings)
+            ->with(['departure.tour.images', 'departure.guide', 'payment', 'bill'])
+            ->withCount('passengers')->orderByDesc('booking_date')->paginate(8)->withQueryString();
+        $favoriteTours = $customer->favoriteTours()->active()->with(['province', 'category', 'images'])->limit(6)->get();
 
-        return view('customer.dashboard', compact('bookings'));
+        return view('customer.dashboard', compact('customer', 'tab', 'summary', 'bookings', 'favoriteTours'));
     }
 
     public function show(Booking $booking): View

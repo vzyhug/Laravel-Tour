@@ -1,31 +1,70 @@
 @import 'tailwindcss';
+@import '../../public/fonts/fonts.css';
 
 @source '../views/**/*.blade.php';
 @source '../js/**/*.js';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
 
 @theme {
-    --font-sans: 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
-    --color-brand-50: #effcf9;
-    --color-brand-100: #d6f5ed;
-    --color-brand-500: #0d9488;
-    --color-brand-600: #0f766e;
-    --color-brand-700: #115e59;
-    --color-ink: #102a2a;
+    --font-sans: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --color-brand-50: #fcf0e9;
+    --color-brand-100: #ffdbce;
+    --color-brand-500: #b85a32;
+    --color-brand-600: #98421c;
+    --color-brand-700: #7c2e08;
+    --color-ink: #1d1b18;
+    --color-sand: #fff8f3;
+    --color-linen: #f3ede7;
+    --color-muted: #76675e;
+    --color-sage: #4e6358;
 }
 
 @layer base {
-    body { @apply bg-slate-50 text-slate-800 antialiased; }
-    button, a, input, select, textarea { @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2; }
+    html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
+    body { @apply bg-sand text-ink antialiased; }
+    button, a, input, select, textarea, summary { @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2; }
+    button, summary, select { cursor: pointer; }
+    button:disabled { cursor: not-allowed; }
+    input[type='radio'], input[type='checkbox'] { accent-color: var(--color-brand-600); }
+    ::selection { background: #ffdbce; color: #370e00; }
+    [hidden] { display: none !important; }
 }
 
 @layer components {
-    .container-page { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
-    .btn-primary { @apply inline-flex min-h-11 items-center justify-center rounded-xl bg-brand-600 px-5 py-2.5 font-semibold text-white shadow-sm transition hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-50; }
-    .btn-secondary { @apply inline-flex min-h-11 items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-2.5 font-semibold text-slate-700 transition hover:border-brand-500 hover:text-brand-700; }
-    .field { @apply w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-brand-500; }
-    .label { @apply mb-1.5 block text-sm font-semibold text-slate-700; }
-    .card { @apply rounded-2xl border border-slate-200 bg-white shadow-sm; }
-    .badge { @apply inline-flex items-center rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700; }
+    .container-page { @apply mx-auto w-full max-w-[1360px] px-5 sm:px-8 lg:px-14; }
+    .btn-primary { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-700 disabled:opacity-50; }
+    .btn-secondary { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#dccdc1] bg-white/70 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-500 hover:bg-brand-50 hover:text-brand-700; }
+    .field { @apply min-h-12 w-full rounded-lg border border-[#dfd4ca] bg-white px-4 py-3 text-sm text-ink placeholder:text-muted/70 focus:border-brand-500; }
+    .label { @apply mb-2 block text-xs font-semibold tracking-wide text-muted; }
+    .card { @apply rounded-xl border border-[#e9dfd6] bg-white shadow-[0_3px_16px_rgba(58,40,25,0.025)]; }
+    .badge { @apply inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-widest text-brand-700; }
+    .eyebrow { @apply text-[10px] font-semibold uppercase leading-5 tracking-[0.2em] text-brand-600 sm:text-[11px]; }
+    .section-title { @apply font-serif text-3xl font-normal leading-tight tracking-tight text-ink sm:text-[40px]; }
+    .text-link { @apply inline-flex min-h-11 items-center gap-2 text-xs font-semibold text-brand-600 transition hover:text-brand-700; }
+    .nav-link { @apply flex min-h-11 items-center rounded-lg px-3 py-2 text-xs font-medium text-muted transition hover:bg-linen hover:text-ink; }
+    .nav-link-active { @apply bg-linen font-semibold text-ink; }
+    .icon-button { @apply inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-[#e5d9cf] bg-white/90 text-ink transition hover:border-brand-500 hover:text-brand-600; }
+    .tour-card { @apply relative flex h-full flex-col overflow-hidden rounded-xl border border-[#e8ded5] bg-white transition duration-300 hover:-translate-y-1 hover:shadow-lg; }
+    .tour-card-image { @apply relative aspect-[4/3] overflow-hidden bg-linen; }
+    .tour-card-image img { @apply size-full object-cover transition duration-700 group-hover:scale-105; }
+    .editorial-image { @apply relative isolate overflow-hidden rounded-xl bg-linen; }
+    .editorial-image img { @apply absolute inset-0 -z-20 size-full object-cover transition duration-700; }
+    .editorial-image::after { content: ''; @apply absolute inset-0 -z-10 bg-gradient-to-t from-black/80 via-black/15 to-transparent; }
+    .detail-section { @apply scroll-mt-32 border-b border-[#e5d9cf] py-9 first:pt-0 last:border-0; }
+    .itinerary-day { @apply rounded-xl border border-[#e7dcd1] bg-white; }
+    .itinerary-day summary { @apply flex min-h-20 list-none items-center gap-4 p-5; }
+    .itinerary-day summary::-webkit-details-marker { display: none; }
+    .itinerary-day[open] .itinerary-chevron { transform: rotate(180deg); }
+    .account-tab { @apply inline-flex min-h-11 items-center gap-2 rounded-lg px-4 py-2.5 text-xs font-semibold text-muted transition hover:bg-white/60; }
+    .account-tab[aria-current='page'] { @apply bg-white text-ink shadow-sm; }
+    .step-dot { @apply grid size-7 shrink-0 place-items-center rounded-full bg-linen text-xs font-semibold text-muted; }
+    .step-current { @apply bg-brand-600 text-white; }
+    .step-complete { @apply bg-[#d1e8da] text-sage; }
+    .travel-site h1, .travel-site h2, .travel-site h3 { text-wrap: pretty; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }

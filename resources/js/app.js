@@ -1,9 +1,104 @@
+const closeMainMenu = () => {
+    const toggle = document.querySelector('[data-menu-toggle]');
+    const menu = toggle && document.getElementById(toggle.dataset.menuToggle);
+    menu?.classList.add('hidden');
+    toggle?.setAttribute('aria-expanded', 'false');
+};
+
 document.addEventListener('click', (event) => {
     const toggle = event.target.closest('[data-menu-toggle]');
     if (toggle) {
         const menu = document.getElementById(toggle.dataset.menuToggle);
         const expanded = toggle.getAttribute('aria-expanded') === 'true';
-        menu?.classList.toggle('hidden');
+        menu?.classList.toggle('hidden', expanded);
         toggle.setAttribute('aria-expanded', String(!expanded));
+        return;
+    }
+    if (event.target.closest('#main-menu a') || !event.target.closest('header')) {
+        closeMainMenu();
     }
 });
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        const toggle = document.querySelector('[data-menu-toggle][aria-expanded="true"]');
+        closeMainMenu();
+        toggle?.focus();
+    }
+});
+
+document.querySelectorAll('[data-money]').forEach((input) => {
+    const formatMoney = () => {
+        const digits = input.value.replace(/\D/g, '');
+        input.value = digits === '' ? '' : Number(digits).toLocaleString('vi-VN');
+    };
+    input.addEventListener('input', formatMoney);
+    formatMoney();
+});
+
+document.querySelector('[data-sort-tours]')?.addEventListener('change', (event) => {
+    event.target.form?.requestSubmit();
+});
+
+document.querySelector('[data-expand-itinerary]')?.addEventListener('click', (event) => {
+    const days = [...document.querySelectorAll('[data-itinerary] details')];
+    const shouldOpen = days.some((day) => !day.open);
+    days.forEach((day) => { day.open = shouldOpen; });
+    const button = event.currentTarget;
+    button.firstChild.textContent = shouldOpen ? 'Thu gọn tất cả ' : 'Mở tất cả ';
+});
+
+const bookingForm = document.querySelector('[data-booking-form]');
+if (bookingForm) {
+    const passengers = document.getElementById('passengers');
+    const template = document.getElementById('passenger-template');
+    const addButton = document.getElementById('add-passenger');
+    const maximum = Number(bookingForm.dataset.maxPassengers);
+    const adultPrice = Number(bookingForm.dataset.adultPrice);
+    const childPrice = Number(bookingForm.dataset.childPrice);
+    const money = (value) => value.toLocaleString('vi-VN') + '₫';
+    const setText = (selector, value) => {
+        const element = document.querySelector(selector);
+        if (element) { element.textContent = value; }
+    };
+    const updateSummary = () => {
+        const types = [...passengers.querySelectorAll('[data-name="passenger_type"]')];
+        const adults = types.filter((input) => input.value === 'adult').length;
+        const children = types.filter((input) => input.value === 'child').length;
+        setText('[data-adult-count]', adults);
+        setText('[data-child-count]', children);
+        setText('[data-adult-total]', money(adults * adultPrice));
+        setText('[data-child-total]', money(children * childPrice));
+        setText('[data-booking-total]', money(adults * adultPrice + children * childPrice));
+    };
+    const renumberPassengers = () => {
+        [...passengers.children].forEach((row, index) => {
+            row.querySelector('[data-number]').textContent = index + 1;
+            row.querySelectorAll('[data-name]').forEach((input) => {
+                input.name = 'passengers[' + index + '][' + input.dataset.name + ']';
+            });
+            row.querySelector('[data-remove]').hidden = passengers.children.length === 1;
+        });
+        addButton.disabled = passengers.children.length >= maximum;
+        updateSummary();
+    };
+    addButton.addEventListener('click', () => {
+        if (passengers.children.length >= maximum) { return; }
+        const row = template.content.cloneNode(true);
+        passengers.append(row);
+        renumberPassengers();
+        passengers.lastElementChild.querySelector('input')?.focus();
+    });
+    passengers.addEventListener('click', (event) => {
+        const removeButton = event.target.closest('[data-remove]');
+        if (removeButton && passengers.children.length > 1) {
+            const row = removeButton.closest('[data-passenger]');
+            const nextRow = row.nextElementSibling || row.previousElementSibling;
+            row.remove();
+            renumberPassengers();
+            nextRow?.querySelector('input')?.focus();
+        }
+    });
+    passengers.addEventListener('change', updateSummary);
+    renumberPassengers();
+}
