@@ -14,8 +14,8 @@ class DatabaseSeeder extends Seeder
                 DemoAccountSeeder::class,
                 TourSeeder::class,
                 DemoBookingSeeder::class,
-                PlatformCatalogSeeder::class,
-                PlatformDemoOrderSeeder::class,
+                TravelServiceCatalogSeeder::class,
+                TravelServiceDemoBookingSeeder::class,
             ]);
         });
     }

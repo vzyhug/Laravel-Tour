@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class BusTripStop extends Model
+{
+    use HasFactory;
+
+    protected $table = 'bus_trip_stops';
+
+    protected $guarded = [];
+
+    protected function casts(): array
+    {
+        return ['time_at' => 'datetime'];
+    }
+
+    public $timestamps = false;
+
+    public function trip()
+    {
+        return $this->belongsTo(BusTrip::class, 'trip_id');
+    }
+}

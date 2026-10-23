@@ -21,11 +21,11 @@
     <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
         <a href="{{ route('tours.index') }}" class="flex items-center gap-3 rounded-xl border border-brand-500 bg-brand-50 p-4 font-semibold text-brand-700"><x-icon name="map" class="size-6 shrink-0"/><span>Tour & trải nghiệm<span class="mt-1 block text-xs font-normal">Đang mở bán demo</span></span></a>
         @foreach([\App\Enums\ServiceType::Stay, \App\Enums\ServiceType::Bus, \App\Enums\ServiceType::Transfer, \App\Enums\ServiceType::Rental] as $service)
-            <a href="{{ route('platform.index',$service->value) }}" class="rounded-xl border border-slate-200 bg-linen p-4 transition hover:border-brand-500"><p class="text-sm font-semibold">{{ $service->label() }}</p><p class="mt-2 text-xs text-muted">Tìm & đặt dịch vụ demo →</p></a>
+            <a href="{{ route('services.index',$service->value) }}" class="rounded-xl border border-slate-200 bg-linen p-4 transition hover:border-brand-500"><p class="text-sm font-semibold">{{ $service->label() }}</p><p class="mt-2 text-xs text-muted">Tìm & đặt dịch vụ demo →</p></a>
         @endforeach
     </div>
 </section>
-<div class="container-page pb-6"><a class="text-link" href="{{ route('platform.index','activity') }}">Khám phá hoạt động & vé tham quan theo khung giờ →</a><a class="text-link ml-4" href="{{ route('platform.orders.index') }}">Quản lý đặt chỗ dịch vụ →</a></div>
+<div class="container-page pb-6"><a class="text-link" href="{{ route('services.index','activity') }}">Khám phá hoạt động & vé tham quan theo khung giờ →</a><a class="text-link ml-4" href="{{ route('services.orders.index') }}">Quản lý đặt chỗ dịch vụ →</a></div>
 @if($coupons->isNotEmpty())
 <section id="offers" class="container-page pb-10">
     <div class="mb-5 flex flex-wrap items-center justify-between gap-3"><h2 class="text-2xl">Ưu đãi cho chuyến đi</h2><span class="text-xs text-muted">Điều kiện và lượt dùng được kiểm tra khi đặt</span></div>

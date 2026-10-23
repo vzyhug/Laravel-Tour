@@ -19,7 +19,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TourController;
 use Illuminate\Support\Facades\Route;
 
-require __DIR__.'/platform.php';
+require __DIR__.'/services.php';
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::view('/support', 'support')->name('support');

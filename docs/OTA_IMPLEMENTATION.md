@@ -2,7 +2,7 @@
 
 Ngày triển khai: 23/10/2026. Thị trường: Việt Nam; B2C; website responsive.
 
-Tài liệu này mô tả luồng **tour hiện hữu**. Phần mở rộng lưu trú, xe khách, đưa đón, thuê xe và hoạt động đã được triển khai; xem [MULTI_SERVICE_PLATFORM.md](MULTI_SERVICE_PLATFORM.md) để chạy và quản trị.
+Tài liệu này mô tả luồng **tour hiện hữu**. Phần mở rộng lưu trú, xe khách, đưa đón, thuê xe và hoạt động đã được triển khai; xem [TRAVEL_SERVICES.md](TRAVEL_SERVICES.md) để chạy và quản trị.
 
 **[Đề xuất đã triển khai cho VietGo]**: đây là thiết kế của đồ án, không phải schema, API hay chính sách nội bộ của Traveloka. Không dùng logo, font độc quyền hoặc ảnh chiến dịch Traveloka. Ảnh và nguồn hiện hữu của project được giữ lại.
 

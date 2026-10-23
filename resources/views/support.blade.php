@@ -18,7 +18,7 @@
             <details class="card p-5"><summary class="cursor-pointer text-sm font-bold">{{ $question }}</summary><p class="mt-4 text-sm leading-7 text-muted">{{ $answer }}</p></details>
             @endforeach
         </div>
-        <aside class="card h-fit p-6"><h2 class="text-lg">Quản lý chuyến đi</h2><p class="mt-3 text-sm leading-7 text-muted">Tour có lịch khởi hành nằm trong tài khoản tour; các dịch vụ mới có danh sách đơn riêng. Không chia sẻ giấy tờ hoặc mã phiên đăng nhập.</p><a class="btn-primary mt-5 w-full" href="{{ route('platform.orders.index') }}">Đơn lưu trú / xe / hoạt động</a><a class="btn-secondary mt-3 w-full" href="{{ route('customer.dashboard') }}">Tour & tài khoản</a></aside>
+        <aside class="card h-fit p-6"><h2 class="text-lg">Quản lý chuyến đi</h2><p class="mt-3 text-sm leading-7 text-muted">Tour có lịch khởi hành nằm trong tài khoản tour; các dịch vụ mới có danh sách đơn riêng. Không chia sẻ giấy tờ hoặc mã phiên đăng nhập.</p><a class="btn-primary mt-5 w-full" href="{{ route('services.orders.index') }}">Đơn lưu trú / xe / hoạt động</a><a class="btn-secondary mt-3 w-full" href="{{ route('customer.dashboard') }}">Tour & tài khoản</a></aside>
     </div>
 </section>
 @endsection

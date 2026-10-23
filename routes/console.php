@@ -2,8 +2,8 @@
 
 use App\Actions\ExpireBooking;
 use App\Models\Booking;
-use App\Models\PlatformOrder;
-use App\Services\PlatformOrders;
+use App\Models\ServiceBooking;
+use App\Services\ServiceBookingService;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schedule;
@@ -25,9 +25,9 @@ Schedule::command('bookings:expire')->everyMinute()->withoutOverlapping();
 
 Artisan::command('services:expire', function () {
     $count = 0;
-    PlatformOrder::where('reservation_status', 'held')->where('expires_at', '<=', now())
+    ServiceBooking::where('reservation_status', 'held')->where('expires_at', '<=', now())
         ->eachById(function ($order) use (&$count) {
-            $count += (int) app(PlatformOrders::class)->expire($order);
+            $count += (int) app(ServiceBookingService::class)->expire($order);
         });
     $this->info("Đã giải phóng {$count} đơn dịch vụ hết hạn.");
 })->purpose('Giải phóng phòng, ghế và xe giữ quá hạn');

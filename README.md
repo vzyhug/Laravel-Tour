@@ -15,7 +15,7 @@ Project đã được chuyển từ Spring Boot/Thymeleaf sang Laravel 13, Blade
 - Lưu trú theo đêm/phòng; xe khách chọn ghế theo đoạn tuyến; đưa đón theo vùng; thuê xe theo thời gian; vé hoạt động theo khung giờ.
 - Quản trị sản phẩm, gói giá/chính sách, tài nguyên, lịch tồn, chuyến/trạm và đơn dịch vụ; duyệt hủy, hoàn mô phỏng, sử dụng vé và biên bản xe/cọc.
 
-Hướng dẫn dịch vụ mới, route, seed/factory và vận hành: [docs/MULTI_SERVICE_PLATFORM.md](docs/MULTI_SERVICE_PLATFORM.md). Luồng tour hiện hữu: [docs/OTA_IMPLEMENTATION.md](docs/OTA_IMPLEMENTATION.md).
+Hướng dẫn dịch vụ mới, route, seed/factory và vận hành: [docs/TRAVEL_SERVICES.md](docs/TRAVEL_SERVICES.md). Luồng tour hiện hữu: [docs/OTA_IMPLEMENTATION.md](docs/OTA_IMPLEMENTATION.md).
 
 Sau cập nhật, chạy `php artisan migrate` và `npm.cmd run build`. Chạy thêm `php artisan schedule:work` để giải phóng chỗ quá hạn mỗi phút; hoặc `php artisan bookings:expire` thủ công. Thanh toán, hoàn tiền và chứng từ đều là mô phỏng, không có giá trị giao dịch thật.
 
@@ -23,8 +23,8 @@ Sau cập nhật, chạy `php artisan migrate` và `npm.cmd run build`. Chạy t
 
 ```powershell
 php artisan migrate
-php artisan db:seed --class=PlatformCatalogSeeder
-php artisan db:seed --class=PlatformDemoOrderSeeder
+php artisan db:seed --class=TravelServiceCatalogSeeder
+php artisan db:seed --class=TravelServiceDemoBookingSeeder
 npm.cmd run build
 php artisan serve
 # Terminal khác:
