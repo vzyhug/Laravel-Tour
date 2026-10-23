@@ -24,11 +24,75 @@ document.querySelectorAll('[data-payment-countdown]').forEach((timer) => {
         const seconds = Math.max(0, Math.ceil((deadline - Date.now() - offset) / 1000));
         timer.textContent = seconds > 0 ? `${Math.floor(seconds / 60)} phút ${seconds % 60} giây` : 'Đã hết hạn; vui lòng chọn lại lịch';
         if (seconds === 0) {
-            document.querySelectorAll('button[form="payment-form"], #payment-form button').forEach((button) => { button.disabled = true; });
+            const formId = timer.dataset.paymentForm || 'payment-form';
+            document.querySelectorAll(`button[form="${formId}"], #${formId} button`).forEach((button) => { button.disabled = true; });
         }
     };
     tick();
     setInterval(tick, 1000);
+});
+
+document.querySelectorAll('[data-bus-form]').forEach((form) => {
+    const trips = JSON.parse(form.dataset.trips);
+    const tripSelect = form.querySelector('[data-bus-trip]');
+    const from = form.querySelector('[data-bus-from]');
+    const to = form.querySelector('[data-bus-to]');
+    const seats = form.querySelector('[data-bus-seats]');
+    const status = form.querySelector('[data-bus-status]');
+    const submit = form.querySelector('button:not([type]), button[type="submit"]');
+    let version = 0;
+    let selected = JSON.parse(form.dataset.oldSeats || '[]');
+    const refreshSeats = async () => {
+        const current = ++version;
+        submit.disabled = true;
+        const trip = trips.find((item) => String(item.id) === tripSelect.value);
+        const start = trip?.stops.findIndex((stop) => String(stop.id) === from.value) ?? -1;
+        const end = trip?.stops.findIndex((stop) => String(stop.id) === to.value) ?? -1;
+        if (start < 0 || end <= start) { seats.replaceChildren(); status.textContent = 'Chọn điểm xuống sau điểm lên trên cùng chuyến.'; return; }
+        status.textContent = 'Đang kiểm tra ghế trên đoạn tuyến...';
+        try {
+            const response = await fetch(`${form.dataset.seatsBase}/${trip.id}/seats?from=${from.value}&to=${to.value}`, { headers: { Accept: 'application/json' } });
+            if (!response.ok) { throw new Error('Seats unavailable'); }
+            const result = await response.json();
+            if (current !== version) { return; }
+            seats.replaceChildren();
+            for (const seat of result.seats) {
+                const label = document.createElement('label');
+                label.className = 'flex min-h-12 items-center gap-2 rounded-lg border border-slate-200 p-3 text-xs';
+                const input = document.createElement('input');
+                input.type = 'checkbox'; input.name = 'seats[]'; input.value = seat.label;
+                input.disabled = seat.status !== 'available'; input.checked = !input.disabled && selected.includes(seat.label);
+                const text = document.createElement('span');
+                text.textContent = `${seat.label} · ${({ available: 'Trống', held: 'Đang giữ', sold: 'Đã bán' })[seat.status]}`;
+                if (input.disabled) { label.classList.add('bg-linen', 'text-muted'); }
+                input.addEventListener('change', () => { selected = [...seats.querySelectorAll('input:checked')].map((element) => element.value); tripSelect.setCustomValidity(''); });
+                label.append(input, text); seats.append(label);
+            }
+            status.textContent = 'Ghế được giữ sau khi xác nhận báo giá. Tối đa 8 ghế/đơn.';
+            submit.disabled = false;
+        } catch {
+            if (current === version) { status.textContent = 'Chưa tải được ghế. Hãy chọn lại chuyến hoặc tải lại trang.'; seats.replaceChildren(); }
+        }
+    };
+    const selectTrip = () => {
+        const trip = trips.find((item) => String(item.id) === tripSelect.value);
+        from.replaceChildren(); to.replaceChildren();
+        for (const stop of trip?.stops || []) {
+            const text = `${stop.name} · ${stop.time} · ${stop.address}`;
+            from.add(new Option(text, stop.id)); to.add(new Option(text, stop.id));
+        }
+        if (trip?.stops.length) { to.value = trip.stops.at(-1).id; }
+        if (form.dataset.oldFrom) { from.value = form.dataset.oldFrom; delete form.dataset.oldFrom; }
+        if (form.dataset.oldTo) { to.value = form.dataset.oldTo; delete form.dataset.oldTo; }
+        refreshSeats();
+    };
+    tripSelect.addEventListener('change', selectTrip);
+    [from, to].forEach((select) => select.addEventListener('change', refreshSeats));
+    form.addEventListener('submit', (event) => {
+        tripSelect.setCustomValidity(seats.querySelectorAll('input:checked').length ? '' : 'Vui lòng chọn ít nhất một ghế.');
+        if (!form.reportValidity()) { event.preventDefault(); }
+    });
+    selectTrip();
 });
 
 document.addEventListener('submit', (event) => {

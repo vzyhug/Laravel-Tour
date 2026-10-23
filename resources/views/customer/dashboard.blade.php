@@ -14,6 +14,7 @@
             </div>
         </section>
         <nav class="my-7 flex w-fit max-w-full flex-wrap gap-1 rounded-xl bg-linen p-1.5" aria-label="Chuyến đi của tôi">
+            <a class="account-tab" href="{{ route('platform.orders.index') }}">Đơn lưu trú / xe / hoạt động</a>
             @foreach(['upcoming' => ['Sắp tới & đang đi', $summary['upcoming']], 'saved' => ['Bộ sưu tập yêu thích', $summary['saved']], 'history' => ['Lịch sử hành trình', $summary['history']]] as $key => [$label, $count])<a href="{{ route('customer.dashboard', ['tab' => $key]) }}" class="account-tab" @if($tab === $key) aria-current="page" @endif>{{ $label }}<span class="grid min-w-5 place-items-center rounded-full bg-sand px-1.5 py-0.5 text-[9px] text-brand-600">{{ $count }}</span></a>@endforeach
         </nav>
 

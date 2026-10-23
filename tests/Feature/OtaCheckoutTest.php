@@ -185,7 +185,7 @@ class OtaCheckoutTest extends TestCase
         $this->withSession(['customer_id' => $customer->getKey()])->get(route('bookings.create', ['departure' => $available, 'guests' => 3]))
             ->assertOk()->assertSee('name="passengers[2][full_name]"', false);
         $this->get(route('tours.index', ['guests' => 21]))->assertSessionHasErrors('guests');
-        $this->get(route('home'))->assertOk()->assertSee('Chưa mở bán')->assertSee('Bản demo đồ án');
+        $this->get(route('home'))->assertOk()->assertSee('Tìm & đặt dịch vụ demo', false)->assertSee('Bản demo đồ án');
         $this->get(route('support'))->assertOk();
     }
 }

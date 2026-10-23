@@ -10,6 +10,7 @@
     <aside class="bg-ink p-5 text-slate-300 lg:min-h-screen">
         <div class="flex items-center justify-between"><a href="{{ route('admin.dashboard') }}" class="text-xl font-black text-white">VietGo Admin</a><button class="rounded-lg p-2 lg:hidden" data-menu-toggle="admin-menu" aria-expanded="false" aria-label="Mở menu">☰</button></div>
         <nav id="admin-menu" class="mt-8 hidden gap-2 lg:grid" aria-label="Menu quản trị">
+            @if(in_array(session('employee_role'), ['Admin','Sale']))<a class="rounded-xl px-4 py-3 font-medium hover:bg-white/10" href="{{ route('admin.platform.products.index') }}">Danh mục lưu trú & dịch vụ</a><a class="rounded-xl px-4 py-3 font-medium hover:bg-white/10" href="{{ route('admin.platform.orders.index') }}">Đơn dịch vụ & ngoại lệ</a>@endif
             @foreach([
                 ['admin.dashboard','Tổng quan'], ['admin.tours.index','Quản lý tour'], ['admin.departures.index','Lịch khởi hành'], ['admin.bookings.index','Đơn đặt tour'], ['admin.coupons.index','Mã giảm giá'], ['admin.customers.index','Khách hàng'], ['admin.employees.index','Nhân viên'], ['admin.payments.index','Thanh toán'], ['admin.provinces.index','Địa điểm']
             ] as [$name,$label])

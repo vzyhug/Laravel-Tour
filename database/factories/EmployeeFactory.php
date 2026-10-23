@@ -40,4 +40,9 @@ class EmployeeFactory extends Factory
             'role_id' => Role::firstOrCreate(['role_name' => 'Admin'], ['description' => 'Quản trị hệ thống'])->getKey(),
         ]);
     }
+
+    public function sale(): static
+    {
+        return $this->state(fn () => ['role_id' => Role::firstOrCreate(['role_name' => 'Sale'], ['description' => 'Nhân viên bán hàng'])->getKey()]);
+    }
 }

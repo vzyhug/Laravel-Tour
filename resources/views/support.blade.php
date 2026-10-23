@@ -3,7 +3,7 @@
 @section('content')
 <section class="container-page py-12">
     <p class="eyebrow">VietGo · Trợ giúp</p><h1 class="section-title mt-3">Bạn cần hỗ trợ điều gì?</h1>
-    <p class="mt-4 max-w-2xl text-sm leading-7 text-muted">VietGo hiện phục vụ luồng tour có lịch khởi hành trong môi trường demo. Các dịch vụ khác chưa mở bán; chưa có kết nối nhà cung cấp hoặc cổng thanh toán thật.</p>
+    <p class="mt-4 max-w-2xl text-sm leading-7 text-muted">VietGo hỗ trợ tour, lưu trú, xe khách, đưa đón sân bay, thuê xe và hoạt động/vé tham quan trong môi trường demo. Đã có đặt chỗ, chứng từ và vận hành mô phỏng; chưa kết nối nhà cung cấp hoặc cổng thanh toán thật.</p>
     <div class="mt-8 grid gap-6 lg:grid-cols-[1fr_300px]">
         <div class="grid gap-4">
             @foreach([
@@ -18,7 +18,7 @@
             <details class="card p-5"><summary class="cursor-pointer text-sm font-bold">{{ $question }}</summary><p class="mt-4 text-sm leading-7 text-muted">{{ $answer }}</p></details>
             @endforeach
         </div>
-        <aside class="card h-fit p-6"><h2 class="text-lg">Quản lý chuyến đi</h2><p class="mt-3 text-sm leading-7 text-muted">Kiểm tra trạng thái, hạn thanh toán và chứng từ trong tài khoản. Không chia sẻ giấy tờ hành khách hoặc mã phiên đăng nhập.</p><a class="btn-primary mt-5 w-full" href="{{ route('customer.dashboard') }}">Đặt chỗ của tôi</a><a class="btn-secondary mt-3 w-full" href="{{ route('tours.index') }}">Tìm tour</a></aside>
+        <aside class="card h-fit p-6"><h2 class="text-lg">Quản lý chuyến đi</h2><p class="mt-3 text-sm leading-7 text-muted">Tour có lịch khởi hành nằm trong tài khoản tour; các dịch vụ mới có danh sách đơn riêng. Không chia sẻ giấy tờ hoặc mã phiên đăng nhập.</p><a class="btn-primary mt-5 w-full" href="{{ route('platform.orders.index') }}">Đơn lưu trú / xe / hoạt động</a><a class="btn-secondary mt-3 w-full" href="{{ route('customer.dashboard') }}">Tour & tài khoản</a></aside>
     </div>
 </section>
 @endsection

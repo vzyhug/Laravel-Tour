@@ -2,6 +2,8 @@
 
 Ngày triển khai: 23/10/2026. Thị trường: Việt Nam; B2C; website responsive.
 
+Tài liệu này mô tả luồng **tour hiện hữu**. Phần mở rộng lưu trú, xe khách, đưa đón, thuê xe và hoạt động đã được triển khai; xem [MULTI_SERVICE_PLATFORM.md](MULTI_SERVICE_PLATFORM.md) để chạy và quản trị.
+
 **[Đề xuất đã triển khai cho VietGo]**: đây là thiết kế của đồ án, không phải schema, API hay chính sách nội bộ của Traveloka. Không dùng logo, font độc quyền hoặc ảnh chiến dịch Traveloka. Ảnh và nguồn hiện hữu của project được giữ lại.
 
 ## Phạm vi và mốc hoàn thành
@@ -11,12 +13,13 @@ Theo hướng dẫn skill dành cho đồ án đặt tour, P0 tập trung vào *
 | Nhóm | Trạng thái |
 |---|---|
 | Tour có lịch khởi hành | Tìm kiếm → ngày/số khách → thông tin liên hệ/người đi → báo giá → giữ chỗ → thanh toán mô phỏng → chứng từ demo → hủy/hoàn mô phỏng |
-| Lưu trú | Chưa mở bán; cần phòng, rate plan và tồn từng đêm |
-| Xe khách | Chưa mở bán; cần trip, stop, ghế và khoảng đoạn tuyến |
-| Đưa đón sân bay | Chưa mở bán; cần tuyến/vùng, giờ đón, phương tiện và xác nhận điều phối |
-| Thuê xe | Chưa mở bán; cần khoảng thời gian + buffer, giấy tờ/cọc theo gói |
+| Lưu trú | Đã có phòng, rate plan, tồn/giá từng đêm và phân khách vào phòng |
+| Xe khách | Đã có chuyến, trạm, ghế và tồn theo đoạn tuyến |
+| Đưa đón sân bay | Đã có vùng/phụ phí, giờ đón, hành lý và quỹ xe |
+| Thuê xe | Đã có khoảng thời gian + buffer, giấy tờ, cọc và biên bản xe |
+| Hoạt động/vé tham quan | Đã có ngày/khung giờ, nhóm tuổi và ghi nhận lượt sử dụng |
 
-Không bổ sung dịch vụ ngoài năm nhóm này. Bốn nhóm chưa mở bán không có form giả gửi vào tour booking. Tính năng hiện hữu của admin, coupon, favorites, pickup và review được giữ.
+Không bổ sung dịch vụ ngoài năm nhóm của skill (hoạt động cùng nhóm tour). Các dịch vụ mới dùng bảng và luồng riêng; tính năng hiện hữu của admin, coupon, favorites, pickup và review được giữ.
 
 ## Tác nhân và quyền
 
@@ -133,7 +136,7 @@ Các test tích hợp hiện hữu tiếp tục kiểm coupon/pickup/payment/inv
 - Supplier thật: capability hold/confirm/issue/cancel/refund, trạng thái đang xác nhận/cấp, outbox/jobs, exception queue và compensation khi đã thu nhưng không cấp được dịch vụ.
 - Hoàn thật: request, phê duyệt, reservation cho pending refunds, ledger/refund transaction; không coi hủy đơn là hoàn thành chuyển tiền.
 - Email queue, đổi lịch, hoàn từng phần, tenant đối tác/CSKH/finance và quyền/audit chuyên biệt.
-- Mở từng module lưu trú/xe khách/đưa đón/thuê xe với tồn và chính sách riêng; không tái dùng departure capacity cho mọi dịch vụ.
+- Các module mới đã có tồn/chính sách riêng; triển khai đối tác thật và các yêu cầu vận hành nâng cao vẫn cần hợp đồng và kiểm thử tích hợp.
 
 ## Nguồn tham chiếu
 

@@ -12,10 +12,26 @@ Project đã được chuyển từ Spring Boot/Thymeleaf sang Laravel 13, Blade
 - Giao diện responsive, accessible bằng Blade components + Tailwind CSS 4.
 - Tìm tour theo ngày/số khách; báo giá có hạn, chống submit trùng và giữ snapshot giá/chính sách.
 - Giữ chỗ có hạn thanh toán; chứng từ tour demo riêng với hóa đơn; lịch sử sự kiện đặt/tiền/hủy.
+- Lưu trú theo đêm/phòng; xe khách chọn ghế theo đoạn tuyến; đưa đón theo vùng; thuê xe theo thời gian; vé hoạt động theo khung giờ.
+- Quản trị sản phẩm, gói giá/chính sách, tài nguyên, lịch tồn, chuyến/trạm và đơn dịch vụ; duyệt hủy, hoàn mô phỏng, sử dụng vé và biên bản xe/cọc.
 
-Phạm vi áp dụng skill `design-traveloka-platform`, các giới hạn demo và lộ trình mở rộng: [docs/OTA_IMPLEMENTATION.md](docs/OTA_IMPLEMENTATION.md).
+Hướng dẫn dịch vụ mới, route, seed/factory và vận hành: [docs/MULTI_SERVICE_PLATFORM.md](docs/MULTI_SERVICE_PLATFORM.md). Luồng tour hiện hữu: [docs/OTA_IMPLEMENTATION.md](docs/OTA_IMPLEMENTATION.md).
 
 Sau cập nhật, chạy `php artisan migrate` và `npm.cmd run build`. Chạy thêm `php artisan schedule:work` để giải phóng chỗ quá hạn mỗi phút; hoặc `php artisan bookings:expire` thủ công. Thanh toán, hoàn tiền và chứng từ đều là mô phỏng, không có giá trị giao dịch thật.
+
+Để bổ sung riêng dữ liệu dịch vụ mới vào database đang dùng:
+
+```powershell
+php artisan migrate
+php artisan db:seed --class=PlatformCatalogSeeder
+php artisan db:seed --class=PlatformDemoOrderSeeder
+npm.cmd run build
+php artisan serve
+# Terminal khác:
+php artisan schedule:work
+```
+
+Hai seeder bổ sung 13 sản phẩm và 9 tình huống đơn demo, chạy lặp không ghi đè giá/lịch đã chỉnh. Seeder đơn dùng khách `demo01@vietgo.test` có sẵn; không có khách này thì bỏ qua. Không chạy `migrate:fresh` trên database đang dùng. Giữ nguyên `APP_KEY` vì thông tin đơn dịch vụ được mã hóa bằng khóa này.
 
 ## Cài đặt
 

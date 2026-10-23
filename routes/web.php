@@ -19,6 +19,8 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TourController;
 use Illuminate\Support\Facades\Route;
 
+require __DIR__.'/platform.php';
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::view('/support', 'support')->name('support');
 Route::get('/tours', [TourController::class, 'index'])->name('tours.index');
