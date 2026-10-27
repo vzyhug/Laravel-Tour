@@ -75,7 +75,6 @@
                     @foreach($booking->passengers as $passenger)
                         <li class="flex justify-between gap-3 border-b border-slate-100 pb-2">
                             <span>{{ $passenger->full_name }}</span>
-                            <span class="text-slate-500">{{ $passenger->passenger_type === 'adult' ? 'Người lớn' : 'Trẻ em' }}</span>
                         </li>
                     @endforeach
                 </ul>

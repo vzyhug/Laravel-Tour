@@ -22,12 +22,4 @@ class BookingPassengerFactory extends Factory
         ];
     }
 
-    public function child(): static
-    {
-        return $this->state(fn () => [
-            'passenger_type' => 'child',
-            'id_card' => null,
-            'date_of_birth' => fake()->dateTimeBetween('-11 years', '-3 years')->format('Y-m-d'),
-        ]);
-    }
 }

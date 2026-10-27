@@ -22,7 +22,7 @@ class TourDepartureFactory extends Factory
             'max_seats' => fake()->randomElement([16, 24, 30]),
             'available_seats' => fn (array $a) => $a['max_seats'],
             'adult_price' => fn (array $a) => Tour::findOrFail($a['tour_id'])->min_price,
-            'child_price' => fn (array $a) => round($a['adult_price'] * 0.7),
+            'child_price' => fn (array $a) => $a['adult_price'], // Legacy column retained for historical records.
             'guide_id' => Employee::factory()->guide(),
             'status' => 'open',
         ];

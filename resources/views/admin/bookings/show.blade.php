@@ -31,7 +31,7 @@
                 Khởi hành {{ $departure->departure_date->format('d/m/Y') }}@if($departure->time_label) · {{ $departure->time_label }}@endif
                 – về {{ $departure->return_date->format('d/m/Y') }}
             </p>
-            <p class="text-sm text-slate-500">{{ $booking->total_adults }} người lớn, {{ $booking->total_children }} trẻ em</p>
+            <p class="text-sm text-slate-500">{{ $booking->total_adults + $booking->total_children }} hành khách</p>
         </div>
 
         <div class="card p-6">
@@ -121,7 +121,6 @@
                 <thead class="bg-slate-50 text-slate-500">
                     <tr>
                         <th class="p-4">Họ tên</th>
-                        <th class="p-4">Loại</th>
                         <th class="p-4">CCCD</th>
                         <th class="p-4">Ngày sinh</th>
                     </tr>
@@ -130,7 +129,6 @@
                     @foreach($booking->passengers as $p)
                         <tr>
                             <td class="p-4">{{ $p->full_name }}</td>
-                            <td class="p-4">{{ $p->passenger_type === 'adult' ? 'Người lớn' : 'Trẻ em' }}</td>
                             <td class="p-4">{{ $p->id_card ?: '—' }}</td>
                             <td class="p-4">{{ $p->date_of_birth ? \Carbon\Carbon::parse($p->date_of_birth)->format('d/m/Y') : '—' }}</td>
                         </tr>

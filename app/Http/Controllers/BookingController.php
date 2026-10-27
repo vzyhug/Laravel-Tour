@@ -37,13 +37,12 @@ class BookingController extends Controller
     {
         $data = $request->validate([
             'departure_id' => ['required', 'integer', 'exists:tour_departures,departure_id'],
-            'adults' => ['required', 'integer', 'min:0', 'max:20'],
-            'children' => ['required', 'integer', 'min:0', 'max:20'],
+            'adults' => ['required', 'integer', 'between:1,20'],
             'code' => ['required', 'string', 'max:50'],
         ]);
 
         $departure = TourDeparture::findOrFail($data['departure_id']);
-        $subtotal = ($data['adults'] * (float) $departure->adult_price) + ($data['children'] * (float) $departure->child_price);
+        $subtotal = $data['adults'] * (float) $departure->adult_price;
 
         $coupon = Coupon::where('code', Coupon::normalize($data['code']))->first();
         $error = $coupon ? $coupon->check((int) session('customer_id'), $subtotal) : 'Mã giảm giá không tồn tại.';

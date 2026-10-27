@@ -114,7 +114,6 @@ if (bookingForm) {
     const addButton = document.getElementById('add-passenger');
     const maximum = Number(bookingForm.dataset.maxPassengers);
     const adultPrice = Number(bookingForm.dataset.adultPrice);
-    const childPrice = Number(bookingForm.dataset.childPrice);
     const couponInput = document.getElementById('coupon-code');
     const applyCouponButton = document.getElementById('apply-coupon');
     const couponMessage = document.getElementById('coupon-message');
@@ -127,22 +126,10 @@ if (bookingForm) {
         if (element) { element.textContent = value; }
     };
     const updateSummary = () => {
-        const types = [...passengers.querySelectorAll('[data-name="passenger_type"]')];
-        [...passengers.children].forEach((row) => {
-            const isChild = row.querySelector('[data-name="passenger_type"]').value === 'child';
-            const date = row.querySelector('[data-name="date_of_birth"]');
-            const identity = row.querySelector('[data-name="id_card"]');
-            date.required = isChild;
-            if (isChild) { date.min = date.dataset.childMin; } else { date.removeAttribute('min'); }
-            identity.required = !isChild;
-        });
-        const adults = types.filter((input) => input.value === 'adult').length;
-        const children = types.filter((input) => input.value === 'child').length;
+        const adults = passengers.children.length;
         setText('[data-adult-count]', adults);
-        setText('[data-child-count]', children);
         setText('[data-adult-total]', money(adults * adultPrice));
-        setText('[data-child-total]', money(children * childPrice));
-        setText('[data-booking-total]', money(Math.max(0, adults * adultPrice + children * childPrice - discount)));
+        setText('[data-booking-total]', money(Math.max(0, adults * adultPrice - discount)));
     };
     const resetCoupon = (message = '') => {
         discount = 0;
@@ -204,7 +191,6 @@ if (bookingForm) {
         const code = couponInput.value.trim();
         if (!code) { return; }
         const requestVersion = ++couponRequestVersion;
-        const types = [...passengers.querySelectorAll('[data-name="passenger_type"]')];
         applyCouponButton.disabled = true;
         couponMessage.textContent = 'Đang kiểm tra mã giảm giá…';
         try {
@@ -217,8 +203,7 @@ if (bookingForm) {
                 },
                 body: JSON.stringify({
                     departure_id: bookingForm.querySelector('[name="departure_id"]').value,
-                    adults: types.filter((input) => input.value === 'adult').length,
-                    children: types.filter((input) => input.value === 'child').length,
+                    adults: passengers.children.length,
                     code,
                 }),
             });

@@ -22,11 +22,11 @@ class BookingFactory extends Factory
             'departure_id' => TourDeparture::factory(),
             'booking_date' => fn (array $a) => TourDeparture::findOrFail($a['departure_id'])->departure_date->copy()->subDays(5)->min(now()),
             'total_adults' => fake()->numberBetween(1, 3),
-            'total_children' => fake()->numberBetween(0, 2),
+            'total_children' => 0,
             'total_amount' => function (array $a) {
                 $departure = TourDeparture::findOrFail($a['departure_id']);
 
-                return $a['total_adults'] * $departure->adult_price + $a['total_children'] * $departure->child_price;
+                return $a['total_adults'] * $departure->adult_price;
             },
             'status' => 'pending',
             'created_by_employee' => null,
@@ -39,9 +39,6 @@ class BookingFactory extends Factory
             BookingPassenger::factory()->count($booking->total_adults)->create([
                 'booking_id' => $booking->getKey(),
                 'passenger_type' => 'adult',
-            ]);
-            BookingPassenger::factory()->child()->count($booking->total_children)->create([
-                'booking_id' => $booking->getKey(),
             ]);
         });
     }

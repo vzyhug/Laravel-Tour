@@ -3,7 +3,7 @@
 @section('content')
 <a class="text-link" href="{{ route('admin.itinerary-consultations.index') }}">← Danh sách yêu cầu</a>
 <h1 class="mt-5 text-3xl font-black">#{{ $consultation->id }} · {{ $consultation->snapshot['tour'] }}</h1>
-<div class="card mt-5 p-6"><p>{{ $consultation->contact_name }} · {{ $consultation->contact_phone }} · {{ $consultation->contact_email }}</p><p class="mt-3">Dự kiến {{ $consultation->travel_date->format('d/m/Y') }} · {{ $consultation->adults }} người lớn, {{ $consultation->children }} trẻ em</p><p class="mt-3 whitespace-pre-line">{{ $consultation->message }}</p><p class="mt-4 text-sm text-muted">Bản gửi phiên bản {{ $consultation->itinerary_version }}, hiện khách đang lưu phiên bản {{ $consultation->itinerary->version }}. Báo giá phải dựa trên bản gửi bên dưới.</p></div>
+<div class="card mt-5 p-6"><p>{{ $consultation->contact_name }} · {{ $consultation->contact_phone }} · {{ $consultation->contact_email }}</p><p class="mt-3">Dự kiến {{ $consultation->travel_date->format('d/m/Y') }} · {{ $consultation->adults + $consultation->children }} khách</p><p class="mt-3 whitespace-pre-line">{{ $consultation->message }}</p><p class="mt-4 text-sm text-muted">Bản gửi phiên bản {{ $consultation->itinerary_version }}, hiện khách đang lưu phiên bản {{ $consultation->itinerary->version }}. Báo giá phải dựa trên bản gửi bên dưới.</p></div>
 @include('itineraries.snapshot')
 @if($consultation->status !== 'closed')
 <form class="card mt-6 grid gap-4 p-6" method="POST" action="{{ route('admin.itinerary-consultations.update', $consultation) }}">

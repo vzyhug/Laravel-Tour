@@ -15,20 +15,19 @@ class CreateBooking
     {
         return DB::transaction(function () use ($customerId, $data) {
             $departure = TourDeparture::query()->lockForUpdate()->findOrFail($data['departure_id']);
-            $passengers = collect($data['passengers']);
-            $adults = $passengers->where('passenger_type', 'adult')->count();
-            $children = $passengers->where('passenger_type', 'child')->count();
-            $seats = $adults + $children;
-
-            if ($adults < 1) {
-                throw ValidationException::withMessages(['passengers' => 'Đơn đặt tour phải có ít nhất một người lớn.']);
-            }
+            $passengers = collect($data['passengers'])->map(fn (array $passenger) => [
+                ...$passenger,
+                'passenger_type' => 'adult', // Retained for legacy booking records; new bookings have one passenger category.
+            ]);
+            $adults = $passengers->count();
+            $children = 0;
+            $seats = $adults;
 
             if ($departure->status !== 'open' || $departure->available_seats < $seats) {
                 throw ValidationException::withMessages(['passengers' => 'Lịch khởi hành không còn đủ chỗ.']);
             }
 
-            $subtotal = ($adults * (float) $departure->adult_price) + ($children * (float) $departure->child_price);
+            $subtotal = $adults * (float) $departure->adult_price;
 
             // Mã giảm giá: mỗi đơn 1 mã, kiểm tra lại ở server và khóa dòng để không dùng trùng
             $coupon = null;

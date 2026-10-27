@@ -29,7 +29,7 @@ class StoreDepartureRequest extends FormRequest
         }
 
         // Giá nhập dạng 5.000.000 -> bỏ dấu chấm, chỉ giữ chữ số
-        foreach (['adult_price', 'child_price'] as $field) {
+        foreach (['adult_price'] as $field) {
             if ($this->has($field)) {
                 $merge[$field] = str_replace(['.', ',', ' '], '', trim((string) $this->input($field)));
             }
@@ -59,7 +59,6 @@ class StoreDepartureRequest extends FormRequest
             'max_seats' => ['required', 'integer', 'min:1', 'max:200'],
             'available_seats' => ['required', 'integer', 'min:0', 'lte:max_seats'],
             'adult_price' => ['required', 'numeric', 'min:0'],
-            'child_price' => ['required', 'numeric', 'min:0', 'lte:adult_price'],
             'guide_id' => ['nullable', 'exists:employees,employee_id'],
             'status' => ['required', Rule::in(['open', 'full', 'cancelled'])],
         ];
@@ -88,7 +87,6 @@ class StoreDepartureRequest extends FormRequest
     {
         return [
             'departure_date.after_or_equal' => 'Ngày khởi hành phải từ ngày hôm nay trở đi.',
-            'child_price.lte' => 'Giá vé trẻ em phải nhỏ hơn hoặc bằng giá vé người lớn.',
             'available_seats.lte' => 'Số chỗ còn lại không được lớn hơn tổng số chỗ.',
             'tour_id.required' => 'Vui lòng chọn tour.',
             'departure_time.date_format' => 'Giờ khởi hành không hợp lệ.',
@@ -99,8 +97,6 @@ class StoreDepartureRequest extends FormRequest
             'return_date.after_or_equal' => 'Ngày về phải sau hoặc bằng ngày khởi hành.',
             'adult_price.required' => 'Vui lòng nhập giá người lớn.',
             'adult_price.numeric' => 'Giá người lớn không hợp lệ.',
-            'child_price.required' => 'Vui lòng nhập giá trẻ em.',
-            'child_price.numeric' => 'Giá trẻ em không hợp lệ.',
         ];
     }
 }

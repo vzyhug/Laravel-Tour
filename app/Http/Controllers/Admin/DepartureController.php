@@ -30,6 +30,8 @@ class DepartureController extends Controller
     public function store(StoreDepartureRequest $request): RedirectResponse
     {
         $data = $request->validated();
+        // Keep the legacy column populated for old invoice/report code; new bookings use one fare.
+        $data['child_price'] = $data['adult_price'];
         $default = config('booking.default_departure_time');
 
         // Chỉ Admin được đặt giờ, người khác dùng giờ mặc định

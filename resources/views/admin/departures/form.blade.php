@@ -129,7 +129,6 @@
                 </p>
             @endunless
         </div>
-
         <label>
             <span class="label">Tổng số chỗ</span>
             <input class="field" type="number" name="max_seats"
@@ -154,15 +153,7 @@
             @enderror
         </label>
 
-        <label>
-            <span class="label">Giá trẻ em (₫)</span>
-            <input class="field" type="text" name="child_price" data-money-mask
-                   inputmode="numeric" autocomplete="off" placeholder="2.500.000"
-                   value="{{ $moneyValue('child_price') }}" required>
-            @error('child_price')
-                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-            @enderror
-        </label>
+
 
         <label>
             <span class="label">Hướng dẫn viên</span>

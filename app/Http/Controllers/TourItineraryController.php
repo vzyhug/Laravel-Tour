@@ -22,10 +22,11 @@ class TourItineraryController extends Controller
         $data = $request->validate([
             'version' => ['required', 'integer', 'min:1'], 'request_key' => ['required', 'uuid'],
             'travel_date' => ['required', 'date_format:Y-m-d', 'after_or_equal:today'],
-            'adults' => ['required', 'integer', 'between:1,50'], 'children' => ['required', 'integer', 'between:0,30'],
+            'adults' => ['required', 'integer', 'between:1,50'],
             'contact_name' => ['required', 'string', 'max:100'], 'contact_phone' => ['required', 'regex:/^[0-9+ ().-]{8,30}$/'],
             'contact_email' => ['required', 'email', 'max:255'], 'message' => ['nullable', 'string', 'max:2000'],
         ]);
+        $data['children'] = 0; // Legacy column retained for previously submitted consultations.
         $consultation = DB::transaction(function () use ($data, $tour, $service) {
             $plan = CustomerItinerary::where('customer_id', session('customer_id'))->where('tour_id', $tour->getKey())->lockForUpdate()->firstOrFail();
             $existing = ItineraryConsultation::where('request_key', $data['request_key'])->first();

@@ -33,34 +33,33 @@ class DemoBookingSeeder extends Seeder
                     throw new RuntimeException('Thiếu lịch khởi hành: '.$data['title']);
                 }
                 $examples = [
-                    ['C', 'confirmed', $future[0], 2, 0],
-                    ['P', 'pending', $future[1], 2, 1],
-                    ['X', 'cancelled', $future[2], 1, 1],
-                    ['D', 'completed', $past, 2, 1],
+                    ['C', 'confirmed', $future[0], 2],
+                    ['P', 'pending', $future[1], 3],
+                    ['X', 'cancelled', $future[2], 1],
+                    ['D', 'completed', $past, 3],
                 ];
 
-                foreach ($examples as $sampleIndex => [$suffix, $status, $departure, $adults, $children]) {
+                foreach ($examples as $sampleIndex => [$suffix, $status, $departure, $passengerCount]) {
                     $customer = $customers[($index + $sampleIndex) % $customers->count()];
                     $code = 'DEMO-'.$data['slug'].'-'.$suffix;
                     $booking = Booking::firstOrCreate(['booking_code' => $code], fn () => Booking::factory()->raw([
                         'booking_code' => $code,
                         'customer_id' => $customer->getKey(),
                         'departure_id' => $departure->getKey(),
-                        'total_adults' => $adults,
-                        'total_children' => $children,
+                        'total_adults' => $passengerCount,
+                        'total_children' => 0,
                         'status' => $status,
                     ]));
 
                     if ($booking->wasRecentlyCreated) {
                         // Set historic dates explicitly; these columns are intentionally not mass assignable.
                         $booking->forceFill(['booking_date' => $departure->departure_date->copy()->subDays(5)->min(now())])->save();
-                        BookingPassenger::factory()->count($adults)->create(['booking_id' => $booking->getKey()]);
+                        BookingPassenger::factory()->count($passengerCount)->create(['booking_id' => $booking->getKey()]);
                         $booking->passengers()->orderBy('passenger_id')->first()->update(['full_name' => $customer->full_name]);
-                        BookingPassenger::factory()->child()->count($children)->create(['booking_id' => $booking->getKey()]);
 
                         if ($status !== 'cancelled') {
                             $locked = $departure->newQuery()->lockForUpdate()->findOrFail($departure->getKey());
-                            $seats = $adults + $children;
+                            $seats = $passengerCount;
                             if ($locked->available_seats < $seats) {
                                 throw new RuntimeException('Không đủ chỗ cho đơn mẫu '.$code);
                             }
