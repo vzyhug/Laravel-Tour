@@ -29,6 +29,11 @@ class Customer extends Model
         return $this->hasMany(Booking::class, 'customer_id');
     }
 
+    public function itineraries(): HasMany
+    {
+        return $this->hasMany(CustomerItinerary::class, 'customer_id');
+    }
+
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class, 'customer_id');

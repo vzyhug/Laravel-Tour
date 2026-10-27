@@ -1,0 +1,3281 @@
+{
+  "verified_on": "2026-10-28",
+  "program_origin": "Phân ngày theo 30 tour/83 ngày đã có; không khẳng định là lịch bán của đơn vị nguồn.",
+  "places": [
+    {
+      "slug": "bien-my-khe",
+      "name": "Biển Mỹ Khê",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/B%C3%A3i_bi%E1%BB%83n_M%E1%BB%B9_Kh%C3%AA",
+      "latitude": 16.0704,
+      "longitude": 108.2461,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Bai_bien_My_Khe.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Bai_bien_My_Khe.jpg/1280px-Bai_bien_My_Khe.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Bai_bien_My_Khe.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Bai_bien_My_Khe.jpg",
+        "author": "Viethavvh at Vietnamese Wikipedia",
+        "license": "Public domain",
+        "license_url": "",
+        "caption": "Biển Mỹ Khê",
+        "path": "/images/itinerary/bien-my-khe.jpg",
+        "sha256": "c7949985943805e06ca5961c441f6cb263948143066b17efd57b544efaf82ee6"
+      }
+    },
+    {
+      "slug": "buon-ma-thuot",
+      "name": "Buôn Ma Thuột",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Bu%C3%B4n_Ma_Thu%E1%BB%99t_(th%C3%A0nh_ph%E1%BB%91)",
+      "latitude": 12.684696,
+      "longitude": 108.050915,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Bmtcitycenter.png",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Bmtcitycenter.png/1280px-Bmtcitycenter.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Bmtcitycenter.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Bmtcitycenter.png",
+        "author": "Kiyoshi Satou",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Buôn Ma Thuột",
+        "path": "/images/itinerary/buon-ma-thuot.jpg",
+        "sha256": "c31943822cd53e2973c2511d2fd496fa340d7dc7b2476584727a610890d72e4f"
+      }
+    },
+    {
+      "slug": "ba-na-hills",
+      "name": "Bà Nà Hills",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/B%C3%A0_N%C3%A0",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Panoramic_View.jpg",
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Panoramic_View.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Panoramic_View.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Panoramic_View.jpg",
+        "author": "Thevu69",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Bà Nà Hills",
+        "path": "/images/itinerary/ba-na-hills.jpg",
+        "sha256": "c4030227f868557972ceab1384f0c6e79b7354d5b51fd775a1400e56ab980759"
+      }
+    },
+    {
+      "slug": "bai-sao",
+      "name": "Bãi Sao",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/B%C3%A3i_Sao",
+      "latitude": 10.057298,
+      "longitude": 104.036392,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Bai-sao-phu-quoc-tuonglamphotos.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Bai-sao-phu-quoc-tuonglamphotos.jpg/1280px-Bai-sao-phu-quoc-tuonglamphotos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Bai-sao-phu-quoc-tuonglamphotos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Bai-sao-phu-quoc-tuonglamphotos.jpg",
+        "author": "[//commons.wikimedia.org/wiki/User:Trantuonglam Trantuonglam]",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Bãi Sao",
+        "path": "/images/itinerary/bai-sao.jpg",
+        "sha256": "27957a4273e14d5869c3f015aa0a0401117410b1cf851ecf2958c14af77ed800"
+      }
+    },
+    {
+      "slug": "bai-bien-nha-trang",
+      "name": "Bãi biển Nha Trang",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Nha_Trang_Beach_10.jpg",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Nha_Trang_Beach_10.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Nha_Trang_Beach_10.jpg/1280px-Nha_Trang_Beach_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Nha_Trang_Beach_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Christophe95",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "original_caption": "The beach in Nha Trang, Vietnam.",
+        "path": "/images/itinerary/bai-bien-nha-trang.jpg",
+        "sha256": "5b664e9b93c07b563b2d482ee39824a241cb9ffb14f8ff0367e3bf00e4cd77ea",
+        "caption": "Bãi biển Nha Trang"
+      }
+    },
+    {
+      "slug": "bai-dam-trau",
+      "name": "Bãi Đầm Trầu",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://condao.com.vn/vi/news/diem-du-lich/bai-dam-trau-noi-thien-nhien-vay-goi-2449.html",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://condao.com.vn/vi/news/diem-du-lich/bai-dam-trau-noi-thien-nhien-vay-goi-2449.html",
+        "download_url": "https://vetauphuquocexpress.com/wp-content/uploads/2024/04/den-bai-dam-trau-ngam-may-bay.jpg",
+        "original_url": "https://vetauphuquocexpress.com/wp-content/uploads/2024/04/den-bai-dam-trau-ngam-may-bay.jpg",
+        "author": "Nguồn ảnh Internet, dẫn trên Cổng thông tin du lịch Côn Đảo; chưa xác định người chụp",
+        "license": "Bản quyền chủ ảnh; chưa xác minh giấy phép mở",
+        "license_url": "",
+        "original_caption": "Bãi Đầm Trầu",
+        "path": "/images/itinerary/bai-dam-trau.jpg",
+        "sha256": "099f0017e450f5b628a4ceb54c0724d5bdb3144891db3a5163c8bab9e79b4815",
+        "caption": "Bãi Đầm Trầu"
+      }
+    },
+    {
+      "slug": "ban-cat-cat",
+      "name": "Bản Cát Cát",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/B%E1%BA%A3n_C%C3%A1t_C%C3%A1t",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:B%E1%BA%A3n_C%C3%A1t_C%C3%A1t.jpg",
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/6/66/B%E1%BA%A3n_C%C3%A1t_C%C3%A1t.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/66/B%E1%BA%A3n_C%C3%A1t_C%C3%A1t.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Bản_Cát_Cát.jpg",
+        "author": "Liftold (thảo luận)",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Bản Cát Cát",
+        "path": "/images/itinerary/ban-cat-cat.jpg",
+        "sha256": "2fcb3cc1a8ebdbfa68192f6e5956165d6d2e524282146ab841040ccdd5a5817b"
+      }
+    },
+    {
+      "slug": "ban-lac",
+      "name": "Bản Lác",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://commons.wikimedia.org/wiki/File:C%C3%A1nh_%C4%91%E1%BB%93ng_b%E1%BA%A3n_L%C3%A1c.jpg",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:C%C3%A1nh_%C4%91%E1%BB%93ng_b%E1%BA%A3n_L%C3%A1c.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/C%C3%A1nh_%C4%91%E1%BB%93ng_b%E1%BA%A3n_L%C3%A1c.jpg/1280px-C%C3%A1nh_%C4%91%E1%BB%93ng_b%E1%BA%A3n_L%C3%A1c.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/C%C3%A1nh_%C4%91%E1%BB%93ng_b%E1%BA%A3n_L%C3%A1c.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Motbit",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "original_caption": "Cánh đồng bản Lác",
+        "path": "/images/itinerary/ban-lac.jpg",
+        "sha256": "be4b7155e025652afd537951c8c869b9e279979396dde746025096dcaeffefa7",
+        "caption": "Bản Lác"
+      }
+    },
+    {
+      "slug": "ban-pac-ngoi",
+      "name": "Bản Pác Ngòi",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Pac_Ngoi_rice_field.JPG",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Pac_Ngoi_rice_field.JPG",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Pac_Ngoi_rice_field.JPG/1280px-Pac_Ngoi_rice_field.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Pac_Ngoi_rice_field.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Ba Be National Park",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "original_caption": "Open rice fields and Pac Ngoi village of Tay people",
+        "path": "/images/itinerary/ban-pac-ngoi.jpg",
+        "sha256": "a07a0f0cbc14000a3492987ed062f2f6ef37b3f6fd7bd34d7f5c965c0c54ef0b",
+        "caption": "Bản Pác Ngòi"
+      }
+    },
+    {
+      "slug": "ban-don-pu-luong",
+      "name": "Bản Đôn Pù Luông",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://luhanhvietnam.com.vn/du-lich/ban-don-pu-luong.html",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://luhanhvietnam.com.vn/du-lich/ban-don-pu-luong.html",
+        "download_url": "https://luhanhvietnam.com.vn/du-lich/vnt_upload/news/06_2024/ban_don_pu_luong_thien_nhien__.jpg",
+        "original_url": "https://luhanhvietnam.com.vn/du-lich/vnt_upload/news/06_2024/ban_don_pu_luong_thien_nhien__.jpg",
+        "author": "@puluongexpressbus, dẫn qua Lữ Hành Việt Nam",
+        "license": "Bản quyền chủ ảnh; chưa xác minh giấy phép mở",
+        "license_url": "",
+        "original_caption": "Bản Đôn Pù Luông",
+        "path": "/images/itinerary/ban-don-pu-luong.jpg",
+        "sha256": "bc84fb806140f888a31b50e9f28519e77cb622173f0c13410ee2ab3f22c772fa",
+        "caption": "Bản Đôn Pù Luông"
+      }
+    },
+    {
+      "slug": "bao-tang-chien-thang-dien-bien-phu",
+      "name": "Bảo tàng Chiến thắng Điện Biên Phủ",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Sculpture_of_Gen._Vo_Nguyen_Giap_-_Dien_Bien_Phu_Victory_Museum_-_Dien_Bien_Phu_-_Vietnam_(48159211597).jpg",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "destination": "dien-bien",
+        "landmark": "Bảo tàng Chiến thắng Điện Biên Phủ",
+        "path": "/images/itinerary/bao-tang-chien-thang-dien-bien-phu.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Sculpture_of_Gen._Vo_Nguyen_Giap_-_Dien_Bien_Phu_Victory_Museum_-_Dien_Bien_Phu_-_Vietnam_(48159211597).jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Sculpture_of_Gen._Vo_Nguyen_Giap_-_Dien_Bien_Phu_Victory_Museum_-_Dien_Bien_Phu_-_Vietnam_%2848159211597%29.jpg/1280px-Sculpture_of_Gen._Vo_Nguyen_Giap_-_Dien_Bien_Phu_Victory_Museum_-_Dien_Bien_Phu_-_Vietnam_%2848159211597%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Sculpture_of_Gen._Vo_Nguyen_Giap_-_Dien_Bien_Phu_Victory_Museum_-_Dien_Bien_Phu_-_Vietnam_%2848159211597%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Adam Jones from Kelowna, BC, Canada",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+        "description": "Sculpture of Gen. Vo Nguyen Giap - Dien Bien Phu Victory Museum - Dien Bien Phu - Vietnam",
+        "modifications": "Wikimedia thumbnail; no other edits",
+        "sha256": "b439cd2308c6d4f106c7d903d42d838b1e32f24c634a68fccef0e9887543e0ac",
+        "original_caption": "Sculpture of Gen. Vo Nguyen Giap - Dien Bien Phu Victory Museum - Dien Bien Phu - Vietnam",
+        "caption": "Hiện vật trong Bảo tàng Chiến thắng Điện Biên Phủ"
+      }
+    },
+    {
+      "slug": "bao-tang-co-vat-cung-dinh-hue",
+      "name": "Bảo tàng Cổ vật Cung đình Huế",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/B%E1%BA%A3o_t%C3%A0ng_C%E1%BB%95_v%E1%BA%ADt_Cung_%C4%91%C3%ACnh_Hu%E1%BA%BF",
+      "latitude": 16.471311,
+      "longitude": 107.581935,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:B%E1%BA%A3o_t%C3%A0ng_C%E1%BB%95_v%E1%BA%ADt_Cung_%C4%91%C3%ACnh_Hu%E1%BA%BF_(15245479432).jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/B%E1%BA%A3o_t%C3%A0ng_C%E1%BB%95_v%E1%BA%ADt_Cung_%C4%91%C3%ACnh_Hu%E1%BA%BF_%2815245479432%29.jpg/1280px-B%E1%BA%A3o_t%C3%A0ng_C%E1%BB%95_v%E1%BA%ADt_Cung_%C4%91%C3%ACnh_Hu%E1%BA%BF_%2815245479432%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/B%E1%BA%A3o_t%C3%A0ng_C%E1%BB%95_v%E1%BA%ADt_Cung_%C4%91%C3%ACnh_Hu%E1%BA%BF_%2815245479432%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Bảo_tàng_Cổ_vật_Cung_đình_Huế_(15245479432).jpg",
+        "author": "Gin The Wanderer",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "Bảo tàng Cổ vật Cung đình Huế",
+        "path": "/images/itinerary/bao-tang-co-vat-cung-dinh-hue.jpg",
+        "sha256": "aed0332fd0791af6e7bd989ac22aea90a915d46fc81faee916526b2b808c8512"
+      }
+    },
+    {
+      "slug": "bao-tang-dak-lak",
+      "name": "Bảo tàng Đắk Lắk",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/B%E1%BA%A3o_t%C3%A0ng_c%C3%A1c_d%C3%A2n_t%E1%BB%99c_Vi%E1%BB%87t_Nam_t%E1%BA%A1i_%C4%90%E1%BA%AFk_L%E1%BA%AFk",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Baotang05.JPG",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Baotang05.JPG/1280px-Baotang05.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Baotang05.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Baotang05.JPG",
+        "author": "Đỗ Tuấn Hưng",
+        "license": "CC BY-SA 3.0",
+        "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+        "caption": "Bảo tàng Đắk Lắk",
+        "path": "/images/itinerary/bao-tang-dak-lak.jpg",
+        "sha256": "1d10e0851081e7d06132e53e775900fa02da03356c62ff12f0706cfb9d568268"
+      }
+    },
+    {
+      "slug": "ben-ninh-kieu",
+      "name": "Bến Ninh Kiều",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/B%E1%BA%BFn_Ninh_Ki%E1%BB%81u",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Ninhkieuquay.jpg",
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Ninhkieuquay.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Ninhkieuquay.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Ninhkieuquay.jpg",
+        "author": "Hung190596",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Bến Ninh Kiều",
+        "path": "/images/itinerary/ben-ninh-kieu.jpg",
+        "sha256": "1a831bfe9f9660489c2b5a2d6bb0383dd795845ed198f746958a978193680129"
+      }
+    },
+    {
+      "slug": "ben-tre",
+      "name": "Bến Tre",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/B%E1%BA%BFn_Tre_(th%C3%A0nh_ph%E1%BB%91)",
+      "latitude": 10.24027778,
+      "longitude": 106.37888889,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Ben_Tre_city.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Ben_Tre_city.jpg/1280px-Ben_Tre_city.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Ben_Tre_city.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Ben_Tre_city.jpg",
+        "author": "Reinowis",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Bến Tre",
+        "path": "/images/itinerary/ben-tre.jpg",
+        "sha256": "26e1b64c24603ffb3e636ded81eb66ba61aa62b8530ea0c0c3aced1135d5712a"
+      }
+    },
+    {
+      "slug": "cao-bang",
+      "name": "Cao Bằng",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Cao_B%E1%BA%B1ng_(th%C3%A0nh_ph%E1%BB%91)",
+      "latitude": 22.665728,
+      "longitude": 106.255752,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Thanhphocaobang2024.jpg",
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Thanhphocaobang2024.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Thanhphocaobang2024.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Thanhphocaobang2024.jpg",
+        "author": "VietHung02092007",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Cao Bằng",
+        "path": "/images/itinerary/cao-bang.jpg",
+        "sha256": "d59d9a16d89bb619bea2144ab1d43bbf9c5ae32cdb10ac60196a0ffc02ff9c86"
+      }
+    },
+    {
+      "slug": "cao-nguyen-da-dong-van",
+      "name": "Cao nguyên đá Đồng Văn",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Cao_nguy%C3%AAn_%C4%91%C3%A1_%C4%90%E1%BB%93ng_V%C4%83n",
+      "latitude": 23.280947,
+      "longitude": 105.363972,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:B%C3%A3i_%C4%91%C3%A1_m%E1%BA%B7t_tr%C4%83ng_%C4%90%E1%BB%93ng_V%C4%83n_-_NKS.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/B%C3%A3i_%C4%91%C3%A1_m%E1%BA%B7t_tr%C4%83ng_%C4%90%E1%BB%93ng_V%C4%83n_-_NKS.jpg/1280px-B%C3%A3i_%C4%91%C3%A1_m%E1%BA%B7t_tr%C4%83ng_%C4%90%E1%BB%93ng_V%C4%83n_-_NKS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/B%C3%A3i_%C4%91%C3%A1_m%E1%BA%B7t_tr%C4%83ng_%C4%90%E1%BB%93ng_V%C4%83n_-_NKS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Bãi_đá_mặt_trăng_Đồng_Văn_-_NKS.jpg",
+        "author": "NKSTTSSHNVN",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Cao nguyên đá Đồng Văn",
+        "path": "/images/itinerary/cao-nguyen-da-dong-van.jpg",
+        "sha256": "f708bb73a9a45744e77341736da1f077cda9fc25f1f6f93b31a7f999c631250a"
+      }
+    },
+    {
+      "slug": "chua-hang-ly-son",
+      "name": "Chùa Hang Lý Sơn",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Ch%C3%B9a_Hang_(Qu%E1%BA%A3ng_Ng%C3%A3i)",
+      "latitude": 15.39027778,
+      "longitude": 109.12111111,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_Hang_-_Thi%C3%AAn_Kh%E1%BB%95ng_Th%E1%BA%A1ch_T%E1%BB%B1_-_L%C3%BD_S%C6%A1n_-Qu%E1%BA%A3ng_Ng%C3%A3i.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Ch%C3%B9a_Hang_-_Thi%C3%AAn_Kh%E1%BB%95ng_Th%E1%BA%A1ch_T%E1%BB%B1_-_L%C3%BD_S%C6%A1n_-Qu%E1%BA%A3ng_Ng%C3%A3i.jpg/1280px-Ch%C3%B9a_Hang_-_Thi%C3%AAn_Kh%E1%BB%95ng_Th%E1%BA%A1ch_T%E1%BB%B1_-_L%C3%BD_S%C6%A1n_-Qu%E1%BA%A3ng_Ng%C3%A3i.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/10/Ch%C3%B9a_Hang_-_Thi%C3%AAn_Kh%E1%BB%95ng_Th%E1%BA%A1ch_T%E1%BB%B1_-_L%C3%BD_S%C6%A1n_-Qu%E1%BA%A3ng_Ng%C3%A3i.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Chùa_Hang_-_Thiên_Khổng_Thạch_Tự_-_Lý_Sơn_-Quảng_Ngãi.jpg",
+        "author": "VuTuanHung1804",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Biển tên Chùa Hang, Lý Sơn",
+        "path": "/images/itinerary/chua-hang-ly-son.jpg",
+        "sha256": "7d2ce336b6b8997fdcc2001eb42cc1ba1a69129593dcdf3373b7264360017717"
+      }
+    },
+    {
+      "slug": "chua-thien-mu",
+      "name": "Chùa Thiên Mụ",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Ch%C3%B9a_Thi%C3%AAn_M%E1%BB%A5",
+      "latitude": 16.453,
+      "longitude": 107.58,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:ThienMuPagoda.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/ThienMuPagoda.jpg/1280px-ThienMuPagoda.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/ThienMuPagoda.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "ThienMuPagoda.jpg",
+        "author": "Lưu Ly",
+        "license": "Public domain",
+        "license_url": "",
+        "caption": "Chùa Thiên Mụ",
+        "path": "/images/itinerary/chua-thien-mu.jpg",
+        "sha256": "fb69e87647138228e08a1ece384983ac6efbc932157be747c0be5fade49c6cad"
+      }
+    },
+    {
+      "slug": "che-cu-nha",
+      "name": "Chế Cu Nha",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/M%C3%B9_Cang_Ch%E1%BA%A3i_(x%C3%A3)",
+      "latitude": 21.84694444,
+      "longitude": 104.0916667,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Terraces_in_Che_Cu_Nha_commune,_Mu_Cang_Chai_(Unsplash).jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Terraces_in_Che_Cu_Nha_commune%2C_Mu_Cang_Chai_%28Unsplash%29.jpg/1280px-Terraces_in_Che_Cu_Nha_commune%2C_Mu_Cang_Chai_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Terraces_in_Che_Cu_Nha_commune%2C_Mu_Cang_Chai_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Terraces_in_Che_Cu_Nha_commune,_Mu_Cang_Chai_(Unsplash).jpg",
+        "author": "Doan Tuan danny_pham93",
+        "license": "CC0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "caption": "Chế Cu Nha",
+        "path": "/images/itinerary/che-cu-nha.jpg",
+        "sha256": "bc859e5a77700f444c6924078bd27f1dca4814cbf3fa7074f1ff318ca29b53e0"
+      }
+    },
+    {
+      "slug": "cho-han",
+      "name": "Chợ Hàn",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Ch%E1%BB%A3_H%C3%A0n",
+      "latitude": 16.06833333,
+      "longitude": 108.22416667,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Cho_Han_Entrance.JPG",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Cho_Han_Entrance.JPG/1280px-Cho_Han_Entrance.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Cho_Han_Entrance.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Cho_Han_Entrance.JPG",
+        "author": "Dragfyre",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Chợ Hàn",
+        "path": "/images/itinerary/cho-han.jpg",
+        "sha256": "d0ad590a9259482cc0de4bac47e64b3228eb3d28ca9500527429eda7c9f9f724"
+      }
+    },
+    {
+      "slug": "cho-sa-pa",
+      "name": "Chợ Sa Pa",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vinwonders.com/vi/wonderpedia/news/cho-phien-sapa-lao-cai/",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://vinwonders.com/vi/wonderpedia/news/cho-phien-sapa-lao-cai/",
+        "download_url": "https://static.vinwonders.com/production/cho-phien-sapa.jpg",
+        "original_url": "https://static.vinwonders.com/production/cho-phien-sapa.jpg",
+        "author": "Nguồn công bố: VinWonders; chưa xác định người chụp",
+        "license": "Bản quyền chủ ảnh; chưa xác minh giấy phép mở",
+        "license_url": "",
+        "original_caption": "Chợ Sa Pa",
+        "path": "/images/itinerary/cho-sa-pa.jpg",
+        "sha256": "da90069c0c483d054242944b68b2a314ce1f60d569440e5116f7005d053604b0",
+        "caption": "Chợ Sa Pa"
+      }
+    },
+    {
+      "slug": "cho-noi-cai-rang",
+      "name": "Chợ nổi Cái Răng",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Ch%E1%BB%A3_n%E1%BB%95i_C%C3%A1i_R%C4%83ng",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:M%E1%BB%99t_c%E1%BA%A3nh_%E1%BB%9F_ch%E1%BB%A3_n%E1%BB%95i_C%C3%A1i_R%C4%83ng.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/M%E1%BB%99t_c%E1%BA%A3nh_%E1%BB%9F_ch%E1%BB%A3_n%E1%BB%95i_C%C3%A1i_R%C4%83ng.jpg/1280px-M%E1%BB%99t_c%E1%BA%A3nh_%E1%BB%9F_ch%E1%BB%A3_n%E1%BB%95i_C%C3%A1i_R%C4%83ng.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/62/M%E1%BB%99t_c%E1%BA%A3nh_%E1%BB%9F_ch%E1%BB%A3_n%E1%BB%95i_C%C3%A1i_R%C4%83ng.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Một_cảnh_ở_chợ_nổi_Cái_Răng.jpg",
+        "author": "Bùi Thụy Đào Nguyên",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Chợ nổi Cái Răng",
+        "path": "/images/itinerary/cho-noi-cai-rang.jpg",
+        "sha256": "93c0e3cda94e4a9c73ea6e10fcf5957cca113fa794cb2fc254476d4c90613631"
+      }
+    },
+    {
+      "slug": "cho-da-lat",
+      "name": "Chợ Đà Lạt",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Ch%E1%BB%A3_%C4%90%C3%A0_L%E1%BA%A1t",
+      "latitude": 11.94295278,
+      "longitude": 108.43682222,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Dalat_market,_Vietnam.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Dalat_market%2C_Vietnam.jpg/1280px-Dalat_market%2C_Vietnam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Dalat_market%2C_Vietnam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Dalat_market,_Vietnam.jpg",
+        "author": "Roy Kim",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "Chợ Đà Lạt",
+        "path": "/images/itinerary/cho-da-lat.jpg",
+        "sha256": "0c5ff4509099602dcece56fd2adaad3b5f81eba104a7ea596234d548d1f5a1e5"
+      }
+    },
+    {
+      "slug": "cho-dong-ba",
+      "name": "Chợ Đông Ba",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Ch%E1%BB%A3_%C4%90%C3%B4ng_Ba",
+      "latitude": 16.472622,
+      "longitude": 107.588501,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Dong_Ba_Market_(Hue)_-_Ch%E1%BB%A3_%C4%90%C3%B4ng_Ba_Hu%E1%BA%BF_(July_2024)_-_img_03.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Dong_Ba_Market_%28Hue%29_-_Ch%E1%BB%A3_%C4%90%C3%B4ng_Ba_Hu%E1%BA%BF_%28July_2024%29_-_img_03.jpg/1280px-Dong_Ba_Market_%28Hue%29_-_Ch%E1%BB%A3_%C4%90%C3%B4ng_Ba_Hu%E1%BA%BF_%28July_2024%29_-_img_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Dong_Ba_Market_%28Hue%29_-_Ch%E1%BB%A3_%C4%90%C3%B4ng_Ba_Hu%E1%BA%BF_%28July_2024%29_-_img_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Dong_Ba_Market_(Hue)_-_Chợ_Đông_Ba_Huế_(July_2024)_-_img_03.jpg",
+        "author": "Chainwit.",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0",
+        "caption": "Chợ Đông Ba",
+        "path": "/images/itinerary/cho-dong-ba.jpg",
+        "sha256": "cf5a30f9ceec0db039dee0d6faa088fe27c93338f095f6b2c16e2ba64de8d783"
+      }
+    },
+    {
+      "slug": "cho-dem-phu-quoc",
+      "name": "Chợ đêm Phú Quốc",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Fish_for_sale_in_Phu_Quoc_night_market_Vietnam.jpg",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Fish_for_sale_in_Phu_Quoc_night_market_Vietnam.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Fish_for_sale_in_Phu_Quoc_night_market_Vietnam.jpg/1280px-Fish_for_sale_in_Phu_Quoc_night_market_Vietnam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Fish_for_sale_in_Phu_Quoc_night_market_Vietnam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "FrogsLegs71",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "original_caption": "Fish for sale in Phu Quoc night market Vietnam",
+        "path": "/images/itinerary/cho-dem-phu-quoc.jpg",
+        "sha256": "914ee16ecae05a0ab29099c2d955baa50328c3951c881b301fc9cc4e9bbb922c",
+        "caption": "Chợ đêm Phú Quốc"
+      }
+    },
+    {
+      "slug": "ca-mau",
+      "name": "Cà Mau",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/C%C3%A0_Mau_(th%C3%A0nh_ph%E1%BB%91)",
+      "latitude": 9.176205,
+      "longitude": 105.150862,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:C%C3%A0_Mau_city_center.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/C%C3%A0_Mau_city_center.jpg/1280px-C%C3%A0_Mau_city_center.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/C%C3%A0_Mau_city_center.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Cà_Mau_city_center.jpg",
+        "author": "[Tycho]  talk , http://shansov.net",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Cà Mau",
+        "path": "/images/itinerary/ca-mau.jpg",
+        "sha256": "2fa5c39ac27267667f34f3eeaa2af0dd7a4e28c9cd211b2994d38557064d7051"
+      }
+    },
+    {
+      "slug": "cau-rong",
+      "name": "Cầu Rồng",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/C%E1%BA%A7u_R%E1%BB%93ng",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Dragon_Bridge,_Da_Nang_during_day_-_20230819_(cropped).jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Dragon_Bridge%2C_Da_Nang_during_day_-_20230819_%28cropped%29.jpg/1280px-Dragon_Bridge%2C_Da_Nang_during_day_-_20230819_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Dragon_Bridge%2C_Da_Nang_during_day_-_20230819_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Dragon_Bridge,_Da_Nang_during_day_-_20230819_(cropped).jpg",
+        "author": "Somerset999",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Cầu Rồng",
+        "path": "/images/itinerary/cau-rong.jpg",
+        "sha256": "aebfcccafed7175e5a3b4f7bf495cf4aae5bcccdeaa43041f73f7f7b9e7c32c1"
+      }
+    },
+    {
+      "slug": "cau-vang",
+      "name": "Cầu Vàng",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/C%E1%BA%A7u_V%C3%A0ng",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:The_Golden_Bridge,_Ba_Na_Hills,_Vietnam.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/The_Golden_Bridge%2C_Ba_Na_Hills%2C_Vietnam.jpg/1280px-The_Golden_Bridge%2C_Ba_Na_Hills%2C_Vietnam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/The_Golden_Bridge%2C_Ba_Na_Hills%2C_Vietnam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "The_Golden_Bridge,_Ba_Na_Hills,_Vietnam.jpg",
+        "author": ". Ray in Manila",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "Cầu Vàng",
+        "path": "/images/itinerary/cau-vang.jpg",
+        "sha256": "ffae5aed7d4b666aeaf2786ad6186bc51043401719f54e44ec1521eb343c649e"
+      }
+    },
+    {
+      "slug": "co-do-hoa-lu",
+      "name": "Cố đô Hoa Lư",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/C%E1%BB%91_%C4%91%C3%B4_Hoa_L%C6%B0",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Temple_at_ancient_Vietnamese_capital_of_Hoa_Lu_(10)_(38469010452).jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Temple_at_ancient_Vietnamese_capital_of_Hoa_Lu_%2810%29_%2838469010452%29.jpg/1280px-Temple_at_ancient_Vietnamese_capital_of_Hoa_Lu_%2810%29_%2838469010452%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Temple_at_ancient_Vietnamese_capital_of_Hoa_Lu_%2810%29_%2838469010452%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Richard Mortel from Riyadh, Saudi Arabia",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "original_caption": "Temple at ancient Vietnamese capital of Hoa Lu (10)",
+        "path": "/images/itinerary/co-do-hoa-lu.jpg",
+        "sha256": "9c171013d4a7cb834e1c595190ff4a06a3998a127fbc3e6ac1811c5f11091b95",
+        "caption": "Cố đô Hoa Lư"
+      }
+    },
+    {
+      "slug": "dinh-thu-ho-vuong",
+      "name": "Dinh thự họ Vương",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Dinh_th%E1%BB%B1_h%E1%BB%8D_V%C6%B0%C6%A1ng",
+      "latitude": 23.256492,
+      "longitude": 105.262146,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Dinh_th%E1%BB%B1_vua_M%C3%A8o_h%E1%BB%8D_V%C6%B0%C6%A1ng_-_Vuong%E2%80%99s_Palace,_%C4%90%E1%BB%93ng_V%C4%83n.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Dinh_th%E1%BB%B1_vua_M%C3%A8o_h%E1%BB%8D_V%C6%B0%C6%A1ng_-_Vuong%E2%80%99s_Palace%2C_%C4%90%E1%BB%93ng_V%C4%83n.jpg/1280px-Dinh_th%E1%BB%B1_vua_M%C3%A8o_h%E1%BB%8D_V%C6%B0%C6%A1ng_-_Vuong%E2%80%99s_Palace%2C_%C4%90%E1%BB%93ng_V%C4%83n.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Dinh_th%E1%BB%B1_vua_M%C3%A8o_h%E1%BB%8D_V%C6%B0%C6%A1ng_-_Vuong%E2%80%99s_Palace%2C_%C4%90%E1%BB%93ng_V%C4%83n.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Dinh_thự_vua_Mèo_họ_Vương_-_Vuong’s_Palace,_Đồng_Văn.jpg",
+        "author": "Khánh Hmoong",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "Dinh thự họ Vương",
+        "path": "/images/itinerary/dinh-thu-ho-vuong.jpg",
+        "sha256": "967371c2c7da57fa9907fe8d68e2e6bebfe38c23d232027ea38b3960995d3324"
+      }
+    },
+    {
+      "slug": "duong-dong",
+      "name": "Dương Đông",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Duong_Dong_Phu_quoc,_Kien_Giang_vietnam_-_panoramio.jpg",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Duong_Dong_Phu_quoc,_Kien_Giang_vietnam_-_panoramio.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Duong_Dong_Phu_quoc%2C_Kien_Giang_vietnam_-_panoramio.jpg/1280px-Duong_Dong_Phu_quoc%2C_Kien_Giang_vietnam_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/af/Duong_Dong_Phu_quoc%2C_Kien_Giang_vietnam_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "trungydang",
+        "license": "CC BY 3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0",
+        "original_caption": "Duong Dong Phu quoc, Kien Giang vietnam",
+        "path": "/images/itinerary/duong-dong.jpg",
+        "sha256": "7a20e105ee1cf45178c2ae700c73000056578a5336da5e0bac343cd0fff7488f",
+        "caption": "Dương Đông"
+      }
+    },
+    {
+      "slug": "eo-gio",
+      "name": "Eo Gió",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Eo_Gi%C3%B3_-_Nh%C6%A1n_L%C3%BD.jpg",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Eo_Gi%C3%B3_-_Nh%C6%A1n_L%C3%BD.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Eo_Gi%C3%B3_-_Nh%C6%A1n_L%C3%BD.jpg/1280px-Eo_Gi%C3%B3_-_Nh%C6%A1n_L%C3%BD.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Eo_Gi%C3%B3_-_Nh%C6%A1n_L%C3%BD.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Hưng Hồ Bá",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "original_caption": "Eo Gió - Nhơn Lý",
+        "path": "/images/itinerary/eo-gio.jpg",
+        "sha256": "103bb3e0217c8ff815c79ea810dd0f2522864d1d1df3acc5b6fbb76db949b43c",
+        "caption": "Eo Gió"
+      }
+    },
+    {
+      "slug": "fansipan",
+      "name": "Fansipan",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Fansipan",
+      "latitude": 22.304276,
+      "longitude": 103.777063,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:C%C3%A1p-treo-fansipan-17.jpg",
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/C%C3%A1p-treo-fansipan-17.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/C%C3%A1p-treo-fansipan-17.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Cáp-treo-fansipan-17.jpg",
+        "author": "Viwikipediaorg",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Fansipan",
+        "path": "/images/itinerary/fansipan.jpg",
+        "sha256": "124df6d97efe66106431cf1a56792bbe6f1d35a7d61a3a2b9b1b8d907cfaa9b4"
+      }
+    },
+    {
+      "slug": "hang-sung-sot",
+      "name": "Hang Sửng Sốt",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Hang_S%E1%BB%ADng_S%E1%BB%91t",
+      "latitude": 20.844753,
+      "longitude": 107.090432,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Hang_S%E1%BB%ADng_S%E1%BB%91t_2.jpg",
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Hang_S%E1%BB%ADng_S%E1%BB%91t_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Hang_S%E1%BB%ADng_S%E1%BB%91t_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Hang_Sửng_Sốt_2.jpg",
+        "author": "audrey_sel",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+        "caption": "Hang Sửng Sốt",
+        "path": "/images/itinerary/hang-sung-sot.jpg",
+        "sha256": "9cae67157a630b1fab2c7c51288855d326fd20c44056a6e480e7a500629bf313"
+      }
+    },
+    {
+      "slug": "hoang-thanh-thang-long",
+      "name": "Hoàng thành Thăng Long",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Ho%C3%A0ng_th%C3%A0nh_Th%C4%83ng_Long",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Central_Sector_of_the_Imperial_Citadel_of_Thang_Long_-_Hanoi.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Central_Sector_of_the_Imperial_Citadel_of_Thang_Long_-_Hanoi.jpg/1280px-Central_Sector_of_the_Imperial_Citadel_of_Thang_Long_-_Hanoi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Central_Sector_of_the_Imperial_Citadel_of_Thang_Long_-_Hanoi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "katiebordner",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "original_caption": "Central Sector of the Imperial Citadel of Thang Long - Hanoi",
+        "path": "/images/itinerary/hoang-thanh-thang-long.jpg",
+        "sha256": "ad709455397e23c4b1b97af254117138ba1314a9a704a03be093cb34088a9c67",
+        "caption": "Hoàng thành Thăng Long"
+      }
+    },
+    {
+      "slug": "ham-do-cat",
+      "name": "Hầm Đờ Cát",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Bunker_of_Colonel_de_Castries_-_Dien_Bien_Phu_-_Vietnam_-_02_(48168824237).jpg",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Bunker_of_Colonel_de_Castries_-_Dien_Bien_Phu_-_Vietnam_-_02_(48168824237).jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Bunker_of_Colonel_de_Castries_-_Dien_Bien_Phu_-_Vietnam_-_02_%2848168824237%29.jpg/1280px-Bunker_of_Colonel_de_Castries_-_Dien_Bien_Phu_-_Vietnam_-_02_%2848168824237%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Bunker_of_Colonel_de_Castries_-_Dien_Bien_Phu_-_Vietnam_-_02_%2848168824237%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Adam Jones from Kelowna, BC, Canada",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+        "original_caption": "Bunker of Colonel de Castries - Dien Bien Phu - Vietnam - 02",
+        "path": "/images/itinerary/ham-do-cat.jpg",
+        "sha256": "abc8632ece86d07d2066bd8fe7e6ea5896557338e11abc40083d193bd59e3a74",
+        "caption": "Hầm Đờ Cát"
+      }
+    },
+    {
+      "slug": "hem-tu-san",
+      "name": "Hẻm Tu Sản",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://commons.wikimedia.org/wiki/File:TuSan_Canyon.jpg",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:TuSan_Canyon.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/TuSan_Canyon.jpg/1280px-TuSan_Canyon.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/TuSan_Canyon.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "NKSTTSSHNVN",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "original_caption": "Hẻm Tu Sản và sông Nho Quế nhìn từ đỉnh đèo Mã Pí Lèng.",
+        "path": "/images/itinerary/hem-tu-san.jpg",
+        "sha256": "12f844e7c46aaa386160e93635fbb824e43f1ca7d1e05a1fff8734fe608b9429",
+        "caption": "Hẻm Tu Sản"
+      }
+    },
+    {
+      "slug": "ho-ba-be",
+      "name": "Hồ Ba Bể",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/H%E1%BB%93_Ba_B%E1%BB%83",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "destination": "ba-be",
+        "landmark": "Hồ Ba Bể",
+        "path": "/images/itinerary/ho-ba-be.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Ba_Be_Lake_2014.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Ba_Be_Lake_2014.jpg/1280px-Ba_Be_Lake_2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Ba_Be_Lake_2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Ekrem Canli",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "description": "Ba Be Lake in Ba Be National Park, Vietnam",
+        "modifications": "Wikimedia thumbnail; no other edits",
+        "sha256": "1c185f797ba2601be5d72d71a3380e596dd7001d1b067f8e73c45707f612ed72",
+        "original_caption": "Ba Be Lake in Ba Be National Park, Vietnam",
+        "caption": "Hồ Ba Bể"
+      }
+    },
+    {
+      "slug": "ho-hoan-kiem",
+      "name": "Hồ Hoàn Kiếm",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/H%E1%BB%93_Ho%C3%A0n_Ki%E1%BA%BFm",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Hoan_Kiem_10082026.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Hoan_Kiem_10082026.jpg/1280px-Hoan_Kiem_10082026.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Hoan_Kiem_10082026.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Hoan_Kiem_10082026.jpg",
+        "author": "Chuhai07",
+        "license": "CC0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "caption": "Hồ Hoàn Kiếm",
+        "path": "/images/itinerary/ho-hoan-kiem.jpg",
+        "sha256": "fbe73c2b097aa19ad8a64a426f607f7d301a30d9609fbee23eb277bb354136eb"
+      }
+    },
+    {
+      "slug": "ho-tuyen-lam",
+      "name": "Hồ Tuyền Lâm",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/H%E1%BB%93_Tuy%E1%BB%81n_L%C3%A2m",
+      "latitude": 11.89968889,
+      "longitude": 108.43231111,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Tuyen_Lam_Lake_01.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Tuyen_Lam_Lake_01.jpg/1280px-Tuyen_Lam_Lake_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tuyen_Lam_Lake_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Tuyen_Lam_Lake_01.jpg",
+        "author": "Diane Selwyn",
+        "license": "Public domain",
+        "license_url": "",
+        "caption": "Hồ Tuyền Lâm",
+        "path": "/images/itinerary/ho-tuyen-lam.jpg",
+        "sha256": "a5bcb043b9ddc56b45839f16f7481eef2319c844027b6ba51b5e176b0514daf8"
+      }
+    },
+    {
+      "slug": "ho-xuan-huong",
+      "name": "Hồ Xuân Hương",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Xuan_Huong_Lake_11.jpg",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "destination": "da-lat",
+        "landmark": "Da Lat",
+        "path": "/images/itinerary/ho-xuan-huong.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Xuan_Huong_Lake_11.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Xuan_Huong_Lake_11.jpg/1280px-Xuan_Huong_Lake_11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Xuan_Huong_Lake_11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Diane Selwyn",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "description": "Xuan Huong Lake, view from Ngoc Lan hotel",
+        "modifications": "Wikimedia thumbnail; no other edits",
+        "sha256": "075508c6dbe8feeb4a36de280bae10d392e9f26694be93767c34689afed1b290",
+        "original_caption": "Xuan Huong Lake, view from Ngoc Lan hotel",
+        "caption": "Hồ Xuân Hương"
+      }
+    },
+    {
+      "slug": "ho-dak-ke",
+      "name": "Hồ Đăk Ke",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Chiec-thuyen-ngap-nuoc-o-ho-dak-ke-mang-den.jpg",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Chiec-thuyen-ngap-nuoc-o-ho-dak-ke-mang-den.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Chiec-thuyen-ngap-nuoc-o-ho-dak-ke-mang-den.jpg/1280px-Chiec-thuyen-ngap-nuoc-o-ho-dak-ke-mang-den.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Chiec-thuyen-ngap-nuoc-o-ho-dak-ke-mang-den.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Đào Phúc Quang Vũ",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "original_caption": "Old boat in Dak Ke Lake - Mang Den Town - Kon Tum",
+        "path": "/images/itinerary/ho-dak-ke.jpg",
+        "sha256": "dbc7041b268c4b4ea48dc83bd568b2cee7520c426e07074b6fe3b87a77effb26",
+        "caption": "Hồ Đăk Ke"
+      }
+    },
+    {
+      "slug": "ky-co",
+      "name": "Kỳ Co",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/B%C3%A3i_K%E1%BB%B3_Co",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Ky_Co_beach,_Quy_Nhon_city,_Binh_Dinh_province,_Vietnam.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Ky_Co_beach%2C_Quy_Nhon_city%2C_Binh_Dinh_province%2C_Vietnam.jpg/1280px-Ky_Co_beach%2C_Quy_Nhon_city%2C_Binh_Dinh_province%2C_Vietnam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Ky_Co_beach%2C_Quy_Nhon_city%2C_Binh_Dinh_province%2C_Vietnam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Lê Hồ Bắc",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "original_caption": "Ky Co beach, Quy Nhon city, Binh Dinh province, Vietnam",
+        "path": "/images/itinerary/ky-co.jpg",
+        "sha256": "b2b3af23f4a462127f9eb53964314d7a4443a683b0ea98f9fc162d8224a4ecfd",
+        "caption": "Kỳ Co"
+      }
+    },
+    {
+      "slug": "lang-kon-pring",
+      "name": "Làng Kon Pring",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vinwonders.com/vi/wonderpedia/news/lang-du-lich-cong-dong-kon-pring/",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://vinwonders.com/vi/wonderpedia/news/lang-du-lich-cong-dong-kon-pring/",
+        "download_url": "https://static.vinwonders.com/production/lang-du-lich-cong-dong-kon-pring-banner.jpg",
+        "original_url": "https://static.vinwonders.com/production/lang-du-lich-cong-dong-kon-pring-banner.jpg",
+        "author": "Nguồn công bố: VinWonders; chưa xác định người chụp",
+        "license": "Bản quyền chủ ảnh; chưa xác minh giấy phép mở",
+        "license_url": "",
+        "original_caption": "Làng Kon Pring",
+        "path": "/images/itinerary/lang-kon-pring.jpg",
+        "sha256": "bac35fe1408a4f3c2d433f7662ce7bb497d645e4054ac62b4359807061b7973b",
+        "caption": "Làng Kon Pring"
+      }
+    },
+    {
+      "slug": "lang-da-khuoi-ky",
+      "name": "Làng đá Khuổi Ky",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://www.ivivu.com/blog/2023/10/lang-da-khuoi-ky-ngoi-lang-lam-bang-da-hon-400-nam-tuoi-o-mien-bien-vien-cao-bang/",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://www.ivivu.com/blog/2023/10/lang-da-khuoi-ky-ngoi-lang-lam-bang-da-hon-400-nam-tuoi-o-mien-bien-vien-cao-bang/",
+        "download_url": "https://cdn3.ivivu.com/2023/10/lang-da-khuoi-ky-ivivu-10.jpg",
+        "original_url": "https://cdn3.ivivu.com/2023/10/lang-da-khuoi-ky-ivivu-10.jpg",
+        "author": "VOV, dẫn qua iVIVU",
+        "license": "Bản quyền chủ ảnh; chưa xác minh giấy phép mở",
+        "license_url": "",
+        "original_caption": "Làng đá Khuổi Ky",
+        "path": "/images/itinerary/lang-da-khuoi-ky.jpg",
+        "sha256": "714724b2e425ffaffe12f1b520eb79f3ddef64b0931e08a441cbbdff1dca3fe0",
+        "caption": "Làng đá Khuổi Ky"
+      }
+    },
+    {
+      "slug": "lang-da-non-nuoc",
+      "name": "Làng đá Non Nước",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://www.ivivu.com/blog/2022/09/kham-pha-lang-da-my-nghe-non-nuoc-da-nang-co-tuoi-doi-300-nam/",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://www.ivivu.com/blog/2022/09/kham-pha-lang-da-my-nghe-non-nuoc-da-nang-co-tuoi-doi-300-nam/",
+        "download_url": "https://cdn3.ivivu.com/2022/09/lang-da-my-nghe-non-nuoc-ivivu-3.jpg",
+        "original_url": "https://cdn3.ivivu.com/2022/09/lang-da-my-nghe-non-nuoc-ivivu-3.jpg",
+        "author": "Vinpearl, dẫn qua iVIVU",
+        "license": "Bản quyền chủ ảnh; chưa xác minh giấy phép mở",
+        "license_url": "",
+        "original_caption": "Làng đá Non Nước",
+        "path": "/images/itinerary/lang-da-non-nuoc.jpg",
+        "sha256": "6f9288e8d15340fa1f2d6ad5656330bb97fc1f05d03885522bdcf8c74864cfb1",
+        "caption": "Làng đá Non Nước"
+      }
+    },
+    {
+      "slug": "lang-minh-mang",
+      "name": "Lăng Minh Mạng",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/L%C4%83ng_Minh_M%E1%BA%A1ng",
+      "latitude": 16.38777778,
+      "longitude": 107.56777778,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:L%C4%83ng_Minh_M%E1%BA%A1ng_-_Minh_L%C3%A2u_(2024)_-_img_02.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/L%C4%83ng_Minh_M%E1%BA%A1ng_-_Minh_L%C3%A2u_%282024%29_-_img_02.jpg/1280px-L%C4%83ng_Minh_M%E1%BA%A1ng_-_Minh_L%C3%A2u_%282024%29_-_img_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/L%C4%83ng_Minh_M%E1%BA%A1ng_-_Minh_L%C3%A2u_%282024%29_-_img_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Lăng_Minh_Mạng_-_Minh_Lâu_(2024)_-_img_02.jpg",
+        "author": "Chainwit.",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0",
+        "caption": "Lăng Minh Mạng",
+        "path": "/images/itinerary/lang-minh-mang.jpg",
+        "sha256": "96c11574ddb0b98463813738ac103bd25dc5179a4bbfe44da9f38f5fe52d0d9e"
+      }
+    },
+    {
+      "slug": "mai-chau",
+      "name": "Mai Châu",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Mai_Ch%C3%A2u",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "destination": "mai-chau",
+        "landmark": "Cánh đồng Mai Châu",
+        "path": "/images/itinerary/mai-chau.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Mai_Chau_rice_field.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Mai_Chau_rice_field.jpg/1280px-Mai_Chau_rice_field.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Mai_Chau_rice_field.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Shyamal",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "description": "Mai Chau rice fields",
+        "modifications": "Wikimedia thumbnail; no other edits",
+        "sha256": "9fcbf797d4888eb2410ed1c98c0c9d93205dbef0616288e9af1b39edba87c2fe",
+        "original_caption": "Mai Chau rice fields",
+        "caption": "Mai Châu"
+      }
+    },
+    {
+      "slug": "mu-cang-chai",
+      "name": "Mù Cang Chải",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Ru%E1%BB%99ng_b%E1%BA%ADc_thang_M%C3%B9_Cang_Ch%E1%BA%A3i",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:KHAU_PH%E1%BA%A0_M%C3%99A_N%C6%AF%E1%BB%9AC_%C4%90%E1%BB%94_-_panoramio.jpg",
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/5/56/KHAU_PH%E1%BA%A0_M%C3%99A_N%C6%AF%E1%BB%9AC_%C4%90%E1%BB%94_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/56/KHAU_PH%E1%BA%A0_M%C3%99A_N%C6%AF%E1%BB%9AC_%C4%90%E1%BB%94_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "KHAU_PHẠ_MÙA_NƯỚC_ĐỔ_-_panoramio.jpg",
+        "author": "VŨ HÙNG",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Mù Cang Chải",
+        "path": "/images/itinerary/mu-cang-chai.jpg",
+        "sha256": "4e1df25209d248bf6f1535c753541b740cfe3d8b0f065c9b645517f428a600b2"
+      }
+    },
+    {
+      "slug": "mang-den",
+      "name": "Măng Đen",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/M%C4%83ng_%C4%90en",
+      "latitude": 14.59972389,
+      "longitude": 108.29201976,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Pa_S%C4%A9_Waterfall,_Mang_Den_Vietnam.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Pa_S%C4%A9_Waterfall%2C_Mang_Den_Vietnam.jpg/1280px-Pa_S%C4%A9_Waterfall%2C_Mang_Den_Vietnam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Pa_S%C4%A9_Waterfall%2C_Mang_Den_Vietnam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Pa_Sĩ_Waterfall,_Mang_Den_Vietnam.jpg",
+        "author": "Weendang",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Thác Pa Sỹ, Măng Đen — ảnh bối cảnh khu vực",
+        "path": "/images/itinerary/mang-den.jpg",
+        "sha256": "c93ef52fe753c6a5a5e98b3e8a4bd81a3491ebe3a97543f0f169b50c88677fae"
+      }
+    },
+    {
+      "slug": "mui-ca-mau",
+      "name": "Mũi Cà Mau",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/M%C5%A9i_C%C3%A0_Mau",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Tuongdaimuicamau.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Tuongdaimuicamau.jpg/1280px-Tuongdaimuicamau.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Tuongdaimuicamau.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Tuongdaimuicamau.jpg",
+        "author": "Thanhminh2000",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Mũi Cà Mau",
+        "path": "/images/itinerary/mui-ca-mau.jpg",
+        "sha256": "27b5a15f996a369c3c9b35a1de24ad2bcc8c02291369c523304b51146e55c321"
+      }
+    },
+    {
+      "slug": "mui-ne",
+      "name": "Mũi Né",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/M%C5%A9i_N%C3%A9",
+      "latitude": 10.98189308,
+      "longitude": 108.25138716,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:M%C5%A9i_N%C3%A9_Fishing_Village.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/M%C5%A9i_N%C3%A9_Fishing_Village.jpg/1280px-M%C5%A9i_N%C3%A9_Fishing_Village.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/06/M%C5%A9i_N%C3%A9_Fishing_Village.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Mũi_Né_Fishing_Village.jpg",
+        "author": "Woong Deewaa",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Mũi Né",
+        "path": "/images/itinerary/mui-ne.jpg",
+        "sha256": "bd10730019dedabdd7ddcc44a368c9a97efb61a84723f40829b1ac4e5c09cf90"
+      }
+    },
+    {
+      "slug": "muong-phang",
+      "name": "Mường Phăng",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vha.vn/tin-tuc/Muong-Phang--diem-du-lich-khong-the-bo-qua-trong-hanh-trinh-kham-pha-Tay-Bac-32535",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://vha.vn/tin-tuc/Muong-Phang--diem-du-lich-khong-the-bo-qua-trong-hanh-trinh-kham-pha-Tay-Bac-32535",
+        "download_url": "https://img.webbanve.net/photos/resized/1000x/1578-1619833959-vhavn.png",
+        "original_url": "https://img.webbanve.net/photos/resized/1000x/1578-1619833959-vhavn.png",
+        "author": "VHA.vn",
+        "license": "Bản quyền chủ ảnh; chưa xác minh giấy phép mở",
+        "license_url": "",
+        "original_caption": "Mường Phăng",
+        "path": "/images/itinerary/muong-phang.jpg",
+        "sha256": "bc4a08081719584fe198e554c9b499723d4894826902d70ab8be2797053d6b6c",
+        "caption": "Mường Phăng"
+      }
+    },
+    {
+      "slug": "moc-chau",
+      "name": "Mộc Châu",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/M%E1%BB%99c_Ch%C3%A2u_(th%E1%BB%8B_x%C3%A3)",
+      "latitude": 20.8625,
+      "longitude": 104.60305556,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Thacdaiyem.jpg",
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Thacdaiyem.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Thacdaiyem.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Thacdaiyem.jpg",
+        "author": "ePi.Longo",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+        "caption": "Thác Dải Yếm, Mộc Châu — ảnh bối cảnh khu vực",
+        "path": "/images/itinerary/moc-chau.jpg",
+        "sha256": "f6601589a2d3a54fb4eb8b9900693ee5e39fa9df7f5a9a0e1ef68f019f951137"
+      }
+    },
+    {
+      "slug": "nghia-lo",
+      "name": "Nghĩa Lộ",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Ngh%C4%A9a_L%E1%BB%99_(th%E1%BB%8B_x%C3%A3)",
+      "latitude": 21.6032,
+      "longitude": 104.4942,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Ngh%C4%A9a_L%E1%BB%99.JPG",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Ngh%C4%A9a_L%E1%BB%99.JPG/1280px-Ngh%C4%A9a_L%E1%BB%99.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/98/Ngh%C4%A9a_L%E1%BB%99.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Nghĩa_Lộ.JPG",
+        "author": "Viethavvh at Vietnamese Wikipedia",
+        "license": "Public domain",
+        "license_url": "",
+        "caption": "Nghĩa Lộ",
+        "path": "/images/itinerary/nghia-lo.jpg",
+        "sha256": "3378e45f561ef8427cb7a3721cd0d76e204ae28f0736fc8fb8b4c027cdbcfec1"
+      }
+    },
+    {
+      "slug": "nghia-trang-hang-duong",
+      "name": "Nghĩa trang Hàng Dương",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Ngh%C4%A9a_trang_H%C3%A0ng_D%C6%B0%C6%A1ng",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Ngh%C4%A9a_Trang_H%C3%A0ng_D%C6%B0%C6%A1ng_V%C3%B5_Th%E1%BB%8B_S%C3%A1u_C%C3%B4n_%C4%90%E1%BA%A3o_V%C5%A9ng_T%C3%A0u_(02-09-2014)_-_panoramio.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Ngh%C4%A9a_Trang_H%C3%A0ng_D%C6%B0%C6%A1ng_V%C3%B5_Th%E1%BB%8B_S%C3%A1u_C%C3%B4n_%C4%90%E1%BA%A3o_V%C5%A9ng_T%C3%A0u_%2802-09-2014%29_-_panoramio.jpg/1280px-Ngh%C4%A9a_Trang_H%C3%A0ng_D%C6%B0%C6%A1ng_V%C3%B5_Th%E1%BB%8B_S%C3%A1u_C%C3%B4n_%C4%90%E1%BA%A3o_V%C5%A9ng_T%C3%A0u_%2802-09-2014%29_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Ngh%C4%A9a_Trang_H%C3%A0ng_D%C6%B0%C6%A1ng_V%C3%B5_Th%E1%BB%8B_S%C3%A1u_C%C3%B4n_%C4%90%E1%BA%A3o_V%C5%A9ng_T%C3%A0u_%2802-09-2014%29_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Lam Tr Th",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "original_caption": "Nghĩa Trang Hàng Dương Võ Thị Sáu Côn Đảo Vũng Tàu (02/09/2014)",
+        "path": "/images/itinerary/nghia-trang-hang-duong.jpg",
+        "sha256": "6a271afd29883eea516713fa8a2bb11f339e395ec2c6f4704a8e23825ad2cd72",
+        "caption": "Nghĩa trang Hàng Dương"
+      }
+    },
+    {
+      "slug": "nghia-trang-dien-bien-phu",
+      "name": "Nghĩa trang Điện Biên Phủ",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Gravestones_in_Dien_Bien_Phu_Cemetery_-_Dien_Bien_Phu_-_Vietnam_-_02_(48159155861).jpg",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "destination": "dien-bien",
+        "landmark": "Nghĩa trang Điện Biên Phủ",
+        "path": "/images/itinerary/nghia-trang-dien-bien-phu.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Gravestones_in_Dien_Bien_Phu_Cemetery_-_Dien_Bien_Phu_-_Vietnam_-_02_(48159155861).jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Gravestones_in_Dien_Bien_Phu_Cemetery_-_Dien_Bien_Phu_-_Vietnam_-_02_%2848159155861%29.jpg/1280px-Gravestones_in_Dien_Bien_Phu_Cemetery_-_Dien_Bien_Phu_-_Vietnam_-_02_%2848159155861%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Gravestones_in_Dien_Bien_Phu_Cemetery_-_Dien_Bien_Phu_-_Vietnam_-_02_%2848159155861%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Adam Jones from Kelowna, BC, Canada",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+        "description": "Gravestones in Dien Bien Phu Cemetery - Dien Bien Phu - Vietnam - 02",
+        "modifications": "Wikimedia thumbnail; no other edits",
+        "sha256": "8077e27ec37593c7632258b2202bcf3f7fab12f54651ea6dfe6d133137208ef5",
+        "original_caption": "Gravestones in Dien Bien Phu Cemetery - Dien Bien Phu - Vietnam - 02",
+        "caption": "Nghĩa trang Điện Biên Phủ"
+      }
+    },
+    {
+      "slug": "ngu-hanh-son",
+      "name": "Ngũ Hành Sơn",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Ng%C5%A9_H%C3%A0nh_S%C6%A1n",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Ngu_hanh_son_toan_canh.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Ngu_hanh_son_toan_canh.jpg/1280px-Ngu_hanh_son_toan_canh.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Ngu_hanh_son_toan_canh.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Ngu_hanh_son_toan_canh.jpg",
+        "author": "Viethavvh at vi.wikipedia",
+        "license": "Public domain",
+        "license_url": "",
+        "caption": "Ngũ Hành Sơn",
+        "path": "/images/itinerary/ngu-hanh-son.jpg",
+        "sha256": "f63e1149d91046b097a41785e3d2dd7d6c4ce16eff78c26cb1e999eb42714948"
+      }
+    },
+    {
+      "slug": "nha-co-binh-thuy",
+      "name": "Nhà cổ Bình Thủy",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Nh%C3%A0_c%E1%BB%95_B%C3%ACnh_Th%E1%BB%A7y",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "destination": "can-tho",
+        "landmark": "Nhà cổ Bình Thủy",
+        "path": "/images/itinerary/nha-co-binh-thuy.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Nh%C3%A0_c%E1%BB%95_B%C3%ACnh_Th%E1%BB%A7y.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Nh%C3%A0_c%E1%BB%95_B%C3%ACnh_Th%E1%BB%A7y.jpg/1280px-Nh%C3%A0_c%E1%BB%95_B%C3%ACnh_Th%E1%BB%A7y.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Nh%C3%A0_c%E1%BB%95_B%C3%ACnh_Th%E1%BB%A7y.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Thuydaonguyen",
+        "license": "CC BY 3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0",
+        "description": "Nhà cổ Bình Thủy",
+        "modifications": "Wikimedia thumbnail; no other edits",
+        "sha256": "dad62938db3e695f0c85b9dba6c34e32015294233c6d045cbc3ba2718f91c5d2",
+        "original_caption": "Nhà cổ Bình Thủy",
+        "caption": "Nhà cổ Bình Thủy"
+      }
+    },
+    {
+      "slug": "nha-tu-con-dao",
+      "name": "Nhà tù Côn Đảo",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Nh%C3%A0_t%C3%B9_C%C3%B4n_%C4%90%E1%BA%A3o",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Nh%C3%A0_t%C3%B9_C%C3%B4n_%C4%90%E1%BA%A3o.JPG",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Nh%C3%A0_t%C3%B9_C%C3%B4n_%C4%90%E1%BA%A3o.JPG/1280px-Nh%C3%A0_t%C3%B9_C%C3%B4n_%C4%90%E1%BA%A3o.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Nh%C3%A0_t%C3%B9_C%C3%B4n_%C4%90%E1%BA%A3o.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Nhà_tù_Côn_Đảo.JPG",
+        "author": "[Tycho]  talk , http://shansov.net",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Nhà tù Côn Đảo",
+        "path": "/images/itinerary/nha-tu-con-dao.jpg",
+        "sha256": "1faba339c969c1b99dd760ce0c56cd4cfd172df84090ea9d98d612b6860f1d4a"
+      }
+    },
+    {
+      "slug": "nui-ba-den",
+      "name": "Núi Bà Đen",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/N%C3%BAi_B%C3%A0_%C4%90en",
+      "latitude": 11.381431,
+      "longitude": 106.171175,
+      "image": {
+        "destination": "tay-ninh",
+        "landmark": "Cáp treo núi Bà Đen",
+        "path": "/images/itinerary/nui-ba-den.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Aerial_tram_in_Black_Virgin_Mountain.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Aerial_tram_in_Black_Virgin_Mountain.jpg/1280px-Aerial_tram_in_Black_Virgin_Mountain.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Aerial_tram_in_Black_Virgin_Mountain.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Baoothersks",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "description": "Aerial tram in Black Virgin Mountain",
+        "modifications": "Wikimedia thumbnail; no other edits",
+        "sha256": "d9c3b26e04570c117c3fe8bf7a1538d1e4325457cb3a91c3d50425cbfe95f135",
+        "original_caption": "Aerial tram in Black Virgin Mountain",
+        "caption": "Núi Bà Đen"
+      }
+    },
+    {
+      "slug": "phu-quoc",
+      "name": "Phú Quốc",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Ph%C3%BA_Qu%E1%BB%91c",
+      "latitude": 10.21608143,
+      "longitude": 103.95939055,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Phu_Quoc,_Viet_Nam.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Phu_Quoc%2C_Viet_Nam.jpg/1280px-Phu_Quoc%2C_Viet_Nam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Phu_Quoc%2C_Viet_Nam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Phu_Quoc,_Viet_Nam.jpg",
+        "author": "[//commons.wikimedia.org/wiki/User:Trantuonglam Trantuonglam]",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Phú Quốc",
+        "path": "/images/itinerary/phu-quoc.jpg",
+        "sha256": "394af0a132497315bd4ea078385a6291cd1d616d30a5e931f420c8ab4578615b"
+      }
+    },
+    {
+      "slug": "pho-co-ha-noi",
+      "name": "Phố cổ Hà Nội",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Khu_ph%E1%BB%91_c%E1%BB%95_H%C3%A0_N%E1%BB%99i",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Hanoi_shophouse_2.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Hanoi_shophouse_2.jpg/1280px-Hanoi_shophouse_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Hanoi_shophouse_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Hanoi_shophouse_2.jpg",
+        "author": "Sgnpkd",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Phố cổ Hà Nội",
+        "path": "/images/itinerary/pho-co-ha-noi.jpg",
+        "sha256": "9593ac10546e62d3e26e7e78f6b073528f6fa9986240d267fc1ec61555bc2b5c"
+      }
+    },
+    {
+      "slug": "pho-co-hoi-an",
+      "name": "Phố cổ Hội An",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Ph%E1%BB%91_c%E1%BB%95_H%E1%BB%99i_An",
+      "latitude": 15.88333333,
+      "longitude": 108.33333333,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:PhoCoHoiAn.jpg",
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/PhoCoHoiAn.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/PhoCoHoiAn.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "PhoCoHoiAn.jpg",
+        "author": "Crazy3108",
+        "license": "CC BY-SA 3.0",
+        "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+        "caption": "Phố cổ Hội An",
+        "path": "/images/itinerary/pho-co-hoi-an.jpg",
+        "sha256": "01729a0959adab9db4332b9eb5f5e79515b1e3d3574e31d2e6e9be937b9c0e9c"
+      }
+    },
+    {
+      "slug": "pac-bo",
+      "name": "Pác Bó",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Khu_di_t%C3%ADch_P%C3%A1c_B%C3%B3",
+      "latitude": 22.981319,
+      "longitude": 106.04978,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:C%E1%BB%91c_B%C3%B3.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/C%E1%BB%91c_B%C3%B3.jpg/1280px-C%E1%BB%91c_B%C3%B3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/C%E1%BB%91c_B%C3%B3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Cốc_Bó.jpg",
+        "author": "[Tycho]  talk , http://shansov.net",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Pác Bó",
+        "path": "/images/itinerary/pac-bo.jpg",
+        "sha256": "658c569fe85178ab590723f6e0af97868f9c648db1816f40bab443d71e1b2c55"
+      }
+    },
+    {
+      "slug": "pu-luong",
+      "name": "Pù Luông",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Khu_b%E1%BA%A3o_t%E1%BB%93n_thi%C3%AAn_nhi%C3%AAn_P%C3%B9_Lu%C3%B4ng",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Ru%E1%BB%99ng_b%E1%BA%ADc_thang_P%C3%B9_Lu%C3%B4ng_1_-_NKS.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Ru%E1%BB%99ng_b%E1%BA%ADc_thang_P%C3%B9_Lu%C3%B4ng_1_-_NKS.jpg/1280px-Ru%E1%BB%99ng_b%E1%BA%ADc_thang_P%C3%B9_Lu%C3%B4ng_1_-_NKS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Ru%E1%BB%99ng_b%E1%BA%ADc_thang_P%C3%B9_Lu%C3%B4ng_1_-_NKS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Ruộng_bậc_thang_Pù_Luông_1_-_NKS.jpg",
+        "author": "NKSTTSSHNVN",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Pù Luông",
+        "path": "/images/itinerary/pu-luong.jpg",
+        "sha256": "3f87ac7e7d08c37cdf9f45bd134345107dff91e342786018deea3ef114997a79"
+      }
+    },
+    {
+      "slug": "quy-nhon",
+      "name": "Quy Nhơn",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Quy_Nh%C6%A1n_(th%C3%A0nh_ph%E1%BB%91)",
+      "latitude": 13.76666667,
+      "longitude": 109.23333333,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Nh%C3%A0_th%E1%BB%9D_ch%C3%ADnh_t%C3%B2a_Qui_Nh%C6%A1n.jpg",
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Nh%C3%A0_th%E1%BB%9D_ch%C3%ADnh_t%C3%B2a_Qui_Nh%C6%A1n.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Nh%C3%A0_th%E1%BB%9D_ch%C3%ADnh_t%C3%B2a_Qui_Nh%C6%A1n.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Nhà_thờ_chính_tòa_Qui_Nhơn.jpg",
+        "author": "2722004q",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Nhà thờ chính tòa Quy Nhơn — ảnh bối cảnh thành phố",
+        "path": "/images/itinerary/quy-nhon.jpg",
+        "sha256": "a46266816b2188e3408aca6ab014a88a751e3e40c9eafef3e30475faad568bd7"
+      }
+    },
+    {
+      "slug": "quan-ba",
+      "name": "Quản Bạ",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Qu%E1%BA%A3n_B%E1%BA%A1_(huy%E1%BB%87n)",
+      "latitude": 23.06683,
+      "longitude": 104.988277,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Th%E1%BB%8B_tr%E1%BA%A5n_Tam_S%C6%A1n_-_NKS.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Th%E1%BB%8B_tr%E1%BA%A5n_Tam_S%C6%A1n_-_NKS.jpg/1280px-Th%E1%BB%8B_tr%E1%BA%A5n_Tam_S%C6%A1n_-_NKS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Th%E1%BB%8B_tr%E1%BA%A5n_Tam_S%C6%A1n_-_NKS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Thị_trấn_Tam_Sơn_-_NKS.jpg",
+        "author": "NKSTTSSHNVN",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Tam Sơn — ảnh bối cảnh khu vực Quản Bạ",
+        "path": "/images/itinerary/quan-ba.jpg",
+        "sha256": "2e114ea0f711311f32d1c5ed74b8b7769db87c2cec4f5432bea26defd7af85f5"
+      }
+    },
+    {
+      "slug": "rung-thong-ban-ang",
+      "name": "Rừng thông bản Áng",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://pystravel.vn/tin/3754-rung-thong-ban-ang-moc-chau-kham-pha-da-lat-thu-nho-giua-tay-bac.html",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://pystravel.vn/tin/3754-rung-thong-ban-ang-moc-chau-kham-pha-da-lat-thu-nho-giua-tay-bac.html",
+        "download_url": "https://pystravel.vn/uploads/posts/albums/3754/b09a2685510bbfec4f94fb6e80ed82af.jpg",
+        "original_url": "https://pystravel.vn/uploads/posts/albums/3754/b09a2685510bbfec4f94fb6e80ed82af.jpg",
+        "author": "Nguồn công bố: PYS Travel; chưa xác định người chụp",
+        "license": "Bản quyền chủ ảnh; chưa xác minh giấy phép mở",
+        "license_url": "",
+        "original_caption": "Rừng thông bản Áng",
+        "path": "/images/itinerary/rung-thong-ban-ang.jpg",
+        "sha256": "a285e8f808c0a81edb1253343758a01c41b7d1d4dae3456f0ca0fad07240c9f3",
+        "caption": "Rừng thông bản Áng"
+      }
+    },
+    {
+      "slug": "sa-pa",
+      "name": "Sa Pa",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Sa_Pa_(th%E1%BB%8B_x%C3%A3)",
+      "latitude": 22.33555556,
+      "longitude": 103.84194444,
+      "image": {
+        "destination": "sapa",
+        "landmark": "Sa Pa",
+        "path": "/images/itinerary/sa-pa.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Sa_Pa.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Sa_Pa.jpg/1280px-Sa_Pa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Sa_Pa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Bùi Thụy Đào Nguyên",
+        "license": "Public domain",
+        "license_url": "",
+        "description": "Một phần thị trấn Sa Pa (Lao Cai, Việt Nam)",
+        "modifications": "Wikimedia thumbnail; no other edits",
+        "sha256": "c64574ec51df2e4e2925643cb22e194f90f898ebb63946277e73eddbeba15501",
+        "original_caption": "Một phần thị trấn Sa Pa (Lao Cai, Việt Nam)",
+        "caption": "Sa Pa"
+      }
+    },
+    {
+      "slug": "suoi-tien-mui-ne",
+      "name": "Suối Tiên Mũi Né",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Su%E1%BB%91i_Ti%C3%AAn_(M%C5%A9i_N%C3%A9)",
+      "latitude": 10.955463,
+      "longitude": 108.259088,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Fairy_Stream_(Mui_Ne).jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Fairy_Stream_%28Mui_Ne%29.jpg/1280px-Fairy_Stream_%28Mui_Ne%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Fairy_Stream_%28Mui_Ne%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Fairy_Stream_(Mui_Ne).jpg",
+        "author": "Darren On The Road",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "Suối Tiên Mũi Né",
+        "path": "/images/itinerary/suoi-tien-mui-ne.jpg",
+        "sha256": "e19b3f88c5eab3cc76ed1041c92edf99457a28699ba8e0350e6f29a7f6ac7e4d"
+      }
+    },
+    {
+      "slug": "song-han",
+      "name": "Sông Hàn",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/S%C3%B4ng_H%C3%A0n",
+      "latitude": 16.09666667,
+      "longitude": 108.22,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Hanrivernew.png",
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Hanrivernew.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Hanrivernew.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Hanrivernew.png",
+        "author": "HaMinh1997 (thảo luận)",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Sông Hàn",
+        "path": "/images/itinerary/song-han.jpg",
+        "sha256": "5a4b070b0cce828fb1344fd553fa82977351ff59f3d642be8b2004818f3e6351"
+      }
+    },
+    {
+      "slug": "song-huong",
+      "name": "Sông Hương",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/S%C3%B4ng_H%C6%B0%C6%A1ng",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:S%C3%B4ng_H%C6%B0%C6%A1ng_(Hu%E1%BA%BF).jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/S%C3%B4ng_H%C6%B0%C6%A1ng_%28Hu%E1%BA%BF%29.jpg/1280px-S%C3%B4ng_H%C6%B0%C6%A1ng_%28Hu%E1%BA%BF%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/67/S%C3%B4ng_H%C6%B0%C6%A1ng_%28Hu%E1%BA%BF%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Sông_Hương_(Huế).jpg",
+        "author": "Bùi Thụy Đào Nguyên",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Sông Hương",
+        "path": "/images/itinerary/song-huong.jpg",
+        "sha256": "46711e508ab44577c08d3dd2970e456d0c3eaf87f46db8acb9d37a4bfb06e5c9"
+      }
+    },
+    {
+      "slug": "song-son",
+      "name": "Sông Son",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/S%C3%B4ng_Son",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Song_Son_@Quang_Binh.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Song_Son_%40Quang_Binh.jpg/1280px-Song_Son_%40Quang_Binh.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Song_Son_%40Quang_Binh.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Song_Son_@Quang_Binh.jpg",
+        "author": "BacLuong at Vietnamese Wikipedia",
+        "license": "Public domain",
+        "license_url": "",
+        "caption": "Sông Son",
+        "path": "/images/itinerary/song-son.jpg",
+        "sha256": "1377199423daa545266745fe9d5e416e60195c18f42c27db0db555f0715cabf7"
+      }
+    },
+    {
+      "slug": "tam-coc",
+      "name": "Tam Cốc",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Tam_C%E1%BB%91c_%E2%80%93_B%C3%ADch_%C4%90%E1%BB%99ng",
+      "latitude": 20.218515,
+      "longitude": 105.914698,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Muaxuantamcoc.jpg",
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Muaxuantamcoc.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Muaxuantamcoc.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Muaxuantamcoc.jpg",
+        "author": "Kien1980v (thảo luận)",
+        "license": "Public domain",
+        "license_url": "",
+        "caption": "Tam Cốc",
+        "path": "/images/itinerary/tam-coc.jpg",
+        "sha256": "aa165aaba730174ee27fc218c8adac0c1adbf4d675c021be9e24e2767ee388fe"
+      }
+    },
+    {
+      "slug": "thien-vien-truc-lam-da-lat",
+      "name": "Thiền viện Trúc Lâm Đà Lạt",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Thi%E1%BB%81n_vi%E1%BB%87n_Tr%C3%BAc_L%C3%A2m_%C4%90%C3%A0_L%E1%BA%A1t",
+      "latitude": 11.93071389,
+      "longitude": 108.45953056,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Zen_Monastery_Truc_Lam_Da_Lat.JPG",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Zen_Monastery_Truc_Lam_Da_Lat.JPG/1280px-Zen_Monastery_Truc_Lam_Da_Lat.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Zen_Monastery_Truc_Lam_Da_Lat.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Zen_Monastery_Truc_Lam_Da_Lat.JPG",
+        "author": "The original uploader was Liftold at Vietnamese Wikipedia.",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Thiền viện Trúc Lâm Đà Lạt",
+        "path": "/images/itinerary/thien-vien-truc-lam-da-lat.jpg",
+        "sha256": "d6a3b511d1f606c679ef1014fa26c4611d5a82a88eab2f6853ce774a46e0aab7"
+      }
+    },
+    {
+      "slug": "thung-lung-muong-hoa",
+      "name": "Thung lũng Mường Hoa",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Thung_l%C5%A9ng_M%C6%B0%E1%BB%9Dng_Hoa",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:M%C6%B0%E1%BB%9Dng_Hoa_Valley_06.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/M%C6%B0%E1%BB%9Dng_Hoa_Valley_06.jpg/1280px-M%C6%B0%E1%BB%9Dng_Hoa_Valley_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/54/M%C6%B0%E1%BB%9Dng_Hoa_Valley_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Christophe95",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "original_caption": "Hầu Thào seen from Tả Van.",
+        "path": "/images/itinerary/thung-lung-muong-hoa.jpg",
+        "sha256": "4c595abc00b65eb94b92fc023a0a440e986ad84bcec8bf8374ee899a4b8b8413",
+        "caption": "Thung lũng Mường Hoa"
+      }
+    },
+    {
+      "slug": "thac-ban-gioc",
+      "name": "Thác Bản Giốc",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Th%C3%A1c_B%E1%BA%A3n_Gi%E1%BB%91c",
+      "latitude": 22.855897,
+      "longitude": 106.722501,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Bangioc9tam.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Bangioc9tam.jpg/1280px-Bangioc9tam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Bangioc9tam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Bangioc9tam.jpg",
+        "author": "Lê  Minh Phát",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "Thác Bản Giốc",
+        "path": "/images/itinerary/thac-ban-gioc.jpg",
+        "sha256": "f8a1d701de36c358b48a233f25f448f3542815c862b66b656a64782d57c14348"
+      }
+    },
+    {
+      "slug": "thac-dray-nur",
+      "name": "Thác Dray Nur",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Th%C3%A1c_%C4%90ray_Nur",
+      "latitude": 12.541851,
+      "longitude": 107.889689,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Draynur_falls.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Draynur_falls.jpg/1280px-Draynur_falls.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Draynur_falls.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Draynur_falls.jpg",
+        "author": "Y Kpia Mlo",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Thác Dray Nur",
+        "path": "/images/itinerary/thac-dray-nur.jpg",
+        "sha256": "0e5c6a9739798a7b70a4d17bd4e8c1f9e3b8015ac0277b5f6a39596e00f5b0ca"
+      }
+    },
+    {
+      "slug": "thac-dai-yem",
+      "name": "Thác Dải Yếm",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Th%C3%A1c_D%E1%BA%A3i_Y%E1%BA%BFm",
+      "latitude": 20.820206,
+      "longitude": 104.591076,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Thacdaiyem.jpg",
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Thacdaiyem.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Thacdaiyem.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Thacdaiyem.jpg",
+        "author": "ePi.Longo",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+        "caption": "Thác Dải Yếm",
+        "path": "/images/itinerary/thac-dai-yem.jpg",
+        "sha256": "f6601589a2d3a54fb4eb8b9900693ee5e39fa9df7f5a9a0e1ef68f019f951137"
+      }
+    },
+    {
+      "slug": "thac-pa-sy",
+      "name": "Thác Pa Sỹ",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Pa_S%C4%A9_Waterfall,_Mang_Den_Vietnam.jpg",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Pa_S%C4%A9_Waterfall,_Mang_Den_Vietnam.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Pa_S%C4%A9_Waterfall%2C_Mang_Den_Vietnam.jpg/1280px-Pa_S%C4%A9_Waterfall%2C_Mang_Den_Vietnam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Pa_S%C4%A9_Waterfall%2C_Mang_Den_Vietnam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Weendang",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "original_caption": "Mang Den, Kon Tum Vietnam",
+        "path": "/images/itinerary/thac-pa-sy.jpg",
+        "sha256": "c93ef52fe753c6a5a5e98b3e8a4bd81a3491ebe3a97543f0f169b50c88677fae",
+        "caption": "Thác Pa Sỹ"
+      }
+    },
+    {
+      "slug": "thac-pongour",
+      "name": "Thác Pongour",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Th%C3%A1c_Pongour",
+      "latitude": 11.68837,
+      "longitude": 108.266485,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:ThacPongour.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/ThacPongour.jpg/1280px-ThacPongour.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/07/ThacPongour.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "ThacPongour.jpg",
+        "author": "Original uploader was Tú My at vi.wikipedia",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Thác Pongour",
+        "path": "/images/itinerary/thac-pongour.jpg",
+        "sha256": "faf53fe9645cce85180ac40b5320e8874314ee414601c9524675cc807082cdab"
+      }
+    },
+    {
+      "slug": "thap-ba-ponagar",
+      "name": "Tháp Bà Ponagar",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Th%C3%A1p_Po_Nagar",
+      "latitude": 12.26527778,
+      "longitude": 109.19555556,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Th%C3%A1p_B%C3%A0_PONAGAR_-_panoramio.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Th%C3%A1p_B%C3%A0_PONAGAR_-_panoramio.jpg/1280px-Th%C3%A1p_B%C3%A0_PONAGAR_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Th%C3%A1p_B%C3%A0_PONAGAR_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Tháp_Bà_PONAGAR_-_panoramio.jpg",
+        "author": "Makarenko Sasha",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Tháp Bà Ponagar",
+        "path": "/images/itinerary/thap-ba-ponagar.jpg",
+        "sha256": "a41bf2321f832059347eae2c01dd4d797a2970a4340bdc2dfd4c018b5422ffad"
+      }
+    },
+    {
+      "slug": "thap-banh-it",
+      "name": "Tháp Bánh Ít",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Th%C3%A1p_B%C3%A1nh_%C3%8Dt",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:C%E1%BB%A5m_th%C3%A1p_B%C3%A1nh_%C3%8Dt,_Tuy_Ph%C6%B0%E1%BB%9Bc,_B%C3%ACnh_%C4%90%E1%BB%8Bnh.JPG",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/C%E1%BB%A5m_th%C3%A1p_B%C3%A1nh_%C3%8Dt%2C_Tuy_Ph%C6%B0%E1%BB%9Bc%2C_B%C3%ACnh_%C4%90%E1%BB%8Bnh.JPG/1280px-C%E1%BB%A5m_th%C3%A1p_B%C3%A1nh_%C3%8Dt%2C_Tuy_Ph%C6%B0%E1%BB%9Bc%2C_B%C3%ACnh_%C4%90%E1%BB%8Bnh.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/63/C%E1%BB%A5m_th%C3%A1p_B%C3%A1nh_%C3%8Dt%2C_Tuy_Ph%C6%B0%E1%BB%9Bc%2C_B%C3%ACnh_%C4%90%E1%BB%8Bnh.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Cụm_tháp_Bánh_Ít,_Tuy_Phước,_Bình_Định.JPG",
+        "author": "Dongson*vmvn at Vietnamese Wikipedia",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Tháp Bánh Ít",
+        "path": "/images/itinerary/thap-banh-it.jpg",
+        "sha256": "c1a567329785d8708301b90b90cc75d89d39d0761b3822d3cc636009647c6762"
+      }
+    },
+    {
+      "slug": "thap-po-sah-inu",
+      "name": "Tháp Po Sah Inư",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Th%C3%A1p_Po_Sah_In%C6%B0",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Th%C3%A1p_Po_Sah_Inu,_Phan_Thi%E1%BA%BFt,_B%C3%ACnh_Thu%E1%BA%ADn.JPG",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Th%C3%A1p_Po_Sah_Inu%2C_Phan_Thi%E1%BA%BFt%2C_B%C3%ACnh_Thu%E1%BA%ADn.JPG/1280px-Th%C3%A1p_Po_Sah_Inu%2C_Phan_Thi%E1%BA%BFt%2C_B%C3%ACnh_Thu%E1%BA%ADn.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Th%C3%A1p_Po_Sah_Inu%2C_Phan_Thi%E1%BA%BFt%2C_B%C3%ACnh_Thu%E1%BA%ADn.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Tháp_Po_Sah_Inu,_Phan_Thiết,_Bình_Thuận.JPG",
+        "author": "Dongson*vmvn at Vietnamese Wikipedia",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Tháp Po Sah Inư",
+        "path": "/images/itinerary/thap-po-sah-inu.jpg",
+        "sha256": "dc6de3444941e5f4ce730ee32321c3bbafd9d18073940c74562d168f609c633a"
+      }
+    },
+    {
+      "slug": "trang-an",
+      "name": "Tràng An",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Qu%E1%BA%A7n_th%E1%BB%83_danh_th%E1%BA%AFng_Tr%C3%A0ng_An",
+      "latitude": 20.25666667,
+      "longitude": 105.89638889,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Tour_boats_at_Trang_An_Landscape_Complex,_Ninh_Binh_Province,_Vietnam,_20240202_1446_5308.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Tour_boats_at_Trang_An_Landscape_Complex%2C_Ninh_Binh_Province%2C_Vietnam%2C_20240202_1446_5308.jpg/1280px-Tour_boats_at_Trang_An_Landscape_Complex%2C_Ninh_Binh_Province%2C_Vietnam%2C_20240202_1446_5308.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Tour_boats_at_Trang_An_Landscape_Complex%2C_Ninh_Binh_Province%2C_Vietnam%2C_20240202_1446_5308.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Jakub Hałun",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0",
+        "original_caption": "Tour boats at Trang An Landscape Complex, Ninh Binh Province, Vietnam",
+        "path": "/images/itinerary/trang-an.jpg",
+        "sha256": "823013810b670397b30a14a919c1e20bae784541ba5dda6ee2d5a81f0bdb21ac",
+        "caption": "Tràng An"
+      }
+    },
+    {
+      "slug": "tuan-chau",
+      "name": "Tuần Châu",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Tu%E1%BA%A7n_Ch%C3%A2u",
+      "latitude": 20.97305892,
+      "longitude": 106.93286562,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Tu%E1%BA%A7n_Ch%C3%A2u.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Tu%E1%BA%A7n_Ch%C3%A2u.jpg/1280px-Tu%E1%BA%A7n_Ch%C3%A2u.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Tu%E1%BA%A7n_Ch%C3%A2u.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Tuần_Châu.jpg",
+        "author": "Takeshi aka. Momotaro from Tokyo, Japan",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "Tuần Châu",
+        "path": "/images/itinerary/tuan-chau.jpg",
+        "sha256": "1d6a097d0e77760a18ee0d9ecec13d15d18fcfdcbbae9ab03e9241f4d5f0f26b"
+      }
+    },
+    {
+      "slug": "toa-thanh-tay-ninh",
+      "name": "Tòa Thánh Tây Ninh",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/T%C3%B2a_Th%C3%A1nh_T%C3%A2y_Ninh",
+      "latitude": 11.303746,
+      "longitude": 106.133717,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:T%C3%B2a_Th%C3%A1nh_T%C3%A2y_Ninh_042013.JPG",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/T%C3%B2a_Th%C3%A1nh_T%C3%A2y_Ninh_042013.JPG/1280px-T%C3%B2a_Th%C3%A1nh_T%C3%A2y_Ninh_042013.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/T%C3%B2a_Th%C3%A1nh_T%C3%A2y_Ninh_042013.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Tòa_Thánh_Tây_Ninh_042013.JPG",
+        "author": "Anthony Leekien",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Tòa Thánh Tây Ninh",
+        "path": "/images/itinerary/toa-thanh-tay-ninh.jpg",
+        "sha256": "56e3b8a58256bc37c4a0597b1c5efeb4c8ce93ba3904dbbe35e92fe861093668"
+      }
+    },
+    {
+      "slug": "tu-le",
+      "name": "Tú Lệ",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/T%C3%BA_L%E1%BB%87",
+      "latitude": 21.79023609,
+      "longitude": 104.30066136,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Tu_Le,_Yen_Bai.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Tu_Le%2C_Yen_Bai.jpg/1280px-Tu_Le%2C_Yen_Bai.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Tu_Le%2C_Yen_Bai.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Tu_Le,_Yen_Bai.jpg",
+        "author": "Vietnam Photo Tours | An Bui",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "Tú Lệ",
+        "path": "/images/itinerary/tu-le.jpg",
+        "sha256": "8494b764040dc84f9e5069288f0897d23751f98c466339477f254c4622fd13c6"
+      }
+    },
+    {
+      "slug": "van-mieu-quoc-tu-giam",
+      "name": "Văn Miếu – Quốc Tử Giám",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/V%C4%83n_Mi%E1%BA%BFu_%E2%80%93_Qu%E1%BB%91c_T%E1%BB%AD_Gi%C3%A1m",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "destination": "ha-noi",
+        "landmark": "Temple of Literature, Hanoi",
+        "path": "/images/itinerary/van-mieu-quoc-tu-giam.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Hanoi_Temple_of_Literature_(cropped).jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Hanoi_Temple_of_Literature_%28cropped%29.jpg/1280px-Hanoi_Temple_of_Literature_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Hanoi_Temple_of_Literature_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "The original uploader was Chuoibk at English Wikipedia.",
+        "license": "CC BY-SA 3.0",
+        "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+        "description": "Main entrance of the Temple of Literature in Hanoi, Vietnam.",
+        "modifications": "Wikimedia thumbnail; no other edits",
+        "sha256": "de4816aa25cfa832ccb82afa8d3660dba1f5700cd8d2bfe0f5db61a7ccef1a22",
+        "original_caption": "Main entrance of the Temple of Literature in Hanoi, Vietnam.",
+        "caption": "Văn Miếu – Quốc Tử Giám"
+      }
+    },
+    {
+      "slug": "vuon-quoc-gia-cat-ba",
+      "name": "Vườn quốc gia Cát Bà",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/V%C6%B0%E1%BB%9Dn_qu%E1%BB%91c_gia_C%C3%A1t_B%C3%A0",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Cat_Ba_national_park.JPG",
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Cat_Ba_national_park.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Cat_Ba_national_park.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Cat_Ba_national_park.JPG",
+        "author": "Binh Giang",
+        "license": "Public domain",
+        "license_url": "",
+        "caption": "Vườn quốc gia Cát Bà",
+        "path": "/images/itinerary/vuon-quoc-gia-cat-ba.jpg",
+        "sha256": "bd2b3d06778e247a7f45e6bedf140b9359fabfe580e3f629182dd7abc7d6fc03"
+      }
+    },
+    {
+      "slug": "vuon-quoc-gia-con-dao",
+      "name": "Vườn quốc gia Côn Đảo",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/V%C6%B0%E1%BB%9Dn_qu%E1%BB%91c_gia_C%C3%B4n_%C4%90%E1%BA%A3o",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:ConDao_park_dam.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/ConDao_park_dam.jpg/1280px-ConDao_park_dam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/ConDao_park_dam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "ConDao_park_dam.jpg",
+        "author": "[Tycho]  talk , http://shansov.net",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Vườn quốc gia Côn Đảo",
+        "path": "/images/itinerary/vuon-quoc-gia-con-dao.jpg",
+        "sha256": "c5adc3a0cb4ef5e2033a7f0cf8a53021368ba9316e1adeab75e6bf70f9faddaf"
+      }
+    },
+    {
+      "slug": "vuon-quoc-gia-cuc-phuong",
+      "name": "Vườn quốc gia Cúc Phương",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/V%C6%B0%E1%BB%9Dn_qu%E1%BB%91c_gia_C%C3%BAc_Ph%C6%B0%C6%A1ng",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Cuc_Phuong_01.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Cuc_Phuong_01.jpg/1280px-Cuc_Phuong_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Cuc_Phuong_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Cuc_Phuong_01.jpg",
+        "author": "Kien1980v (thảo luận)",
+        "license": "Public domain",
+        "license_url": "",
+        "caption": "Vườn quốc gia Cúc Phương",
+        "path": "/images/itinerary/vuon-quoc-gia-cuc-phuong.jpg",
+        "sha256": "ba27f7c18f56c1dc120da45b5b553e5dae1a14aa5bae0fb779e8f76cfce33a24"
+      }
+    },
+    {
+      "slug": "vuon-quoc-gia-phu-quoc",
+      "name": "Vườn quốc gia Phú Quốc",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vinwonders.com/vi/wonderpedia/news/vuon-quoc-gia-phu-quoc-kham-pha-thien-duong-nhiet-doi-tai-dao-ngoc/",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://vinwonders.com/vi/wonderpedia/news/vuon-quoc-gia-phu-quoc-kham-pha-thien-duong-nhiet-doi-tai-dao-ngoc/",
+        "download_url": "https://static.vinwonders.com/2022/04/ZUNLOM8C-vuon-quoc-gia-phu-quoc-1.jpg",
+        "original_url": "https://static.vinwonders.com/2022/04/ZUNLOM8C-vuon-quoc-gia-phu-quoc-1.jpg",
+        "author": "Nguồn công bố: VinWonders; chưa xác định người chụp",
+        "license": "Bản quyền chủ ảnh; chưa xác minh giấy phép mở",
+        "license_url": "",
+        "original_caption": "Vườn quốc gia Phú Quốc",
+        "path": "/images/itinerary/vuon-quoc-gia-phu-quoc.jpg",
+        "sha256": "abd9cb057d3a58860d069e511ca561c8da4dd20cf1fbd2123b9c1623f59b8dd5",
+        "caption": "Vườn quốc gia Phú Quốc"
+      }
+    },
+    {
+      "slug": "vinh-ha-long",
+      "name": "Vịnh Hạ Long",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/V%E1%BB%8Bnh_H%E1%BA%A1_Long",
+      "latitude": 20.9,
+      "longitude": 107.2,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:V%E1%BB%8Bnh_H%E1%BA%A1_Long_-_NKS.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/V%E1%BB%8Bnh_H%E1%BA%A1_Long_-_NKS.jpg/1280px-V%E1%BB%8Bnh_H%E1%BA%A1_Long_-_NKS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/29/V%E1%BB%8Bnh_H%E1%BA%A1_Long_-_NKS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Vịnh_Hạ_Long_-_NKS.jpg",
+        "author": "NKSTTSSHNVN",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Vịnh Hạ Long",
+        "path": "/images/itinerary/vinh-ha-long.jpg",
+        "sha256": "b31df58213582c82a08ef1c96754dfbc3e6c7d6af9a48849d6370502fc1d5896"
+      }
+    },
+    {
+      "slug": "vinh-lan-ha",
+      "name": "Vịnh Lan Hạ",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/V%E1%BB%8Bnh_Lan_H%E1%BA%A1",
+      "latitude": 20.72361111,
+      "longitude": 107.04638889,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Lan_Ha_Bay.JPG",
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Lan_Ha_Bay.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Lan_Ha_Bay.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Lan_Ha_Bay.JPG",
+        "author": "Binh Giang",
+        "license": "Public domain",
+        "license_url": "",
+        "caption": "Vịnh Lan Hạ",
+        "path": "/images/itinerary/vinh-lan-ha.jpg",
+        "sha256": "9096f1a07879e7eeda11a63ad336a5cb15638fbe84808037436954ba92eceec1"
+      }
+    },
+    {
+      "slug": "vinh-nha-trang",
+      "name": "Vịnh Nha Trang",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/V%E1%BB%8Bnh_Nha_Trang",
+      "latitude": 12.25,
+      "longitude": 109.23333333,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Arriving_in_Nha_Trang_-_Vietnam.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Arriving_in_Nha_Trang_-_Vietnam.jpg/1280px-Arriving_in_Nha_Trang_-_Vietnam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Arriving_in_Nha_Trang_-_Vietnam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Arriving_in_Nha_Trang_-_Vietnam.jpg",
+        "author": "bvi4092",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "Vịnh Nha Trang",
+        "path": "/images/itinerary/vinh-nha-trang.jpg",
+        "sha256": "1f57e8205191bfd525098e57653ea62509f112de24d1604f66876ffba9b9424f"
+      }
+    },
+    {
+      "slug": "deo-khau-pha",
+      "name": "Đèo Khau Phạ",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/%C4%90%C3%A8o_Khau_Ph%E1%BA%A1",
+      "latitude": 21.775,
+      "longitude": 104.27166667,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Khau_Ph%E1%BA%A1.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Khau_Ph%E1%BA%A1.jpg/1280px-Khau_Ph%E1%BA%A1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Khau_Ph%E1%BA%A1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Khau_Phạ.jpg",
+        "author": "Viethavvh",
+        "license": "Public domain",
+        "license_url": "",
+        "caption": "Đèo Khau Phạ",
+        "path": "/images/itinerary/deo-khau-pha.jpg",
+        "sha256": "fa5089ed7e4e763846adf7e71e0048de194fa79c3a7d8da927409c134e80d483"
+      }
+    },
+    {
+      "slug": "deo-ma-pi-leng",
+      "name": "Đèo Mã Pí Lèng",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/%C4%90%C3%A8o_M%C3%A3_P%C3%AD_L%C3%A8ng",
+      "latitude": 23.240808,
+      "longitude": 105.410942,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:%C4%90%C3%A8o_M%C3%A3_P%C3%AD_L%C3%A8ng_2022.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/%C4%90%C3%A8o_M%C3%A3_P%C3%AD_L%C3%A8ng_2022.jpg/1280px-%C4%90%C3%A8o_M%C3%A3_P%C3%AD_L%C3%A8ng_2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/dc/%C4%90%C3%A8o_M%C3%A3_P%C3%AD_L%C3%A8ng_2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Đèo_Mã_Pí_Lèng_2022.jpg",
+        "author": "NKSTTSSHNVN",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Đèo Mã Pí Lèng",
+        "path": "/images/itinerary/deo-ma-pi-leng.jpg",
+        "sha256": "81265b496e317bc613993ca75eb2e8f382addc873e991272b05cdd3aff4e75ae"
+      }
+    },
+    {
+      "slug": "dai-noi-hue",
+      "name": "Đại Nội Huế",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/Ho%C3%A0ng_th%C3%A0nh_Hu%E1%BA%BF",
+      "latitude": 16.470231,
+      "longitude": 107.577251,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:%C4%90%E1%BA%A1i_n%E1%BB%99i.jpg",
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/%C4%90%E1%BA%A1i_n%E1%BB%99i.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/%C4%90%E1%BA%A1i_n%E1%BB%99i.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Đại_nội.jpg",
+        "author": "NguyenThanhBac123",
+        "license": "CC0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "caption": "Đại Nội Huế",
+        "path": "/images/itinerary/dai-noi-hue.jpg",
+        "sha256": "38e6cb2631ee49703622d57975a8384e8ceb4522a4afabe31fb94fbbe2df0214"
+      }
+    },
+    {
+      "slug": "dao-cat-ba",
+      "name": "Đảo Cát Bà",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/C%C3%A1t_B%C3%A0_(%C4%91%E1%BA%A3o)",
+      "latitude": 20.72388889,
+      "longitude": 107.0577778,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Cat_Ba_Town_6.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Cat_Ba_Town_6.jpg/1280px-Cat_Ba_Town_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Cat_Ba_Town_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Cat_Ba_Town_6.jpg",
+        "author": "Christophe95",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Đảo Cát Bà",
+        "path": "/images/itinerary/dao-cat-ba.jpg",
+        "sha256": "33cc72a20aa18345afa659f2c6d86ff8586e675d292c63623d3869cb349a3ae9"
+      }
+    },
+    {
+      "slug": "dao-ly-son",
+      "name": "Đảo Lý Sơn",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/L%C3%BD_S%C6%A1n",
+      "latitude": 15.37158917,
+      "longitude": 109.11887634,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:C%E1%BB%95ng_ch%C3%A0o_tr%C3%AAn_Huy%E1%BB%87n_%C4%90%E1%BA%A3o_L%C3%BD_S%C6%A1n_-_Qu%E1%BA%A3ng_Ng%C3%A3i.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/C%E1%BB%95ng_ch%C3%A0o_tr%C3%AAn_Huy%E1%BB%87n_%C4%90%E1%BA%A3o_L%C3%BD_S%C6%A1n_-_Qu%E1%BA%A3ng_Ng%C3%A3i.jpg/1280px-C%E1%BB%95ng_ch%C3%A0o_tr%C3%AAn_Huy%E1%BB%87n_%C4%90%E1%BA%A3o_L%C3%BD_S%C6%A1n_-_Qu%E1%BA%A3ng_Ng%C3%A3i.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/C%E1%BB%95ng_ch%C3%A0o_tr%C3%AAn_Huy%E1%BB%87n_%C4%90%E1%BA%A3o_L%C3%BD_S%C6%A1n_-_Qu%E1%BA%A3ng_Ng%C3%A3i.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Cổng_chào_trên_Huyện_Đảo_Lý_Sơn_-_Quảng_Ngãi.jpg",
+        "author": "VuTuanHung1804",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Cổng chào trên đảo Lý Sơn",
+        "path": "/images/itinerary/dao-ly-son.jpg",
+        "sha256": "8d61ab156784e049235d15c6fe96f9d1c370ca21aa4ddedbb7f2b2e026ebc3bf"
+      }
+    },
+    {
+      "slug": "den-ngoc-son",
+      "name": "Đền Ngọc Sơn",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/%C4%90%E1%BB%81n_Ng%E1%BB%8Dc_S%C6%A1n",
+      "latitude": 21.03072222,
+      "longitude": 105.85233333,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:C%E1%BB%95ng_%C4%91%E1%BB%81n_Ng%E1%BB%8Dc_S%C6%A1n.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/C%E1%BB%95ng_%C4%91%E1%BB%81n_Ng%E1%BB%8Dc_S%C6%A1n.jpg/1280px-C%E1%BB%95ng_%C4%91%E1%BB%81n_Ng%E1%BB%8Dc_S%C6%A1n.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/C%E1%BB%95ng_%C4%91%E1%BB%81n_Ng%E1%BB%8Dc_S%C6%A1n.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Cổng_đền_Ngọc_Sơn.jpg",
+        "author": "Bùi Thụy Đào Nguyên",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Đền Ngọc Sơn",
+        "path": "/images/itinerary/den-ngoc-son.jpg",
+        "sha256": "68c9fbeacdbdaf9c7b21fa8dc68eda51ff3ded454b4ccac5605ecf57a1a31a35"
+      }
+    },
+    {
+      "slug": "doi-a1",
+      "name": "Đồi A1",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://commons.wikimedia.org/wiki/File:French_Bunker_at_Hill_A1_(Eliane_2)_-_Dien_Bien_Phu_-_Vietnam_(48168819887).jpg",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:French_Bunker_at_Hill_A1_(Eliane_2)_-_Dien_Bien_Phu_-_Vietnam_(48168819887).jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/French_Bunker_at_Hill_A1_%28Eliane_2%29_-_Dien_Bien_Phu_-_Vietnam_%2848168819887%29.jpg/1280px-French_Bunker_at_Hill_A1_%28Eliane_2%29_-_Dien_Bien_Phu_-_Vietnam_%2848168819887%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/52/French_Bunker_at_Hill_A1_%28Eliane_2%29_-_Dien_Bien_Phu_-_Vietnam_%2848168819887%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Adam Jones from Kelowna, BC, Canada",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+        "original_caption": "French Bunker at Hill A1 (Eliane 2) - Dien Bien Phu - Vietnam",
+        "path": "/images/itinerary/doi-a1.jpg",
+        "sha256": "95760d1adb654d0e43457e2af7e58c64e9518322e6a86bacd6c71aa3e2796653",
+        "caption": "Đồi A1"
+      }
+    },
+    {
+      "slug": "doi-che-moc-chau",
+      "name": "Đồi chè Mộc Châu",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Moc-chau-tea-doi-2094890_960_720.jpg",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "destination": "moc-chau",
+        "landmark": "Đồi chè Mộc Châu",
+        "path": "/images/itinerary/doi-che-moc-chau.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Moc-chau-tea-doi-2094890_960_720.jpg",
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/7/71/Moc-chau-tea-doi-2094890_960_720.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/71/Moc-chau-tea-doi-2094890_960_720.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "ToanNguyen",
+        "license": "CC0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "description": "Moc Chau",
+        "modifications": "Wikimedia thumbnail; no other edits",
+        "sha256": "178d46dbe52ce454f344a7e65767e42d0c929f98ffc3842d25313bf9ef6c68c8",
+        "original_caption": "Moc Chau",
+        "caption": "Đồi chè Mộc Châu"
+      }
+    },
+    {
+      "slug": "doi-cat-mui-ne",
+      "name": "Đồi cát Mũi Né",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/%C4%90%E1%BB%93i_c%C3%A1t_M%C5%A9i_N%C3%A9",
+      "latitude": null,
+      "longitude": null,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Vietnam,_Mui_Ne_sand_dune.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Vietnam%2C_Mui_Ne_sand_dune.jpg/1280px-Vietnam%2C_Mui_Ne_sand_dune.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Vietnam%2C_Mui_Ne_sand_dune.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Vietnam,_Mui_Ne_sand_dune.jpg",
+        "author": "Vyacheslav Argenberg",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0",
+        "caption": "Đồi cát Mũi Né",
+        "path": "/images/itinerary/doi-cat-mui-ne.jpg",
+        "sha256": "7dda9b5f2ad4453d3edc14ce1144e9efc9bea18d73884db9f1a4f845e22d5394"
+      }
+    },
+    {
+      "slug": "dong-van",
+      "name": "Đồng Văn",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/%C4%90%E1%BB%93ng_V%C4%83n_(huy%E1%BB%87n)",
+      "latitude": 23.28,
+      "longitude": 105.36361111,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:D%E1%BB%91c_Th%E1%BA%A9m_M%C3%A3_2022_-_NKS.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/D%E1%BB%91c_Th%E1%BA%A9m_M%C3%A3_2022_-_NKS.jpg/1280px-D%E1%BB%91c_Th%E1%BA%A9m_M%C3%A3_2022_-_NKS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/D%E1%BB%91c_Th%E1%BA%A9m_M%C3%A3_2022_-_NKS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Dốc_Thẩm_Mã_2022_-_NKS.jpg",
+        "author": "NKSTTSSHNVN",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Dốc Thẩm Mã — ảnh bối cảnh khu vực Đồng Văn",
+        "path": "/images/itinerary/dong-van.jpg",
+        "sha256": "1c5fee32e72dbb76897f0028ee5c3c429bd2b6fbe61d7d7dd80cdc78087f47a6"
+      }
+    },
+    {
+      "slug": "dong-nguom-ngao",
+      "name": "Động Ngườm Ngao",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/%C4%90%E1%BB%99ng_Ng%C6%B0%E1%BB%9Dm_Ngao",
+      "latitude": 22.845328,
+      "longitude": 106.70617,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:%C4%90%E1%BB%99ng_Ng%C6%B0%E1%BB%9Dm_Ngao.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/%C4%90%E1%BB%99ng_Ng%C6%B0%E1%BB%9Dm_Ngao.jpg/1280px-%C4%90%E1%BB%99ng_Ng%C6%B0%E1%BB%9Dm_Ngao.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/%C4%90%E1%BB%99ng_Ng%C6%B0%E1%BB%9Dm_Ngao.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Động_Ngườm_Ngao.jpg",
+        "author": "Bùi Thụy Đào Nguyên",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Động Ngườm Ngao",
+        "path": "/images/itinerary/dong-nguom-ngao.jpg",
+        "sha256": "151d128823d80823a94a819f8bf7f9ba1681e8ad6a26669f5e3788a83f3b3d7b"
+      }
+    },
+    {
+      "slug": "dong-phong-nha",
+      "name": "Động Phong Nha",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/%C4%90%E1%BB%99ng_Phong_Nha",
+      "latitude": 17.581325,
+      "longitude": 106.283125,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:V%C3%A0o_%C4%91%E1%BB%99ng_Phong_Nha.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/V%C3%A0o_%C4%91%E1%BB%99ng_Phong_Nha.jpg/1280px-V%C3%A0o_%C4%91%E1%BB%99ng_Phong_Nha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/V%C3%A0o_%C4%91%E1%BB%99ng_Phong_Nha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Vào_động_Phong_Nha.jpg",
+        "author": "Bùi Thụy Đào Nguyên",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Động Phong Nha",
+        "path": "/images/itinerary/dong-phong-nha.jpg",
+        "sha256": "1410b534bb817878f502fdd083c409bd6b708a5e492f2ad41d1b9d65f82f88d8"
+      }
+    },
+    {
+      "slug": "dong-puong",
+      "name": "Động Puông",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/%C4%90%E1%BB%99ng_Pu%C3%B4ng",
+      "latitude": 22.4575,
+      "longitude": 105.65777778,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Puong_Cave,_Ba_Be.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Puong_Cave%2C_Ba_Be.jpg/1280px-Puong_Cave%2C_Ba_Be.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/71/Puong_Cave%2C_Ba_Be.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "author": "Rod Waddington",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+        "original_caption": "Nth Vietnam",
+        "path": "/images/itinerary/dong-puong.jpg",
+        "sha256": "dc9fea0645772aa16037c140e9b73d283b0330671d9990bd6f223969eb3fc020",
+        "caption": "Động Puông"
+      }
+    },
+    {
+      "slug": "dong-thien-duong",
+      "name": "Động Thiên Đường",
+      "verified_on": "2026-10-28",
+      "description": "Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.",
+      "source_url": "https://vi.wikipedia.org/wiki/%C4%90%E1%BB%99ng_Thi%C3%AAn_%C4%90%C6%B0%E1%BB%9Dng",
+      "latitude": 17.519514,
+      "longitude": 106.222972,
+      "image": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Grotte_Thien_Duong.jpg",
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Grotte_Thien_Duong.jpg/1280px-Grotte_Thien_Duong.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Grotte_Thien_Duong.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "file_title": "Grotte_Thien_Duong.jpg",
+        "author": "Preparetavalise.com",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Động Thiên Đường",
+        "path": "/images/itinerary/dong-thien-duong.jpg",
+        "sha256": "c7fd07e095ef53686a147b2b9f394cd2cc884911f1d93a89480267c3c0977b42"
+      }
+    }
+  ],
+  "tours": [
+    {
+      "slug": "ha-long",
+      "title": "Khám phá Vịnh Hạ Long",
+      "days": [
+        {
+          "number": 1,
+          "title": "Hà Nội – Tuần Châu – Vịnh Hạ Long",
+          "activities": "Đón khách tại Hà Nội, di chuyển đến cảng Tuần Châu và lên du thuyền. Dùng bữa trưa, tham quan hang Sửng Sốt rồi ngắm hoàng hôn trên vịnh.",
+          "places": [
+            "tuan-chau",
+            "hang-sung-sot"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Ngắm bình minh trên vịnh – Hà Nội",
+          "activities": "Dùng bữa sáng trên du thuyền, ngắm các đảo đá và nghỉ ngơi trên boong. Trả phòng, dùng bữa trưa trước khi cập cảng và trở về Hà Nội.",
+          "places": [
+            "vinh-ha-long"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "sapa",
+      "title": "Sapa – Thành phố trong sương",
+      "days": [
+        {
+          "number": 1,
+          "title": "Hà Nội – Sa Pa – Bản Cát Cát",
+          "activities": "Đi xe theo cao tốc đến Sa Pa, nhận phòng và ăn trưa. Chiều đi bộ tham quan bản Cát Cát, tìm hiểu nghề dệt và thưởng thức món ăn vùng cao.",
+          "places": [
+            "sa-pa",
+            "ban-cat-cat"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Fansipan – Thung lũng Mường Hoa",
+          "activities": "Dùng điểm tâm rồi trải nghiệm cáp treo Fansipan, tham quan quần thể trên núi tùy điều kiện thời tiết. Chiều ngắm ruộng bậc thang ở thung lũng Mường Hoa.",
+          "places": [
+            "fansipan",
+            "thung-lung-muong-hoa"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Chợ Sa Pa – Trở về Hà Nội",
+          "activities": "Tự do dạo trung tâm và chợ Sa Pa, mua đặc sản địa phương. Ăn trưa, trả phòng rồi lên xe về Hà Nội.",
+          "places": [
+            "cho-sa-pa"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "da-nang",
+      "title": "Đà Nẵng – Hội An – Bà Nà Hills",
+      "days": [
+        {
+          "number": 1,
+          "title": "Đà Nẵng – Biển Mỹ Khê – Cầu Rồng",
+          "activities": "Đón khách tại sân bay, nhận phòng và ăn trưa. Chiều nghỉ ngơi ở biển Mỹ Khê, tối dạo bờ sông Hàn và ngắm Cầu Rồng.",
+          "places": [
+            "bien-my-khe",
+            "song-han",
+            "cau-rong"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Bà Nà Hills – Cầu Vàng",
+          "activities": "Lên Bà Nà bằng cáp treo, tham quan Cầu Vàng và vườn hoa. Ăn trưa tại khu du lịch, tự do khám phá trước khi trở về Đà Nẵng.",
+          "places": [
+            "ba-na-hills",
+            "cau-vang"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Ngũ Hành Sơn – Phố cổ Hội An",
+          "activities": "Khám phá Ngũ Hành Sơn và làng đá Non Nước. Chiều đến Hội An, đi bộ qua các ngôi nhà cổ và ngắm phố đèn lồng bên sông Hoài.",
+          "places": [
+            "ngu-hanh-son",
+            "lang-da-non-nuoc",
+            "pho-co-hoi-an"
+          ]
+        },
+        {
+          "number": 4,
+          "title": "Chợ Hàn – Tiễn sân bay",
+          "activities": "Dùng điểm tâm, ghé chợ Hàn mua đặc sản làm quà. Trả phòng và đưa khách ra sân bay theo lịch hẹn.",
+          "places": [
+            "cho-han"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "da-lat",
+      "title": "Đà Lạt – Thành phố ngàn hoa",
+      "days": [
+        {
+          "number": 1,
+          "title": "Liên Khương – Hồ Xuân Hương – Chợ Đà Lạt",
+          "activities": "Đón khách tại sân bay, di chuyển về trung tâm nhận phòng. Chiều dạo hồ Xuân Hương, tham quan vườn hoa và tối tự do khám phá chợ Đà Lạt.",
+          "places": [
+            "ho-xuan-huong",
+            "cho-da-lat"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Thác Pongour – Cà phê cao nguyên",
+          "activities": "Khởi hành tham quan thác Pongour, đi bộ ngắm cảnh theo lối hướng dẫn. Chiều ghé điểm giới thiệu cà phê và trở về thành phố nghỉ ngơi.",
+          "places": [
+            "thac-pongour"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Thiền viện Trúc Lâm – Hồ Tuyền Lâm",
+          "activities": "Tham quan Thiền viện Trúc Lâm và ngắm cảnh hồ Tuyền Lâm. Dùng bữa trưa trước khi trả phòng và tiễn khách ra sân bay.",
+          "places": [
+            "thien-vien-truc-lam-da-lat",
+            "ho-tuyen-lam"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "phu-quoc",
+      "title": "Phú Quốc – Thiên đường biển đảo",
+      "days": [
+        {
+          "number": 1,
+          "title": "Đón sân bay – Dương Đông – Chợ đêm",
+          "activities": "Đón khách, nhận phòng khách sạn và nghỉ ngơi. Chiều dạo khu vực Dương Đông, ngắm hoàng hôn và thưởng thức món ăn tại chợ đêm.",
+          "places": [
+            "duong-dong",
+            "cho-dem-phu-quoc"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Nam đảo – Bãi Sao",
+          "activities": "Di chuyển xuống nam đảo, tham quan cơ sở nước mắm truyền thống. Dành thời gian tắm biển Bãi Sao trong khu vực an toàn, dùng bữa và về khách sạn.",
+          "places": [
+            "bai-sao"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Bắc đảo – Khám phá sinh thái",
+          "activities": "Tham quan vùng đệm vườn quốc gia cùng hướng dẫn viên, tìm hiểu hệ sinh thái rừng đảo. Chiều ghé vườn tiêu và tự do nghỉ dưỡng.",
+          "places": [
+            "vuon-quoc-gia-phu-quoc"
+          ]
+        },
+        {
+          "number": 4,
+          "title": "Mua sắm đặc sản – Tiễn sân bay",
+          "activities": "Dùng điểm tâm, tự do dạo biển và mua đặc sản. Trả phòng, đưa khách ra sân bay kết thúc chương trình.",
+          "places": [
+            "phu-quoc"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ninh-binh",
+      "title": "Ninh Bình – Tràng An – Tam Cốc",
+      "days": [
+        {
+          "number": 1,
+          "title": "Hà Nội – Hoa Lư – Tràng An",
+          "activities": "Khởi hành từ Hà Nội, tham quan khu di tích cố đô Hoa Lư. Sau bữa trưa, đi thuyền theo tuyến tham quan Tràng An và nhận phòng nghỉ.",
+          "places": [
+            "co-do-hoa-lu",
+            "trang-an"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Tam Cốc – Trở về Hà Nội",
+          "activities": "Dùng điểm tâm, trải nghiệm thuyền nan ngắm núi và đồng ruộng Tam Cốc. Ăn trưa đặc sản, mua quà rồi lên xe trở về Hà Nội.",
+          "places": [
+            "tam-coc"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ha-giang",
+      "title": "Hà Giang – Đồng Văn – Mã Pí Lèng",
+      "days": [
+        {
+          "number": 1,
+          "title": "Hà Nội – Hà Giang – Quản Bạ",
+          "activities": "Đón khách sớm từ Hà Nội, di chuyển qua Hà Giang đến Quản Bạ. Dừng chân ngắm cảnh cổng trời, dùng bữa và nghỉ đêm tại địa phương.",
+          "places": [
+            "quan-ba"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Đồng Văn – Dinh họ Vương – Phố cổ",
+          "activities": "Khám phá cảnh quan cao nguyên đá Đồng Văn, ghé dinh họ Vương và các bản làng trên đường. Chiều đến phố cổ Đồng Văn, dùng bữa và nghỉ đêm.",
+          "places": [
+            "cao-nguyen-da-dong-van",
+            "dinh-thu-ho-vuong",
+            "dong-van"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Mã Pí Lèng – Hà Nội",
+          "activities": "Dừng ngắm cảnh đèo Mã Pí Lèng và hẻm vực Tu Sản từ điểm quan sát an toàn. Ăn trưa trên đường và trở về Hà Nội vào buổi tối.",
+          "places": [
+            "deo-ma-pi-leng",
+            "hem-tu-san"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ha-noi",
+      "title": "Hà Nội – Hồ Gươm – Văn Miếu – Phố cổ",
+      "days": [
+        {
+          "number": 1,
+          "title": "Hồ Hoàn Kiếm – Đền Ngọc Sơn – Phố cổ",
+          "activities": "Đón khách tại trung tâm, đi bộ quanh hồ Hoàn Kiếm và tham quan đền Ngọc Sơn. Chiều khám phá phố cổ, dùng bữa địa phương và xem múa rối nước.",
+          "places": [
+            "ho-hoan-kiem",
+            "den-ngoc-son",
+            "pho-co-ha-noi"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Văn Miếu – Hoàng thành Thăng Long",
+          "activities": "Tham quan Văn Miếu – Quốc Tử Giám, tìm hiểu truyền thống hiếu học. Sau bữa trưa, tham quan Hoàng thành Thăng Long và kết thúc tại điểm hẹn.",
+          "places": [
+            "van-mieu-quoc-tu-giam",
+            "hoang-thanh-thang-long"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "hue",
+      "title": "Huế – Đại Nội – Chùa Thiên Mụ – Sông Hương",
+      "days": [
+        {
+          "number": 1,
+          "title": "Phú Bài – Chùa Thiên Mụ – Sông Hương",
+          "activities": "Đón khách tại Phú Bài, nhận phòng khách sạn. Chiều tham quan chùa Thiên Mụ, dạo bờ sông Hương và thưởng thức bữa tối món Huế.",
+          "places": [
+            "chua-thien-mu",
+            "song-huong"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Đại Nội – Bảo tàng cung đình",
+          "activities": "Tham quan các khu vực mở cửa trong Đại Nội cùng hướng dẫn viên. Chiều tìm hiểu hiện vật cung đình và có thời gian tự do nghỉ ngơi.",
+          "places": [
+            "dai-noi-hue",
+            "bao-tang-co-vat-cung-dinh-hue"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Lăng Minh Mạng – Chợ Đông Ba",
+          "activities": "Tham quan lăng Minh Mạng và ghé chợ Đông Ba mua đặc sản. Dùng bữa trưa, trả phòng rồi đưa khách ra sân bay.",
+          "places": [
+            "lang-minh-mang",
+            "cho-dong-ba"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "nha-trang",
+      "title": "Nha Trang – Vịnh biển – Tháp Bà Ponagar",
+      "days": [
+        {
+          "number": 1,
+          "title": "Cam Ranh – Bãi biển Nha Trang",
+          "activities": "Đón khách tại Cam Ranh, di chuyển về khách sạn. Chiều nghỉ ngơi, tắm biển trong khu vực có hướng dẫn và dạo quảng trường ven biển.",
+          "places": [
+            "bai-bien-nha-trang"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Du ngoạn vịnh Nha Trang",
+          "activities": "Lên tàu tham quan vịnh và các đảo theo tuyến được phép. Dùng bữa hải sản, nghỉ ngơi trên đảo rồi trở về đất liền vào buổi chiều.",
+          "places": [
+            "vinh-nha-trang"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Tháp Bà Ponagar – Tiễn sân bay",
+          "activities": "Tham quan tháp Bà Ponagar, tìm hiểu kiến trúc và văn hóa Chăm. Mua sắm đặc sản, ăn trưa rồi tiễn khách ra sân bay.",
+          "places": [
+            "thap-ba-ponagar"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "quy-nhon",
+      "title": "Quy Nhơn – Kỳ Co – Eo Gió – Tháp Bánh Ít",
+      "days": [
+        {
+          "number": 1,
+          "title": "Phù Cát – Tháp Bánh Ít – Quy Nhơn",
+          "activities": "Đón khách tại sân bay Phù Cát, tham quan tháp Bánh Ít trên đường về thành phố. Nhận phòng, nghỉ ngơi và đi dạo bãi biển Quy Nhơn.",
+          "places": [
+            "thap-banh-it",
+            "quy-nhon"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Kỳ Co – Eo Gió",
+          "activities": "Khởi hành đến khu vực Nhơn Lý, tham quan Kỳ Co theo phương án phù hợp thời tiết. Ăn trưa, đi bộ ngắm cảnh Eo Gió và trở về khách sạn.",
+          "places": [
+            "ky-co",
+            "eo-gio"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Chợ địa phương – Tiễn sân bay",
+          "activities": "Dùng điểm tâm, tự do dạo biển và mua đặc sản. Trả phòng, dùng bữa trưa rồi đưa khách ra sân bay Phù Cát.",
+          "places": [
+            "quy-nhon"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "can-tho",
+      "title": "Cần Thơ – Chợ nổi Cái Răng – Nhà cổ Bình Thủy",
+      "days": [
+        {
+          "number": 1,
+          "title": "Nhà cổ Bình Thủy – Bến Ninh Kiều",
+          "activities": "Đón khách tại Cần Thơ, tham quan nhà cổ Bình Thủy và tìm hiểu lịch sử gia đình chủ nhà. Chiều nhận phòng, tối dạo bến Ninh Kiều và dùng bữa đặc sản.",
+          "places": [
+            "nha-co-binh-thuy",
+            "ben-ninh-kieu"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Chợ nổi Cái Răng – Miệt vườn",
+          "activities": "Khởi hành sáng sớm bằng thuyền đến chợ nổi Cái Răng, dùng bữa sáng trên sông. Ghé vườn trái cây theo mùa, ăn trưa rồi đưa khách về điểm hẹn.",
+          "places": [
+            "cho-noi-cai-rang"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "con-dao",
+      "title": "Côn Đảo – Biển xanh – Di tích lịch sử",
+      "days": [
+        {
+          "number": 1,
+          "title": "Đón sân bay – Bãi Đầm Trầu",
+          "activities": "Đón khách tại sân bay, tham quan và nghỉ ngơi tại bãi Đầm Trầu theo điều kiện thời tiết. Về khách sạn nhận phòng, ăn tối và tự do dạo thị trấn.",
+          "places": [
+            "bai-dam-trau"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Di tích nhà tù – Nghĩa trang Hàng Dương",
+          "activities": "Tham quan bảo tàng và khu di tích nhà tù Côn Đảo cùng hướng dẫn viên. Chiều viếng nghĩa trang Hàng Dương và tìm hiểu lịch sử địa phương.",
+          "places": [
+            "nha-tu-con-dao",
+            "nghia-trang-hang-duong"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Vườn quốc gia – Tiễn sân bay",
+          "activities": "Tham quan tuyến sinh thái mở cửa trong vườn quốc gia, tuân thủ hướng dẫn bảo tồn. Trở về ăn trưa và tiễn khách ra sân bay.",
+          "places": [
+            "vuon-quoc-gia-con-dao"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "phong-nha",
+      "title": "Phong Nha – Động Thiên Đường – Sông Son",
+      "days": [
+        {
+          "number": 1,
+          "title": "Đồng Hới – Sông Son – Phong Nha",
+          "activities": "Đón khách tại Đồng Hới, di chuyển đến Phong Nha và nhận phòng. Chiều dạo làng ven sông Son, ngắm cảnh và dùng bữa địa phương.",
+          "places": [
+            "song-son"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Thuyền sông Son – Động Phong Nha",
+          "activities": "Đi thuyền theo tuyến tham quan động Phong Nha, khám phá các khoang được phép mở cửa. Chiều trở về nghỉ ngơi và tự do đi bộ ngắm cảnh làng quê.",
+          "places": [
+            "dong-phong-nha"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Động Thiên Đường – Đồng Hới",
+          "activities": "Tham quan động Thiên Đường, đi bộ trên hệ thống sàn gỗ và ngắm thạch nhũ. Ăn trưa trước khi trở về sân bay Đồng Hới.",
+          "places": [
+            "dong-thien-duong"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "mui-ne",
+      "title": "Mũi Né – Đồi cát – Tháp Po Sah Inư",
+      "days": [
+        {
+          "number": 1,
+          "title": "TP. Hồ Chí Minh – Mũi Né – Làng chài",
+          "activities": "Đón khách tại TP. Hồ Chí Minh, di chuyển đến Mũi Né và nhận phòng. Chiều dạo làng chài, nghỉ ngơi bên biển và dùng bữa hải sản.",
+          "places": [
+            "mui-ne"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Đồi cát – Suối Tiên",
+          "activities": "Khởi hành sớm ngắm cảnh đồi cát, đi bộ theo hướng dẫn. Sau bữa sáng tham quan Suối Tiên, chiều tự do nghỉ dưỡng tại khách sạn.",
+          "places": [
+            "doi-cat-mui-ne",
+            "suoi-tien-mui-ne"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Tháp Po Sah Inư – TP. Hồ Chí Minh",
+          "activities": "Tham quan tháp Po Sah Inư, tìm hiểu kiến trúc Chăm. Ăn trưa, mua đặc sản rồi lên xe về TP. Hồ Chí Minh.",
+          "places": [
+            "thap-po-sah-inu"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "cao-bang",
+      "title": "Cao Bằng – Bản Giốc – Pác Bó – Động Ngườm Ngao",
+      "days": [
+        {
+          "number": 1,
+          "title": "Hà Nội – Cao Bằng – Pác Bó",
+          "activities": "Khởi hành sớm từ Hà Nội, dùng bữa trưa trên đường. Chiều tham quan khu di tích Pác Bó, đi bộ bên suối Lê Nin rồi về thành phố Cao Bằng nhận phòng.",
+          "places": [
+            "pac-bo"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Thác Bản Giốc – Ngườm Ngao – Khuổi Ky",
+          "activities": "Di chuyển tới Trùng Khánh, ngắm thác Bản Giốc từ khu tham quan được phép. Sau bữa trưa, khám phá động Ngườm Ngao và làng đá Khuổi Ky trước khi về khách sạn.",
+          "places": [
+            "thac-ban-gioc",
+            "dong-nguom-ngao",
+            "lang-da-khuoi-ky"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Chợ Cao Bằng – Trở về Hà Nội",
+          "activities": "Dùng điểm tâm, ghé chợ địa phương tìm hiểu các món đặc sản. Trả phòng, dùng bữa trưa trên đường rồi trở về Hà Nội.",
+          "places": [
+            "cao-bang"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ba-be",
+      "title": "Ba Bể – Hồ xanh – Động Puông – Bản Pác Ngòi",
+      "days": [
+        {
+          "number": 1,
+          "title": "Hà Nội – Ba Bể – Bản Pác Ngòi",
+          "activities": "Đón khách tại Hà Nội, di chuyển đến khu vực hồ Ba Bể. Nhận phòng nhà nghỉ cộng đồng, đi bộ quanh bản Pác Ngòi và dùng bữa tối món ăn người Tày.",
+          "places": [
+            "ban-pac-ngoi"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Du thuyền hồ Ba Bể – Động Puông",
+          "activities": "Mặc áo phao, lên thuyền khám phá cảnh quan hồ Ba Bể cùng hướng dẫn viên. Tham quan động Puông và các điểm trên tuyến được phép, nghỉ ngơi bên hồ vào buổi chiều.",
+          "places": [
+            "ho-ba-be",
+            "dong-puong"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Dạo bản ven hồ – Hà Nội",
+          "activities": "Dùng bữa sáng, tự do dạo bản và mua sản vật địa phương. Trả phòng, ăn trưa rồi lên xe trở về Hà Nội.",
+          "places": [
+            "ban-pac-ngoi"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "moc-chau",
+      "title": "Mộc Châu – Đồi chè – Thác Dải Yếm – Rừng thông",
+      "days": [
+        {
+          "number": 1,
+          "title": "Hà Nội – Cao nguyên Mộc Châu – Đồi chè",
+          "activities": "Khởi hành từ Hà Nội theo tuyến đường qua Hòa Bình, dừng nghỉ trên đường. Chiều tham quan đồi chè theo lối mở cửa, tìm hiểu nghề trồng chè rồi nhận phòng khách sạn.",
+          "places": [
+            "doi-che-moc-chau"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Thác Dải Yếm – Rừng thông bản Áng",
+          "activities": "Tham quan thác Dải Yếm, đi bộ trên lối tham quan và ngắm cảnh dòng suối. Chiều dạo rừng thông bản Áng, nghỉ ngơi bên hồ và thưởng thức món ăn cao nguyên.",
+          "places": [
+            "thac-dai-yem",
+            "rung-thong-ban-ang"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Bản làng Mộc Châu – Hà Nội",
+          "activities": "Dùng điểm tâm và ghé thăm bản làng, điểm trưng bày nông sản theo mùa. Sau bữa trưa, khởi hành về Hà Nội.",
+          "places": [
+            "moc-chau"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "mai-chau",
+      "title": "Mai Châu – Bản Lác – Thung lũng lúa – Nhà sàn",
+      "days": [
+        {
+          "number": 1,
+          "title": "Hà Nội – Mai Châu – Bản Lác",
+          "activities": "Đón khách, di chuyển đến Mai Châu và dùng bữa trưa tại nhà sàn. Chiều đi bộ tham quan bản Lác, tìm hiểu dệt thổ cẩm và sinh hoạt cộng đồng.",
+          "places": [
+            "ban-lac"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Thung lũng Mai Châu – Hà Nội",
+          "activities": "Dạo quanh các cánh đồng và đường làng cùng hướng dẫn viên, ngắm cảnh theo mùa. Tự do mua sản phẩm thủ công, dùng bữa trưa rồi trở về Hà Nội.",
+          "places": [
+            "mai-chau"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "mu-cang-chai",
+      "title": "Mù Cang Chải – Khau Phạ – Chế Cu Nha",
+      "days": [
+        {
+          "number": 1,
+          "title": "Hà Nội – Nghĩa Lộ – Tú Lệ",
+          "activities": "Khởi hành từ Hà Nội, dừng chân tại Nghĩa Lộ dùng bữa trưa. Chiều đến Tú Lệ, đi bộ ngắm thung lũng, tìm hiểu đặc sản cốm theo mùa và nhận phòng nghỉ.",
+          "places": [
+            "nghia-lo",
+            "tu-le"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Đèo Khau Phạ – Ruộng bậc thang Chế Cu Nha",
+          "activities": "Di chuyển qua Khau Phạ, dừng ngắm cảnh tại điểm an toàn. Tham quan các ruộng bậc thang và bản làng khu vực Chế Cu Nha, dùng bữa rồi nghỉ đêm tại Mù Cang Chải.",
+          "places": [
+            "deo-khau-pha",
+            "che-cu-nha"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Mù Cang Chải – Tú Lệ – Hà Nội",
+          "activities": "Ăn sáng, đi bộ ngắm cảnh quanh điểm lưu trú và chụp ảnh đồng ruộng theo mùa. Trả phòng, dùng bữa trên đường và về lại Hà Nội.",
+          "places": [
+            "mu-cang-chai"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "dien-bien",
+      "title": "Điện Biên – Đồi A1 – Bảo tàng Chiến thắng – Mường Phăng",
+      "days": [
+        {
+          "number": 1,
+          "title": "Đón sân bay – Bảo tàng Chiến thắng Điện Biên Phủ",
+          "activities": "Đón khách tại sân bay, nhận phòng và dùng bữa trưa. Chiều tham quan Bảo tàng Chiến thắng Điện Biên Phủ, tìm hiểu các hiện vật và câu chuyện lịch sử.",
+          "places": [
+            "bao-tang-chien-thang-dien-bien-phu"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Đồi A1 – Nghĩa trang – Hầm Đờ Cát",
+          "activities": "Tham quan di tích đồi A1 và viếng nghĩa trang liệt sĩ theo hướng dẫn. Chiều tìm hiểu khu vực hầm Đờ Cát, dùng bữa địa phương và nghỉ ngơi.",
+          "places": [
+            "doi-a1",
+            "nghia-trang-dien-bien-phu",
+            "ham-do-cat"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Mường Phăng – Tiễn sân bay",
+          "activities": "Tham quan khu chỉ huy chiến dịch tại Mường Phăng trong khung giờ mở cửa. Dùng bữa trưa, trả phòng và đưa khách ra sân bay theo giờ bay.",
+          "places": [
+            "muong-phang"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "cat-ba",
+      "title": "Cát Bà – Vịnh Lan Hạ – Vườn quốc gia",
+      "days": [
+        {
+          "number": 1,
+          "title": "Hải Phòng – Đảo Cát Bà – Ngắm vịnh",
+          "activities": "Đón khách tại Hải Phòng, di chuyển ra đảo theo phương án vận chuyển phù hợp. Nhận phòng, dùng bữa và ngắm cảnh vịnh từ các điểm quan sát được phép.",
+          "places": [
+            "dao-cat-ba"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Vịnh Lan Hạ – Nghỉ dưỡng biển đảo",
+          "activities": "Lên tàu tham quan vịnh Lan Hạ, ngắm các đảo đá vôi và làng chài trên tuyến. Dùng bữa trên hành trình, tắm biển trong khu vực được phép nếu thời tiết thuận lợi.",
+          "places": [
+            "vinh-lan-ha"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Vườn quốc gia Cát Bà – Hải Phòng",
+          "activities": "Đi bộ theo tuyến sinh thái phù hợp trong vườn quốc gia, tìm hiểu rừng và sinh cảnh đảo. Trả phòng, ăn trưa rồi trở về điểm hẹn ở Hải Phòng.",
+          "places": [
+            "vuon-quoc-gia-cat-ba"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "pu-luong",
+      "title": "Pù Luông – Bản Đôn – Đồng lúa – Bản làng",
+      "days": [
+        {
+          "number": 1,
+          "title": "Hà Nội – Pù Luông – Bản Đôn",
+          "activities": "Khởi hành từ Hà Nội, đến Pù Luông dùng bữa trưa và nhận phòng. Chiều đi bộ ngắm cảnh ruộng bậc thang, tham quan bản Đôn và dùng bữa tối địa phương.",
+          "places": [
+            "pu-luong",
+            "ban-don-pu-luong"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Đi bộ bản làng – Trở về Hà Nội",
+          "activities": "Dùng điểm tâm, đi bộ theo cung đường làng phù hợp thể lực cùng hướng dẫn viên. Nghỉ ngơi, trả phòng và lên xe về Hà Nội sau bữa trưa.",
+          "places": [
+            "pu-luong"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ly-son",
+      "title": "Lý Sơn – Đảo núi lửa – Chùa Hang – Biển xanh",
+      "days": [
+        {
+          "number": 1,
+          "title": "Sa Kỳ – Đảo Lý Sơn – Làng chài",
+          "activities": "Tập trung tại cảng Sa Kỳ, đi tàu ra đảo khi tuyến vận tải hoạt động. Nhận phòng, dùng bữa và đi bộ khám phá làng chài, ngắm cảnh biển buổi chiều.",
+          "places": [
+            "dao-ly-son"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Chùa Hang – Cảnh quan núi lửa – Bờ biển",
+          "activities": "Tham quan chùa Hang và những điểm quan sát địa chất được phép trên đảo. Chiều nghỉ ngơi bên biển, tìm hiểu nghề trồng tỏi và đời sống ngư dân.",
+          "places": [
+            "chua-hang-ly-son",
+            "dao-ly-son"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Chợ đảo – Tàu về Sa Kỳ",
+          "activities": "Dùng bữa sáng, tự do mua đặc sản và trả phòng. Di chuyển ra cảng, đi tàu về Sa Kỳ theo lịch vận hành và kết thúc chương trình.",
+          "places": [
+            "dao-ly-son"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "mang-den",
+      "title": "Măng Đen – Hồ Đăk Ke – Thác Pa Sỹ – Rừng thông",
+      "days": [
+        {
+          "number": 1,
+          "title": "Pleiku – Măng Đen – Hồ Đăk Ke",
+          "activities": "Đón khách tại sân bay Pleiku, di chuyển đến Măng Đen và nhận phòng. Chiều dạo hồ Đăk Ke, ngắm cảnh hồ và rừng, dùng bữa tối món ăn cao nguyên.",
+          "places": [
+            "ho-dak-ke"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Thác Pa Sỹ – Làng Kon Pring",
+          "activities": "Tham quan thác Pa Sỹ theo lối mở cửa, nghỉ chân trong không gian xanh. Chiều ghé làng Kon Pring với hướng dẫn viên, tìm hiểu văn hóa và thưởng thức cà phê địa phương.",
+          "places": [
+            "thac-pa-sy",
+            "lang-kon-pring"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Rừng thông Măng Đen – Tiễn sân bay",
+          "activities": "Đi bộ ngắm cảnh rừng thông quanh điểm lưu trú, dùng bữa sáng và nghỉ ngơi. Trả phòng, ăn trưa rồi di chuyển về sân bay Pleiku.",
+          "places": [
+            "mang-den"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "buon-ma-thuot",
+      "title": "Buôn Ma Thuột – Thác Dray Nur – Văn hóa cà phê",
+      "days": [
+        {
+          "number": 1,
+          "title": "Đón sân bay – Bảo tàng Đắk Lắk – Cà phê",
+          "activities": "Đón khách, dùng bữa trưa và nhận phòng ở Buôn Ma Thuột. Chiều tham quan bảo tàng Đắk Lắk, tìm hiểu văn hóa các dân tộc và thưởng thức cà phê.",
+          "places": [
+            "bao-tang-dak-lak"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Thác Dray Nur – Cảnh quan cao nguyên",
+          "activities": "Di chuyển tới thác Dray Nur, đi bộ ngắm thác theo lối tham quan được phép. Dùng bữa địa phương và trở về thành phố, dành buổi chiều nghỉ ngơi.",
+          "places": [
+            "thac-dray-nur"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Buôn làng – Mua đặc sản – Tiễn sân bay",
+          "activities": "Ghé điểm giới thiệu văn hóa buôn làng trong khung giờ được đón khách. Mua cà phê và đặc sản, dùng bữa trưa trước khi tiễn sân bay.",
+          "places": [
+            "buon-ma-thuot"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "cuc-phuong",
+      "title": "Cúc Phương – Rừng nguyên sinh – Khám phá sinh thái",
+      "days": [
+        {
+          "number": 1,
+          "title": "Hà Nội – Vườn quốc gia Cúc Phương",
+          "activities": "Khởi hành từ Hà Nội, đến Cúc Phương dùng bữa trưa. Chiều tìm hiểu hoạt động bảo tồn tại các khu đón khách, đi bộ ngắn quanh khu lưu trú và ăn tối.",
+          "places": [
+            "vuon-quoc-gia-cuc-phuong"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Đi bộ rừng Cúc Phương – Hà Nội",
+          "activities": "Theo hướng dẫn viên khám phá tuyến rừng phù hợp thể lực, ngắm cây cổ thụ và tìm hiểu hệ sinh thái. Trả phòng, ăn trưa rồi trở về Hà Nội.",
+          "places": [
+            "vuon-quoc-gia-cuc-phuong"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "tay-ninh",
+      "title": "Tây Ninh – Núi Bà Đen – Tòa Thánh",
+      "days": [
+        {
+          "number": 1,
+          "title": "TP. Hồ Chí Minh – Núi Bà Đen",
+          "activities": "Đón khách và di chuyển đến Tây Ninh, tham quan núi Bà Đen bằng tuyến cáp treo theo chương trình. Chiều nhận phòng, nghỉ ngơi và dùng bữa đặc sản.",
+          "places": [
+            "nui-ba-den"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Tòa Thánh Tây Ninh – TP. Hồ Chí Minh",
+          "activities": "Tham quan Tòa Thánh vào khung giờ đón khách, tuân thủ hướng dẫn về trang phục và khu vực tham quan. Dùng bữa trưa, mua đặc sản rồi trở về TP. Hồ Chí Minh.",
+          "places": [
+            "toa-thanh-tay-ninh"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ben-tre",
+      "title": "Bến Tre – Sông nước xứ dừa – Làng nghề",
+      "days": [
+        {
+          "number": 1,
+          "title": "TP. Hồ Chí Minh – Bến Tre – Thuyền sông",
+          "activities": "Di chuyển từ TP. Hồ Chí Minh đến khu vực Bến Tre, lên thuyền tham quan sông cùng hướng dẫn viên. Ghé cơ sở làm kẹo dừa, dùng bữa địa phương và nhận phòng nghỉ.",
+          "places": [
+            "ben-tre"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Làng nghề xứ dừa – Vườn trái cây – Trở về",
+          "activities": "Dùng điểm tâm, đi bộ đường làng và tìm hiểu các sản phẩm từ dừa. Tham quan vườn trái cây theo mùa, ăn trưa rồi trở về điểm hẹn ở TP. Hồ Chí Minh.",
+          "places": [
+            "ben-tre"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ca-mau",
+      "title": "Cà Mau – Đất Mũi – Bãi bồi – Rừng ngập mặn",
+      "days": [
+        {
+          "number": 1,
+          "title": "Đón khách Cà Mau – Khám phá thành phố",
+          "activities": "Đón khách tại trung tâm Cà Mau, dùng bữa và nhận phòng. Chiều tham quan các điểm sinh hoạt địa phương, tìm hiểu nhịp sống sông nước và thưởng thức đặc sản.",
+          "places": [
+            "ca-mau"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Đất Mũi – Mũi Cà Mau – Bãi bồi",
+          "activities": "Khởi hành đến Đất Mũi, tham quan khu du lịch quốc gia theo tuyến mở cửa. Ngắm bãi bồi và rừng ngập mặn từ điểm được phép, dùng bữa trước khi về khách sạn.",
+          "places": [
+            "mui-ca-mau"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Chợ địa phương – Kết thúc tại Cà Mau",
+          "activities": "Dùng điểm tâm, ghé chợ mua đặc sản khô và sản phẩm địa phương. Trả phòng và đưa khách về điểm hẹn tại thành phố Cà Mau.",
+          "places": [
+            "ca-mau"
+          ]
+        }
+      ]
+    }
+  ]
+}

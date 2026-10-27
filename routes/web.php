@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\BookingController as AdminBookingController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/tours', [TourController::class, 'index'])->name('tours.index');
 Route::get('/tours/{tour}', [TourController::class, 'show'])->name('tours.show');
+Route::get('/tour/{tour}', fn (\App\Models\Tour $tour) => redirect()->route('tours.show', $tour));
 Route::get('/provinces/{province}/tours', [TourController::class, 'province'])->name('provinces.tours');
 
 Route::group([], function () {
@@ -33,6 +34,10 @@ Route::group([], function () {
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('customer.auth')->group(function () {
+    Route::put('/tours/{tour}/itinerary', [\App\Http\Controllers\TourItineraryController::class, 'update'])->name('tour-itinerary.update');
+    Route::post('/tours/{tour}/itinerary/consultations', [\App\Http\Controllers\TourItineraryController::class, 'consult'])->middleware('throttle:10,1')->name('tour-itinerary.consult');
+    Route::get('/account/itineraries', [\App\Http\Controllers\TourItineraryController::class, 'index'])->name('tour-itinerary.index');
+    Route::get('/account/itinerary-consultations/{consultation}', [\App\Http\Controllers\TourItineraryController::class, 'consultation'])->name('itinerary-consultations.show');
     Route::get('/booking/{departure}', [BookingController::class, 'create'])->name('bookings.create');
     Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
     Route::post('/coupons/check', [BookingController::class, 'checkCoupon'])->name('coupons.check');
@@ -56,6 +61,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/dashboard', AdminDashboardController::class)->name('dashboard');
 
         Route::middleware('admin.role:Admin,Sale')->group(function () {
+            Route::get('/itinerary-consultations', [\App\Http\Controllers\Admin\ItineraryConsultationController::class, 'index'])->name('itinerary-consultations.index');
+            Route::get('/itinerary-consultations/{consultation}', [\App\Http\Controllers\Admin\ItineraryConsultationController::class, 'show'])->name('itinerary-consultations.show');
+            Route::patch('/itinerary-consultations/{consultation}', [\App\Http\Controllers\Admin\ItineraryConsultationController::class, 'update'])->name('itinerary-consultations.update');
             Route::resource('tours', AdminTourController::class)->except('show');
             Route::resource('departures', AdminDepartureController::class)->except('show');
             Route::get('/customers', [AdminCustomerController::class, 'index'])->name('customers.index');

@@ -1,3 +1,6 @@
+import './itinerary';
+import Sortable from 'sortablejs';
+
 const closeMainMenu = () => {
     const toggle = document.querySelector('[data-menu-toggle]');
     const menu = toggle && document.getElementById(toggle.dataset.menuToggle);
@@ -64,6 +67,45 @@ document.querySelector('[data-expand-itinerary]')?.addEventListener('click', (ev
     const button = event.currentTarget;
     button.firstChild.textContent = shouldOpen ? 'Thu gọn tất cả ' : 'Mở tất cả ';
 });
+
+const tourItinerary = document.querySelector('[data-itinerary]');
+if (tourItinerary) {
+    const renumberDays = () => {
+        [...tourItinerary.querySelectorAll('[data-itinerary-day]')].forEach((day, index) => {
+            const number = index + 1;
+            day.querySelector('[data-day-ordinal]').textContent = String(number).padStart(2, '0');
+            day.querySelector('[data-day-label]').textContent = `Ngày ${number}`;
+            day.querySelector('[data-day-drag-handle]').setAttribute('aria-label', `Kéo để sắp xếp Ngày ${number}`);
+        });
+    };
+    Sortable.create(tourItinerary, {
+        draggable: '[data-itinerary-day]',
+        handle: '[data-day-drag-handle]',
+        animation: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 180,
+        ghostClass: 'itinerary-drag-ghost',
+        chosenClass: 'itinerary-drag-chosen',
+        delay: 120,
+        delayOnTouchOnly: true,
+        touchStartThreshold: 5,
+        scrollSensitivity: 80,
+        scrollSpeed: 12,
+        onEnd: renumberDays,
+    });
+    tourItinerary.addEventListener('keydown', (event) => {
+        if (!event.altKey || !['ArrowUp', 'ArrowDown'].includes(event.key)) return;
+        const day = event.target.closest('[data-itinerary-day]');
+        if (!day) return;
+        const sibling = event.key === 'ArrowUp' ? day.previousElementSibling : day.nextElementSibling;
+        if (!sibling?.matches('[data-itinerary-day]')) return;
+        event.preventDefault();
+        if (event.key === 'ArrowUp') sibling.before(day); else sibling.after(day);
+        renumberDays();
+        day.querySelector('[data-day-drag-handle]')?.focus();
+    });
+    tourItinerary.addEventListener('click', (event) => {
+        if (event.target.closest('[data-day-drag-handle]')) event.preventDefault();
+    });
+}
 
 const bookingForm = document.querySelector('[data-booking-form]');
 if (bookingForm) {

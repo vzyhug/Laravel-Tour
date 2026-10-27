@@ -56,6 +56,13 @@
     .itinerary-day summary { @apply flex min-h-20 list-none items-center gap-4 p-5; }
     .itinerary-day summary::-webkit-details-marker { display: none; }
     .itinerary-day[open] .itinerary-chevron { transform: rotate(180deg); }
+    .itinerary-dropzone { @apply mt-4 grid min-h-20 content-start gap-4 rounded-lg; }
+    .itinerary-dropzone:empty { @apply border-2 border-dashed border-[#dccdc1] bg-brand-50/40; }
+    .day-drag-handle { @apply grid size-9 shrink-0 cursor-grab touch-none place-items-center rounded-md border border-[#e5d9cf] bg-linen/70 text-lg text-muted transition hover:bg-brand-50 hover:text-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500; user-select: none; }
+    .day-drag-handle:active { cursor: grabbing; }
+    .itinerary-drag-ghost { @apply border-2 border-dashed border-brand-500 bg-brand-50 opacity-40; }
+    .itinerary-drag-chosen { @apply shadow-lg; }
+    .itinerary-drag-active { @apply opacity-95; }
     .account-tab { @apply inline-flex min-h-11 items-center gap-2 rounded-lg px-4 py-2.5 text-xs font-semibold text-muted transition hover:bg-white/60; }
     .account-tab[aria-current='page'] { @apply bg-white text-ink shadow-sm; }
     .step-dot { @apply grid size-7 shrink-0 place-items-center rounded-full bg-linen text-xs font-semibold text-muted; }

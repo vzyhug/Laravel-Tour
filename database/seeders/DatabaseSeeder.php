@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
             $this->call([
                 DemoAccountSeeder::class,
                 TourSeeder::class,
+                TourItinerarySeeder::class,
                 DemoBookingSeeder::class,
             ]);
         });

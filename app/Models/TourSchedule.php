@@ -25,4 +25,9 @@ class TourSchedule extends Model
     {
         return $this->belongsTo(Tour::class, 'tour_id');
     }
+
+    public function stops()
+    {
+        return $this->hasMany(TourItineraryStop::class, 'schedule_id')->orderBy('position');
+    }
 }
