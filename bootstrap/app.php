@@ -15,6 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        $middleware->validateCsrfTokens(except: ['payments/momo/ipn']);
         $middleware->alias([
             'customer.auth' => CustomerAuthenticated::class,
             'admin.auth' => AdminAuthenticated::class,

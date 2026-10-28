@@ -14,7 +14,7 @@ class Payment extends Model
 
     protected $primaryKey = 'payment_id';
 
-    protected $fillable = ['booking_id', 'amount', 'payment_method', 'transaction_code', 'status'];
+    protected $fillable = ['booking_id', 'amount', 'payment_method', 'transaction_code', 'status', 'payment_date'];
 
     protected function casts(): array
     {

@@ -17,4 +17,14 @@ class PaymentAttempt extends Model
     {
         return $this->belongsTo(Payment::class, 'payment_id');
     }
+
+    public function momoSession()
+    {
+        return $this->hasOne(MomoPaymentSession::class, 'payment_attempt_id');
+    }
+
+    public function vnpaySession()
+    {
+        return $this->hasOne(VnpayPaymentSession::class, 'payment_attempt_id');
+    }
 }
