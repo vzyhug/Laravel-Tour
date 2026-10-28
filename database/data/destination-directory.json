@@ -455,7 +455,9 @@
         "sha256": "506b55a7b5af1e85b878f53e3e8bbd0f426a5ef65f03514b29fbc7452e3d52ae",
         "modifications": "Ảnh thu nhỏ từ nguồn; không chỉnh sửa khác.",
         "caption": "Bảo tàng – Thư viện Bà Rịa – Vũng Tàu"
-      }
+      },
+      "latitude": 10.3507372,
+      "longitude": 107.0686418
     },
     {
       "slug": "hon-ba-vung-tau",
@@ -478,7 +480,9 @@
         "sha256": "276d11cf6969bea0f04f264cb9e4fb2301b8fc358ba755f5714d08dda8a8b49a",
         "modifications": "Ảnh thu nhỏ từ nguồn; không chỉnh sửa khác.",
         "caption": "Hòn Bà"
-      }
+      },
+      "latitude": 10.3238724,
+      "longitude": 107.0892665
     },
     {
       "slug": "thap-tam-thang",
@@ -500,7 +504,9 @@
         "sha256": "886f82c1cd9eb7ede20564ec704f6da5e5ef9266056c7000f1453e49b9b37de1",
         "modifications": "Ảnh thu nhỏ từ nguồn; không chỉnh sửa khác.",
         "caption": "Tháp Tam Thắng"
-      }
+      },
+      "latitude": 10.3456066,
+      "longitude": 107.0974283
     },
     {
       "slug": "bach-dinh-vung-tau",
@@ -523,7 +529,9 @@
         "sha256": "da40f4832b75af156183c5cf4275a37132d90c8527b19621001508fa17d5fcaf",
         "modifications": "Ảnh thu nhỏ từ nguồn; không chỉnh sửa khác.",
         "caption": "Bạch Dinh"
-      }
+      },
+      "latitude": 10.3507372,
+      "longitude": 107.0686418
     },
     {
       "slug": "hai-dang-vung-tau",
@@ -546,7 +554,9 @@
         "sha256": "15329def673689504e78178ce58fd1d3a79d2f7b3b9320b505aa3a207674b9e3",
         "modifications": "Ảnh thu nhỏ từ nguồn; không chỉnh sửa khác.",
         "caption": "Hải đăng Vũng Tàu"
-      }
+      },
+      "latitude": 10.3341077,
+      "longitude": 107.0776554
     },
     {
       "slug": "tuong-chua-kito-vung-tau",
@@ -569,7 +579,9 @@
         "sha256": "9dd560323f66dfd63ab080e28daee7f558a97bfa9572e712ff2628dc0916910b",
         "modifications": "Ảnh thu nhỏ từ nguồn; không chỉnh sửa khác.",
         "caption": "Tượng Chúa Kitô Vũng Tàu"
-      }
+      },
+      "latitude": 10.3265017,
+      "longitude": 107.0845208
     },
     {
       "slug": "bai-sau-vung-tau",
@@ -592,7 +604,9 @@
         "sha256": "445f3203fa52d6301d90946f93b2b38e75581268debaa46075060d673543e77b",
         "modifications": "Ảnh thu nhỏ từ nguồn; không chỉnh sửa khác.",
         "caption": "Bãi Sau"
-      }
+      },
+      "latitude": 10.3425579,
+      "longitude": 107.0958939
     },
     {
       "slug": "bao-tang-vu-khi-co-robert-taylor",
@@ -613,7 +627,9 @@
         "caption": "Hiện vật giáp trưng bày tại Bảo tàng Vũ khí cổ Robert Taylor",
         "modifications": "Tải từ nguồn, không chỉnh sửa nội dung.",
         "sha256": "f2c6d353b0bb82d1c24c952fc547daa468cbb6b63f69c7c2c7f57c2129f4c1b9"
-      }
+      },
+      "latitude": 10.3511342,
+      "longitude": 107.0748
     }
   ],
   "hotels": [

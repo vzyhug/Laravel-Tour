@@ -17,9 +17,11 @@ use App\Http\Controllers\CustomerDashboardController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ItineraryRoadRouteController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\TourItineraryController;
+use App\Http\Controllers\TourMapPoiController;
 use App\Models\Tour;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +42,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/tours', [TourController::class, 'index'])->name('tours.index');
 Route::get('/tours/{tour}', [TourController::class, 'show'])->name('tours.show');
 Route::get('/tour/{tour}', fn (Tour $tour) => redirect()->route('tours.show', $tour));
+Route::post('/itinerary/road-route', ItineraryRoadRouteController::class)
+    ->middleware('throttle:30,1')
+    ->name('itinerary.road-route');
+Route::post('/tours/{tour}/map-places', TourMapPoiController::class)
+    ->middleware('throttle:8,1')
+    ->name('tours.map-places');
 Route::get('/provinces/{province}/tours', [TourController::class, 'province'])->name('provinces.tours');
 
 Route::group([], function () {
