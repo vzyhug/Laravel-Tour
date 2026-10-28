@@ -8,14 +8,33 @@ use App\Models\TourCategory;
 use App\Services\TourItineraryService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
 class TourController extends Controller
 {
     public function index(Request $request): View|RedirectResponse
     {
-        $request->validate(['province' => ['nullable', 'integer', 'exists:provinces,province_id']]);
+        $request->validate([
+            'province' => ['nullable', 'integer', 'exists:provinces,province_id'],
+            'region' => ['nullable', 'string', Rule::in(['Bắc', 'Trung', 'Nam'])],
+        ], [
+            'province.integer' => 'Tỉnh thành không hợp lệ.',
+            'province.exists' => 'Tỉnh thành đã chọn không tồn tại.',
+            'region.string' => 'Vùng miền không hợp lệ.',
+            'region.in' => 'Vui lòng chọn miền Bắc, Trung hoặc Nam.',
+        ]);
         $selectedProvince = $request->filled('province') ? Province::findOrFail($request->integer('province')) : null;
+        if ($selectedProvince && $request->filled('region') && $request->input('region') !== $selectedProvince->region) {
+            $message = $selectedProvince->province_name.' thuộc miền '.$selectedProvince->region.'. Vùng miền đã chọn không khớp với tỉnh thành.';
+            if ($request->expectsJson()) {
+                throw ValidationException::withMessages(['region' => $message]);
+            }
+
+            return redirect()->route('tours.index', array_replace($request->query(), ['region' => $selectedProvince->region, 'page' => 1]))
+                ->withErrors(['region' => $message.' Đã điều chỉnh vùng miền theo tỉnh đã chọn.']);
+        }
         $rawMin = (string) $request->input('price_min');
         $rawMax = (string) $request->input('price_max');
 
@@ -66,14 +85,10 @@ class TourController extends Controller
         return view('tours.show', ['tour' => $tour, 'itineraryData' => app(TourItineraryService::class)->payload($tour, session('customer_id') ? (int) session('customer_id') : null)]);
     }
 
-    public function province(Province $province): View
+    public function province(Request $request, Province $province): View|RedirectResponse
     {
-        $tours = $province->tours()->active()->with(['province', 'category', 'images'])->paginate(9);
+        $request->merge(['province' => $province->getKey()]);
 
-        return view('tours.index', [
-            'tours' => $tours, 'categories' => TourCategory::orderBy('category_name')->get(),
-            'provinces' => Province::orderBy('province_name')->get(), 'selectedProvince' => $province,
-            'heading' => 'Tour tại '.$province->province_name,
-        ]);
+        return $this->index($request);
     }
 }

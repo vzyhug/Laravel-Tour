@@ -42,6 +42,27 @@ document.querySelectorAll('[data-money]').forEach((input) => {
 
 const tourFilters = document.getElementById('tour-filters');
 if (tourFilters) {
+    const province = tourFilters.querySelector('[name="province"]');
+    const region = tourFilters.querySelector('[name="region"]');
+    const regionHelp = document.getElementById('province-region-help');
+    const syncRegion = (provinceChanged = false) => {
+        const selectedProvince = province.selectedOptions[0];
+        const hasProvince = Boolean(selectedProvince?.value);
+        region.disabled = hasProvince;
+        if (hasProvince) {
+            region.value = selectedProvince.dataset.region;
+        } else if (provinceChanged) {
+            region.value = '';
+        }
+        regionHelp.hidden = !hasProvince;
+        if (provinceChanged) {
+            tourFilters.querySelector('[data-region-error]')?.setAttribute('hidden', '');
+        }
+    };
+    province.addEventListener('change', () => syncRegion(true));
+    window.addEventListener('pageshow', () => syncRegion());
+    syncRegion();
+
     const minPrice = tourFilters.querySelector('[name="price_min"]');
     const maxPrice = tourFilters.querySelector('[name="price_max"]');
     const validatePrices = () => {
@@ -50,6 +71,7 @@ if (tourFilters) {
     };
     [minPrice, maxPrice].forEach((input) => input.addEventListener('input', validatePrices));
     tourFilters.addEventListener('submit', (event) => {
+        syncRegion();
         validatePrices();
         if (!tourFilters.reportValidity()) { event.preventDefault(); }
     });
