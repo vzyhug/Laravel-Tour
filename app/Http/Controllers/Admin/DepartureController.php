@@ -16,9 +16,28 @@ use Illuminate\View\View;
 
 class DepartureController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
-        return view('admin.departures.index', ['departures' => TourDeparture::with(['tour', 'guide'])->orderByDesc('departure_date')->paginate(15)]);
+        $filters = $request->validate([
+            'q' => ['nullable', 'string', 'max:120'],
+            'from' => ['nullable', 'date_format:Y-m-d'],
+            'to' => ['nullable', 'date_format:Y-m-d'],
+            'status' => ['nullable', 'in:open,full,cancelled'],
+            'guide_id' => ['nullable', 'integer'],
+        ]);
+
+        $departures = TourDeparture::with(['tour', 'guide'])
+            ->when(filled($filters['q'] ?? null), fn ($q) => $q->whereHas('tour', fn ($tour) => $tour->where('title', 'like', '%'.trim($filters['q']).'%')))
+            ->when(filled($filters['from'] ?? null), fn ($q) => $q->whereDate('departure_date', '>=', $filters['from']))
+            ->when(filled($filters['to'] ?? null), fn ($q) => $q->whereDate('departure_date', '<=', $filters['to']))
+            ->when(filled($filters['status'] ?? null), fn ($q) => $q->where('status', $filters['status']))
+            ->when(filled($filters['guide_id'] ?? null), fn ($q) => $q->where('guide_id', $filters['guide_id']))
+            ->orderByDesc('departure_date')->paginate(15)->withQueryString();
+
+        $guides = Employee::whereHas('role', fn ($q) => $q->where('role_name', 'Guide'))
+            ->where('is_active', true)->orderBy('full_name')->get();
+
+        return view('admin.departures.index', compact('departures', 'filters', 'guides'));
     }
 
     public function create(): View

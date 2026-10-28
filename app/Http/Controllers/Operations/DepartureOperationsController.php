@@ -31,14 +31,25 @@ class DepartureOperationsController extends Controller
         return $actor;
     }
 
-    public function index(): View
+    public function index(Request $request): View
     {
         $actor = $this->actor();
+        $filters = $request->validate([
+            'q' => ['nullable', 'string', 'max:120'],
+            'from' => ['nullable', 'date_format:Y-m-d'],
+            'to' => ['nullable', 'date_format:Y-m-d'],
+            'status' => ['nullable', 'in:scheduled,in_progress,completed'],
+        ]);
+
         $departures = TourDeparture::with(['tour', 'guide'])
             ->when($actor->role->role_name === 'Guide', fn ($q) => $q->where('guide_id', $actor->getKey()))
-            ->orderByDesc('departure_date')->paginate(15);
+            ->when(filled($filters['q'] ?? null), fn ($q) => $q->whereHas('tour', fn ($tour) => $tour->where('title', 'like', '%'.trim($filters['q']).'%')))
+            ->when(filled($filters['from'] ?? null), fn ($q) => $q->whereDate('departure_date', '>=', $filters['from']))
+            ->when(filled($filters['to'] ?? null), fn ($q) => $q->whereDate('departure_date', '<=', $filters['to']))
+            ->when(filled($filters['status'] ?? null), fn ($q) => $q->where('operation_status', $filters['status']))
+            ->orderByDesc('departure_date')->paginate(15)->withQueryString();
 
-        return view('operations.index', compact('departures'));
+        return view('operations.index', compact('departures', 'filters'));
     }
 
     public function show(TourDeparture $departure): View

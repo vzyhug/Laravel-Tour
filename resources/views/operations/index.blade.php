@@ -28,6 +28,34 @@
         </div>
     </section>
 
+    <form method="GET" action="{{ route('operations.index') }}" class="card mt-7 grid gap-3 p-4 sm:grid-cols-2 xl:grid-cols-[minmax(220px,1.5fr)_minmax(150px,1fr)_minmax(150px,1fr)_minmax(160px,1fr)_auto] sm:p-5" aria-label="Lọc chuyến được phân công">
+        <label class="grid gap-1.5 text-[10px] font-semibold text-muted sm:col-span-2 xl:col-span-1">
+            Tìm tour
+            <input class="field min-h-10" type="search" name="q" value="{{ $filters['q'] ?? '' }}" placeholder="Nhập tên tour...">
+        </label>
+        <label class="grid gap-1.5 text-[10px] font-semibold text-muted">
+            Khởi hành từ
+            <input class="field min-h-10" type="date" name="from" value="{{ $filters['from'] ?? '' }}">
+        </label>
+        <label class="grid gap-1.5 text-[10px] font-semibold text-muted">
+            Khởi hành đến
+            <input class="field min-h-10" type="date" name="to" value="{{ $filters['to'] ?? '' }}">
+        </label>
+        <label class="grid gap-1.5 text-[10px] font-semibold text-muted">
+            Trạng thái chuyến
+            <select class="field min-h-10" name="status">
+                <option value="">Tất cả trạng thái</option>
+                @foreach(['scheduled' => 'Sắp khởi hành', 'in_progress' => 'Đang diễn ra', 'completed' => 'Đã hoàn thành'] as $value => $label)
+                    <option value="{{ $value }}" @selected(($filters['status'] ?? '') === $value)>{{ $label }}</option>
+                @endforeach
+            </select>
+        </label>
+        <div class="flex items-end gap-2 sm:col-span-2 xl:col-span-1">
+            <button class="btn-primary min-h-10 flex-1 justify-center px-4 text-xs">Lọc chuyến</button>
+            <a class="btn-secondary min-h-10 px-3 text-xs" href="{{ route('operations.index') }}">Xóa</a>
+        </div>
+    </form>
+
     <section class="mt-7" aria-label="Danh sách chuyến đi">
         <div class="mb-3 flex flex-wrap items-end justify-between gap-3">
             <div>
@@ -69,8 +97,9 @@
         @else
             <div class="operations-empty-state">
                 <span class="operations-empty-icon"><x-icon name="briefcase" class="size-6" /></span>
-                <h2 class="mt-4 text-sm font-bold text-[#303832]">Chưa có chuyến đi được phân công</h2>
-                <p class="mt-1 max-w-sm text-[11px] leading-5 text-[#818b83]">Khi có chuyến mới được giao, thông tin lịch khởi hành sẽ hiển thị tại đây.</p>
+                <h2 class="mt-4 text-sm font-bold text-[#303832]">{{ collect($filters)->filter()->isNotEmpty() ? 'Không tìm thấy chuyến phù hợp' : 'Chưa có chuyến đi được phân công' }}</h2>
+                <p class="mt-1 max-w-sm text-[11px] leading-5 text-[#818b83]">{{ collect($filters)->filter()->isNotEmpty() ? 'Thử thay đổi từ khóa, khoảng ngày hoặc trạng thái.' : 'Khi có chuyến mới được giao, thông tin lịch khởi hành sẽ hiển thị tại đây.' }}</p>
+                @if(collect($filters)->filter()->isNotEmpty())<a href="{{ route('operations.index') }}" class="btn-secondary mt-4 min-h-10 px-4 text-xs">Xóa bộ lọc</a>@endif
             </div>
         @endif
     </section>
