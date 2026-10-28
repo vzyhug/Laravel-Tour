@@ -277,3 +277,31 @@
 
 .image-viewer { width: min(96vw, 1400px); max-width: none; max-height: 96dvh; margin: auto; }
 .image-viewer::backdrop { background: rgb(0 0 0 / 0.85); }
+
+.flash-alert {
+    width: min(92vw, 440px);
+    max-width: none;
+    margin: auto;
+    padding: 28px;
+    border: 1px solid #eadfd4;
+    border-radius: 24px;
+    background: #fffdf9;
+    color: #29231f;
+    box-shadow: 0 24px 80px rgb(35 25 18 / 0.24);
+}
+.flash-alert::backdrop { background: rgb(31 27 24 / 0.48); backdrop-filter: blur(3px); }
+.flash-alert__topline { display: flex; align-items: flex-start; justify-content: space-between; }
+.flash-alert__icon { display: grid; width: 52px; height: 52px; place-items: center; border-radius: 17px; }
+.flash-alert__icon svg { width: 26px; height: 26px; }
+.flash-alert__icon--success { background: #e9f4ed; color: #28744d; }
+.flash-alert__icon--error { background: #fff0e9; color: #b44d31; }
+.flash-alert__close { display: grid; width: 38px; height: 38px; place-items: center; border: 0; border-radius: 12px; background: transparent; color: #766d66; font-size: 26px; line-height: 1; transition: background .18s, color .18s; }
+.flash-alert__close:hover { background: #f3eee8; color: #29231f; }
+.flash-alert__close:focus-visible, .flash-alert__confirm:focus-visible { outline: 3px solid #d78a58; outline-offset: 3px; }
+.flash-alert__eyebrow { margin: 20px 0 5px; color: #8b786b; font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.flash-alert__title { margin: 0; font-family: Georgia, serif; font-size: 27px; font-weight: 600; line-height: 1.2; }
+.flash-alert__message { display: grid; gap: 8px; margin-top: 11px; color: #6b625b; font-size: 14px; line-height: 1.65; overflow-wrap: anywhere; }
+.flash-alert__message p { margin: 0; }
+.flash-alert__confirm { display: flex; width: 100%; min-height: 48px; align-items: center; justify-content: center; margin-top: 24px; border: 0; border-radius: 14px; background: #a64c32; color: #fff; font-size: 13px; font-weight: 750; transition: background .18s, transform .18s; }
+.flash-alert__confirm:hover { transform: translateY(-1px); background: #873d29; }
+@media (max-width: 480px) { .flash-alert { padding: 23px; border-radius: 21px; } }
