@@ -6,7 +6,11 @@ use App\Models\Bill;
 use App\Models\Booking;
 use App\Models\Payment;
 use App\Models\PaymentIntent;
+use Illuminate\Http\Client\ConnectionException;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
@@ -15,6 +19,8 @@ class SePaySandbox
     public const PROVIDER = 'sepay_sandbox';
 
     public const CHECKOUT_URL = 'https://pay-sandbox.sepay.vn/v1/checkout/init';
+
+    public const API_URL = 'https://pgapi-sandbox.sepay.vn/v1/order/detail/';
 
     public static function enabled(): bool
     {
@@ -26,15 +32,13 @@ class SePaySandbox
         if (! self::enabled()) {
             return false;
         }
-        foreach (['merchant_id', 'secret_key', 'ipn_secret'] as $key) {
+        foreach (['merchant_id', 'secret_key'] as $key) {
             if (trim((string) config('payments.sepay_sandbox.'.$key)) === '') {
                 return false;
             }
         }
-        $url = (string) config('payments.sepay_sandbox.public_url');
 
-        return filter_var($url, FILTER_VALIDATE_URL) !== false && parse_url($url, PHP_URL_SCHEME) === 'https'
-            && ! parse_url($url, PHP_URL_USER) && ! parse_url($url, PHP_URL_QUERY) && ! parse_url($url, PHP_URL_FRAGMENT);
+        return true;
     }
 
     public function start(Booking $booking): PaymentIntent
@@ -67,14 +71,13 @@ class SePaySandbox
     public function fields(PaymentIntent $intent): array
     {
         abort_unless(self::ready(), 503);
-        $return = rtrim(config('payments.sepay_sandbox.public_url'), '/').'/sepay-sandbox/return';
         // Preserve the insertion order: SePay signs the submitted field order, as in its PHP SDK.
         // https://github.com/sepayvn/sepay-pg-php/blob/main/src/Auth/SignatureGenerator.php
         $fields = [
             'merchant' => (string) config('payments.sepay_sandbox.merchant_id'), 'currency' => 'VND',
             'order_amount' => explode('.', $intent->amount)[0], 'operation' => 'PURCHASE',
             'order_description' => 'VietGo sandbox '.$intent->reference, 'payment_method' => 'BANK_TRANSFER',
-            'order_invoice_number' => $intent->reference, 'success_url' => $return, 'error_url' => $return, 'cancel_url' => $return,
+            'order_invoice_number' => $intent->reference,
         ];
         $signed = [];
         foreach ($fields as $name => $value) {
@@ -85,42 +88,104 @@ class SePaySandbox
         return $fields;
     }
 
-    public function receive(array $data): void
+    public function synchronize(PaymentIntent $intent): bool
     {
-        $intent = PaymentIntent::where('provider', self::PROVIDER)->where('reference', $data['order']['order_invoice_number'])->firstOrFail();
-        DB::transaction(function () use ($intent, $data) {
+        if (! self::ready()) {
+            return false;
+        }
+        if ($intent->provider !== self::PROVIDER || in_array($intent->status, ['paid', 'review'], true)) {
+            return true;
+        }
+        // Share a short result across tabs; never hold a booking lock while waiting for SePay.
+        $key = 'sepay-sandbox-lookup:'.$intent->id;
+        $cached = Cache::get($key);
+        if (is_bool($cached)) {
+            return $cached;
+        }
+        $lock = Cache::lock($key.':lock', 10);
+        if (! $lock->get()) {
+            return true;
+        }
+        try {
+            $available = $this->lookup($intent);
+            Cache::put($key, $available, 5);
+
+            return $available;
+        } finally {
+            $lock->release();
+        }
+    }
+
+    private function lookup(PaymentIntent $intent): bool
+    {
+        try {
+            $response = Http::withBasicAuth(config('payments.sepay_sandbox.merchant_id'), config('payments.sepay_sandbox.secret_key'))
+                ->withOptions(['verify' => config('payments.sepay_sandbox.ca_bundle') ?: true])->acceptJson()->connectTimeout(3)->timeout(6)->withoutRedirecting()->get(self::API_URL.rawurlencode($intent->reference));
+        } catch (ConnectionException) {
+            return false;
+        }
+        // SePay may not have created the provider order yet. This is not a successful payment.
+        if ($response->status() === 404) {
+            return true;
+        }
+        if (! $response->successful()) {
+            return false;
+        }
+        $data = $response->json('data');
+        if (! is_array($data) || Validator::make($data, [
+            'order_id' => ['required', 'string', 'max:70', 'regex:/^[a-zA-Z0-9_-]+$/D'],
+            'order_invoice_number' => ['required', 'string', 'max:25'], 'order_status' => ['required', 'string', 'max:30'],
+            'order_currency' => ['required', 'string', 'max:3'], 'order_amount' => ['required', 'regex:/^[0-9]{1,13}(?:\.[0-9]{1,2})?$/D'],
+        ])->fails() || $data['order_invoice_number'] !== $intent->reference) {
+            return false;
+        }
+        if ($data['order_status'] === 'CAPTURED') {
+            $this->recordVerifiedOrder($intent, $data);
+        } elseif ($data['order_status'] === 'CANCELLED') {
+            DB::transaction(function () use ($intent) {
+                Booking::lockForUpdate()->findOrFail($intent->booking_id);
+                $locked = PaymentIntent::lockForUpdate()->findOrFail($intent->id);
+                if ($locked->status === 'pending') {
+                    $locked->update(['status' => 'cancelled']);
+                }
+            });
+        } elseif ($data['order_status'] !== 'AUTHENTICATION_NOT_NEEDED') {
+            return false;
+        }
+
+        return true;
+    }
+
+    private function recordVerifiedOrder(PaymentIntent $intent, array $order): void
+    {
+        DB::transaction(function () use ($intent, $order) {
             $booking = Booking::lockForUpdate()->findOrFail($intent->booking_id);
             $locked = PaymentIntent::lockForUpdate()->findOrFail($intent->id);
-            $order = $data['order'];
-            $transaction = $data['transaction'];
-            $identity = ['provider' => self::PROVIDER, 'notification_type' => $data['notification_type'], 'transaction_id' => $transaction['transaction_id']];
+            // Bank-transfer sandbox orders can have an empty transactions array. Record the actual
+            // SePay order ID, not an invented bank transaction. CAPTURED is verified by the private API.
+            $reference = 'ORDER-'.$order['order_id'];
+            $identity = ['provider' => self::PROVIDER, 'notification_type' => 'ORDER_VERIFIED', 'transaction_id' => $reference];
             $event = DB::table('payment_gateway_events')->where($identity)->first();
             if ($event) {
                 abort_unless($event->payment_intent_id === $locked->id, 409);
 
                 return;
             }
+            if ($locked->status === 'paid') {
+                return;
+            }
             $reason = null;
-            if ($data['notification_type'] === 'TRANSACTION_VOID') {
-                $reason = 'provider_void_requires_review';
-            } elseif ($order['order_status'] !== 'CAPTURED' || $transaction['transaction_status'] !== 'APPROVED'
-                || $transaction['transaction_type'] !== 'PAYMENT' || $transaction['payment_method'] !== 'BANK_TRANSFER') {
-                $reason = 'unexpected_provider_status';
-            } elseif ($order['order_currency'] !== 'VND' || $transaction['transaction_currency'] !== 'VND'
-                || ! $this->sameAmount($order['order_amount'], $locked->amount) || ! $this->sameAmount($transaction['transaction_amount'], $locked->amount)) {
+            if ($order['order_currency'] !== 'VND' || ! $this->sameAmount((string) $order['order_amount'], $locked->amount)) {
                 $reason = 'currency_or_amount_mismatch';
             } elseif ($locked->status !== 'pending' || $locked->expires_at->lessThanOrEqualTo(now())
-                || ! in_array($booking->status, ['pending', 'confirmed'], true) || $booking->payment()->exists() || $booking->total_amount !== $locked->amount) {
+                || ! in_array($booking->status, ['pending', 'confirmed'], true) || $booking->payment()->exists() || $booking->total_amount !== $locked->amount
+                || $booking->paymentIntents()->where('status', 'review')->exists()) {
                 $reason = 'booking_or_attempt_closed';
-            } elseif (PaymentIntent::where('provider_transaction_id', 'SEPAY-SBX-'.$transaction['transaction_id'])->exists()) {
-                $reason = 'transaction_already_used';
             }
-            // Keep only reconciliation fields; never persist API keys, bank/card/customer details, or the raw IPN.
             DB::table('payment_gateway_events')->insert($identity + [
                 'payment_intent_id' => $locked->id, 'outcome' => $reason ? 'review' : 'paid', 'reason' => $reason,
-                'details' => json_encode(['order_id' => $order['order_id'], 'order_amount' => $order['order_amount'],
-                    'transaction_amount' => $transaction['transaction_amount'], 'order_currency' => $order['order_currency'],
-                    'transaction_currency' => $transaction['transaction_currency']]), 'created_at' => now(), 'updated_at' => now(),
+                'details' => json_encode(['source' => 'sepay_order_api', 'order_id' => $order['order_id'], 'order_status' => $order['order_status'],
+                    'order_amount' => $order['order_amount'], 'order_currency' => $order['order_currency']]), 'created_at' => now(), 'updated_at' => now(),
             ]);
             if ($reason) {
                 $locked->update(['status' => 'review']);
@@ -128,7 +193,7 @@ class SePaySandbox
 
                 return;
             }
-            $code = 'SEPAY-SBX-'.$transaction['transaction_id'];
+            $code = 'SEPAY-SBX-'.$reference;
             Payment::create(['booking_id' => $booking->getKey(), 'amount' => $locked->amount, 'payment_method' => 'bank_transfer', 'transaction_code' => $code, 'status' => 'completed']);
             Bill::firstOrCreate(['booking_id' => $booking->getKey()], ['bill_number' => 'INV-'.now()->format('Ymd').'-'.$booking->getKey(), 'final_amount' => $locked->amount]);
             $booking->update(['status' => 'confirmed']);

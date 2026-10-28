@@ -1,70 +1,73 @@
-# SePay Payment Gateway Sandbox
+# Thanh toán SePay Sandbox trực tiếp, không dùng ngrok
 
-Dùng cho demo học tập, không phát sinh chuyển tiền thật. Chỉ gọi host `pay-sandbox.sepay.vn`; toàn bộ chức năng bị chặn khi `APP_ENV=production`.
+Luồng hiện tại: **Đặt tour → mở thẳng SePay ở tab mới → Giả lập thanh toán → tab VietGo xác minh qua API → xác nhận đơn và hóa đơn demo**.
 
-## Cấu hình
+Không còn QR mở liên kết điện thoại, gateway Python, ngrok, URL công khai hay endpoint IPN. Website tự gọi API riêng của SePay để kiểm tra đơn; không tin tham số `success`/`paid` từ trình duyệt. Sandbox không phát sinh chuyển tiền thật và chức năng này bị chặn khi `APP_ENV=production`.
 
-Tạo tài khoản tại https://my.sepay.vn, kích hoạt **Cổng thanh toán → Sandbox**. Không dùng API token của sản phẩm Webhook ngân hàng và không dùng khóa production.
+## Cài đặt trên máy thành viên khác
 
-Điền trong `.env` (không commit hoặc gửi các khóa qua chat):
+Cài dự án, cấu hình database và chạy:
+
+```powershell
+composer install
+php artisan migrate
+npm install
+npm run build
+```
+
+Tại https://my.sepay.vn, kích hoạt **Cổng thanh toán → Sandbox**, rồi điền thông tin trong `.env`:
 
 ```dotenv
 SEPAY_SANDBOX_ENABLED=true
 SEPAY_SANDBOX_MERCHANT_ID=
 SEPAY_SANDBOX_SECRET_KEY=
-SEPAY_SANDBOX_IPN_SECRET=
-SEPAY_SANDBOX_PUBLIC_URL=https://your-tunnel-host
+SEPAY_SANDBOX_CA_BUNDLE=
 ```
 
-`SEPAY_SANDBOX_IPN_SECRET` là chuỗi bí mật riêng dùng để xác thực callback. Trong **Cổng thanh toán → Cấu hình → IPN** của Sandbox, chọn auth type **SECRET_KEY** và đặt cùng giá trị. IPN URL:
+Chỉ cần Merchant ID và Secret Key của **Cổng thanh toán Sandbox**, không dùng token của sản phẩm Webhook ngân hàng hoặc khóa production. Khóa để trong `.env`, không push lên Git. `SEPAY_SANDBOX_CA_BUNDLE` là tùy chọn: máy Windows chưa cấu hình CA cho PHP/cURL có thể trỏ tới file CA tin cậy, ví dụ `"C:/Program Files/Git/usr/ssl/cert.pem"` nếu đã cài Git. Luôn bật xác minh TLS.
 
-```text
-https://your-tunnel-host/payments/sepay-sandbox/ipn
-```
-
-Không thêm `/payments/...` vào `SEPAY_SANDBOX_PUBLIC_URL`; biến này chỉ chứa URL gốc HTTPS. Thay khóa/tunnel cần `php artisan config:clear`. Không chia sẻ file `.env`, SQL backup hoặc `storage/app/private`.
-
-Chạy `php artisan migrate`, `npm install`, `npm run build`. Không cần cài thêm SDK: SDK hiện yêu cầu Guzzle 7 trong khi Laravel của dự án dùng Guzzle 8. Biểu mẫu được ký HMAC-SHA256 theo mã nguồn chính thức, giữ nguyên thứ tự trường.
-
-## Callback trên máy local
-
-Giữ website chạy tại `127.0.0.1:8001`. Trong hai terminal riêng:
+Sau khi đổi cấu hình, chạy `php artisan config:clear`. Khởi động MySQL và website, ví dụ:
 
 ```powershell
-python scripts/sepay-sandbox-gateway.py --port 8010 --upstream-port 8001
-ngrok http http://127.0.0.1:8010 --inspect=false
+php artisan serve --host=127.0.0.1 --port=8001
 ```
 
-Cần tài khoản/cấu hình ngrok sẵn có. Lấy host HTTPS ngrok trả về, cập nhật `.env` và IPN trong SePay. Cổng gateway 8010 chỉ nhận callback, trang quay về tĩnh và trang thanh toán điện thoại có chữ ký và hạn dùng. Các đường dẫn trang chủ, admin, `.env`, tài khoản, booking đều trả 404. Không tunnel trực tiếp toàn bộ website 8001. Không bật ngrok inspection để tránh lưu các header xác thực callback.
+Không cần tài khoản ngrok hay giữ máy của người viết code hoạt động. Nếu đã cấu hình IPN cho phiên bản cũ trong SePay, có thể tắt cấu hình đó; luồng mới không sử dụng IPN. Không cần các biến cũ `SEPAY_SANDBOX_IPN_SECRET` hoặc `SEPAY_SANDBOX_PUBLIC_URL`.
 
-Giữ cả website, gateway và tunnel chạy trong lúc demo. Ngrok có thể hiện màn hình cảnh báo truy cập lần đầu trên điện thoại; bấm **Visit Site** để tiếp tục. Khi tunnel ngừng hoặc đổi host, liên kết điện thoại cũ không còn dùng được. Dừng hai terminal bằng Ctrl+C sau demo.
+## Thao tác demo
 
-## Kịch bản trình diễn với Android
+1. Đăng nhập VietGo, đặt tour và chọn **QR ngân hàng · SePay Sandbox**.
+2. Website mở thẳng trang thanh toán SePay ở tab mới; tab VietGo chuyển sang theo dõi trạng thái. Nếu trình duyệt không chạy JavaScript, bấm **Tiếp tục tới SePay**, sau đó quay lại website để kiểm tra kết quả.
+3. Trên SePay, chọn **Giả lập thanh toán**. QR ở trang SePay là dữ liệu ngân hàng giả lập, không dùng app ngân hàng thật để chuyển tiền.
+4. Quay lại tab VietGo đang mở. Backend gọi API SePay, chỉ xác nhận khi trạng thái `CAPTURED`, đúng mã phiên, số tiền và VND.
+5. Trang hiện thành công và nút xem hóa đơn demo. Nếu kết quả chưa cập nhật kịp, trang tự kiểm tra lại; cũng có nút **Kiểm tra trạng thái**.
 
-1. Đăng nhập VietGo trên máy tính, đặt tour và chọn **QR ngân hàng · SePay Sandbox**.
-2. Trang VietGo hiển thị số tiền lấy từ đơn và QR liên kết có hạn dùng. Giữ trang này mở.
-3. Quét bằng Camera/Google Lens trên Android, mở liên kết. QR này mở website thử nghiệm; không phải VietQR chuyển khoản.
-4. Trên điện thoại, chọn **Mở SePay Sandbox**, sau đó chọn **Giả lập thanh toán** trong trang của SePay. Không dùng app ngân hàng thật để chuyển tiền. SePay Sandbox dùng ngân hàng giả lập ACMEBank.
-5. SePay gửi IPN qua HTTPS; website tự cập nhật thành công và hiện nút xem hóa đơn demo. Không cần đăng nhập VietGo trên điện thoại. Có thể dùng nút mở SePay trong tab mới để thử trên cùng máy tính.
+Dùng trình duyệt trên máy đang chạy website. Không gửi `success_url`, `error_url`, `cancel_url` tới địa chỉ local: tài liệu SePay yêu cầu các URL này phải công khai. Không cần điện thoại. Nếu đóng cả tab VietGo, website chưa tự chạy kiểm tra nền; mở lại thanh toán từ **Chuyến đi của tôi** để đồng bộ kết quả. Tab bị ẩn sẽ tạm dừng kiểm tra và tiếp tục khi được mở lại. Không cần server công khai cho luồng demo này.
 
-Trang quay về không xác nhận trả tiền. Nếu đóng/hủy tab SePay trước khi thanh toán, đơn vẫn chưa trả tiền; phiên hết hạn sau khoảng `PAYMENT_QR_LIFETIME_MINUTES` (mặc định 10 phút), rồi cho tạo phiên mới. IPN đến sau hạn, sau hủy đơn, sai tiền/tiền tệ/trạng thái hoặc giao dịch bị void được đưa vào **review**, không tự mở lại đơn hay hoàn tiền.
+## Xác minh và đối soát
 
-## Xử lý IPN và đối soát
+- API cố định: `GET https://pgapi-sandbox.sepay.vn/v1/order/detail/{order_invoice_number}`, Basic Auth từ backend. Không đưa Secret Key vào HTML/JavaScript, không chuyển thông tin xác thực sang host khác khi API trả redirect.
+- 404 hoặc `AUTHENTICATION_NOT_NEEDED` giữ đơn chưa thanh toán. Timeout, lỗi xác thực, rate limit, lỗi server, JSON sai hoặc mã phiên không khớp không được coi là thành công. Giao diện cho biết chưa xác minh được và cho thử lại.
+- Kiểm tra API được gộp giữa các tab bằng cache/lock, tối đa một lần mỗi 5 giây cho mỗi phiên. Không giữ khóa database trong lúc chờ mạng.
+- Sau khi xác minh, transaction khóa booking trước intent. Chỉ tạo một Payment/Bill dù refresh, quay lại trang nhiều lần hoặc nhiều tab cùng kiểm tra. Lỗi database rollback cả payment, bill và event, đồng thời nhả lock để thử lại.
+- Đơn đã hủy, phiên hết hạn, tổng tiền thay đổi, đã trả bằng cách khác hoặc tiền/tiền tệ không khớp được đưa vào `review`, không tự mở lại đơn hay thanh toán thêm. Chưa có màn hình xử lý review hoặc hoàn tiền qua SePay.
+- `payment_gateway_events` lưu kết quả `ORDER_VERIFIED` và nguồn `sepay_order_api`. SePay Sandbox chuyển khoản có thể trả `transactions: []`; hệ thống lưu mã đơn SePay thực (`SEPAY-SBX-ORDER-…`) làm tham chiếu, không tạo mã giao dịch ngân hàng giả. Hóa đơn vẫn ghi rõ demo.
+- Dữ liệu từ các phiên bản trước và các giao dịch đã xác nhận được giữ nguyên. Không cần migration mới nếu đã có bảng `payment_gateway_events`.
 
-- IPN không cần session khách hàng; riêng đúng endpoint IPN được miễn CSRF, còn biểu mẫu đặt/thanh toán vẫn kiểm tra CSRF.
-- Kiểm tra `X-Secret-Key` bằng constant-time comparison; chỉ nhận JSON, giới hạn kích thước và cấu trúc.
-- Đối chiếu mã phiên, trạng thái CAPTURED/APPROVED/PAYMENT/BANK_TRANSFER, tiền VND từ cả order và transaction với số tiền đã khóa và tổng tiền hiện tại của đơn.
-- Transaction database khóa booking trước intent. IPN lặp không tạo thêm Payment/Bill. Transaction ID dùng lại cho đơn khác bị từ chối. Khi có lỗi database, toàn bộ thay đổi rollback để SePay có thể retry.
-- Mã giao dịch SePay sandbox có tiền tố `SEPAY-SBX-`; hóa đơn ghi rõ demo.
-- Bảng `payment_gateway_events` lưu các trường đối soát tối thiểu, kết quả `paid`/`review` và lý do; không lưu body gốc, khóa hoặc dữ liệu ngân hàng/thẻ/khách hàng. Dùng bảng này để xem các giao dịch cần kiểm tra. Chưa có màn hình xử lý review hoặc hoàn tiền qua SePay; không tự sửa trạng thái rồi coi như đã hoàn tiền.
+## Kiểm chứng thực tế
 
-## Kiểm chứng
+Đã thử một giao dịch Sandbox thực trên cơ sở dữ liệu MySQL kiểm thử: biểu mẫu mở thẳng SePay ở tab mới, chọn **Giả lập thanh toán**, tab VietGo xác minh qua API và tạo đúng một Payment/Bill. Event lưu `ORDER_VERIFIED` với nguồn `sepay_order_api`. Ngrok và gateway không chạy trong lượt thử. Đã kiểm tra giao diện 1440px và 390px, cùng các trường hợp API lỗi, số tiền sai, phiên hết hạn, hủy đơn, kiểm tra lặp và rollback database.
 
-Ngày 28/10/2026 đã thử tài khoản Sandbox thực: biểu mẫu được SePay chấp nhận; bấm **Giả lập thanh toán** trên SePay phát IPN qua ngrok; MySQL kiểm thử cập nhật payment/booking/bill. Không gọi callback giả nội bộ để tạo kết quả này. QR điện thoại được giải mã độc lập, kiểm tra URL có chữ ký và bản sửa URL bị từ chối; đã kiểm tra giao diện 1440px và 390px. Chưa xác nhận thao tác quét trên thiết bị Android vật lý của người dùng.
+## Kiểm thử
 
-Tests: `php artisan test --filter="SePaySandboxTest|QrPaymentTest"`. MySQL: dùng `phpunit.mysql.xml` với DB test riêng `TourDB_codex_test`, chỉnh `DB_PORT` theo máy; không chạy RefreshDatabase trên DB làm việc.
+```powershell
+php artisan test --filter="SePaySandboxTest|QrPaymentTest"
+```
+
+MySQL: dùng `phpunit.mysql.xml` với DB test riêng `TourDB_codex_test`, chỉnh `DB_PORT` theo máy; không chạy RefreshDatabase trên DB làm việc. Kiểm tra toàn bộ dự án vẫn có 8 lỗi nền liên quan hành khách trẻ em và dữ liệu mẫu, độc lập với tính năng thanh toán.
 
 Tài liệu chính thức:
 - https://developer.sepay.vn/vi/cong-thanh-toan/sandbox
-- https://developer.sepay.vn/vi/cong-thanh-toan/IPN
+- https://developer.sepay.vn/vi/cong-thanh-toan/API/tong-quan
+- https://developer.sepay.vn/vi/cong-thanh-toan/API/don-hang/chi-tiet-don-hang
 - https://github.com/sepayvn/sepay-pg-php/blob/main/src/Auth/SignatureGenerator.php

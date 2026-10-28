@@ -42,7 +42,7 @@ class PaymentController extends Controller
         if ($data['payment_method'] === 'sepay') {
             $intent = app(SePaySandbox::class)->start($booking);
 
-            return redirect()->route('payments.sepay.show', [$booking, $intent]);
+            return redirect()->route('payments.sepay.checkout', [$booking, $intent]);
         }
 
         if ($data['payment_method'] === 'bank_transfer') {

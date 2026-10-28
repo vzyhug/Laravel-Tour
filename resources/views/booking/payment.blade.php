@@ -15,7 +15,7 @@
                 </dl>
             @endif
             @if(!$booking->payment)
-                <form method="POST" action="{{ route('payments.store', $booking) }}" class="mt-9" id="payment-form">
+                <form data-payment-method-form data-booking-id="{{ $booking->getKey() }}" method="POST" action="{{ route('payments.store', $booking) }}" class="mt-9" id="payment-form">
                     @csrf
                     @include('booking.payment-methods')
                     <button class="btn-primary mt-7 w-full lg:hidden">Tiếp tục thanh toán <x-icon name="arrow" class="size-4"/></button>

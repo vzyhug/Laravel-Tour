@@ -66,7 +66,7 @@
 
                 @if(str_starts_with($booking->payment?->transaction_code ?? '', 'SEPAY-SBX-'))<p class="mt-3 text-xs text-muted">SePay Sandbox · Giao dịch thử nghiệm, không chuyển tiền thật.</p>@endif
                 @if($booking->payment)
-                    <p class="mt-5 break-all text-xs leading-7 text-muted">Mã giao dịch: <strong class="text-ink">{{ $booking->payment->transaction_code }}</strong></p>
+                    <p class="mt-5 break-all text-xs leading-7 text-muted">{{ str_starts_with($booking->payment->transaction_code ?? '', 'SEPAY-SBX-ORDER-') ? 'Mã đơn thanh toán SePay' : 'Mã giao dịch' }}: <strong class="text-ink">{{ $booking->payment->transaction_code }}</strong></p>
                     @if($booking->payment->payment_method === 'bank_transfer' && str_starts_with($booking->payment->transaction_code ?? '', 'DEMO-'))<p class="mt-1 text-xs text-muted">Chuyển khoản VietQR · Demo</p>@endif
                 @endif
                 @if(!$booking->payment && in_array($booking->status, ['pending', 'confirmed'], true))

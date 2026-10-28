@@ -25,10 +25,6 @@ use App\Http\Controllers\TourItineraryController;
 use App\Models\Tour;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/payments/sepay-sandbox/ipn', [SePaySandboxController::class, 'ipn'])->name('payments.sepay.ipn');
-Route::get('/sepay-sandbox/checkout/{intent}', [SePaySandboxController::class, 'phone'])->middleware(['signed:relative', 'throttle:60,1'])->name('payments.sepay.phone');
-Route::get('/sepay-sandbox/return', [SePaySandboxController::class, 'returned'])->name('payments.sepay.return');
-
 Route::get('/destinations', [DestinationController::class, 'index'])->name('destinations.index');
 Route::get('/destinations/{destination}', [DestinationController::class, 'show'])->name('destinations.show');
 Route::get('/places', [DestinationController::class, 'places'])->name('places.index');
@@ -59,8 +55,8 @@ Route::middleware('customer.auth')->group(function () {
     Route::post('/coupons/check', [BookingController::class, 'checkCoupon'])->name('coupons.check');
     Route::get('/payments/{booking}', [PaymentController::class, 'create'])->name('payments.create');
     Route::post('/payments/{booking}', [PaymentController::class, 'store'])->name('payments.store');
+    Route::get('/payments/{booking}/sepay/{intent}/checkout', [SePaySandboxController::class, 'checkout'])->name('payments.sepay.checkout');
     Route::get('/payments/{booking}/sepay/{intent}', [SePaySandboxController::class, 'show'])->name('payments.sepay.show');
-    Route::get('/payments/{booking}/sepay/{intent}/phone.svg', [SePaySandboxController::class, 'phoneImage'])->name('payments.sepay.phone-image');
     Route::get('/payments/{booking}/sepay/{intent}/status', [SePaySandboxController::class, 'status'])->middleware('throttle:120,1')->name('payments.sepay.status');
     Route::get('/payments/{booking}/qr/{intent}', [QrPaymentController::class, 'show'])->name('payments.qr.show');
     Route::get('/payments/{booking}/qr/{intent}/status', [QrPaymentController::class, 'status'])->middleware('throttle:120,1')->name('payments.qr.status');

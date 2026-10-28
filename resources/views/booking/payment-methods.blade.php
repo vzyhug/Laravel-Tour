@@ -3,7 +3,7 @@
     $qrDemo = \App\Services\Payments\DemoQrPayment::enabled();
     $methods = ['cash' => ['Thanh toán tại văn phòng', 'Xác nhận với nhân viên VietGo'], 'momo' => ['Ví điện tử MoMo', 'Thanh toán mô phỏng qua ví điện tử'], 'card' => ['Thẻ tín dụng / ghi nợ', 'Thanh toán mô phỏng bằng thẻ']];
     if ($qrDemo) $methods = ['bank_transfer' => ['Chuyển khoản VietQR · Demo', 'Tạo QR theo đơn và chờ kết quả từ ngân hàng mô phỏng']] + $methods;
-    if ($sepay) $methods = ['sepay' => ['QR ngân hàng · SePay Sandbox', 'Thử thanh toán tại SePay và tự xác nhận khi nhận IPN']] + $methods;
+    if ($sepay) $methods = ['sepay' => ['QR ngân hàng · SePay Sandbox', 'SePay mở ở tab mới; VietGo tự kiểm tra kết quả']] + $methods;
 @endphp
 <fieldset>
     <legend class="font-serif text-2xl">Phương thức thanh toán</legend>
