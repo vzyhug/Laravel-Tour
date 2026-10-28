@@ -63,7 +63,7 @@ class InputValidationBugTest extends TestCase
         ]);
     }
 
-    public function test_reversed_price_range_filters_inclusively_and_sorts_from_high_to_low(): void
+    public function test_reversed_price_range_is_rejected_and_valid_range_filters_inclusively(): void
     {
         $this->withoutVite();
         $tour = $this->createTour();
@@ -81,12 +81,11 @@ class InputValidationBugTest extends TestCase
 
         $response = $this->get('/tours?price_min=10.000.000&price_max=2.000.000');
 
-        $response->assertOk()->assertSessionHasNoErrors()
-            ->assertViewHas('tours', fn ($tours) => $tours->pluck('min_price')->map(fn ($price) => (int) $price)->all() === [10000000, 3000000, 2000000]);
+        $response->assertRedirect(route('tours.index'))->assertSessionHasErrors('price_max');
         $this->get('/tours?price_min=2.000.000&price_max=10.000.000&sort=price_asc')
             ->assertOk()->assertViewHas('tours', fn ($tours) => $tours->pluck('min_price')->map(fn ($price) => (int) $price)->all() === [2000000, 3000000, 10000000]);
         $this->get('/tours?price_min=10.000.000&price_max=2.000.000&sort=price_asc')
-            ->assertOk()->assertViewHas('tours', fn ($tours) => $tours->pluck('min_price')->map(fn ($price) => (int) $price)->all() === [2000000, 3000000, 10000000]);
+            ->assertRedirect(route('tours.index', ['sort' => 'price_asc']))->assertSessionHasErrors('price_max');
     }
 
     /**

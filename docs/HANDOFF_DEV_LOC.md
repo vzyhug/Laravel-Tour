@@ -87,3 +87,11 @@ Chọn tỉnh sẽ tự chọn đúng miền theo dữ liệu tỉnh và khóa �
 Máy chủ kiểm tra tỉnh/miền cho cả `/tours` và đường dẫn tour theo tỉnh. Nếu URL gửi hai giá trị lệch nhau, web chuyển về miền đúng theo tỉnh và trang đầu, giữ từ khóa/sắp xếp/các bộ lọc khác, đồng thời hiện cảnh báo rõ. Yêu cầu JSON sai lệch trả 422 với lỗi `region`. Tìm riêng theo miền hoặc tìm tỉnh/miền đúng vẫn hoạt động.
 
 Kiểm tra liên quan: 15/15 trên SQLite (215 assertions), 7/7 trên MySQL (121 assertions), build và cú pháp JavaScript đạt. Đã thử trên trình duyệt desktop/mobile: đổi tỉnh, khóa/mở ô miền, URL “Lào Cai + miền Nam” được cảnh báo và sửa về miền Bắc, vẫn có kết quả tìm Sapa.
+
+## Ràng buộc khoảng giá
+
+Đã bỏ hành vi tự đổi chỗ hai mức giá khi nhập ngược. Ô Giá từ/Giá đến có nhãn rõ ràng, báo lỗi đỏ ngay khi nhập, ngăn tìm kiếm nếu giá đến nhỏ hơn giá từ. Sửa giá sẽ tự xóa lỗi. Giá bằng nhau, bằng 0 hoặc chỉ nhập một đầu vẫn hợp lệ; không chấp nhận giá âm, chữ hoặc giá vượt giới hạn 13 chữ số nguyên của cột giá tour.
+
+Máy chủ kiểm tra lại cả khi JavaScript không chạy hoặc URL bị sửa. Khi lỗi, web bỏ hai giá khỏi URL kết quả để tránh vòng lặp chuyển hướng, giữ nguyên giá nhập trong form cùng tỉnh/từ khóa/sắp xếp và hiện lỗi; JSON trả 422 cho trường sai. Kiểm thử cũ kỳ vọng tự đảo khoảng giá đã được cập nhật theo yêu cầu mới.
+
+Đã thử trên trình duyệt đúng ví dụ 5.000.000 → 111.111, chặn gửi form, sửa thì hết lỗi, khoảng bằng nhau/một đầu, giá âm/chữ và giữ lại dữ liệu sau lỗi máy chủ; desktop/mobile không tràn ngang. MySQL: 11/11 kiểm thử liên quan đạt, 166 assertions. Toàn bộ SQLite: 68/76 đạt, 8 trường hợp lỗi cũ trùng báo cáo trước, không có tên kiểm thử thất bại mới. Build, kiểm tra cú pháp JavaScript và diff đạt.

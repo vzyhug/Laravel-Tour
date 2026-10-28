@@ -35,28 +35,40 @@ class TourController extends Controller
             return redirect()->route('tours.index', array_replace($request->query(), ['region' => $selectedProvince->region, 'page' => 1]))
                 ->withErrors(['region' => $message.' Đã điều chỉnh vùng miền theo tỉnh đã chọn.']);
         }
-        $rawMin = (string) $request->input('price_min');
-        $rawMax = (string) $request->input('price_max');
-
-        if ($rawMin !== '' && str_contains($rawMin, '-')) {
-            return redirect()->route('tours.index')
-                ->withErrors(['price_min' => 'Giá từ không được là số âm.'])
-                ->withInput();
+        $prices = [];
+        $priceErrors = [];
+        foreach (['price_min' => 'Giá từ', 'price_max' => 'Giá đến'] as $field => $label) {
+            $input = $request->input($field);
+            $raw = is_scalar($input) ? trim((string) $input) : '';
+            $prices[$field] = preg_replace('/[.,\s]/u', '', $raw);
+            if ($input !== null && ! is_scalar($input)) {
+                $priceErrors[$field] = $label.' không hợp lệ.';
+            } elseif (str_contains($raw, '-')) {
+                $priceErrors[$field] = $label.' không được là số âm.';
+            } elseif ($raw !== '' && ! preg_match('/^[0-9][0-9.,\s]*$/uD', $raw)) {
+                $priceErrors[$field] = $label.' phải là số tiền nguyên, ví dụ 5.000.000.';
+            } elseif (strlen(ltrim($prices[$field], '0')) > 13) {
+                $priceErrors[$field] = $label.' không được vượt quá 9.999.999.999.999₫.';
+            }
         }
-        if ($rawMax !== '' && str_contains($rawMax, '-')) {
-            return redirect()->route('tours.index')
-                ->withErrors(['price_max' => 'Giá đến không được là số âm.'])
-                ->withInput();
+        $min = $prices['price_min'];
+        $max = $prices['price_max'];
+        if (! $priceErrors && $min !== '' && $max !== '' && (int) $min > (int) $max) {
+            $priceErrors['price_max'] = 'Giá đến phải lớn hơn hoặc bằng giá từ.';
         }
+        if ($priceErrors) {
+            if ($request->expectsJson()) {
+                throw ValidationException::withMessages($priceErrors);
+            }
+            $filters = array_diff_key($request->query(), array_flip(['price_min', 'price_max', 'page']));
+            $oldInput = $request->query();
+            foreach (['price_min', 'price_max'] as $field) {
+                $oldInput[$field] = is_scalar($request->input($field)) ? $request->input($field) : '';
+            }
 
-        $min = preg_replace('/\D/', '', $rawMin);
-        $max = preg_replace('/\D/', '', $rawMax);
-
-        $descendingRange = $min !== '' && $max !== '' && (int) $min > (int) $max;
-        if ($descendingRange) {
-            [$min, $max] = [$max, $min];
+            return redirect()->route('tours.index', $filters)->withErrors($priceErrors)->withInput($oldInput);
         }
-        $sort = $request->input('sort') ?: ($descendingRange ? 'price_desc' : '');
+        $sort = $request->input('sort', '');
 
         $tours = Tour::query()->active()->with(['province', 'category', 'images'])
             ->when($request->filled('q'), fn ($q) => $q->where('title', 'like', '%'.$request->string('q')->trim().'%'))

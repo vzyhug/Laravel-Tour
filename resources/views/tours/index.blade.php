@@ -16,7 +16,16 @@
                 @error('region')<p class="mt-2 text-xs text-red-700" data-region-error role="alert">{{ $message }}</p>@enderror
             </div>
             <label><span class="label">Cảm hứng trải nghiệm</span><select class="field" name="category"><option value="">Tất cả loại tour</option>@foreach($categories as $category)<option value="{{ $category->getKey() }}" @selected(request('category') == $category->getKey())>{{ $category->category_name }}</option>@endforeach</select></label>
-            <fieldset class="grid gap-3"><legend class="label">Ngân sách / người lớn</legend><label><span class="sr-only">Giá từ (₫)</span><input class="field" type="text" inputmode="numeric" data-money name="price_min" value="{{ old('price_min', request('price_min')) }}" placeholder="Từ (₫)">@error('price_min')<span class="mt-2 block text-xs text-red-700">{{ $message }}</span>@enderror</label><label><span class="sr-only">Giá đến (₫)</span><input class="field" type="text" inputmode="numeric" data-money name="price_max" value="{{ old('price_max', request('price_max')) }}" placeholder="Đến (₫)">@error('price_max')<span class="mt-2 block text-xs text-red-700">{{ $message }}</span>@enderror</label></fieldset>
+            <fieldset class="grid gap-3">
+                <legend class="label">Ngân sách / người lớn</legend>
+                @foreach(['price_min' => 'Giá từ', 'price_max' => 'Giá đến'] as $field => $label)
+                    <label>
+                        <span class="label">{{ $label }} (₫)</span>
+                        <input class="field" type="text" inputmode="numeric" data-money name="{{ $field }}" value="{{ old($field, request($field)) }}" placeholder="{{ $label }} (₫)" aria-describedby="{{ $field }}-error" aria-invalid="{{ $errors->has($field) ? 'true' : 'false' }}">
+                        <span id="{{ $field }}-error" class="mt-2 block text-xs text-red-700" aria-live="polite" @if(!$errors->has($field)) hidden @endif>{{ $errors->first($field) }}</span>
+                    </label>
+                @endforeach
+            </fieldset>
             <label><span class="label">Thời gian trải nghiệm</span><select class="field" name="days"><option value="">Không giới hạn</option>@foreach([2, 3, 4, 5] as $days)<option value="{{ $days }}" @selected(request('days') == $days)>Tối đa {{ $days }} ngày</option>@endforeach</select></label>
             <button class="btn-primary w-full"><x-icon name="search" class="size-4"/> Tìm hành trình</button>
         </form>

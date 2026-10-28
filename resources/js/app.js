@@ -32,6 +32,7 @@ document.addEventListener('keydown', (event) => {
 
 document.querySelectorAll('[data-money]').forEach((input) => {
     const formatMoney = () => {
+        if (/[^0-9.,\s-]/u.test(input.value)) { return; }
         const negative = input.value.includes('-');
         const digits = input.value.replace(/\D/g, '');
         input.value = (negative ? '-' : '') + (digits === '' ? '' : Number(digits).toLocaleString('vi-VN'));
@@ -66,8 +67,27 @@ if (tourFilters) {
     const minPrice = tourFilters.querySelector('[name="price_min"]');
     const maxPrice = tourFilters.querySelector('[name="price_max"]');
     const validatePrices = () => {
-        minPrice.setCustomValidity(minPrice.value.includes('-') ? 'Giá từ không được là số âm.' : '');
-        maxPrice.setCustomValidity(maxPrice.value.includes('-') ? 'Giá đến không được là số âm.' : '');
+        const readPrice = (input, label) => {
+            const raw = input.value.trim();
+            const digits = raw.replace(/[.,\s]/gu, '');
+            if (raw.includes('-')) return { error: `${label} không được là số âm.` };
+            if (raw && !/^[0-9][0-9.,\s]*$/u.test(raw)) return { error: `${label} phải là số tiền nguyên, ví dụ 5.000.000.` };
+            if (digits.replace(/^0+/, '').length > 13) return { error: `${label} không được vượt quá 9.999.999.999.999₫.` };
+            return { value: raw === '' ? null : Number(digits), error: '' };
+        };
+        const min = readPrice(minPrice, 'Giá từ');
+        const max = readPrice(maxPrice, 'Giá đến');
+        if (!min.error && !max.error && min.value !== null && max.value !== null && min.value > max.value) {
+            max.error = 'Giá đến phải lớn hơn hoặc bằng giá từ.';
+        }
+        [[minPrice, min.error], [maxPrice, max.error]].forEach(([input, error]) => {
+            input.setCustomValidity(error);
+            input.setAttribute('aria-invalid', String(Boolean(error)));
+            input.classList.toggle('border-red-500', Boolean(error));
+            const feedback = document.getElementById(`${input.name}-error`);
+            feedback.textContent = error;
+            feedback.hidden = !error;
+        });
     };
     [minPrice, maxPrice].forEach((input) => input.addEventListener('input', validatePrices));
     tourFilters.addEventListener('submit', (event) => {
