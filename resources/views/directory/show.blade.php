@@ -11,11 +11,7 @@
                 @foreach($kind === 'hotels' ? collect([$record->destination]) : $record->destinations as $destination)<a class="underline" href="{{ route('destinations.show', $destination) }}">{{ $destination->name }}</a>@endforeach
             </div>
             <p class="mt-6 text-sm leading-8 text-muted">{{ $record->description }}</p>
-            <div class="mt-8 space-y-6">
-                @forelse($record->images as $image)
-                    <figure><img src="{{ $image->url }}" alt="{{ $image->caption }}" class="max-h-[600px] w-full rounded-2xl object-cover" @if(!$loop->first) loading="lazy" @endif></figure>
-                @empty <div class="rounded-2xl bg-linen p-10 text-sm text-muted">Ảnh địa điểm đang được bổ sung.</div> @endforelse
-            </div>
+            <x-image-gallery :images="$record->images" :name="$record->name"/>
         </div>
         @if($hasDetails)
         <aside class="h-fit rounded-2xl bg-linen p-6">

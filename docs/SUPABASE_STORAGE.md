@@ -11,7 +11,7 @@ File ảnh được lưu tập trung trên Supabase Storage; dữ liệu tour, t
 
 SQL tham khảo tạo bucket mới với giới hạn JPEG/PNG/WebP và 5 MB: `supabase/storage.sql`. Nếu bucket đã tồn tại, SQL không đổi quyền của bucket đó; kiểm tra Public và hạn mức trong Dashboard.
 
-Supabase hiện có Free plan gồm 1 GB file storage; bộ nguồn hiện khoảng 92 MB (gồm ảnh danh mục điểm đến/khách sạn). Free project có thể bị tạm dừng sau một tuần không hoạt động; xem điều kiện hiện hành trước triển khai dài hạn: https://supabase.com/pricing
+Supabase hiện có Free plan gồm 1 GB file storage; bộ nguồn hiện khoảng 220 MiB (gồm ảnh tour, danh mục và thư viện địa danh). Free project có thể bị tạm dừng sau một tuần không hoạt động; xem điều kiện hiện hành trước triển khai dài hạn: https://supabase.com/pricing
 Public bucket chỉ bỏ kiểm soát quyền tải ảnh, các thao tác ghi vẫn chịu kiểm soát: https://supabase.com/docs/guides/storage/buckets/fundamentals
 
 ## 2. Cấu hình Laravel
@@ -52,8 +52,8 @@ php artisan media:verify --remote
 php artisan itineraries:audit --verify-cloud
 ```
 
-- `media:migrate` mặc định chỉ kiểm kê, không upload hoặc ghi database. Đọc 60 ảnh tour gốc + 112 ảnh địa điểm gốc + 72 ảnh danh mục điểm đến/khách sạn và các ảnh upload dưới `/storage/` đang được database tham chiếu. URL local tuyệt đối theo `APP_URL` cũng được nhận diện. Thiếu file, checksum sai, đường dẫn ra ngoài thư mục nguồn, hoặc URL ngoài kho quản lý làm lệnh dừng để xử lý rõ ràng.
-- `--apply` tạo object theo SHA-256, không upsert/ghi đè nội dung có sẵn. Các đường dẫn trùng nội dung dùng chung file. 244 nguồn ảnh hiện tương ứng 224 file khác nội dung; hai tour Vũng Tàu tái sử dụng ảnh trong danh mục.
+- `media:migrate` mặc định chỉ kiểm kê, không upload hoặc ghi database. Đọc 60 ảnh tour gốc + 112 ảnh địa điểm gốc + 72 ảnh danh mục điểm đến/khách sạn + 215 ảnh thư viện địa danh và các ảnh upload dưới `/storage/` đang được database tham chiếu. URL local tuyệt đối theo `APP_URL` cũng được nhận diện. Thiếu file, checksum sai, đường dẫn ra ngoài thư mục nguồn, hoặc URL ngoài kho quản lý làm lệnh dừng để xử lý rõ ràng.
+- `--apply` tạo object theo SHA-256, không upsert/ghi đè nội dung có sẵn. Các đường dẫn trùng nội dung dùng chung file. 459 nguồn ảnh hiện tương ứng 438 file khác nội dung; hai tour Vũng Tàu tái sử dụng ảnh trong danh mục.
 - Backend nhận upload thành công hoặc lỗi Duplicate hợp lệ, sau đó tải ảnh công khai và so SHA-256 trước khi chấp nhận URL. Bucket Private, lỗi upload hoặc checksum sai đều làm bước chuyển dừng.
 - Nhật ký `storage/app/private/media-migration.json` lưu sau từng tham chiếu đã xác minh. Nếu gián đoạn, database chưa đổi; chạy lại để tiếp tục. Nhật ký gắn với database, Project URL và bucket, tránh dùng nhầm môi trường.
 - Chỉ sau khi tất cả ảnh đã xác minh mới cập nhật ba bảng `images_tour`, `itinerary_place_images`, `hotel_images` trong một database transaction. Lệnh kiểm tra lại URL cũ để tránh ghi đè thay đổi đồng thời; không thay dữ liệu tour/booking hoặc tác giả/giấy phép.
@@ -105,7 +105,7 @@ Có 8 kiểm thử dữ liệu/đặt tour thất bại sẵn trên main `58e75b
 ## Môi trường demo đã kết nối
 
 - Project URL: `https://tgftmvgboogmmhzmafdc.supabase.co`, bucket Public `tour-images`.
-- 244 tham chiếu trong danh mục đã được chuyển thành 224 file dùng chung; mỗi file được tải công khai và đối chiếu SHA-256 khi chuyển. Bucket có thêm ảnh probe rất nhỏ phục vụ kiểm tra kết nối.
-- Bản main dùng MySQL riêng trên `127.0.0.1:3308`, database `tour_booking`; dữ liệu mẫu có 32 tour, 64 ảnh tour, 120 ảnh địa danh, 64 ảnh khách sạn và 120 booking cũ. Kiểm thử MySQL dùng database khác là `TourDB_codex_test`.
+- 459 tham chiếu trong danh mục đã được chuyển thành 438 file dùng chung; mỗi file được tải công khai và đối chiếu SHA-256 khi chuyển. Bucket có thêm ảnh probe rất nhỏ phục vụ kiểm tra kết nối.
+- Bản main dùng MySQL riêng trên `127.0.0.1:3308`, database `tour_booking`; dữ liệu mẫu có 32 tour, 64 ảnh tour, 335 ảnh địa danh, 64 ảnh khách sạn và 120 booking cũ. Kiểm thử MySQL dùng database khác là `TourDB_codex_test`.
 - Web main tại `http://127.0.0.1:8001/`. Đã kiểm tra HTTP 200 trên trang chủ, danh sách, trang ghi nguồn và 30 trang chi tiết; tất cả src ảnh dùng URL Supabase, không có khóa server trong HTML.
 - Manifest cloud được đưa cùng mã nguồn; Secret, cấu hình máy cá nhân và nhật ký khôi phục nằm ngoài Git. Ảnh nguồn local tạm được giữ để khôi phục trong giai đoạn nhóm chuyển các môi trường sang cloud.

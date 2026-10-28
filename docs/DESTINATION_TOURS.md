@@ -11,7 +11,7 @@ Giá và dịch vụ là dữ liệu minh họa để thử luồng đặt tour,
 
 ## Dữ liệu tạo ra
 
-- Tổng sau khi seed đầy đủ: 32 tour, 88 ngày chương trình, 133 điểm dừng, 126 lịch khởi hành, 64 ảnh tour. Kho địa danh vẫn có 120 địa danh, đủ 120 ảnh.
+- Tổng sau khi seed đầy đủ: 32 tour, 88 ngày chương trình, 133 điểm dừng, 126 lịch khởi hành, 64 ảnh tour. Kho địa danh vẫn có 120 địa danh, đủ 335 ảnh (2–3 ảnh/địa danh sau khi chạy PlaceGallerySeeder).
 - Mỗi tour mới có 3 đợt khởi hành tương lai, 24 chỗ/đợt, giờ khởi hành mẫu 07:00. Không tự tạo đánh giá hay đơn đặt đã hoàn thành cho tour mới.
 - Ngày bắt đầu dự kiến là hôm nay +10/+40/+70 ngày, cộng thêm 7 ngày với chương trình thứ hai. Seeder tìm hướng dẫn viên không trùng lịch (tính cả ngày đi/ngày về), có thể dời tối đa 14 ngày để có người rảnh; nếu không tìm được thì transaction được rollback.
 - Khi chạy lại trong cùng khung ngày, seeder giữ lịch khởi hành đã tồn tại, bao gồm giá, số chỗ và trạng thái hủy. Ngày neo trượt theo ngày chạy, nên chạy vào ngày khác có thể bổ sung lịch mới, tương tự dữ liệu mẫu cũ.

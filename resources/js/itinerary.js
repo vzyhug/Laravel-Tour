@@ -74,7 +74,12 @@ document.querySelectorAll('[data-personal-itinerary]').forEach((root) => {
                 const card = el('article', 'overflow-hidden rounded-lg border border-[#e5d9cf] bg-white');
                 card.setAttribute('role', 'listitem');
                 if (place?.image) {
-                    const figure = el('figure');
+                    const figure = el('a', 'block focus-visible:ring-2 focus-visible:ring-brand-500');
+                    figure.href = place.image.url;
+                    figure.target = '_blank';
+                    figure.rel = 'noopener';
+                    figure.dataset.galleryItem = '';
+                    figure.setAttribute('aria-label', `Phóng to ảnh: ${place.name}`);
                     const img = el('img', 'aspect-[16/7] w-full object-cover');
                     img.src = place.image.url;
                     img.alt = place.image.caption;

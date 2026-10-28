@@ -75,3 +75,6 @@
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+.image-viewer { width: min(96vw, 1400px); max-width: none; max-height: 96dvh; margin: auto; }
+.image-viewer::backdrop { background: rgb(0 0 0 / 0.85); }
