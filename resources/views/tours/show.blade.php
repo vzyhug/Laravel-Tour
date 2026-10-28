@@ -17,7 +17,23 @@
         <section id="itinerary" class="detail-section">
             <div class="flex flex-wrap items-end justify-between gap-3"><div><p class="eyebrow">Từng ngày, từng trải nghiệm</p><h2 class="mt-2 font-serif text-3xl">Lịch trình của bạn.</h2></div>@if($tour->schedules->isNotEmpty())<button type="button" data-expand-itinerary class="text-link text-[10px]">Mở tất cả <x-icon name="plus" class="size-4"/></button>@endif</div>
             <p class="mt-4 text-xs text-muted">Kéo tay nắm ⠿ để đổi thứ tự; số ngày sẽ tự cập nhật theo vị trí mới.</p>
-            <div class="mt-6 grid gap-3" data-itinerary>@forelse($tour->schedules as $schedule)<details class="itinerary-day" data-itinerary-day @if($loop->first) open @endif><summary><span class="day-drag-handle" data-day-drag-handle role="button" tabindex="0" aria-label="Kéo để sắp xếp Ngày {{ $schedule->day_number }}" title="Kéo để đổi thứ tự ngày">⠿</span><span class="font-serif text-3xl text-brand-600/65" data-day-ordinal>{{ str_pad($schedule->day_number, 2, '0', STR_PAD_LEFT) }}</span><span class="flex-1"><span class="eyebrow text-[9px] text-muted" data-day-label>Ngày {{ $schedule->day_number }}</span><span class="mt-1 block font-serif text-lg">{{ $schedule->title ?: 'Khám phá và trải nghiệm' }}</span></span><x-icon name="chevron" class="itinerary-chevron size-4 shrink-0 text-muted transition"/></summary><div class="border-t border-[#eee5dd] px-5 py-5 text-xs leading-7 text-muted sm:pl-16">{{ $schedule->activities }}@include('itineraries.day-stops')</div></details>@empty<p class="text-sm leading-8 text-muted">{{ $tour->itinerary_summary ?: 'Lịch trình chi tiết sẽ được cập nhật.' }}</p>@endforelse</div>
+            <div class="mt-6 grid gap-3" data-itinerary>
+                @forelse($tour->schedules as $schedule)
+                    <details class="itinerary-day" data-itinerary-day @if($loop->first) open @endif>
+                        <summary>
+                            <span class="day-drag-handle" data-day-drag-handle role="button" tabindex="0" aria-label="K&#xE9;o &#x111;&#x1EC3; s&#x1EAF;p x&#x1EBF;p Ng&#xE0;y {{ $schedule->day_number }}" title="K&#xE9;o &#x111;&#x1EC3; &#x111;&#x1ED5;i th&#x1EE9; t&#x1EF1; ng&#xE0;y">&#x28FF;</span>
+                            <span class="font-serif text-3xl text-brand-600/65" data-day-ordinal>{{ str_pad($schedule->day_number, 2, '0', STR_PAD_LEFT) }}</span>
+                            <span class="flex-1"><span class="eyebrow text-[9px] text-muted" data-day-label>Ng&#xE0;y {{ $schedule->day_number }}</span><span class="mt-1 block font-serif text-lg">&#x110;&#x1ECB;a &#x111;i&#x1EC3;m trong ng&#xE0;y</span></span>
+                            <x-icon name="chevron" class="itinerary-chevron size-4 shrink-0 text-muted transition"/>
+                        </summary>
+                        <div class="border-t border-[#eee5dd] px-5 py-5 sm:pl-16">
+                            @include('itineraries.day-stops')
+                        </div>
+                    </details>
+                @empty
+                    <p class="text-sm leading-8 text-muted">{{ $tour->itinerary_summary ?: 'L&#x1ECB;ch tr&#xEC;nh chi ti&#x1EBF;t s&#x1EBD; &#x111;&#x1B0;&#x1EE3;c c&#x1EAD;p nh&#x1EAD;t.' }}</p>
+                @endforelse
+            </div>
         </section>
         @include('itineraries.editor')
         <section id="inclusions" class="detail-section"><p class="eyebrow">Chăm chút từng chi tiết</p><h2 class="mt-2 font-serif text-3xl">Dịch vụ bao gồm.</h2><div class="mt-5 flex items-start gap-3 rounded-xl bg-linen/70 p-6"><x-icon name="check" class="mt-1 size-5 shrink-0 text-sage"/><p class="whitespace-pre-line text-sm leading-8 text-muted">{{ $tour->included_services ?: 'Liên hệ VietGo để được tư vấn chi tiết dịch vụ.' }}</p></div></section>
