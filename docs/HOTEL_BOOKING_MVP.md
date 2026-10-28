@@ -10,7 +10,7 @@ Integration: require `routes/hotel_booking.php` from web routes and `routes/hote
 
 Opt-in demo only: `php artisan db:seed --class=HotelBookingDemoSeeder`. Creates a fictitious DEMO hotel and demo rates/inventory; does not alter real hotels or overwrite existing inventory. Do not add this seeder to production/default seeding.
 
-Admin/Sale: `/admin/hotel-booking` creates room types and edits daily capacity/rates; cannot lower capacity below allocated rooms. Completing confirmed stays is permitted from checkout date. Customer: `/hotels/{slug}/rooms`, `/account/hotel-bookings`.
+Admin/Staff: `/admin/hotel-booking` creates room types and edits daily capacity/rates; cannot lower capacity below allocated rooms. Completing confirmed stays is permitted from checkout date. Customer: `/hotels/{slug}/rooms`, `/account/hotel-bookings`.
 
 All room allocation/return paths serialize on room type; holds also lock daily inventory in date order. Booking transitions lock the booking row. Retry operations do not reserve/release twice. SQL row locking requires MySQL/PostgreSQL; SQLite tests validate sequential exhaustion and rollback, not true concurrent contention. Run concurrent database integration tests before production.
 

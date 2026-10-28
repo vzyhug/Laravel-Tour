@@ -20,7 +20,7 @@ Khách sạn hiện có chưa được tự thêm giá/phòng giả. Có thể t
 ## Điểm truy cập
 
 - Khách: tài khoản có liên kết lịch trình/tư vấn, đổi lịch và đơn đặt phòng; trang chi tiết khách sạn có nút xem phòng.
-- Admin/Sale: menu quản trị thêm điều hành và đặt phòng; trang thanh toán có đối soát demo và retry refund.
+- Admin/Staff: menu quản trị thêm điều hành và đặt phòng; trang thanh toán có đối soát demo và retry refund.
 - Guide: đăng nhập chuyển sang `/operations/departures`, chỉ thao tác các chuyến được phân công.
 - Đăng nhập có liên kết quên mật khẩu; hồ sơ có liên kết đổi mật khẩu.
 

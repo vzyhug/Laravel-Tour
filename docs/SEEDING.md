@@ -28,7 +28,7 @@ Có thể chạy riêng từng lớp bằng `php artisan db:seed --class=TourSee
 | Dữ liệu | Số lượng |
 | --- | ---: |
 | Vai trò | 3 |
-| Nhân viên | 11: 1 Admin, 2 Sale, 8 Guide |
+| Nhân viên | 11: 1 Admin, 2 Staff, 8 Guide |
 | Khách hàng | 24 |
 | Loại tour | 5 |
 | Tỉnh/thành | 26 |
@@ -59,7 +59,7 @@ Khi seed vào ngày khác, seeder bổ sung lịch theo ngày mới; các lịch
 | Loại | Tài khoản | Mật khẩu | Trang đăng nhập |
 | --- | --- | --- | --- |
 | Admin | `admin` | `Admin@123` | `/login` |
-| Sale | `sale_linh`, `sale_nam` | `Sale@123` | `/login` |
+| Nhân viên | `sale_linh`, `sale_nam` | `Sale@123` | `/login` |
 | Guide | `guide`, `guide_tuan`, `guide_huong`, `guide_long`, `guide_phuong`, `guide_hai`, `guide_mai`, `guide_bao` | `Guide@123` | `/login` |
 | Khách hàng | `demo01@vietgo.test` đến `demo24@vietgo.test` | `Customer@123` | `/login` |
 

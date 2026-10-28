@@ -16,7 +16,7 @@ class DemoDataIntegrationTest extends TestCase
         $this->seed();
         foreach ([
             ['admin', 'Admin@123', 'Admin'],
-            ['sale_linh', 'Sale@123', 'Sale'],
+            ['sale_linh', 'Sale@123', 'Staff'],
             ['guide', 'Guide@123', 'Guide'],
         ] as [$login, $password, $role]) {
             $this->flushSession();

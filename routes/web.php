@@ -85,7 +85,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/logout', [AdminAuthController::class, 'destroy'])->name('logout');
         Route::get('/dashboard', AdminDashboardController::class)->name('dashboard');
 
-        Route::middleware('admin.role:Admin,Sale')->group(function () {
+        Route::middleware('admin.role:Admin,Staff')->group(function () {
             Route::get('/itinerary-consultations', [ItineraryConsultationController::class, 'index'])->name('itinerary-consultations.index');
             Route::get('/itinerary-consultations/{consultation}', [ItineraryConsultationController::class, 'show'])->name('itinerary-consultations.show');
             Route::patch('/itinerary-consultations/{consultation}', [ItineraryConsultationController::class, 'update'])->name('itinerary-consultations.update');

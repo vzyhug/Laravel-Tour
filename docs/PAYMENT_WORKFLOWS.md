@@ -9,7 +9,7 @@ Phạm vi: tour booking hiện tại. Không kết nối ngân hàng/cổng than
 3. Thất bại cho phép thử lại với một lần thử mới. Chờ xử lý cho phép chủ booking chọn kết quả mô phỏng; không thể mở thêm lần thử song song.
 4. Thành công xác nhận booking và tạo một hóa đơn. Gửi lại cùng idempotency key không tạo thêm giao dịch/hóa đơn.
 5. Hủy theo chính sách hiện có tạo `payment_refunds`, ghi vào sổ demo, và chỉ đánh dấu payment `refunded` khi tổng hoàn thành công bằng số đã thu. Hoàn một phần giữ payment `completed`; số tiền chi tiết nằm ở refund.
-6. Admin/Sale mở Thanh toán, chạy đối soát demo, xem lần thử và các hoàn tiền. Refund thất bại có nút thử lại. Để kiểm thử lỗi, đặt cấu hình nội bộ `payments.mock_refund_outcome` thành `failed`, rồi về `succeeded` để thử lại; không nhận tùy chọn này từ người dùng.
+6. Admin/Staff mở Thanh toán, chạy đối soát demo, xem lần thử và các hoàn tiền. Refund thất bại có nút thử lại. Để kiểm thử lỗi, đặt cấu hình nội bộ `payments.mock_refund_outcome` thành `failed`, rồi về `succeeded` để thử lại; không nhận tùy chọn này từ người dùng.
 
 ## Dữ liệu và API nội bộ
 
