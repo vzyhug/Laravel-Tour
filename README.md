@@ -17,19 +17,17 @@ Phần lịch trình ở trang tour hỗ trợ tùy chỉnh và gửi Admin/Sale
 
 ```bash
 composer install
-npm install
-cp .env.example .env
+npm.cmd install
+# Chỉ tạo .env nếu chưa có: Copy-Item .env.example .env
+# Chỉ chạy một lần khi tạo môi trường mới:
 php artisan key:generate
-php artisan migrate
-# Cấu hình Supabase theo docs/SUPABASE_STORAGE.md trước khi seed lần đầu:
-php artisan media:doctor --probe
-php artisan media:migrate --apply
-php artisan db:seed
-npm run build
+# Database mới:
+php artisan migrate --seed
+npm.cmd run build
 php artisan serve
 ```
 
-Trên Windows PowerShell bị chặn `npm.ps1`, dùng `npm.cmd install` và `npm.cmd run build`.
+Phát triển local mặc định dùng `MEDIA_DRIVER=local` và ảnh nguồn trong `public/images/`; không cần Supabase để chạy. Với database đã có dữ liệu, chỉ chạy `php artisan migrate`, không dùng `migrate:fresh`. Chỉ seed khi muốn thêm dữ liệu mẫu. Cấu hình Supabase khi cần dùng kho ảnh cloud theo [hướng dẫn Supabase](docs/SUPABASE_STORAGE.md).
 
 Mặc định `.env.example` dùng MySQL database `tour_booking`. Có thể đổi sang SQLite bằng `DB_CONNECTION=sqlite` và tạo file `database/database.sqlite`.
 

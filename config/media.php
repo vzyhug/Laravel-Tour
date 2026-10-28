@@ -2,7 +2,7 @@
 
 return [
     // Business data stays in MySQL. Only image files use this backend.
-    'driver' => env('MEDIA_DRIVER', 'supabase'),
+    'driver' => env('MEDIA_DRIVER', 'local'),
     'manifest' => database_path('data/media-cloud.json'),
     'journal' => storage_path('app/private/media-migration.json'),
     'hero' => '/images/tours/demo/da-nang-2.jpg',
