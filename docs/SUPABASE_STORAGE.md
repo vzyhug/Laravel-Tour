@@ -7,7 +7,7 @@ File ảnh được lưu tập trung trên Supabase Storage; dữ liệu tour, t
 1. Vào https://supabase.com/dashboard, tạo project trong organization dùng gói Free nếu phù hợp. Chọn vùng gần người dùng, ví dụ Singapore. Mật khẩu database Supabase không phải khóa upload và không dùng cho MySQL của ứng dụng.
 2. Trong Storage, tạo bucket `tour-images`, bật Public. Đây là ảnh địa danh công khai: ai có URL đều xem được. Giữ nguyên bảo vệ ghi; không tạo policy upload/update/delete cho `anon` hoặc người dùng công khai.
 3. Trong Project Settings → API Keys → Publishable and secret API keys, tạo Secret key riêng tên `laravel-tour` hoặc dùng khóa Secret mặc định. Cần khóa bắt đầu bằng `sb_secret_`, không dùng `sb_publishable_`, JWT signing secret, mật khẩu database hoặc khóa S3.
-4. Chỉ điền Secret vào `.env` trên server, không gửi qua chat, đưa vào `VITE_*`, JavaScript hoặc commit. Khóa server có quyền cao và bỏ qua RLS; ứng dụng chỉ dùng nó sau khi Laravel đã kiểm tra quyền Admin/Sale và ảnh upload.
+4. Chỉ điền Secret vào `.env` trên server, không gửi qua chat, đưa vào `VITE_*`, JavaScript hoặc commit. Khóa server có quyền cao và bỏ qua RLS; ứng dụng chỉ dùng nó sau khi Laravel đã kiểm tra quyền Admin/Staff và ảnh upload.
 
 SQL tham khảo tạo bucket mới với giới hạn JPEG/PNG/WebP và 5 MB: `supabase/storage.sql`. Nếu bucket đã tồn tại, SQL không đổi quyền của bucket đó; kiểm tra Public và hạn mức trong Dashboard.
 
@@ -67,7 +67,7 @@ Với database mới: chạy `migrate`, `media:migrate --apply`, sau đó `db:se
 
 Phân phối mã nguồn + manifest, cấu hình cùng Project URL/bucket và Secret riêng của môi trường. Chạy migration rồi seed nếu cần dữ liệu mẫu. Không cần sao chép ảnh local hoặc `storage:link` cho ảnh cloud.
 
-Kiểm tra trang chủ, chi tiết tour, ảnh lịch trình, hóa đơn, danh mục điểm đến và khách sạn; upload ảnh từ Admin/Sale. `media:verify --remote` phải đạt. Thử khi không có `public/images/tours/demo/`, `public/images/itinerary/`, `public/images/directory/` và ảnh local trong `storage/app/public`: các ảnh ứng dụng vẫn phải tải từ Supabase.
+Kiểm tra trang chủ, chi tiết tour, ảnh lịch trình, hóa đơn, danh mục điểm đến và khách sạn; upload ảnh từ Admin/Staff. `media:verify --remote` phải đạt. Thử khi không có `public/images/tours/demo/`, `public/images/itinerary/`, `public/images/directory/` và ảnh local trong `storage/app/public`: các ảnh ứng dụng vẫn phải tải từ Supabase.
 
 Chỉ bỏ các file ảnh nguồn khỏi bản triển khai/Git sau khi mọi môi trường dùng cloud và đã xác minh backup. Lệnh chuyển giữ nguồn local để khôi phục; không sửa lịch sử Git. Nguồn và giấy phép tiếp tục nằm trong các manifest dữ liệu gốc để kiểm tra nội bộ.
 

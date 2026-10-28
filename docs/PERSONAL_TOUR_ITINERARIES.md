@@ -28,7 +28,7 @@ erDiagram
 
 Một khách có một lịch đang chỉnh cho mỗi tour. Các item riêng cho phép địa danh hoặc hoạt động tự ghi, ngày, thứ tự, giờ, thời lượng và ghi chú. Không ghi đè lịch gốc.
 
-Yêu cầu tư vấn chụp lại ngày, item và nguồn tại lúc gửi. Sau khi khách sửa lịch, bản đã gửi giữ nguyên. Admin/Sale phản hồi dựa trên bản chụp, không dựa vào lịch mới đang thay đổi. Báo giá là tổng cho cả nhóm, có mô tả dịch vụ/điều kiện và hạn hiệu lực; đây chưa phải đơn đặt chỗ hoặc yêu cầu thanh toán.
+Yêu cầu tư vấn chụp lại ngày, item và nguồn tại lúc gửi. Sau khi khách sửa lịch, bản đã gửi giữ nguyên. Admin/Staff phản hồi dựa trên bản chụp, không dựa vào lịch mới đang thay đổi. Báo giá là tổng cho cả nhóm, có mô tả dịch vụ/điều kiện và hạn hiệu lực; đây chưa phải đơn đặt chỗ hoặc yêu cầu thanh toán.
 
 ## Luồng sử dụng
 
@@ -36,7 +36,7 @@ Yêu cầu tư vấn chụp lại ngày, item và nguồn tại lúc gửi. Sau 
 2. Trên lịch trình gốc ở trang tour, kéo tay nắm **⠿** trên thẻ Ngày 1, Ngày 2… để đổi thứ tự hiển thị; bàn phím hỗ trợ `Alt + ↑/↓`. Trong **Tùy chỉnh lịch & gửi tư vấn**, chọn ngày cho từng hoạt động, thêm/bỏ địa danh, nhập giờ dự kiến, thời lượng hoặc ghi chú rồi chọn **Lưu lịch của tôi**. Lịch cá nhân lưu riêng và không sửa chương trình gốc.
 3. Đăng nhập và chọn **Lưu lịch của tôi**. Chương trình và dịch vụ nguyên bản từng ngày cũng được sao thành ghi chú có thể sửa, tránh mất phần di chuyển/bữa ăn khi gửi tư vấn.
 4. Chọn ngày đi, số người, liên hệ và nhu cầu thêm rồi **Gửi yêu cầu tư vấn**.
-5. Admin/Sale vào **Tư vấn lịch trình**: xem bản đã gửi, trả lời tổng giá/điều kiện/hạn hoặc đóng kèm lý do.
+5. Admin/Staff vào **Tư vấn lịch trình**: xem bản đã gửi, trả lời tổng giá/điều kiện/hạn hoặc đóng kèm lý do.
 6. Khách xem phản hồi tại **Tài khoản → Lịch tùy chỉnh & yêu cầu tư vấn của tôi**. Báo giá hết hạn được ghi rõ.
 
 Khách chưa đăng nhập được thử chỉnh tại trang nhưng cần đăng nhập để lưu. Lịch riêng không tự thay đổi giá tour, chỗ, đơn hoặc hóa đơn. Staff không thể đặt giá qua API khách. Version chống ghi đè từ hai tab; request UUID chống gửi trùng; quyền xem bản gửi kiểm tra theo chủ lịch. Không cho chọn địa danh ngoài tập điểm của tour, ngày ngoài lịch, giờ chồng nhau/vượt ngày hoặc quá giới hạn item.

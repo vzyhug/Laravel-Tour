@@ -18,7 +18,7 @@ class CancelDeparture
     {
         return DB::transaction(function () use ($departure, $employeeId, $reason) {
             $actor = Employee::with('role')->findOrFail($employeeId);
-            abort_unless($actor->is_active && in_array($actor->role->role_name, ['Admin', 'Sale'], true), 403);
+            abort_unless($actor->is_active && in_array($actor->role->role_name, ['Admin', 'Staff'], true), 403);
             // Every booking flow locks departure before booking to serialize capacity changes.
             $departure = TourDeparture::lockForUpdate()->findOrFail($departure->getKey());
             if ($departure->status === 'cancelled') {

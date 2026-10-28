@@ -163,7 +163,7 @@ class TourItineraryTest extends TestCase
         $this->postJson(route('tour-itinerary.consult', $tour), $this->inquiry())->assertOk();
         $request = ItineraryConsultation::firstOrFail();
         $staff = Employee::factory()->admin()->create();
-        $this->withSession(['employee_id' => $staff->getKey(), 'employee_role' => 'Sale']);
+        $this->withSession(['employee_id' => $staff->getKey(), 'employee_role' => 'Staff']);
         $this->patchJson(route('admin.itinerary-consultations.update', $request), ['version' => 1, 'status' => 'quoted', 'reply' => 'Thiếu giá'])->assertUnprocessable();
         $this->patch(route('admin.itinerary-consultations.update', $request), ['version' => 1, 'status' => 'closed', 'reply' => 'Khách chưa xác định được ngày đi.'])->assertRedirect();
         $this->patchJson(route('admin.itinerary-consultations.update', $request), ['version' => 2, 'status' => 'closed', 'reply' => 'Sửa lại'])->assertUnprocessable();

@@ -13,7 +13,7 @@ class DemoAccountSeeder extends Seeder
     public function run(): void
     {
         $roles = [];
-        foreach (['Admin' => 'Quản trị hệ thống', 'Sale' => 'Tư vấn và bán tour', 'Guide' => 'Hướng dẫn viên'] as $name => $description) {
+        foreach (['Admin' => 'Quản trị hệ thống', 'Staff' => 'Nhân viên vận hành và kinh doanh', 'Guide' => 'Hướng dẫn viên'] as $name => $description) {
             $roles[$name] = Role::firstOrCreate(['role_name' => $name], ['description' => $description]);
         }
 
@@ -23,8 +23,8 @@ class DemoAccountSeeder extends Seeder
             ['guide_tuan', 'Trần Quốc Tuấn', 'Guide', 'Guide@123'],
             ['guide_huong', 'Lê Mai Hương', 'Guide', 'Guide@123'],
             ['guide_long', 'Phạm Hoàng Long', 'Guide', 'Guide@123'],
-            ['sale_linh', 'Nguyễn Thùy Linh', 'Sale', 'Sale@123'],
-            ['sale_nam', 'Đỗ Hoàng Nam', 'Sale', 'Sale@123'],
+            ['sale_linh', 'Nguyễn Thùy Linh', 'Staff', 'Sale@123'],
+            ['sale_nam', 'Đỗ Hoàng Nam', 'Staff', 'Sale@123'],
             ['guide_phuong', 'Trần Thu Phương', 'Guide', 'Guide@123'],
             ['guide_hai', 'Nguyễn Thanh Hải', 'Guide', 'Guide@123'],
             ['guide_mai', 'Đỗ Ngọc Mai', 'Guide', 'Guide@123'],

@@ -215,7 +215,7 @@ class BranchIntegrationTest extends TestCase
         $this->post(route('admin.departures.store'), $payload)->assertSessionHasErrors('return_date');
         $payload['return_date'] = today()->addDays(17)->format('d/m/Y');
         $payload['time_hour'] = 8;
-        $this->withSession(['employee_role' => 'Sale'])->put(route('admin.departures.update', $departure), $payload)
+        $this->withSession(['employee_role' => 'Staff'])->put(route('admin.departures.update', $departure), $payload)
             ->assertRedirect(route('admin.departures.index'));
         $this->assertSame('14:30', $departure->fresh()->departure_time);
     }

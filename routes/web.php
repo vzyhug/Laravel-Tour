@@ -18,12 +18,14 @@ use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItineraryRoadRouteController;
+use App\Http\Controllers\MomoPaymentController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\QrPaymentController;
 use App\Http\Controllers\SePaySandboxController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\TourItineraryController;
 use App\Http\Controllers\TourMapPoiController;
+use App\Http\Controllers\VnpayPaymentController;
 use App\Models\Tour;
 use Illuminate\Support\Facades\Route;
 
@@ -62,6 +64,9 @@ Route::group([], function () {
     Route::post('/register', [AuthController::class, 'register'])->name('register.store');
 });
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/payments/momo/ipn', [MomoPaymentController::class, 'ipn'])
+    ->middleware('throttle:120,1')
+    ->name('payments.momo.ipn');
 
 Route::middleware('customer.auth')->group(function () {
     Route::put('/tours/{tour}/itinerary', [TourItineraryController::class, 'update'])->name('tour-itinerary.update');
@@ -81,6 +86,13 @@ Route::middleware('customer.auth')->group(function () {
     Route::get('/payments/{booking}/qr/{intent}/image.svg', [QrPaymentController::class, 'image'])->name('payments.qr.image');
     Route::get('/payments/{booking}/qr/{intent}/demo-bank', [QrPaymentController::class, 'demoBank'])->name('payments.qr.demo');
     Route::post('/payments/{booking}/qr/{intent}/demo-bank', [QrPaymentController::class, 'simulate'])->middleware('throttle:20,1')->name('payments.qr.simulate');
+    Route::get('/payments/vnpay/return', [VnpayPaymentController::class, 'returned'])->name('payments.vnpay.return');
+    Route::get('/payments/{booking}/vnpay/{session}', [VnpayPaymentController::class, 'resume'])->name('payments.vnpay.resume');
+    Route::post('/payments/{booking}/vnpay/{session}/restart', [VnpayPaymentController::class, 'restart'])->name('payments.vnpay.restart');
+    Route::get('/payments/{booking}/momo/{session}', [MomoPaymentController::class, 'show'])->name('payments.momo.show');
+    Route::get('/payments/{booking}/momo/{session}/qr.svg', [MomoPaymentController::class, 'qr'])->name('payments.momo.qr');
+    Route::get('/payments/{booking}/momo/{session}/status', [MomoPaymentController::class, 'status'])->middleware('throttle:10,1')->name('payments.momo.status');
+    Route::get('/payments/{booking}/momo/{session}/return', [MomoPaymentController::class, 'returned'])->name('payments.momo.return');
     Route::get('/account', [CustomerDashboardController::class, 'index'])->name('customer.dashboard');
     Route::get('/account/profile', [CustomerDashboardController::class, 'profile'])->name('customer.profile');
     Route::put('/account/profile', [CustomerDashboardController::class, 'updateProfile'])->name('customer.profile.update');
@@ -98,7 +110,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/logout', [AdminAuthController::class, 'destroy'])->name('logout');
         Route::get('/dashboard', AdminDashboardController::class)->name('dashboard');
 
-        Route::middleware('admin.role:Admin,Sale')->group(function () {
+        Route::middleware('admin.role:Admin,Staff')->group(function () {
             Route::get('/itinerary-consultations', [ItineraryConsultationController::class, 'index'])->name('itinerary-consultations.index');
             Route::get('/itinerary-consultations/{consultation}', [ItineraryConsultationController::class, 'show'])->name('itinerary-consultations.show');
             Route::patch('/itinerary-consultations/{consultation}', [ItineraryConsultationController::class, 'update'])->name('itinerary-consultations.update');

@@ -4,7 +4,7 @@ Project đã được chuyển từ Spring Boot/Thymeleaf sang Laravel 13, Blade
 
 ## Chức năng
 
-Phần lịch trình ở trang tour hỗ trợ tùy chỉnh và gửi Admin/Sale tư vấn báo giá. Xem [luồng sử dụng và quan hệ dữ liệu](docs/PERSONAL_TOUR_ITINERARIES.md), [báo cáo rà toàn bộ tour](docs/TOUR_ITINERARY_AUDIT.md).
+Phần lịch trình ở trang tour hỗ trợ tùy chỉnh và gửi nhân viên tư vấn báo giá. Xem [luồng sử dụng và quan hệ dữ liệu](docs/PERSONAL_TOUR_ITINERARIES.md), [báo cáo rà toàn bộ tour](docs/TOUR_ITINERARY_AUDIT.md).
 
 - Trang chủ, tìm kiếm/lọc tour, tour theo vùng và chi tiết lịch trình.
 - Đăng ký, đăng nhập, hồ sơ và lịch sử đặt tour của khách hàng.
@@ -35,7 +35,7 @@ Mặc định `.env.example` dùng MySQL database `tour_booking`. Có thể đ�
 
 - Admin: `admin` / `Admin@123`
 - Guide: `guide` / `Guide@123`
-- Sale: `sale_linh` / `Sale@123`
+- Nhân viên: `sale_linh` / `Sale@123`
 - Khách hàng: `demo01@vietgo.test` / `Customer@123`
 
 Đăng nhập chung cho nhân viên và khách hàng tại `/login`; trang quản trị tại `/admin/dashboard`.

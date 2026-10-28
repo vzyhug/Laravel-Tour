@@ -12,6 +12,7 @@ class PaymentWorkflow
 {
     public function pay(Booking $booking, string $method, string $key, string $outcome): PaymentAttempt
     {
+        abort_unless($method !== 'bank_transfer', 409, 'Thanh toán ngân hàng phải đi qua cổng VNPay.');
         abort_unless(in_array($outcome, ['pending', 'succeeded', 'failed'], true), 422);
 
         return DB::transaction(function () use ($booking, $method, $key, $outcome) {
@@ -36,11 +37,11 @@ class PaymentWorkflow
         });
     }
 
-    public function settle(PaymentAttempt $attempt, string $outcome): PaymentAttempt
+    public function settle(PaymentAttempt $attempt, string $outcome, ?string $providerReference = null): PaymentAttempt
     {
         abort_unless(in_array($outcome, ['pending', 'succeeded', 'failed'], true), 422);
 
-        return DB::transaction(function () use ($attempt, $outcome) {
+        return DB::transaction(function () use ($attempt, $outcome, $providerReference) {
             $bookingId = PaymentAttempt::findOrFail($attempt->id)->payment()->firstOrFail()->booking_id;
             $booking = $this->lockBooking($bookingId);
             $payment = $booking->payment()->lockForUpdate()->firstOrFail();
@@ -48,7 +49,16 @@ class PaymentWorkflow
             if ($attempt->status !== 'pending') {
                 return $attempt;
             }
-            $gateway = app(MockPaymentGateway::class)->transact('payment', 'payment:'.$attempt->idempotency_key, (float) $attempt->amount, $outcome);
+            if (in_array($attempt->provider, ['momo', 'vnpay'], true)) {
+                abort_unless($providerReference !== null, 403, 'Kết quả cổng thanh toán phải được xác thực bởi nhà cung cấp.');
+                $gateway = (object) [
+                    'kind' => 'payment', 'idempotency_key' => 'payment:'.$attempt->idempotency_key,
+                    'amount' => (float) $attempt->amount, 'status' => $outcome, 'reference' => $providerReference,
+                ];
+            } else {
+                abort_unless($attempt->provider === 'mock', 409, 'Nhà cung cấp thanh toán không hợp lệ.');
+                $gateway = app(MockPaymentGateway::class)->transact('payment', 'payment:'.$attempt->idempotency_key, (float) $attempt->amount, $outcome);
+            }
             abort_unless(
                 $gateway->kind === 'payment'
                 && $gateway->idempotency_key === 'payment:'.$attempt->idempotency_key
@@ -99,7 +109,7 @@ class PaymentWorkflow
         });
     }
 
-    private function lockBooking(int $bookingId): Booking
+    public function lockBooking(int $bookingId): Booking
     {
         // Read a fresh snapshot rather than a route-bound model or cached relation.
         $departureId = Booking::whereKey($bookingId)->firstOrFail()->departure_id;
