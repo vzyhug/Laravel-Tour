@@ -1,6 +1,8 @@
 # Hotel booking MVP
 
-Hotel inventory is manually maintained per room type and stay date. Missing dates are unavailable. Checkout date is excluded. Capacity is reserved for 15 minutes at hold creation, not again at confirmation. Existing bookings keep nightly price and cancellation-policy snapshots.
+Hotel inventory is date-specific; missing dates are unavailable and checkout date is excluded. `HotelBookingCatalogSeeder` initializes a VietGo reference room and rate for the catalog hotels for the next 90 nights (900,000–1,500,000 VND per room/night, two reference rooms per night). These are project-set reference values, not supplier-confirmed prices or availability. Staff can edit daily price and capacity; checkout date is excluded. Capacity is reserved for 15 minutes at hold creation, not again at confirmation. Existing bookings keep nightly price and cancellation-policy snapshots.
+
+Google Maps catalog ratings, addresses and reviews are not hotel inventory or supplier confirmation. Hotel pages show the internal room-search action only when the hotel has an active VietGo room type. Otherwise the customer sees that VietGo has no published inventory and can continue to the hotel's own website. No scraped price is copied into `hotel_room_inventory`.
 
 Payment and refund are explicitly simulated via `hotel_payments`, independent of tour payments. This MVP does not send a hotel supplier reservation or charge money. It must not be described as confirmed by an external hotel supplier.
 

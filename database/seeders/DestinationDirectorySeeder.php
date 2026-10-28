@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 use App\Models\Destination;
 use App\Models\Hotel;
+use App\Models\HotelBooking;
+use App\Models\HotelRoomInventory;
+use App\Models\HotelRoomType;
 use App\Models\ItineraryPlace;
 use App\Services\Media\MediaCatalog;
 use Illuminate\Database\Seeder;
@@ -20,6 +23,15 @@ class DestinationDirectorySeeder extends Seeder
             ->mapWithKeys(fn ($row) => [$row['image']['path'] => $catalog->reference($row['image'])]);
 
         DB::transaction(function () use ($data, $references) {
+            $excludedHotels = Hotel::query()->where('slug', 'like', 'muong-thanh-%')->orWhere('name', 'like', 'Mường Thanh%')->get();
+            $excludedTypeIds = HotelRoomType::whereIn('hotel_id', $excludedHotels->modelKeys())->pluck('id');
+            if ($excludedTypeIds->isNotEmpty() && HotelBooking::whereIn('room_type_id', $excludedTypeIds)->exists()) {
+                throw new RuntimeException('Không thể xóa khách sạn Mường Thanh đang được tham chiếu bởi đơn đặt phòng.');
+            }
+            HotelRoomInventory::whereIn('room_type_id', $excludedTypeIds)->delete();
+            HotelRoomType::whereIn('id', $excludedTypeIds)->delete();
+            Hotel::whereIn('id', $excludedHotels->modelKeys())->delete();
+
             $destinations = [];
             foreach ($data['destinations'] as $row) {
                 $destination = Destination::updateOrCreate(['slug' => $row['slug']], collect($row)->except('slug', 'place_slugs')->all());
@@ -42,7 +54,21 @@ class DestinationDirectorySeeder extends Seeder
                 $destinations[$row['slug']]->places()->syncWithoutDetaching($places->modelKeys());
             }
             foreach ($data['hotels'] as $row) {
-                $hotel = Hotel::updateOrCreate(['slug' => $row['slug']], array_merge(collect($row)->except('slug', 'destination', 'image')->all(), [
+                $attributes = collect($row)->except('slug', 'destination', 'image', 'google_maps')->all();
+                if (isset($row['google_maps'])) {
+                    $google = $row['google_maps'];
+                    $attributes = array_merge($attributes, [
+                        'google_place_id' => $google['place_id'],
+                        'google_data_id' => $google['data_id'] ?? null,
+                        'google_rating' => $google['rating'] ?? null,
+                        'google_reviews' => $google['reviews'] ?? null,
+                        'latitude' => $google['latitude'] ?? null,
+                        'longitude' => $google['longitude'] ?? null,
+                        'google_maps_url' => $google['url'] ?? null,
+                        'google_verified_on' => $google['checked_at'] ?? null,
+                    ]);
+                }
+                $hotel = Hotel::updateOrCreate(['slug' => $row['slug']], array_merge($attributes, [
                     'destination_id' => $destinations[$row['destination']]->id,
                 ]));
                 if (isset($row['image'])) {

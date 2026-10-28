@@ -17,6 +17,7 @@ class HotelBookingController extends Controller
 
     public function search(Request $request, Hotel $hotel, HotelBookingService $service)
     {
+        $hotel->load(['images', 'destination']);
         $data = $request->validate(['check_in' => ['nullable', 'required_with:check_out', 'date_format:Y-m-d'], 'check_out' => ['nullable', 'required_with:check_in', 'date_format:Y-m-d'], 'rooms' => ['sometimes', 'integer', 'between:1,10'], 'guests' => ['sometimes', 'integer', 'between:1,100']]);
         $data += ['rooms' => 1, 'guests' => 1];
         $offers = collect();

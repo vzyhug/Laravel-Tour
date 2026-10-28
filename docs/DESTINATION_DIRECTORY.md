@@ -14,12 +14,16 @@
 - `/destinations`: tìm tên và phân trang điểm đến.
 - `/destinations/vung-tau`: tour có địa danh thuộc Vũng Tàu, địa danh và khách sạn của điểm đến.
 - `/places`: tìm theo tên/địa chỉ, lọc điểm đến và loại địa danh.
-- `/hotels`: tìm theo tên/địa chỉ và lọc điểm đến.
-- `/places/{slug}`, `/hotels/{slug}`: ảnh, bản đồ tìm kiếm; khách sạn có website/liên hệ và gợi ý địa danh cùng điểm đến.
+- `/hotels`: tìm theo tên/địa chỉ, lọc theo điểm đến và sắp xếp theo đánh giá Google hoặc số lượt đánh giá. Có lối tắt tới Vũng Tàu, Hà Nội, Đà Nẵng, Đà Lạt, Phú Quốc và Hạ Long; danh sách đầy đủ vẫn có trong bộ lọc.
+- `/places/{slug}`, `/hotels/{slug}`: ảnh có nguồn và giấy phép, thông tin liên hệ, bản đồ. Chi tiết khách sạn nối tiếp tới tour và địa danh thuộc cùng điểm đến.
 
 ## Dữ liệu và cách chạy
 
-Dữ liệu có thể xem trực tiếp tại `database/data/destination-directory.json`. Mỗi khách sạn có địa chỉ, website chính thức, URL nguồn và ngày đối chiếu. Mô tả được biên soạn ngắn từ nguồn; giá phòng, hạng sao và đánh giá không được suy diễn. Thông tin khách sạn đã đối chiếu ngày 28/10/2026; địa chỉ giữ theo website nguồn, không tự gán phường/tỉnh mới. Nguồn của 112 địa danh kế thừa giữ từ bộ lịch trình hiện có. `verified_on` là ngày đối chiếu nguồn trực tuyến, không phải khảo sát thực địa.
+Dữ liệu có thể xem trực tiếp tại `database/data/destination-directory.json`. SerpApi Google Maps đã đối chiếu đủ 64/64 khách sạn theo 31 điểm đến ngày 28/10/2026. Seeder lưu Google Place ID, rating, số đánh giá, tọa độ và URL bản đồ; địa chỉ/số điện thoại cập nhật theo kết quả khớp tên hoặc địa chỉ. Nếu không xác định chắc chắn cùng một cơ sở thì kết quả không được gán. `google_verified_on` là ngày truy vấn, không phải khảo sát thực địa. Các ảnh khách sạn tiếp tục dùng bộ ảnh hiện có với nguồn và giấy phép đã ghi; không nhập ảnh Google Maps vì phản hồi không cung cấp giấy phép tái sử dụng.
+
+Rating và lượt đánh giá là thông tin tham khảo của Google Maps, không phải điểm đánh giá trên VietGo. Giá, loại phòng và tồn kho không được suy ra từ kết quả Maps. Chức năng đặt phòng nội bộ chỉ hiện khi nhân viên đã tạo loại phòng; nếu chưa có tồn kho VietGo, khách được dẫn tới website khách sạn. Thanh toán/giữ phòng nội bộ vẫn theo giới hạn trong `HOTEL_BOOKING_MVP.md`.
+
+Riêng Azerai Cần Thơ đã đổi tên thành Legacy Mekong; danh mục dùng tên hiện hành, còn slug cũ để giữ liên kết. Nguồn: [Cổng du lịch Cần Thơ](https://canthotourism.vn/vi/azeraicantho), [Marriott](https://www.marriott.com/vi/hotels/vcalm-legacy-mekong-can-tho-autograph-collection/overview/).
 
 Máy đã có dữ liệu tour/lịch trình:
 
@@ -45,7 +49,7 @@ Chế độ Supabase dùng URL công khai trong manifest `database/data/media-cl
 
 Ảnh là tư liệu tại thời điểm chụp, không bảo đảm mô tả hiện trạng mới nhất. Một số ảnh là phòng nghỉ, sảnh hoặc khuôn viên của cơ sở. Premier Pearl sử dụng ảnh phòng Classic Twin Ocean View, được ghi rõ chú thích; không dùng ảnh tòa nhà đang xây năm 2021.
 
-Trong đợt mở rộng 50 cơ sở, nguồn ưu tiên là website khách sạn, website thương hiệu hoặc hồ sơ trên Cơ sở dữ liệu ngành Du lịch/cổng thông tin địa phương. Tên hiện hành được đối chiếu nguồn: Mường Thanh **Luxury** Mộc Châu và **Cuc Phuong Mineral Retreat**. Danh mục gồm cả resort/farmstay/lodge tại các vùng sinh thái; không tự gán hạng sao, giá phòng hoặc tình trạng phòng trống. Một số website cơ sở không truy cập được tại lúc thu thập; hồ sơ nguồn của cơ quan du lịch được dùng để đối chiếu và giữ nguyên website do hồ sơ công bố. Thông tin chưa xác minh được như số điện thoại riêng của một vài cơ sở được để trống. Với nơi chưa có địa chỉ đường/số nhà rõ ràng, ghi khu vực theo nguồn và dùng tìm kiếm bản đồ theo tên.
+Danh mục khách sạn ưu tiên website chính thức, website thương hiệu hoặc hồ sơ trên Cơ sở dữ liệu ngành Du lịch/cổng thông tin địa phương. Danh mục gồm cả resort/farmstay/lodge tại các vùng sinh thái; không tự gán hạng sao. Giá phòng VietGo hiển thị là giá tham khảo riêng, không phải giá xác nhận của khách sạn. Tình trạng phòng chỉ có khi nhân viên quản lý tồn theo ngày. Một số website cơ sở không truy cập được tại lúc thu thập; hồ sơ nguồn của cơ quan du lịch được dùng để đối chiếu. Thông tin chưa xác minh được như số điện thoại riêng của một vài cơ sở được để trống.
 
 Các nhóm Hà Giang, Bến Tre, Mai Châu, Mù Cang Chải… là nhóm hành trình cũ; địa chỉ cơ sở có thể ghi tỉnh/phường mới theo website nguồn. Địa danh cùng nhóm hành trình có thể cách xa nhau, vì vậy gợi ý “cùng điểm đến” không phải cam kết ở gần hoặc phù hợp với mọi lịch trình.
 
@@ -59,4 +63,4 @@ Có DestinationFactory, ItineraryPlaceFactory, HotelFactory, HotelImageFactory; 
 php vendor/bin/phpunit --filter 'DestinationDirectoryTest|CloudMediaTest|Supabase'
 ```
 
-Kiểm thử bao gồm bảo toàn ID địa danh/lịch trình, tính lặp lại của seeder, phân loại và bộ lọc, phân trang, dữ liệu sai/404, ảnh đúng khách sạn, phủ ít nhất hai khách sạn cho từng điểm đến, và hiển thị bằng URL Supabase khi không có thư mục ảnh local. MySQL dùng cấu hình kiểm thử riêng `phpunit.mysql.xml`, database `TourDB_codex_test`.
+Kiểm thử bao gồm bảo toàn ID địa danh/lịch trình, tính lặp lại của seeder, phân loại và bộ lọc, phân trang, dữ liệu sai/404, ảnh đúng khách sạn, độ phủ không đồng đều giữa các điểm đến, và hiển thị bằng URL Supabase khi không có thư mục ảnh local. MySQL dùng cấu hình kiểm thử riêng `phpunit.mysql.xml`, database `TourDB_codex_test`.

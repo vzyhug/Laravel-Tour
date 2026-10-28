@@ -621,8 +621,8 @@
       "slug": "pullman-vung-tau",
       "name": "Pullman Vũng Tàu",
       "destination": "vung-tau",
-      "address": "15 Thi Sách, phường Vũng Tàu, TP. Hồ Chí Minh",
-      "phone": "+84 254 355 1777",
+      "address": "15 Thi Sách, Phường, Vũng Tàu, Hồ Chí Minh, Việt Nam",
+      "phone": "+84 254 3551 777",
       "website_url": "https://www.pullmanvungtau.com/",
       "source_url": "https://www.pullmanvungtau.com/the-hotel/contact/",
       "description": "Khách sạn trên đường Thi Sách, có không gian hội họp, nhà hàng và hồ bơi.",
@@ -639,14 +639,24 @@
         "sha256": "1d9792c08de7c504940c9cca59e423fc93417f9f0a5a3b71cc2123805fe87195",
         "modifications": "Ảnh thu nhỏ từ nguồn; không chỉnh sửa khác.",
         "caption": "Pullman Vũng Tàu"
+      },
+      "google_maps": {
+        "place_id": "ChIJfT8Fa-RvdTERmb8tuDpfQRY",
+        "data_id": "0x31756fe46b053f7d:0x16415f3ab82dbf99",
+        "rating": 4.7,
+        "reviews": 6505,
+        "latitude": 10.3485113,
+        "longitude": 107.0945661,
+        "url": "https://www.google.com/maps/search/?api=1&query=Pullman%20V%C5%A9ng%20T%C3%A0u%20V%C5%A9ng%20T%C3%A0u&query_place_id=ChIJfT8Fa-RvdTERmb8tuDpfQRY",
+        "checked_at": "2026-10-28"
       }
     },
     {
       "slug": "the-imperial-vung-tau",
       "name": "The Imperial Vũng Tàu",
       "destination": "vung-tau",
-      "address": "159 Thùy Vân, Vũng Tàu",
-      "phone": "+84 254 362 8888",
+      "address": "159 Thùy Vân, Vũng Tàu, Hồ Chí Minh, Việt Nam",
+      "phone": "+84 254 3628 888",
       "website_url": "https://imperialhotel.vn/",
       "source_url": "https://csdl.vietnamtourism.gov.vn/cslt/?item=1965",
       "description": "Cơ sở lưu trú trên đường Thùy Vân, thuộc khu vực Bãi Sau Vũng Tàu.",
@@ -664,14 +674,24 @@
         "sha256": "846059562f4ed03d9392416d8b2770a27463dc38ee24470150d4edd3a138df2d",
         "modifications": "Ảnh thu nhỏ từ nguồn; không chỉnh sửa khác.",
         "caption": "The Imperial Vũng Tàu"
+      },
+      "google_maps": {
+        "place_id": "ChIJ8w96UftvdTERTl6EmTwt5rg",
+        "data_id": "0x31756ffb517a0ff3:0xb8e62d3c99845e4e",
+        "rating": 4.6,
+        "reviews": 8741,
+        "latitude": 10.3439636,
+        "longitude": 107.0949631,
+        "url": "https://www.google.com/maps/search/?api=1&query=The%20Imperial%20V%C5%A9ng%20T%C3%A0u%20V%C5%A9ng%20T%C3%A0u&query_place_id=ChIJ8w96UftvdTERTl6EmTwt5rg",
+        "checked_at": "2026-10-28"
       }
     },
     {
       "slug": "premier-pearl-vung-tau",
       "name": "Premier Pearl Vũng Tàu",
       "destination": "vung-tau",
-      "address": "69–69A Thùy Vân, phường Vũng Tàu, TP. Hồ Chí Minh",
-      "phone": "+84 254 650 6666",
+      "address": "69-69A Thùy Vân, Vũng Tàu, Hồ Chí Minh 78000, Việt Nam",
+      "phone": "+84 254 6506 666",
       "website_url": "https://premierpearlhotel.vn/",
       "source_url": "https://premierpearlhotel.vn/about/",
       "description": "Khách sạn ven đường Thùy Vân, có các hạng phòng hướng biển và khu vực nhà hàng, hồ bơi trên cao.",
@@ -688,14 +708,24 @@
         "sha256": "9a0954051639d171b7be3fa4f8378524f1d044fb397102795b6102a655179fa6",
         "modifications": "Ảnh thu nhỏ từ nguồn; không chỉnh sửa khác.",
         "caption": "Premier Pearl Vũng Tàu — phòng Classic Twin Ocean View"
+      },
+      "google_maps": {
+        "place_id": "ChIJp5wNgS5ldTERSJ4pq-gSaFE",
+        "data_id": "0x3175652e810d9ca7:0x516812e8ab299e48",
+        "rating": 4.6,
+        "reviews": 4117,
+        "latitude": 10.3322495,
+        "longitude": 107.08896689999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=Premier%20Pearl%20V%C5%A9ng%20T%C3%A0u%20V%C5%A9ng%20T%C3%A0u&query_place_id=ChIJp5wNgS5ldTERSJ4pq-gSaFE",
+        "checked_at": "2026-10-28"
       }
     },
     {
       "slug": "the-cap-vung-tau",
       "name": "The Cap Hotel",
       "destination": "vung-tau",
-      "address": "01 Thi Sách, phường Vũng Tàu, TP. Hồ Chí Minh",
-      "phone": "+84 254 357 5566",
+      "address": "01 Thi Sách, Vũng Tàu, Hồ Chí Minh 78000, Việt Nam",
+      "phone": "+84 254 3575 566",
       "website_url": "https://thecaphotel.com/en/",
       "source_url": "https://thecaphotel.com/en/",
       "description": "Khách sạn tại giao điểm khu đường Thi Sách và bờ biển Bãi Sau, có nhà hàng, hồ bơi và khu tập thể dục.",
@@ -713,13 +743,23 @@
         "sha256": "15f201364cbb0ee4a069d853f4f01f548bca6d991559129991faab81ae5c912f",
         "modifications": "Ảnh thu nhỏ từ nguồn; không chỉnh sửa khác.",
         "caption": "The Cap Hotel"
+      },
+      "google_maps": {
+        "place_id": "ChIJHwEGnuFvdTERtmt8itXAyq4",
+        "data_id": "0x31756fe19e06011f:0xaecac0d58a7c6bb6",
+        "rating": 4.1,
+        "reviews": 1005,
+        "latitude": 10.350419299999999,
+        "longitude": 107.098351,
+        "url": "https://www.google.com/maps/search/?api=1&query=The%20Cap%20Hotel%20V%C5%A9ng%20T%C3%A0u&query_place_id=ChIJHwEGnuFvdTERtmt8itXAyq4",
+        "checked_at": "2026-10-28"
       }
     },
     {
       "slug": "sofitel-legend-metropole-hanoi",
       "name": "Sofitel Legend Metropole Hà Nội",
       "destination": "ha-noi",
-      "address": "15 Ngô Quyền, Hà Nội",
+      "address": "15 P. Ngô Quyền, Phường, Hoàn Kiếm, Hà Nội 100000, Việt Nam",
       "phone": "+84 24 3826 6919",
       "website_url": "https://www.sofitel-legend-metropole-hanoi.com/",
       "source_url": "https://www.sofitel-legend-metropole-hanoi.com/location/",
@@ -738,14 +778,24 @@
         "sha256": "e3b6c7f2f571918de536a879184854f09939e09d0cc7f4183010dfefd4cd6685",
         "modifications": "Ảnh thu nhỏ từ nguồn; không chỉnh sửa khác.",
         "caption": "Sofitel Legend Metropole Hà Nội"
+      },
+      "google_maps": {
+        "place_id": "ChIJTbX4mOurNTERJV-mNCKY1pA",
+        "data_id": "0x3135abeb98f8b54d:0x90d6982234a65f25",
+        "rating": 4.7,
+        "reviews": 6261,
+        "latitude": 21.025412499999998,
+        "longitude": 105.856375,
+        "url": "https://www.google.com/maps/search/?api=1&query=Sofitel%20Legend%20Metropole%20H%C3%A0%20N%E1%BB%99i%20H%C3%A0%20N%E1%BB%99i&query_place_id=ChIJTbX4mOurNTERJV-mNCKY1pA",
+        "checked_at": "2026-10-28"
       }
     },
     {
       "slug": "melia-hanoi",
       "name": "Meliá Hà Nội",
       "destination": "ha-noi",
-      "address": "44B Lý Thường Kiệt, Hà Nội",
-      "phone": null,
+      "address": "44 Lý Thường Kiệt, Cửa Nam, Hà Nội 10000, Việt Nam",
+      "phone": "+84 24 3934 3343",
       "website_url": "https://www.melia.com/en/hotels/vietnam/hanoi/melia-hanoi",
       "source_url": "https://csdl.vietnamtourism.gov.vn/cslt/?item=1038",
       "description": "Khách sạn trên phố Lý Thường Kiệt tại trung tâm Hà Nội, có các dịch vụ lưu trú và hội họp.",
@@ -763,13 +813,23 @@
         "sha256": "ccccc3aec744bb949b49b654f0ee6786252cfb36011a03a9e0bf39d2fce7c0b2",
         "modifications": "Ảnh thu nhỏ từ nguồn; không chỉnh sửa khác.",
         "caption": "Meliá Hà Nội"
+      },
+      "google_maps": {
+        "place_id": "ChIJ2ehlkZOrNTERzL1Vpx8rlfM",
+        "data_id": "0x3135ab939165e8d9:0xf3952b1fa755bdcc",
+        "rating": 4.6,
+        "reviews": 8143,
+        "latitude": 21.024388,
+        "longitude": 105.8483808,
+        "url": "https://www.google.com/maps/search/?api=1&query=Meli%C3%A1%20H%C3%A0%20N%E1%BB%99i%20H%C3%A0%20N%E1%BB%99i&query_place_id=ChIJ2ehlkZOrNTERzL1Vpx8rlfM",
+        "checked_at": "2026-10-28"
       }
     },
     {
       "slug": "dalat-palace-heritage",
       "name": "Dalat Palace Heritage",
       "destination": "da-lat",
-      "address": "02 Trần Phú, Đà Lạt, Lâm Đồng",
+      "address": "2 Đ. Trần Phú, Xuân Hương - Đà Lạt, Lâm Đồng, Việt Nam",
       "phone": "+84 263 3825 444",
       "website_url": "https://www.dalatpalacehotel.com/en/engwelcome/",
       "source_url": "https://www.dalatpalacehotel.com/en/introduction/",
@@ -788,13 +848,23 @@
         "sha256": "6ac6d64c304ab3be8ad42a5a2057111bcaf3967c5e95e33d220dc990389a52f7",
         "modifications": "Ảnh thu nhỏ từ nguồn; không chỉnh sửa khác.",
         "caption": "Dalat Palace Heritage"
+      },
+      "google_maps": {
+        "place_id": "ChIJl9p2kTETcTERD2UK-Y4pL70",
+        "data_id": "0x317113319176da97:0xbd2f298ef90a650f",
+        "rating": 4.4,
+        "reviews": 1488,
+        "latitude": 11.9376173,
+        "longitude": 108.4403766,
+        "url": "https://www.google.com/maps/search/?api=1&query=Dalat%20Palace%20Heritage%20%C4%90%C3%A0%20L%E1%BA%A1t&query_place_id=ChIJl9p2kTETcTERD2UK-Y4pL70",
+        "checked_at": "2026-10-28"
       }
     },
     {
       "slug": "du-parc-dalat",
       "name": "Du Parc Hotel Dalat",
       "destination": "da-lat",
-      "address": "15 Trần Phú, Đà Lạt, Lâm Đồng",
+      "address": "15 Đ. Trần Phú, Xuân Hương - Đà Lạt, Lâm Đồng 670000, Việt Nam",
       "phone": "+84 263 3825 777",
       "website_url": "https://www.duparchoteldalat.com/en/welcome-3/",
       "source_url": "https://www.duparchoteldalat.com/en/welcome-3/",
@@ -813,13 +883,23 @@
         "sha256": "45e602882e5c955e21c3be73894cfcf526af4e675623260a8c45134d89e62e29",
         "modifications": "Ảnh thu nhỏ từ nguồn; không chỉnh sửa khác.",
         "caption": "Du Parc Hotel Dalat"
+      },
+      "google_maps": {
+        "place_id": "ChIJGTnGczATcTERIWcBABVZ_3k",
+        "data_id": "0x3171133073c63919:0x79ff591500016721",
+        "rating": 4,
+        "reviews": 1597,
+        "latitude": 11.9366386,
+        "longitude": 108.4389673,
+        "url": "https://www.google.com/maps/search/?api=1&query=Du%20Parc%20Hotel%20Dalat%20%C4%90%C3%A0%20L%E1%BA%A1t&query_place_id=ChIJGTnGczATcTERIWcBABVZ_3k",
+        "checked_at": "2026-10-28"
       }
     },
     {
       "slug": "saigon-morin-hue",
       "name": "Saigon Morin Huế",
       "destination": "hue",
-      "address": "30 Lê Lợi, Huế",
+      "address": "30 Lê Lợi, Thuận Hóa, Huế, Việt Nam",
       "phone": "+84 234 3823 526",
       "website_url": "https://morinhotel.com.vn/",
       "source_url": "https://morinhotel.com.vn/vi/about/",
@@ -838,13 +918,23 @@
         "sha256": "25f025e19e5d437a42c486816659e94a3e24a9b6a8608f2697a42b38e338d0d3",
         "modifications": "Ảnh thu nhỏ từ nguồn; không chỉnh sửa khác.",
         "caption": "Saigon Morin Huế"
+      },
+      "google_maps": {
+        "place_id": "ChIJ_zUecwChQTERyCb2f3-74c4",
+        "data_id": "0x3141a100731e35ff:0xcee1bb7f7ff626c8",
+        "rating": 4.4,
+        "reviews": 262,
+        "latitude": 16.4666885,
+        "longitude": 107.59018189999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=Saigon%20Morin%20Hu%E1%BA%BF%20Hu%E1%BA%BF&query_place_id=ChIJ_zUecwChQTERyCb2f3-74c4",
+        "checked_at": "2026-10-28"
       }
     },
     {
       "slug": "azerai-la-residence-hue",
       "name": "Azerai La Residence Huế",
       "destination": "hue",
-      "address": "05 Lê Lợi, Huế",
+      "address": "5 Lê Lợi, Street, Thuận Hóa, Huế 530000, Việt Nam",
       "phone": "+84 234 3837 475",
       "website_url": "https://azerai.com/vi/azerai-la-residence-hue/",
       "source_url": "https://azerai.com/vi/azerai-la-residence-hue/",
@@ -863,14 +953,24 @@
         "sha256": "2c9ec6b67f09310714cfee6429c85bd13027650c3db87c1f6b5c19f9abf5bc33",
         "modifications": "Ảnh thu nhỏ từ nguồn; không chỉnh sửa khác.",
         "caption": "Azerai La Residence Huế"
+      },
+      "google_maps": {
+        "place_id": "ChIJY41oHTqhQTERRathFhKld9A",
+        "data_id": "0x3141a13a1d688d63:0xd077a5121661ab45",
+        "rating": 4.8,
+        "reviews": 741,
+        "latitude": 16.4591051,
+        "longitude": 107.580182,
+        "url": "https://www.google.com/maps/search/?api=1&query=Azerai%20La%20Residence%20Hu%E1%BA%BF%20Hu%E1%BA%BF&query_place_id=ChIJY41oHTqhQTERRathFhKld9A",
+        "checked_at": "2026-10-28"
       }
     },
     {
       "slug": "novotel-danang-premier",
       "name": "Novotel Danang Premier Han River",
       "destination": "da-nang",
-      "address": "36–38 Bạch Đằng, Đà Nẵng",
-      "phone": "+84 236 392 9999",
+      "address": "36 Bạch Đằng, Street, Hải Châu, Đà Nẵng 550000, Việt Nam",
+      "phone": "+84 236 3929 999",
       "website_url": "https://www.novotel-danang-premier.com/",
       "source_url": "https://www.novotel-danang-premier.com/news/da-nang-chuseok-travel/",
       "description": "Khách sạn trên bờ tây sông Hàn, tại đường Bạch Đằng ở trung tâm Đà Nẵng.",
@@ -888,13 +988,23 @@
         "sha256": "e000779a5d0241d9801b1526f9401d5741279b4c13dcce01fe0fbd3c4ccdc48c",
         "modifications": "Ảnh thu nhỏ từ nguồn; không chỉnh sửa khác.",
         "caption": "Novotel Danang Premier Han River"
+      },
+      "google_maps": {
+        "place_id": "ChIJLaS0-joYQjERNTjoKJ6-LdU",
+        "data_id": "0x3142183afab4a42d:0xd52dbe9e28e83835",
+        "rating": 4.6,
+        "reviews": 8839,
+        "latitude": 16.077411899999998,
+        "longitude": 108.2236307,
+        "url": "https://www.google.com/maps/search/?api=1&query=Novotel%20Danang%20Premier%20Han%20River%20%C4%90%C3%A0%20N%E1%BA%B5ng%20%26%20H%E1%BB%99i%20An&query_place_id=ChIJLaS0-joYQjERNTjoKJ6-LdU",
+        "checked_at": "2026-10-28"
       }
     },
     {
       "slug": "mercure-bana-hills",
       "name": "Mercure Danang French Village Bana Hills",
       "destination": "da-nang",
-      "address": "Thôn An Sơn, xã Bà Nà, Đà Nẵng",
+      "address": "Bà Nà, Đà Nẵng 550000, Việt Nam",
       "phone": "+84 236 3799 888",
       "website_url": "https://www.mercure-danang-banahills-french-village.com/",
       "source_url": "https://www.mercure-danang-banahills-french-village.com/location/",
@@ -912,13 +1022,23 @@
         "sha256": "706d4d9c957d1218bb9e1d96435c26cc92c5b3b02cfaebd2a4a46a72c45c95f6",
         "modifications": "Ảnh gốc từ thư viện chính thức; không chỉnh sửa.",
         "caption": "Mercure Danang French Village Bana Hills"
+      },
+      "google_maps": {
+        "place_id": "ChIJqXp39lv2QTERR9U4pFNMD2o",
+        "data_id": "0x3141f65bf6777aa9:0x6a0f4c53a438d547",
+        "rating": 4.8,
+        "reviews": 17933,
+        "latitude": 15.997428,
+        "longitude": 107.988292,
+        "url": "https://www.google.com/maps/search/?api=1&query=Mercure%20Danang%20French%20Village%20Bana%20Hills%20%C4%90%C3%A0%20N%E1%BA%B5ng%20%26%20H%E1%BB%99i%20An&query_place_id=ChIJqXp39lv2QTERR9U4pFNMD2o",
+        "checked_at": "2026-10-28"
       }
     },
     {
       "slug": "novotel-halong-bay",
       "name": "Novotel Ha Long Bay",
       "destination": "ha-long",
-      "address": "160 đường Hạ Long, Bãi Cháy, Quảng Ninh",
+      "address": "160 Hạ Long, Bãi Cháy, Quảng Ninh 200000, Việt Nam",
       "phone": "+84 203 3848 108",
       "website_url": "https://novotelhalongbay.com/",
       "source_url": "https://novotelhalongbay.com/sitemap/",
@@ -936,13 +1056,23 @@
         "sha256": "b079fd310d99a3db49b510356993b5f4d90e0bab6836d28103d0b79356c0dd68",
         "modifications": "Ảnh thu nhỏ từ nguồn; không chỉnh sửa khác.",
         "caption": "Novotel Ha Long Bay"
+      },
+      "google_maps": {
+        "place_id": "ChIJ43RjH-5YSjERwGyy4QNhVcA",
+        "data_id": "0x314a58ee1f6374e3:0xc0556103e1b26cc0",
+        "rating": 4.3,
+        "reviews": 2581,
+        "latitude": 20.9518098,
+        "longitude": 107.0420793,
+        "url": "https://www.google.com/maps/search/?api=1&query=Novotel%20Ha%20Long%20Bay%20H%E1%BA%A1%20Long&query_place_id=ChIJ43RjH-5YSjERwGyy4QNhVcA",
+        "checked_at": "2026-10-28"
       }
     },
     {
       "slug": "wyndham-legend-halong",
       "name": "Wyndham Legend Halong",
       "destination": "ha-long",
-      "address": "12 đường Hạ Long, Bãi Cháy, Quảng Ninh",
+      "address": "12 Hạ Long, Bãi Cháy, Quảng Ninh 02033, Việt Nam",
       "phone": "+84 203 3636 555",
       "website_url": "https://www.wyndhamhalong.com/",
       "source_url": "https://www.wyndhamhalong.com/contact-us.html",
@@ -960,6 +1090,16 @@
         "sha256": "eaa5e234e2ffa1a1f1a6130d6dc1a201ef623615716b7195ef770869426031b8",
         "modifications": "Ảnh thu nhỏ từ nguồn; không chỉnh sửa khác.",
         "caption": "Wyndham Legend Halong"
+      },
+      "google_maps": {
+        "place_id": "ChIJRaRlLmdYSjERl-1kvShuW5E",
+        "data_id": "0x314a58672e65a445:0x915b6e28bd64ed97",
+        "rating": 4.4,
+        "reviews": 2997,
+        "latitude": 20.9594664,
+        "longitude": 107.06037409999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=Wyndham%20Legend%20Halong%20H%E1%BA%A1%20Long&query_place_id=ChIJRaRlLmdYSjERl-1kvShuW5E",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -967,8 +1107,8 @@
       "slug": "hotel-de-la-coupole",
       "name": "Hotel de la Coupole – MGallery",
       "source_url": "https://www.hoteldelacoupole.com/contact-us/",
-      "address": "1 Hoàng Liên, Sa Pa, Lào Cai",
-      "phone": "+84 214 362 9999",
+      "address": "1, Hoang Lien Street Sapa District, Lao Cai Province Sapa, Sa Pa, Lào Cai 033000, Việt Nam",
+      "phone": "+84 214 3629 999",
       "website_url": "https://www.hoteldelacoupole.com/",
       "description": "Khách sạn tại trung tâm Sa Pa, mang phong cách kiến trúc và trang trí do Bill Bensley thiết kế.",
       "verified_on": "2026-10-28",
@@ -986,6 +1126,16 @@
         "width": 698,
         "height": 465,
         "bytes": 79539
+      },
+      "google_maps": {
+        "place_id": "ChIJPaaO7GtBzTYRMX3k6hslc64",
+        "data_id": "0x36cd416bec8ea63d:0xae73251beae47d31",
+        "rating": 4.9,
+        "reviews": 6396,
+        "latitude": 22.3344234,
+        "longitude": 103.8401962,
+        "url": "https://www.google.com/maps/search/?api=1&query=Hotel%20de%20la%20Coupole%20%E2%80%93%20MGallery%20Sa%20Pa&query_place_id=ChIJPaaO7GtBzTYRMX3k6hslc64",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -993,7 +1143,7 @@
       "slug": "silk-path-grand-sapa",
       "name": "Silk Path Grand Sapa Resort & Spa",
       "source_url": "https://silkpathhotel.com/sapa/",
-      "address": "Đồi Quan 6, tổ 5, Sa Pa, Lào Cai",
+      "address": "Đồi Quan 6, Tổ Dân Phố 5, Sa Pa, Lào Cai 330000, Việt Nam",
       "phone": "+84 214 3788 555",
       "website_url": "https://silkpathhotel.com/sapa/",
       "description": "Khu nghỉ dưỡng trên đồi ở Sa Pa, có phòng nghỉ, nhà hàng và hồ bơi trong nhà.",
@@ -1012,6 +1162,16 @@
         "width": 800,
         "height": 533,
         "bytes": 167321
+      },
+      "google_maps": {
+        "place_id": "ChIJNaG_wW5BzTYR6YrQ3l5XvDs",
+        "data_id": "0x36cd416ec1bfa135:0x3bbc575eded08ae9",
+        "rating": 4.7,
+        "reviews": 2640,
+        "latitude": 22.337682899999997,
+        "longitude": 103.8382129,
+        "url": "https://www.google.com/maps/search/?api=1&query=Silk%20Path%20Grand%20Sapa%20Resort%20%26%20Spa%20Sa%20Pa&query_place_id=ChIJNaG_wW5BzTYR6YrQ3l5XvDs",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1019,7 +1179,7 @@
       "slug": "la-veranda-phu-quoc",
       "name": "La Veranda Resort Phú Quốc – MGallery",
       "source_url": "https://laverandaresorts.com/contact/",
-      "address": "Đường Trần Hưng Đạo, Dương Đông, Phú Quốc",
+      "address": "Duong Dong Beach, Đường Trần Hưng Đạo, Street, Phú Quốc, An Giang 095000, Việt Nam",
       "phone": "+84 297 3982 988",
       "website_url": "https://laverandaresorts.com/",
       "description": "Khu nghỉ dưỡng ven biển Phú Quốc, với không gian vườn và kiến trúc gợi nhớ dinh thự Đông Dương.",
@@ -1038,6 +1198,16 @@
         "width": 2560,
         "height": 1438,
         "bytes": 560346
+      },
+      "google_maps": {
+        "place_id": "ChIJyVg7uFmMpzER8oO_9EVvcbg",
+        "data_id": "0x31a78c59b83b58c9:0xb8716f45f4bf83f2",
+        "rating": 4.6,
+        "reviews": 1066,
+        "latitude": 10.193721199999999,
+        "longitude": 103.96475389999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=La%20Veranda%20Resort%20Ph%C3%BA%20Qu%E1%BB%91c%20%E2%80%93%20MGallery%20Ph%C3%BA%20Qu%E1%BB%91c&query_place_id=ChIJyVg7uFmMpzER8oO_9EVvcbg",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1045,8 +1215,8 @@
       "slug": "salinda-phu-quoc",
       "name": "Salinda Resort Phú Quốc",
       "source_url": "https://salindaresort.com/vi/contact",
-      "address": "Ấp Cửa Lấp, đặc khu Phú Quốc, An Giang",
-      "phone": "+84 297 399 0011",
+      "address": "Cua Lap Hamlet, Duong To Commune, Phu Quoc Island, Phú Quốc, An Giang 95000, Việt Nam",
+      "phone": "+84 297 3990 011",
       "website_url": "https://salindaresort.com/",
       "description": "Khu nghỉ dưỡng tại Cửa Lấp, Phú Quốc, có phòng nghỉ, biệt thự, hồ bơi và các nhà hàng.",
       "verified_on": "2026-10-28",
@@ -1064,6 +1234,16 @@
         "width": 990,
         "height": 661,
         "bytes": 830439
+      },
+      "google_maps": {
+        "place_id": "ChIJkcMAuZCNpzERRQmhoqfUVYk",
+        "data_id": "0x31a78d90b900c391:0x8955d4a7a2a10945",
+        "rating": 4.8,
+        "reviews": 2692,
+        "latitude": 10.1827677,
+        "longitude": 103.96819339999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=Salinda%20Resort%20Ph%C3%BA%20Qu%E1%BB%91c%20Ph%C3%BA%20Qu%E1%BB%91c&query_place_id=ChIJkcMAuZCNpzERRQmhoqfUVYk",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1071,7 +1251,7 @@
       "slug": "emeralda-ninh-binh",
       "name": "Emeralda Resort Ninh Bình",
       "source_url": "https://emeraldaresort.com/vi/lien-he/",
-      "address": "Khu bảo tồn Vân Long, thôn Tập Ninh, xã Gia Vân, Ninh Bình",
+      "address": "Khu Bảo Tồn Vân Long, Thôn, Tập Ninh, Gia Vân, Ninh Bình, Việt Nam",
       "phone": "+84 229 3658 333",
       "website_url": "https://emeraldaresort.com/",
       "description": "Khu nghỉ dưỡng bên vùng cảnh quan Vân Long, tổ chức không gian lưu trú theo cảm hứng làng quê Bắc Bộ.",
@@ -1090,6 +1270,16 @@
         "width": 768,
         "height": 1200,
         "bytes": 317288
+      },
+      "google_maps": {
+        "place_id": "ChIJ-zMJCEB_NjEROW1nErkGBHA",
+        "data_id": "0x31367f40080933fb:0x700406b912676d39",
+        "rating": 4.4,
+        "reviews": 3592,
+        "latitude": 20.3587263,
+        "longitude": 105.87933059999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=Emeralda%20Resort%20Ninh%20B%C3%ACnh%20Ninh%20B%C3%ACnh&query_place_id=ChIJ-zMJCEB_NjEROW1nErkGBHA",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1097,8 +1287,8 @@
       "slug": "tam-coc-garden",
       "name": "Tam Coc Garden Resort",
       "source_url": "https://www.tamcocgarden.com/",
-      "address": "Thôn Hải Nham, phường Nam Hoa Lư, Ninh Bình",
-      "phone": "+84 37 8253 555",
+      "address": "Thôn Hải Nham, Nam Hoa Lư, Ninh Bình, Việt Nam",
+      "phone": "+84 378 253 555",
       "website_url": "https://www.tamcocgarden.com/",
       "description": "Khu nghỉ dưỡng giữa vườn cây và cảnh quan núi đá, đồng ruộng tại vùng Tam Cốc.",
       "verified_on": "2026-10-28",
@@ -1116,6 +1306,16 @@
         "width": 768,
         "height": 512,
         "bytes": 168656
+      },
+      "google_maps": {
+        "place_id": "ChIJccUbDAl7NjERiWyAEBUUREI",
+        "data_id": "0x31367b090c1bc571:0x4244141510806c89",
+        "rating": 4.8,
+        "reviews": 1042,
+        "latitude": 20.2111238,
+        "longitude": 105.90781729999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=Tam%20Coc%20Garden%20Resort%20Ninh%20B%C3%ACnh&query_place_id=ChIJccUbDAl7NjERiWyAEBUUREI",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1123,7 +1323,7 @@
       "slug": "panhou-retreat",
       "name": "Panhou Retreat",
       "source_url": "https://www.panhouretreat.com/vi/lien-he",
-      "address": "Thôn Làng Giang, xã Thông Nguyên, Tuyên Quang",
+      "address": "Làng Giang, Thông Nguyên, Tuyên Quang 314210, Việt Nam",
       "phone": "+84 966 615 050",
       "website_url": "https://www.panhouretreat.com/",
       "description": "Khu nghỉ dưỡng tại vùng Hoàng Su Phì, sử dụng vật liệu và cảm hứng văn hóa bản địa. Được nhóm vào điểm đến Hà Giang của hành trình mẫu.",
@@ -1142,6 +1342,16 @@
         "width": 1000,
         "height": 667,
         "bytes": 194582
+      },
+      "google_maps": {
+        "place_id": "ChIJVVVVJQKJyzYR_QDB8mI-2P0",
+        "data_id": "0x36cb890225555555:0xfdd83e62f2c100fd",
+        "rating": 4.6,
+        "reviews": 699,
+        "latitude": 22.576329299999998,
+        "longitude": 104.74485829999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=Panhou%20Retreat%20H%C3%A0%20Giang&query_place_id=ChIJVVVVJQKJyzYR_QDB8mI-2P0",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1149,8 +1359,8 @@
       "slug": "hmong-village",
       "name": "H’Mong Village Resort",
       "source_url": "https://hmongvillage.com.vn/gioi-thieu-chung",
-      "address": "Khu Tráng Kìm, xã Đông Hà, Quản Bạ, Hà Giang",
-      "phone": "+84 815 882 323",
+      "address": "Khu Tráng Kìm, Lùng Tám, Tuyên Quang, Việt Nam",
+      "phone": "+84 363 624 826",
       "website_url": "https://hmongvillage.com.vn/",
       "description": "Khu nghỉ dưỡng trên sườn núi tại Quản Bạ, có các bungalow và không gian lấy cảm hứng văn hóa người Mông.",
       "verified_on": "2026-10-28",
@@ -1168,6 +1378,16 @@
         "width": 600,
         "height": 450,
         "bytes": 252216
+      },
+      "google_maps": {
+        "place_id": "ChIJdXleQ2KLyzYRbiFhD2CatwA",
+        "data_id": "0x36cb8b62435e7975:0xb79a600f61216e",
+        "rating": 4.5,
+        "reviews": 904,
+        "latitude": 23.0709037,
+        "longitude": 105.02799979999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=H%E2%80%99Mong%20Village%20Resort%20H%C3%A0%20Giang&query_place_id=ChIJdXleQ2KLyzYRbiFhD2CatwA",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1175,8 +1395,8 @@
       "slug": "intercontinental-nha-trang",
       "name": "InterContinental Nha Trang",
       "source_url": "https://nhatrang.intercontinental.com/",
-      "address": "32–34 Trần Phú, phường Nha Trang, Khánh Hòa",
-      "phone": "+84 258 388 7777",
+      "address": "32-34 Trần Phú, Street, Nha Trang, Khánh Hòa 300202, Việt Nam",
+      "phone": "+84 258 3887 777",
       "website_url": "https://nhatrang.intercontinental.com/",
       "description": "Khách sạn trên trục đường ven biển Trần Phú, có phòng nghỉ và không gian nhà hàng nhìn về vịnh Nha Trang.",
       "verified_on": "2026-10-28",
@@ -1194,6 +1414,16 @@
         "width": 2200,
         "height": 1200,
         "bytes": 129658
+      },
+      "google_maps": {
+        "place_id": "ChIJz9GDk3hncDER70e9Z85BVdc",
+        "data_id": "0x317067789383d1cf:0xd75541ce67bd47ef",
+        "rating": 4.7,
+        "reviews": 4995,
+        "latitude": 12.2450473,
+        "longitude": 109.1959481,
+        "url": "https://www.google.com/maps/search/?api=1&query=InterContinental%20Nha%20Trang%20Nha%20Trang&query_place_id=ChIJz9GDk3hncDER70e9Z85BVdc",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1201,8 +1431,8 @@
       "slug": "sheraton-nha-trang",
       "name": "Sheraton Nha Trang Hotel & Spa",
       "source_url": "https://csdl.vietnamtourism.gov.vn/cslt/?item=2111",
-      "address": "26–28 Trần Phú, Nha Trang, Khánh Hòa",
-      "phone": "+84 258 388 0000",
+      "address": "26-28 Trần Phú, Nha Trang, Khánh Hòa 650000, Việt Nam",
+      "phone": "+84 258 3880 000",
       "website_url": "https://www.marriott.com/en-us/hotels/nhasi-sheraton-nha-trang-hotel-and-spa/overview/",
       "description": "Khách sạn bên trục đường Trần Phú tại Nha Trang, có các hạng phòng hướng biển và dịch vụ hội họp.",
       "verified_on": "2026-10-28",
@@ -1220,6 +1450,16 @@
         "width": 1200,
         "height": 750,
         "bytes": 188925
+      },
+      "google_maps": {
+        "place_id": "ChIJFaisupWrNTERG5UmoYkX7E0",
+        "data_id": "0x3135ab95baaca815:0x4dec1789a126951b",
+        "rating": 4.6,
+        "reviews": 4082,
+        "latitude": 12.2463429,
+        "longitude": 109.1961206,
+        "url": "https://www.google.com/maps/search/?api=1&query=Sheraton%20Nha%20Trang%20Hotel%20%26%20Spa%20Nha%20Trang&query_place_id=ChIJFaisupWrNTERG5UmoYkX7E0",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1227,7 +1467,7 @@
       "slug": "anantara-quy-nhon",
       "name": "Anantara Quy Nhơn Villas",
       "source_url": "https://www.anantara.com/en/quy-nhon/contact",
-      "address": "Bãi Dài, Ghềnh Ráng, phường Quy Nhơn Nam, Gia Lai",
+      "address": "Cầu Bãi Dài, Quy Nhơn Nam, Binh Dinh Province, Việt Nam",
       "phone": "+84 256 3840 077",
       "website_url": "https://www.anantara.com/en/quy-nhon",
       "description": "Khu nghỉ dưỡng biệt thự ven biển tại Bãi Dài, khu vực phía nam Quy Nhơn.",
@@ -1246,6 +1486,16 @@
         "width": 944,
         "height": 510,
         "bytes": 98768
+      },
+      "google_maps": {
+        "place_id": "ChIJxdR7nbFtbzERLDbcBKJFNJc",
+        "data_id": "0x316f6db19d7bd4c5:0x973445a204dc362c",
+        "rating": 4.7,
+        "reviews": 304,
+        "latitude": 13.6805115,
+        "longitude": 109.2326423,
+        "url": "https://www.google.com/maps/search/?api=1&query=Anantara%20Quy%20Nh%C6%A1n%20Villas%20Quy%20Nh%C6%A1n&query_place_id=ChIJxdR7nbFtbzERLDbcBKJFNJc",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1253,7 +1503,7 @@
       "slug": "avani-quy-nhon",
       "name": "Avani Quy Nhơn Resort",
       "source_url": "https://www.avanihotels.com/en/quy-nhon/contact",
-      "address": "Bãi Dài, Ghềnh Ráng, phường Quy Nhơn Nam, Gia Lai",
+      "address": "Ghenh Rang,, Bai Dai Beach, Quy Nhơn Nam, Binh Dinh Province, Việt Nam",
       "phone": "+84 256 3840 132",
       "website_url": "https://www.avanihotels.com/en/quy-nhon",
       "description": "Khu nghỉ dưỡng bên bãi biển Bãi Dài, có phòng nghỉ, hồ bơi và các dịch vụ thư giãn.",
@@ -1272,17 +1522,27 @@
         "width": 1200,
         "height": 760,
         "bytes": 196485
+      },
+      "google_maps": {
+        "place_id": "ChIJUQefqolybzERXiDcgEO04VU",
+        "data_id": "0x316f7289aa9f0751:0x55e1b44380dc205e",
+        "rating": 4.5,
+        "reviews": 711,
+        "latitude": 13.682222,
+        "longitude": 109.23261099999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=Avani%20Quy%20Nh%C6%A1n%20Resort%20Quy%20Nh%C6%A1n&query_place_id=ChIJUQefqolybzERXiDcgEO04VU",
+        "checked_at": "2026-10-28"
       }
     },
     {
       "destination": "can-tho",
       "slug": "azerai-can-tho",
-      "name": "Azerai Cần Thơ",
-      "source_url": "https://canthotourism.vn/iv/azeraicantho",
-      "address": "Cồn Ấu, Hưng Phú, Cái Răng, Cần Thơ",
-      "phone": "+84 292 362 7888",
-      "website_url": "https://azerai.com/azerai-can-tho/",
-      "description": "Khu nghỉ dưỡng trên Cồn Ấu giữa sông Hậu. Khách cần xác nhận dịch vụ thuyền và điểm đón với cơ sở trước khi đến.",
+      "name": "Legacy Mekong, Can Tho, Autograph Collection",
+      "source_url": "https://canthotourism.vn/vi/azeraicantho",
+      "address": "Cồn Ấu, Hưng Phú, Cần Thơ 94912, Việt Nam",
+      "phone": "+84 292 3627 888",
+      "website_url": "https://www.marriott.com/vi/hotels/vcalm-legacy-mekong-can-tho-autograph-collection/overview/",
+      "description": "Khu ngh? d??ng tr?n C?n ?u, hi?n mang t?n Legacy Mekong, Can Tho, Autograph Collection; tr??c ??y l? Azerai C?n Th?.",
       "verified_on": "2026-10-28",
       "image": {
         "path": "/images/directory/hotels/azerai-can-tho.jpg",
@@ -1298,6 +1558,16 @@
         "width": 1116,
         "height": 331,
         "bytes": 628285
+      },
+      "google_maps": {
+        "place_id": "ChIJz5ZJLrlioDERN3DW2fLVMzU",
+        "data_id": "0x31a062b92e4996cf:0x3533d5f2d9d67037",
+        "rating": 4.6,
+        "reviews": 902,
+        "latitude": 10.0367844,
+        "longitude": 105.8027925,
+        "url": "https://www.google.com/maps/search/?api=1&query=Azerai%20C%E1%BA%A7n%20Th%C6%A1%20C%E1%BA%A7n%20Th%C6%A1&query_place_id=ChIJz5ZJLrlioDERN3DW2fLVMzU",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1305,8 +1575,8 @@
       "slug": "victoria-can-tho",
       "name": "Victoria Can Tho Resort",
       "source_url": "https://www.victoriahotels.asia/en/hotel/victoria-can-tho/",
-      "address": "Phường Cái Khế, Cần Thơ",
-      "phone": "+84 292 381 0111",
+      "address": "Cái Khế, Cần Thơ, Việt Nam",
+      "phone": "+84 292 3810 111",
       "website_url": "https://www.victoriahotels.asia/en/hotel/victoria-can-tho/",
       "description": "Khu nghỉ dưỡng bên sông Hậu, với phòng nghỉ trong khuôn viên vườn và các trải nghiệm khám phá miền sông nước.",
       "verified_on": "2026-10-28",
@@ -1324,6 +1594,16 @@
         "width": 1140,
         "height": 760,
         "bytes": 147704
+      },
+      "google_maps": {
+        "place_id": "ChIJzUC1zaRioDERKo2Fig-19GI",
+        "data_id": "0x31a062a4cdb540cd:0x62f4b50f8a858d2a",
+        "rating": 4.7,
+        "reviews": 2355,
+        "latitude": 10.039774,
+        "longitude": 105.7930435,
+        "url": "https://www.google.com/maps/search/?api=1&query=Victoria%20Can%20Tho%20Resort%20C%E1%BA%A7n%20Th%C6%A1&query_place_id=ChIJzUC1zaRioDERKo2Fig-19GI",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1331,7 +1611,7 @@
       "slug": "six-senses-con-dao",
       "name": "Six Senses Côn Đảo",
       "source_url": "https://www.sixsenses.com/en/hotels-resorts/asia-the-pacific/vietnam/con-dao/contact/",
-      "address": "Bãi Đất Dốc, đặc khu Côn Đảo, TP. Hồ Chí Minh",
+      "address": "Dat Doc Beach, Special Zone, Hồ Chí Minh 74000, Việt Nam",
       "phone": "+84 28 3823 2229",
       "website_url": "https://www.sixsenses.com/en/hotels-resorts/asia-the-pacific/vietnam/con-dao/",
       "description": "Khu nghỉ dưỡng biệt thự ven bãi Đất Dốc tại Côn Đảo, kết hợp lưu trú với các hoạt động gắn với thiên nhiên.",
@@ -1350,6 +1630,16 @@
         "width": 648,
         "height": 648,
         "bytes": 63236
+      },
+      "google_maps": {
+        "place_id": "ChIJvyDugvJvdTERxTuYSg11ts4",
+        "data_id": "0x31756ff282ee20bf:0xceb6750d4a983bc5",
+        "rating": 4.7,
+        "reviews": 777,
+        "latitude": 8.700930999999999,
+        "longitude": 106.6339478,
+        "url": "https://www.google.com/maps/search/?api=1&query=Six%20Senses%20C%C3%B4n%20%C4%90%E1%BA%A3o%20C%C3%B4n%20%C4%90%E1%BA%A3o&query_place_id=ChIJvyDugvJvdTERxTuYSg11ts4",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1357,8 +1647,8 @@
       "slug": "poulo-condor",
       "name": "Poulo Condor Boutique Resort & Spa",
       "source_url": "https://poulocondorresort.com/contact/",
-      "address": "Khu 1, đặc khu Côn Đảo, TP. Hồ Chí Minh",
-      "phone": "+84 254 3831 500",
+      "address": "PJ7P+M7, Côn Đảo, Hồ Chí Minh, Việt Nam",
+      "phone": "+84 913 831 500",
       "website_url": "https://poulocondorresort.com/",
       "description": "Khu nghỉ dưỡng tại Côn Đảo, có phòng nghỉ và biệt thự trong khuôn viên vườn ven biển.",
       "verified_on": "2026-10-28",
@@ -1376,6 +1666,16 @@
         "width": 768,
         "height": 512,
         "bytes": 641826
+      },
+      "google_maps": {
+        "place_id": "ChIJB5DljbGumDERMm1WuniyJa8",
+        "data_id": "0x3198aeb18de59007:0xaf25b278ba566d32",
+        "rating": 4.4,
+        "reviews": 453,
+        "latitude": 8.7141875,
+        "longitude": 106.63568749999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=Poulo%20Condor%20Boutique%20Resort%20%26%20Spa%20C%C3%B4n%20%C4%90%E1%BA%A3o&query_place_id=ChIJB5DljbGumDERMm1WuniyJa8",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1383,7 +1683,7 @@
       "slug": "phong-nha-lake-house",
       "name": "Phong Nha Lake House Resort",
       "source_url": "https://phongnhalakehouse.com/",
-      "address": "Đường Hồ Chí Minh, Khương Hà, Hưng Trạch, Bố Trạch, Quảng Bình",
+      "address": "Khuong Ha hamlet, Hung Trach, Bố Trạch, Quảng Trị, Việt Nam",
       "phone": "+84 232 3675 999",
       "website_url": "https://phongnhalakehouse.com/",
       "description": "Khu nghỉ dưỡng bên hồ trong vùng Phong Nha, có bungalow và phòng nghỉ giữa cảnh quan núi, mặt nước.",
@@ -1402,6 +1702,16 @@
         "width": 900,
         "height": 640,
         "bytes": 431738
+      },
+      "google_maps": {
+        "place_id": "ChIJH6jvXZSkODERwNybJeNYbWA",
+        "data_id": "0x3138a4945defa81f:0x606d58e3259bdcc0",
+        "rating": 4.4,
+        "reviews": 970,
+        "latitude": 17.6176984,
+        "longitude": 106.3760552,
+        "url": "https://www.google.com/maps/search/?api=1&query=Phong%20Nha%20Lake%20House%20Resort%20Phong%20Nha&query_place_id=ChIJH6jvXZSkODERwNybJeNYbWA",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1409,8 +1719,8 @@
       "slug": "chay-lap-farmstay",
       "name": "Chày Lập Farmstay",
       "source_url": "https://chaylapfarmstay.com/",
-      "address": "Thôn Chày Lập, xã Phong Nha, Quảng Trị",
-      "phone": "+84 28 999 55168",
+      "address": "Thôn Chày Lập, Phong Nha, Quảng Trị 510000, Việt Nam",
+      "phone": "+84 28 9995 5168",
       "website_url": "https://chaylapfarmstay.com/",
       "description": "Farmstay tại Chày Lập, với các khu phòng giữa vườn và núi đá, kết hợp hoạt động khám phá vùng Phong Nha.",
       "verified_on": "2026-10-28",
@@ -1428,6 +1738,16 @@
         "width": 1920,
         "height": 1281,
         "bytes": 411234
+      },
+      "google_maps": {
+        "place_id": "ChIJs8YPa9W7ODERlOtgJXbYvTM",
+        "data_id": "0x3138bbd56b0fc6b3:0x33bdd8762560eb94",
+        "rating": 4.4,
+        "reviews": 773,
+        "latitude": 17.601436,
+        "longitude": 106.25480569999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=Ch%C3%A0y%20L%E1%BA%ADp%20Farmstay%20Phong%20Nha&query_place_id=ChIJs8YPa9W7ODERlOtgJXbYvTM",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1435,8 +1755,8 @@
       "slug": "anantara-mui-ne",
       "name": "Anantara Mũi Né Resort",
       "source_url": "https://www.anantara.com/en/mui-ne/contact",
-      "address": "12A Nguyễn Đình Chiểu, phường Mũi Né, Lâm Đồng",
-      "phone": "+84 252 374 1888",
+      "address": "12A Nguyễn Đình Chiểu, Street, Mũi Né, Lâm Đồng, Việt Nam",
+      "phone": "+84 252 3741 888",
       "website_url": "https://www.anantara.com/en/mui-ne",
       "description": "Khu nghỉ dưỡng ven biển Mũi Né, có phòng nghỉ và biệt thự trong khuôn viên vườn nhiệt đới.",
       "verified_on": "2026-10-28",
@@ -1454,6 +1774,16 @@
         "width": 944,
         "height": 510,
         "bytes": 136454
+      },
+      "google_maps": {
+        "place_id": "ChIJ56Un49-FdjERwJEx7-lcv6M",
+        "data_id": "0x317685dfe327a5e7:0xa3bf5ce9ef3191c0",
+        "rating": 4.6,
+        "reviews": 1515,
+        "latitude": 10.940693999999999,
+        "longitude": 108.192222,
+        "url": "https://www.google.com/maps/search/?api=1&query=Anantara%20M%C5%A9i%20N%C3%A9%20Resort%20M%C5%A9i%20N%C3%A9&query_place_id=ChIJ56Un49-FdjERwJEx7-lcv6M",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1461,8 +1791,8 @@
       "slug": "the-anam-mui-ne",
       "name": "The Anam Mũi Né",
       "source_url": "https://www.theanam.com/the-anam-mui-ne",
-      "address": "18 Nguyễn Đình Chiểu, Mũi Né",
-      "phone": "+84 252 628 4868",
+      "address": "18 Nguyễn Đình Chiểu, khu phố 1, Mũi Né, Lâm Đồng 77000, Việt Nam",
+      "phone": "+84 252 6284 868",
       "website_url": "https://www.theanam.com/the-anam-mui-ne",
       "description": "Khu nghỉ dưỡng ven biển trên đường Nguyễn Đình Chiểu, với kiến trúc và nội thất lấy cảm hứng Đông Dương.",
       "verified_on": "2026-10-28",
@@ -1480,32 +1810,16 @@
         "width": 1500,
         "height": 1000,
         "bytes": 427224
-      }
-    },
-    {
-      "destination": "cao-bang",
-      "slug": "muong-thanh-luxury-cao-bang",
-      "name": "Mường Thanh Luxury Cao Bằng",
-      "source_url": "https://luxurycaobang.muongthanh.com/",
-      "address": "42 Kim Đồng, phường Thục Phán, Cao Bằng",
-      "phone": "+84 206 3888 088",
-      "website_url": "https://luxurycaobang.muongthanh.com/",
-      "description": "Khách sạn trên trục phố Kim Đồng ở trung tâm Cao Bằng, có phòng nghỉ, nhà hàng và không gian hội họp.",
-      "verified_on": "2026-10-28",
-      "image": {
-        "path": "/images/directory/hotels/muong-thanh-luxury-cao-bang.jpg",
-        "source_page": "https://luxurycaobang.muongthanh.com/",
-        "download_url": "https://luxurycaobang.muongthanh.com/images/hotels/rooms/original/royal-suite_1687246754.jpg",
-        "original_url": "https://luxurycaobang.muongthanh.com/images/hotels/rooms/original/royal-suite_1687246754.jpg",
-        "author": "Đơn vị công bố ảnh tại trang nguồn: luxurycaobang.muongthanh.com",
-        "license": "Chưa công bố giấy phép tái sử dụng trên trang nguồn",
-        "license_url": "",
-        "caption": "Mường Thanh Luxury Cao Bằng — ảnh cơ sở lưu trú",
-        "modifications": "Tải từ nguồn, không chỉnh sửa nội dung.",
-        "sha256": "554384e10f241759532bad7a22868f099357880fce0af2eb7dcce517b875a072",
-        "width": 800,
-        "height": 533,
-        "bytes": 83530
+      },
+      "google_maps": {
+        "place_id": "ChIJaTXd-mCFdjERI89dTk3ZfDc",
+        "data_id": "0x31768560fadd3569:0x377cd94d4e5dcf23",
+        "rating": 4.9,
+        "reviews": 1737,
+        "latitude": 10.943263499999999,
+        "longitude": 108.1943945,
+        "url": "https://www.google.com/maps/search/?api=1&query=The%20Anam%20M%C5%A9i%20N%C3%A9%20M%C5%A9i%20N%C3%A9&query_place_id=ChIJaTXd-mCFdjERI89dTk3ZfDc",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1513,8 +1827,8 @@
       "slug": "max-boutique-cao-bang",
       "name": "Max Boutique Hotel Cao Bằng",
       "source_url": "https://csdl.vietnamtourism.gov.vn/cslt/?item=8127",
-      "address": "117, tổ 11, phường Thục Phán, Cao Bằng",
-      "phone": "+84 206 3881 999",
+      "address": "117 Vườn Cam, Thục Phán, Cao Bằng, Việt Nam",
+      "phone": "+84 839 781 555",
       "website_url": "http://maxboutiquehotel.com/",
       "description": "Khách sạn tại trung tâm Cao Bằng, được ghi nhận trong cơ sở dữ liệu lưu trú của ngành du lịch.",
       "verified_on": "2026-10-28",
@@ -1532,6 +1846,16 @@
         "width": 1200,
         "height": 750,
         "bytes": 166515
+      },
+      "google_maps": {
+        "place_id": "ChIJ9XInpCVkyjYR7ZcQVtuiPec",
+        "data_id": "0x36ca6425a42772f5:0xe73da2db561097ed",
+        "rating": 4.2,
+        "reviews": 301,
+        "latitude": 22.6677948,
+        "longitude": 106.26046319999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=Max%20Boutique%20Hotel%20Cao%20B%E1%BA%B1ng%20Cao%20B%E1%BA%B1ng&query_place_id=ChIJ9XInpCVkyjYR7ZcQVtuiPec",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1539,7 +1863,7 @@
       "slug": "ba-be-lakeside-bungalow",
       "name": "Ba Be Lakeside Bungalow",
       "source_url": "https://babelakeside.com/social-responsibility/",
-      "address": "Số 1, thôn Cốc Tộc, Nam Mẫu, khu vực Vườn quốc gia Ba Bể",
+      "address": "Coc Toc Village, Commune, Ba Bể, Thái Nguyên 23551, Việt Nam",
       "phone": "+84 961 601 797",
       "website_url": "https://babelakeside.com/",
       "description": "Cơ sở lưu trú dạng bungalow và nhà sàn tại Cốc Tộc, nhìn về hồ Ba Bể.",
@@ -1558,6 +1882,16 @@
         "width": 1600,
         "height": 1200,
         "bytes": 317473
+      },
+      "google_maps": {
+        "place_id": "ChIJ3w0CHfMbyzYRwykWBVrOUs8",
+        "data_id": "0x36cb1bf31d020ddf:0xcf52ce5a051629c3",
+        "rating": 4.2,
+        "reviews": 173,
+        "latitude": 22.3985555,
+        "longitude": 105.61203619999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=Ba%20Be%20Lakeside%20Bungalow%20Ba%20B%E1%BB%83&query_place_id=ChIJ3w0CHfMbyzYRwykWBVrOUs8",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1565,7 +1899,7 @@
       "slug": "ba-be-jungle-houses",
       "name": "Ba Be Jungle Houses",
       "source_url": "https://babejunglehouses.com/",
-      "address": "Thôn Cốc Tộc, Nam Mẫu, Ba Bể, Bắc Kạn",
+      "address": "Coc Toc village, Ba Bể, Thái Nguyên 261020, Việt Nam",
       "phone": "+84 986 016 068",
       "website_url": "https://babejunglehouses.com/",
       "description": "Cơ sở lưu trú ở Cốc Tộc, có phòng nghỉ, nhà hàng và các hoạt động chèo thuyền, khám phá văn hóa Tày tại Ba Bể.",
@@ -1584,32 +1918,16 @@
         "width": 2048,
         "height": 1152,
         "bytes": 911346
-      }
-    },
-    {
-      "destination": "moc-chau",
-      "slug": "muong-thanh-luxury-moc-chau",
-      "name": "Mường Thanh Luxury Mộc Châu",
-      "source_url": "https://luxurymocchau.muongthanh.com/",
-      "address": "Đường Hoàng Quốc Việt, phường Thảo Nguyên, Sơn La",
-      "phone": "+84 212 225 8886",
-      "website_url": "https://luxurymocchau.muongthanh.com/",
-      "description": "Khách sạn trên đường Hoàng Quốc Việt, tại vùng du lịch Mộc Châu; có các hạng phòng và dịch vụ nhà hàng, hội họp.",
-      "verified_on": "2026-10-28",
-      "image": {
-        "path": "/images/directory/hotels/muong-thanh-luxury-moc-chau.jpg",
-        "source_page": "https://luxurymocchau.muongthanh.com/",
-        "download_url": "https://luxurymocchau.muongthanh.com/images/hotels/rooms/original/room-2-copy_1787130232.jpg",
-        "original_url": "https://luxurymocchau.muongthanh.com/images/hotels/rooms/original/room-2-copy_1787130232.jpg",
-        "author": "Đơn vị công bố ảnh tại trang nguồn: luxurymocchau.muongthanh.com",
-        "license": "Chưa công bố giấy phép tái sử dụng trên trang nguồn",
-        "license_url": "",
-        "caption": "Mường Thanh Luxury Mộc Châu — ảnh cơ sở lưu trú",
-        "modifications": "Tải từ nguồn, không chỉnh sửa nội dung.",
-        "sha256": "f18c14e87b7cddcadae7dbff9aea29135c3624a1eee9f11c897eaff0603f758f",
-        "width": 2160,
-        "height": 1440,
-        "bytes": 1126088
+      },
+      "google_maps": {
+        "place_id": "ChIJuzlPm78ayzYRXGsUTKeiyTI",
+        "data_id": "0x36cb1abf9b4f39bb:0x32c9a2a74c146b5c",
+        "rating": 4.1,
+        "reviews": 262,
+        "latitude": 22.398874199999998,
+        "longitude": 105.6114671,
+        "url": "https://www.google.com/maps/search/?api=1&query=Ba%20Be%20Jungle%20Houses%20Ba%20B%E1%BB%83&query_place_id=ChIJuzlPm78ayzYRXGsUTKeiyTI",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1617,7 +1935,7 @@
       "slug": "thao-nguyen-resort",
       "name": "Thảo Nguyên Resort Mộc Châu",
       "source_url": "https://mocchautour.vn/en/h175-thao-nguyen-resort-moc-chau",
-      "address": "Đường Hoàng Quốc Việt, Mộc Châu, Sơn La",
+      "address": "WG8R+RVX, Mộc Châu, Sơn La, Việt Nam",
       "phone": null,
       "website_url": "http://thaonguyenresort.com.vn/",
       "description": "Khu nghỉ dưỡng tại Mộc Châu, được giới thiệu trên cổng thông tin du lịch địa phương với các khu lưu trú và tiện ích trong khuôn viên.",
@@ -1636,6 +1954,16 @@
         "width": 2048,
         "height": 1152,
         "bytes": 1007915
+      },
+      "google_maps": {
+        "place_id": "ChIJX0BjKwC5MzERxrHw5KFm6qE",
+        "data_id": "0x3133b9002b63405f:0xa1ea66a1e4f0b1c6",
+        "rating": null,
+        "reviews": null,
+        "latitude": 20.9171022,
+        "longitude": 104.5422225,
+        "url": "https://www.google.com/maps/search/?api=1&query=Th%E1%BA%A3o%20Nguy%C3%AAn%20Resort%20M%E1%BB%99c%20Ch%C3%A2u%20M%E1%BB%99c%20Ch%C3%A2u&query_place_id=ChIJX0BjKwC5MzERxrHw5KFm6qE",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1643,8 +1971,8 @@
       "slug": "mai-chau-ecolodge",
       "name": "Mai Chau Ecolodge",
       "source_url": "https://maichau.ecolodge.asia/",
-      "address": "Bản Nà Chiềng, xã Mai Châu, Phú Thọ",
-      "phone": "+84 218 381 9888",
+      "address": "Nà Chiềng, Mai Châu, Phú Thọ, Việt Nam",
+      "phone": "+84 218 3819 888",
       "website_url": "https://maichau.ecolodge.asia/",
       "description": "Khu nghỉ dưỡng giữa thung lũng Mai Châu, với phòng nghỉ lấy cảm hứng từ nhà sàn của người Thái.",
       "verified_on": "2026-10-28",
@@ -1662,6 +1990,16 @@
         "width": 1920,
         "height": 800,
         "bytes": 1056877
+      },
+      "google_maps": {
+        "place_id": "ChIJhwcfY1MINDERFnWr9OFoAr0",
+        "data_id": "0x31340853631f0787:0xbd0268e1f4ab7516",
+        "rating": 4.5,
+        "reviews": 2026,
+        "latitude": 20.6577485,
+        "longitude": 105.06975229999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=Mai%20Chau%20Ecolodge%20Mai%20Ch%C3%A2u&query_place_id=ChIJhwcfY1MINDERFnWr9OFoAr0",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1669,7 +2007,7 @@
       "slug": "avana-retreat",
       "name": "Avana Retreat",
       "source_url": "https://avanaretreat.com/",
-      "address": "Bản Pánh, xã Bao La, Phú Thọ",
+      "address": "Xóm Pạnh, Bao La, Phú Thọ 36000, Việt Nam",
       "phone": "+84 218 3819 868",
       "website_url": "https://avanaretreat.com/",
       "description": "Khu nghỉ dưỡng miền núi thuộc vùng Mai Châu, có bungalow và biệt thự trong cảnh quan rừng, ruộng bậc thang.",
@@ -1688,6 +2026,16 @@
         "width": 1394,
         "height": 1080,
         "bytes": 244785
+      },
+      "google_maps": {
+        "place_id": "ChIJzWUbStD3MzERpeSQNTZBcIo",
+        "data_id": "0x3133f7d04a1b65cd:0x8a7041363590e4a5",
+        "rating": 4.8,
+        "reviews": 745,
+        "latitude": 20.701526899999998,
+        "longitude": 104.9458705,
+        "url": "https://www.google.com/maps/search/?api=1&query=Avana%20Retreat%20Mai%20Ch%C3%A2u&query_place_id=ChIJzWUbStD3MzERpeSQNTZBcIo",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1695,8 +2043,8 @@
       "slug": "mu-cang-chai-ecolodge",
       "name": "Mu Cang Chai Ecolodge",
       "source_url": "https://mucangchaiecolodge.com/",
-      "address": "Nậm Khắt, Mù Cang Chải",
-      "phone": "+84 989 090 908",
+      "address": "Púng Luông, Lào Cai 33514, Việt Nam",
+      "phone": "+84 888 886 767",
       "website_url": "https://mucangchaiecolodge.com/",
       "description": "Lodge tại vùng Nậm Khắt, với không gian nghỉ gần ruộng bậc thang và các bản làng Mù Cang Chải.",
       "verified_on": "2026-10-28",
@@ -1714,6 +2062,16 @@
         "width": 960,
         "height": 640,
         "bytes": 56730
+      },
+      "google_maps": {
+        "place_id": "ChIJrzUFXj7fMjERl0bqB3iw150",
+        "data_id": "0x3132df3e5e0535af:0x9dd7b07807ea4697",
+        "rating": 4.4,
+        "reviews": 75,
+        "latitude": 21.710938799999997,
+        "longitude": 104.22699779999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=Mu%20Cang%20Chai%20Ecolodge%20M%C3%B9%20Cang%20Ch%E1%BA%A3i&query_place_id=ChIJrzUFXj7fMjERl0bqB3iw150",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1721,8 +2079,8 @@
       "slug": "le-champ-tu-le",
       "name": "Le Champ Tú Lệ Resort Hot Spring & Spa",
       "source_url": "https://lechamp.vn/",
-      "address": "Thôn Nước Nóng, xã Tú Lệ, Lào Cai",
-      "phone": "+84 216 389 6789",
+      "address": "Nuoc Nong Village, QL32 Commune, Tú Lệ, Lào Cai, Việt Nam",
+      "phone": "+84 216 3896 789",
       "website_url": "https://lechamp.vn/",
       "description": "Khu nghỉ dưỡng bên thung lũng Tú Lệ, có bungalow và dịch vụ khoáng nóng. Tú Lệ nằm trong hành trình mẫu Mù Cang Chải.",
       "verified_on": "2026-10-28",
@@ -1740,32 +2098,16 @@
         "width": 1440,
         "height": 628,
         "bytes": 842356
-      }
-    },
-    {
-      "destination": "dien-bien",
-      "slug": "muong-thanh-grand-dien-bien",
-      "name": "Mường Thanh Grand Điện Biên Phủ",
-      "source_url": "https://granddienbienphu.muongthanh.com/",
-      "address": "514 Võ Nguyên Giáp, phường Điện Biên Phủ, Điện Biên",
-      "phone": "+84 215 3810 043",
-      "website_url": "https://granddienbienphu.muongthanh.com/",
-      "description": "Khách sạn trên đường Võ Nguyên Giáp tại Điện Biên Phủ, có phòng nghỉ và các dịch vụ nhà hàng, hội họp.",
-      "verified_on": "2026-10-28",
-      "image": {
-        "path": "/images/directory/hotels/muong-thanh-grand-dien-bien.jpg",
-        "source_page": "https://granddienbienphu.muongthanh.com/",
-        "download_url": "https://granddienbienphu.muongthanh.com/images/hotels/rooms/original/phong-deluxe-twin_1783668141.jpg",
-        "original_url": "https://granddienbienphu.muongthanh.com/images/hotels/rooms/original/phong-deluxe-twin_1783668141.jpg",
-        "author": "Đơn vị công bố ảnh tại trang nguồn: granddienbienphu.muongthanh.com",
-        "license": "Chưa công bố giấy phép tái sử dụng trên trang nguồn",
-        "license_url": "",
-        "caption": "Mường Thanh Grand Điện Biên Phủ — ảnh cơ sở lưu trú",
-        "modifications": "Tải từ nguồn, không chỉnh sửa nội dung.",
-        "sha256": "6be068f000ba9803c3a339b8837e4e8df0b3462cc9890e1ead79975930b0816b",
-        "width": 800,
-        "height": 533,
-        "bytes": 42832
+      },
+      "google_maps": {
+        "place_id": "ChIJs8D6IEEnMzERNkZ7bSE2G1g",
+        "data_id": "0x3133274120fac0b3:0x581b36216d7b4636",
+        "rating": 4.7,
+        "reviews": 1602,
+        "latitude": 21.7884638,
+        "longitude": 104.31096389999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=Le%20Champ%20T%C3%BA%20L%E1%BB%87%20Resort%20Hot%20Spring%20%26%20Spa%20M%C3%B9%20Cang%20Ch%E1%BA%A3i&query_place_id=ChIJs8D6IEEnMzERNkZ7bSE2G1g",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1773,8 +2115,8 @@
       "slug": "him-lam-resort",
       "name": "Him Lam Resort Điện Biên",
       "source_url": "https://himlamresort.com/",
-      "address": "Tổ 6, phường Điện Biên Phủ, Điện Biên",
-      "phone": "+84 215 3811 856",
+      "address": "Tổ 6, Điện Biên Phủ, Điện Biên 32000, Việt Nam",
+      "phone": "+84 215 3811 666",
       "website_url": "https://himlamresort.com/",
       "description": "Khu nghỉ dưỡng bên vùng hồ Huổi Phạ của Điện Biên Phủ, có khu lưu trú, nhà hàng và không gian sân vườn.",
       "verified_on": "2026-10-28",
@@ -1792,6 +2134,16 @@
         "width": 1600,
         "height": 742,
         "bytes": 365152
+      },
+      "google_maps": {
+        "place_id": "ChIJG8VZDRQILTERNr9oVISNKKQ",
+        "data_id": "0x312d08140d59c51b:0xa4288d845468bf36",
+        "rating": 4.2,
+        "reviews": 898,
+        "latitude": 21.4062464,
+        "longitude": 103.04326909999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=Him%20Lam%20Resort%20%C4%90i%E1%BB%87n%20Bi%C3%AAn%20%C4%90i%E1%BB%87n%20Bi%C3%AAn&query_place_id=ChIJG8VZDRQILTERNr9oVISNKKQ",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1799,8 +2151,8 @@
       "slug": "flamingo-cat-ba",
       "name": "Flamingo Cát Bà Resort",
       "source_url": "https://flamingoresorts.vn/flamingo-cat-ba/",
-      "address": "Bãi tắm Cát Cò 1 và 2, Cát Bà, Hải Phòng",
-      "phone": null,
+      "address": "Bãi tắm Cát Cò 1, 2, Cát Hải, Hải Phòng, Việt Nam",
+      "phone": "+84 225 3888 686",
       "website_url": "https://flamingoresorts.vn/flamingo-cat-ba/",
       "description": "Tổ hợp nghỉ dưỡng ven biển Cát Cò trên đảo Cát Bà, với các tòa nhà có mảng xanh và dịch vụ nghỉ dưỡng.",
       "verified_on": "2026-10-28",
@@ -1818,6 +2170,16 @@
         "width": 1024,
         "height": 768,
         "bytes": 117884
+      },
+      "google_maps": {
+        "place_id": "ChIJZ6C369RFSjER-d-LWgqrxkI",
+        "data_id": "0x314a45d4ebb7a067:0x42c6ab0a5a8bdff9",
+        "rating": 4.8,
+        "reviews": 16528,
+        "latitude": 20.7193634,
+        "longitude": 107.05415409999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=Flamingo%20C%C3%A1t%20B%C3%A0%20Resort%20C%C3%A1t%20B%C3%A0&query_place_id=ChIJZ6C369RFSjER-d-LWgqrxkI",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1825,7 +2187,7 @@
       "slug": "hotel-perle-dorient-cat-ba",
       "name": "Hôtel Perle d’Orient Cát Bà – MGallery",
       "source_url": "https://csdl.vietnamtourism.gov.vn/cslt/?item=8042",
-      "address": "Bãi biển Cát Cò 3, Cát Bà, Hải Phòng",
+      "address": "Cat Co 3 Beach, Cát Hải, Hải Phòng 180000, Việt Nam",
       "phone": "+84 225 3887 360",
       "website_url": "https://www.hotelperledorient.com/",
       "description": "Khách sạn tại bãi Cát Cò 3 trên đảo Cát Bà, có phòng nghỉ nhìn về biển và không gian mang cảm hứng Đông Dương.",
@@ -1844,6 +2206,16 @@
         "width": 1200,
         "height": 750,
         "bytes": 175372
+      },
+      "google_maps": {
+        "place_id": "ChIJ4fVxG4RFSjERL87MEvU031I",
+        "data_id": "0x314a45841b71f5e1:0x52df34f512ccce2f",
+        "rating": 4.4,
+        "reviews": 766,
+        "latitude": 20.715004999999998,
+        "longitude": 107.0489037,
+        "url": "https://www.google.com/maps/search/?api=1&query=H%C3%B4tel%20Perle%20d%E2%80%99Orient%20C%C3%A1t%20B%C3%A0%20%E2%80%93%20MGallery%20C%C3%A1t%20B%C3%A0&query_place_id=ChIJ4fVxG4RFSjERL87MEvU031I",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1851,8 +2223,8 @@
       "slug": "pu-luong-retreat",
       "name": "Pù Luông Retreat",
       "source_url": "https://puluongretreat.com/",
-      "address": "Bản Đôn, Bá Thước, Thanh Hóa",
-      "phone": "+84 969 500 026",
+      "address": "Thành Lâm, Thanh Hóa, Việt Nam",
+      "phone": "+84 24 3823 9988",
       "website_url": "https://puluongretreat.com/",
       "description": "Khu nghỉ dưỡng trên sườn đồi ở bản Đôn, nhìn về ruộng bậc thang và thung lũng Pù Luông.",
       "verified_on": "2026-10-28",
@@ -1870,6 +2242,16 @@
         "width": 1477,
         "height": 845,
         "bytes": 343378
+      },
+      "google_maps": {
+        "place_id": "ChIJpe6lp2oCNDER4s8YV_JrDI0",
+        "data_id": "0x3134026aa7a5eea5:0x8d0c6bf25718cfe2",
+        "rating": 4.5,
+        "reviews": 1627,
+        "latitude": 20.444955099999998,
+        "longitude": 105.1498615,
+        "url": "https://www.google.com/maps/search/?api=1&query=P%C3%B9%20Lu%C3%B4ng%20Retreat%20P%C3%B9%20Lu%C3%B4ng&query_place_id=ChIJpe6lp2oCNDER4s8YV_JrDI0",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1877,7 +2259,7 @@
       "slug": "pu-luong-eco-garden",
       "name": "Pù Luông Eco Garden",
       "source_url": "https://puluongecogarden.com/contact/",
-      "address": "Bản Báng, Bá Thước, Thanh Hóa",
+      "address": "làng Bảng, Pù Luông, Thanh Hóa, Việt Nam",
       "phone": "+84 987 129 129",
       "website_url": "https://puluongecogarden.com/",
       "description": "Khu nghỉ dưỡng tại bản Báng trong vùng Pù Luông, có phòng nghỉ và hồ bơi nhìn về cảnh quan núi, thung lũng.",
@@ -1896,32 +2278,16 @@
         "width": 2560,
         "height": 1113,
         "bytes": 768660
-      }
-    },
-    {
-      "destination": "ly-son",
-      "slug": "muong-thanh-holiday-ly-son",
-      "name": "Mường Thanh Holiday Lý Sơn",
-      "source_url": "https://holidaylyson.muongthanh.com/",
-      "address": "Thôn Đông An Vĩnh, đặc khu Lý Sơn, Quảng Ngãi",
-      "phone": "+84 255 3867 333",
-      "website_url": "https://holidaylyson.muongthanh.com/",
-      "description": "Khách sạn tại khu vực trung tâm đảo Lý Sơn, có các hạng phòng và dịch vụ lưu trú, nhà hàng.",
-      "verified_on": "2026-10-28",
-      "image": {
-        "path": "/images/directory/hotels/muong-thanh-holiday-ly-son.jpg",
-        "source_page": "https://holidaylyson.muongthanh.com/",
-        "download_url": "https://holidaylyson.muongthanh.com/images/hotels/rooms/original/phong-deluxe-twin_1783742321.jpg",
-        "original_url": "https://holidaylyson.muongthanh.com/images/hotels/rooms/original/phong-deluxe-twin_1783742321.jpg",
-        "author": "Đơn vị công bố ảnh tại trang nguồn: holidaylyson.muongthanh.com",
-        "license": "Chưa công bố giấy phép tái sử dụng trên trang nguồn",
-        "license_url": "",
-        "caption": "Mường Thanh Holiday Lý Sơn — ảnh cơ sở lưu trú",
-        "modifications": "Tải từ nguồn, không chỉnh sửa nội dung.",
-        "sha256": "429d9fff05308531168f196eae4e83f73b90b5a1442ac8f7b78c6f266007df6a",
-        "width": 800,
-        "height": 534,
-        "bytes": 54310
+      },
+      "google_maps": {
+        "place_id": "ChIJOd3Lo4YDNDERXg2mmlnYYp8",
+        "data_id": "0x31340386a3cbdd39:0x9f62d8599aa60d5e",
+        "rating": 4.8,
+        "reviews": 2423,
+        "latitude": 20.4685187,
+        "longitude": 105.120376,
+        "url": "https://www.google.com/maps/search/?api=1&query=P%C3%B9%20Lu%C3%B4ng%20Eco%20Garden%20P%C3%B9%20Lu%C3%B4ng&query_place_id=ChIJOd3Lo4YDNDERXg2mmlnYYp8",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1929,8 +2295,8 @@
       "slug": "central-ly-son",
       "name": "Central Lý Sơn Hotel",
       "source_url": "https://csdl.vietnamtourism.gov.vn/cslt/?item=8239",
-      "address": "Thôn Tây, An Vĩnh, Lý Sơn, Quảng Ngãi",
-      "phone": "+84 255 3867 979",
+      "address": "Thôn Tây, An Vĩnh, Quảng Ngãi 570000, Việt Nam",
+      "phone": "+84 255 6277 979",
       "website_url": "http://centrallyson.com/",
       "description": "Khách sạn tại thôn Tây trên đảo Lý Sơn, được ghi nhận trong cơ sở dữ liệu lưu trú của ngành du lịch.",
       "verified_on": "2026-10-28",
@@ -1948,6 +2314,16 @@
         "width": 1200,
         "height": 750,
         "bytes": 318665
+      },
+      "google_maps": {
+        "place_id": "ChIJZwtPgbU-aDERRtu1xGwi1Gw",
+        "data_id": "0x31683eb5814f0b67:0x6cd4226cc4b5db46",
+        "rating": 3.7,
+        "reviews": 246,
+        "latitude": 15.379287699999999,
+        "longitude": 109.0960903,
+        "url": "https://www.google.com/maps/search/?api=1&query=Central%20L%C3%BD%20S%C6%A1n%20Hotel%20L%C3%BD%20S%C6%A1n&query_place_id=ChIJZwtPgbU-aDERRtu1xGwi1Gw",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1955,8 +2331,8 @@
       "slug": "toong-dam-mang-den",
       "name": "Toong Dam Lake Măng Đen Retreat",
       "source_url": "https://toongdamlakemangdenretreat.com/en",
-      "address": "Khu vực hồ Toong Đam, Măng Đen, Quảng Ngãi",
-      "phone": null,
+      "address": "38 Đ. Lê Hồng Phong, Măng Đen, Quảng Ngãi 58000, Việt Nam",
+      "phone": "+84 786 560 888",
       "website_url": "https://toongdamlakemangdenretreat.com/en",
       "description": "Khu nghỉ dưỡng bên hồ Toong Đam tại Măng Đen, có các khu bungalow và phòng nghỉ trong không gian rừng, mặt nước.",
       "verified_on": "2026-10-28",
@@ -1974,6 +2350,16 @@
         "width": 2048,
         "height": 1366,
         "bytes": 434996
+      },
+      "google_maps": {
+        "place_id": "ChIJ-8vP_B3lazER59S5bInVJDc",
+        "data_id": "0x316be51dfccfcbfb:0x3724d5896cb9d4e7",
+        "rating": 4.5,
+        "reviews": 321,
+        "latitude": 14.599074499999999,
+        "longitude": 108.2951397,
+        "url": "https://www.google.com/maps/search/?api=1&query=Toong%20Dam%20Lake%20M%C4%83ng%20%C4%90en%20Retreat%20M%C4%83ng%20%C4%90en&query_place_id=ChIJ-8vP_B3lazER59S5bInVJDc",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -1981,7 +2367,7 @@
       "slug": "dakke-mang-den",
       "name": "Đắk Ke Măng Đen Resort",
       "source_url": "https://mangdentourism.com/vi/resortdakke",
-      "address": "Khu du lịch hồ Đắk Ke, xã Măng Đen, Quảng Ngãi",
+      "address": "Hồ Đắk Ke, Măng Đen, Quảng Ngãi 582000, Việt Nam",
       "phone": "+84 917 926 926",
       "website_url": "https://mangdentourism.com/vi/resortdakke",
       "description": "Khu nghỉ dưỡng gắn với cảnh quan hồ Đắk Ke và rừng thông Măng Đen. Thông tin liên hệ theo cổng du lịch địa phương.",
@@ -2000,32 +2386,16 @@
         "width": 1536,
         "height": 2048,
         "bytes": 429787
-      }
-    },
-    {
-      "destination": "buon-ma-thuot",
-      "slug": "muong-thanh-luxury-buon-ma-thuot",
-      "name": "Mường Thanh Luxury Buôn Ma Thuột",
-      "source_url": "https://luxurybuonmathuot.muongthanh.com/",
-      "address": "81 Nguyễn Tất Thành, phường Tân An, Đắk Lắk",
-      "phone": "+84 262 3961 555",
-      "website_url": "https://luxurybuonmathuot.muongthanh.com/",
-      "description": "Khách sạn trên đường Nguyễn Tất Thành tại Buôn Ma Thuột, có các hạng phòng và dịch vụ nhà hàng, hội họp.",
-      "verified_on": "2026-10-28",
-      "image": {
-        "path": "/images/directory/hotels/muong-thanh-luxury-buon-ma-thuot.jpg",
-        "source_page": "https://luxurybuonmathuot.muongthanh.com/",
-        "download_url": "https://luxurybuonmathuot.muongthanh.com/images/hotels/rooms/original/phong-deluxe-twin_1698912554.jpg",
-        "original_url": "https://luxurybuonmathuot.muongthanh.com/images/hotels/rooms/original/phong-deluxe-twin_1698912554.jpg",
-        "author": "Đơn vị công bố ảnh tại trang nguồn: luxurybuonmathuot.muongthanh.com",
-        "license": "Chưa công bố giấy phép tái sử dụng trên trang nguồn",
-        "license_url": "",
-        "caption": "Mường Thanh Luxury Buôn Ma Thuột — ảnh cơ sở lưu trú",
-        "modifications": "Tải từ nguồn, không chỉnh sửa nội dung.",
-        "sha256": "5f0e5ad4f52c2c3827cb3d75443936e08ae4767284754c9b0daf7d3afd810483",
-        "width": 800,
-        "height": 600,
-        "bytes": 52570
+      },
+      "google_maps": {
+        "place_id": "ChIJfw8SMGFDaTEROTBK5SBGyLk",
+        "data_id": "0x3169436130120f7f:0xb9c84620e54a3039",
+        "rating": 4,
+        "reviews": 385,
+        "latitude": 14.579425599999999,
+        "longitude": 108.274869,
+        "url": "https://www.google.com/maps/search/?api=1&query=%C4%90%E1%BA%AFk%20Ke%20M%C4%83ng%20%C4%90en%20Resort%20M%C4%83ng%20%C4%90en&query_place_id=ChIJfw8SMGFDaTEROTBK5SBGyLk",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -2033,7 +2403,7 @@
       "slug": "saigon-ban-me",
       "name": "Sài Gòn Ban Mê Hotel",
       "source_url": "https://saigonbanmehotel.com.vn/",
-      "address": "01–03 Phan Chu Trinh, phường Buôn Ma Thuột, Đắk Lắk",
+      "address": "01-03 Phan Chu Trinh, Buôn Ma Thuột, Đắk Lắk 630000, Việt Nam",
       "phone": "+84 262 3685 666",
       "website_url": "https://saigonbanmehotel.com.vn/",
       "description": "Khách sạn tại khu vực trung tâm Buôn Ma Thuột, trên đường Phan Chu Trinh, thuộc hệ thống Saigontourist.",
@@ -2052,6 +2422,16 @@
         "width": 800,
         "height": 500,
         "bytes": 342853
+      },
+      "google_maps": {
+        "place_id": "ChIJHV6bdH8dcjERBPN5FTOQE9k",
+        "data_id": "0x31721d7f749b5e1d:0xd91390331579f304",
+        "rating": 4.1,
+        "reviews": 1653,
+        "latitude": 12.6806387,
+        "longitude": 108.0445383,
+        "url": "https://www.google.com/maps/search/?api=1&query=S%C3%A0i%20G%C3%B2n%20Ban%20M%C3%AA%20Hotel%20Bu%C3%B4n%20Ma%20Thu%E1%BB%99t&query_place_id=ChIJHV6bdH8dcjERBPN5FTOQE9k",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -2059,7 +2439,7 @@
       "slug": "cuc-phuong-resort",
       "name": "Cuc Phuong Mineral Retreat",
       "source_url": "https://cucphuongmineralretreat.com/",
-      "address": "Thôn Đồng Tâm, xã Cúc Phương, Ninh Bình",
+      "address": "7P5Q+9C6, Cúc Phương, Ninh Bình, Việt Nam",
       "phone": "+84 33 421 7979",
       "website_url": "https://cucphuongmineralretreat.com/",
       "description": "Khu nghỉ dưỡng khoáng nóng tại vùng Cúc Phương, trước đây được biết đến với tên Cúc Phương Resort & Spa.",
@@ -2078,6 +2458,16 @@
         "width": 1500,
         "height": 844,
         "bytes": 296745
+      },
+      "google_maps": {
+        "place_id": "ChIJU3J4fwCHNjER71VcafKG604",
+        "data_id": "0x313687007f787253:0x4eeb86f2695c55ef",
+        "rating": 2.5,
+        "reviews": 2,
+        "latitude": 20.2584049,
+        "longitude": 105.73851239999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=Cuc%20Phuong%20Mineral%20Retreat%20C%C3%BAc%20Ph%C6%B0%C6%A1ng&query_place_id=ChIJU3J4fwCHNjER71VcafKG604",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -2085,8 +2475,8 @@
       "slug": "wyndham-grand-vedana",
       "name": "Wyndham Grand Vedana Ninh Bình Resort",
       "source_url": "https://www.wyndhamhotels.com/wyndham-grand/ninh-binh-vietnam/wyndham-grand-vedana-ninh-binh/overview",
-      "address": "Thôn Đồng Tâm, xã Cúc Phương, Ninh Bình",
-      "phone": "+84 229 3593 777",
+      "address": "Thôn, Đồng Tâm, Cúc Phương, Ninh Bình, Việt Nam",
+      "phone": "+84 932 786 777",
       "website_url": "https://www.wyndhamhotels.com/wyndham-grand/ninh-binh-vietnam/wyndham-grand-vedana-ninh-binh/overview",
       "description": "Khu nghỉ dưỡng gần Vườn quốc gia Cúc Phương, có phòng nghỉ, biệt thự và không gian nhà hàng bên hồ.",
       "verified_on": "2026-10-28",
@@ -2104,6 +2494,16 @@
         "width": 3936,
         "height": 2624,
         "bytes": 3255753
+      },
+      "google_maps": {
+        "place_id": "ChIJG-YyBBveNTERrZfnzcqPLNc",
+        "data_id": "0x3135de1b0432e61b:0xd72c8fcacde797ad",
+        "rating": 4,
+        "reviews": 1818,
+        "latitude": 20.2616948,
+        "longitude": 105.7254327,
+        "url": "https://www.google.com/maps/search/?api=1&query=Wyndham%20Grand%20Vedana%20Ninh%20B%C3%ACnh%20Resort%20C%C3%BAc%20Ph%C6%B0%C6%A1ng&query_place_id=ChIJG-YyBBveNTERrZfnzcqPLNc",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -2111,7 +2511,7 @@
       "slug": "melia-vinpearl-tay-ninh",
       "name": "Meliá Vinpearl Tây Ninh",
       "source_url": "https://khudulichnuibaden.tayninh.gov.vn/melia-vinpearl-tay-ninh",
-      "address": "90 Lê Duẩn, khu phố 5, Tây Ninh",
+      "address": "90 Lê Duẩn Block 5, Ward 3, 63 Lê Duẩn, Khu phố 1, Tân Ninh, Tây Ninh, Việt Nam",
       "phone": "+84 276 3728 888",
       "website_url": "https://www.melia.com/en/hotels/vietnam/tay-ninh/melia-vinpearl-tay-ninh",
       "description": "Khách sạn trên đường Lê Duẩn tại trung tâm Tây Ninh, được giới thiệu trên cổng thông tin Khu du lịch quốc gia Núi Bà Đen.",
@@ -2130,6 +2530,16 @@
         "width": 1600,
         "height": 1066,
         "bytes": 1095874
+      },
+      "google_maps": {
+        "place_id": "ChIJw8l357BrCzER-F2D3Bby8AU",
+        "data_id": "0x310b6bb0e777c9c3:0x5f0f216dc835df8",
+        "rating": 4.9,
+        "reviews": 4781,
+        "latitude": 11.3194511,
+        "longitude": 106.1001903,
+        "url": "https://www.google.com/maps/search/?api=1&query=Meli%C3%A1%20Vinpearl%20T%C3%A2y%20Ninh%20T%C3%A2y%20Ninh&query_place_id=ChIJw8l357BrCzER-F2D3Bby8AU",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -2137,7 +2547,7 @@
       "slug": "sunrise-tay-ninh",
       "name": "Sunrise Hotel Tây Ninh",
       "source_url": "https://sunrisehotel.com.vn/",
-      "address": "81 Hoàng Lê Kha, Tây Ninh",
+      "address": "81 Hoàng Lê Kha, Tân Ninh, Tây Ninh, Việt Nam",
       "phone": "+84 276 3714 714",
       "website_url": "https://sunrisehotel.com.vn/",
       "description": "Khách sạn tại đường Hoàng Lê Kha, có phòng nghỉ và dịch vụ nhà hàng, tiệc, hội họp tại Tây Ninh.",
@@ -2156,6 +2566,16 @@
         "width": 750,
         "height": 660,
         "bytes": 165757
+      },
+      "google_maps": {
+        "place_id": "ChIJS_giH6prCzERkiaAhnMFPiw",
+        "data_id": "0x310b6baa1f22f84b:0x2c3e057386802692",
+        "rating": 4.3,
+        "reviews": 1508,
+        "latitude": 11.3044558,
+        "longitude": 106.10551509999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=Sunrise%20Hotel%20T%C3%A2y%20Ninh%20T%C3%A2y%20Ninh&query_place_id=ChIJS_giH6prCzERkiaAhnMFPiw",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -2163,8 +2583,8 @@
       "slug": "ben-tre-riverside",
       "name": "Bến Tre Riverside Resort",
       "source_url": "https://bentreriverside.com/",
-      "address": "708 Nguyễn Văn Tư, phường Bến Tre, Vĩnh Long",
-      "phone": "+84 275 354 5454",
+      "address": "708 Đ. Nguyễn Văn Tư, Bến Tre, Vĩnh Long, Việt Nam",
+      "phone": "+84 275 3545 454",
       "website_url": "https://bentreriverside.com/",
       "description": "Khu nghỉ dưỡng tại vùng Bến Tre, với phòng nghỉ và không gian ven sông Hàm Luông.",
       "verified_on": "2026-10-28",
@@ -2182,6 +2602,16 @@
         "width": 1920,
         "height": 1280,
         "bytes": 102792
+      },
+      "google_maps": {
+        "place_id": "ChIJZfQ4zHSoCjER4dWYEJGFYAo",
+        "data_id": "0x310aa874cc38f465:0xa6085911098d5e1",
+        "rating": 4.3,
+        "reviews": 2053,
+        "latitude": 10.221890799999999,
+        "longitude": 106.3500692,
+        "url": "https://www.google.com/maps/search/?api=1&query=B%E1%BA%BFn%20Tre%20Riverside%20Resort%20B%E1%BA%BFn%20Tre&query_place_id=ChIJZfQ4zHSoCjER4dWYEJGFYAo",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -2189,8 +2619,8 @@
       "slug": "diamond-stars-ben-tre",
       "name": "Diamond Stars Bến Tre Hotel",
       "source_url": "https://diamondstarbentre.com/",
-      "address": "140 Hùng Vương, phường An Hội, Vĩnh Long",
-      "phone": "+84 275 374 8888",
+      "address": "140 Hùng Vương, An Hoi Ward, An Hội, Vĩnh Long 86000, Việt Nam",
+      "phone": "+84 275 3748 888",
       "website_url": "https://diamondstarbentre.com/",
       "description": "Khách sạn trên đường Hùng Vương tại vùng Bến Tre, có phòng nghỉ, hồ bơi và không gian hội họp.",
       "verified_on": "2026-10-28",
@@ -2208,32 +2638,16 @@
         "width": 1200,
         "height": 740,
         "bytes": 464598
-      }
-    },
-    {
-      "destination": "ca-mau",
-      "slug": "muong-thanh-luxury-ca-mau",
-      "name": "Mường Thanh Luxury Cà Mau",
-      "source_url": "https://luxurycamau.muongthanh.com/",
-      "address": "Lô C03A, Khu trung tâm hành chính chính trị, phường An Xuyên, Cà Mau",
-      "phone": "+84 290 222 8888",
-      "website_url": "https://luxurycamau.muongthanh.com/",
-      "description": "Khách sạn tại khu trung tâm hành chính Cà Mau, có phòng nghỉ và các dịch vụ nhà hàng, hội họp.",
-      "verified_on": "2026-10-28",
-      "image": {
-        "path": "/images/directory/hotels/muong-thanh-luxury-ca-mau.jpg",
-        "source_page": "https://luxurycamau.muongthanh.com/",
-        "download_url": "https://luxurycamau.muongthanh.com/images/hotels/rooms/original/phong-deluxe-king_1783584184.jpg",
-        "original_url": "https://luxurycamau.muongthanh.com/images/hotels/rooms/original/phong-deluxe-king_1783584184.jpg",
-        "author": "Đơn vị công bố ảnh tại trang nguồn: luxurycamau.muongthanh.com",
-        "license": "Chưa công bố giấy phép tái sử dụng trên trang nguồn",
-        "license_url": "",
-        "caption": "Mường Thanh Luxury Cà Mau — ảnh cơ sở lưu trú",
-        "modifications": "Tải từ nguồn, không chỉnh sửa nội dung.",
-        "sha256": "1b2928a8ef9a3112a6be72b1eea4a0e4e3afe236e242dad4f0ce0b24590c1b57",
-        "width": 800,
-        "height": 533,
-        "bytes": 58139
+      },
+      "google_maps": {
+        "place_id": "ChIJu1y-24-pCjER-pReAGFxp5g",
+        "data_id": "0x310aa98fdbbe5cbb:0x98a77161005e94fa",
+        "rating": 4.5,
+        "reviews": 977,
+        "latitude": 10.2347564,
+        "longitude": 106.37554159999999,
+        "url": "https://www.google.com/maps/search/?api=1&query=Diamond%20Stars%20B%E1%BA%BFn%20Tre%20Hotel%20B%E1%BA%BFn%20Tre&query_place_id=ChIJu1y-24-pCjER-pReAGFxp5g",
+        "checked_at": "2026-10-28"
       }
     },
     {
@@ -2241,8 +2655,8 @@
       "slug": "phu-cuong-ca-mau",
       "name": "Phú Cường Hotel Cà Mau",
       "source_url": "https://phucuonghotel.com/",
-      "address": "81 Phan Ngọc Hiển, Cà Mau",
-      "phone": "+84 290 3696 666",
+      "address": "81 Đường Phan Ngọc Hiển, An Xuyên, Cà Mau, Việt Nam",
+      "phone": "+84 826 889 088",
       "website_url": "https://phucuonghotel.com/",
       "description": "Khách sạn trên đường Phan Ngọc Hiển ở trung tâm Cà Mau, có phòng nghỉ với kiến trúc gợi nhớ phong cách châu Âu.",
       "verified_on": "2026-10-28",
@@ -2260,6 +2674,16 @@
         "width": 1920,
         "height": 814,
         "bytes": 366402
+      },
+      "google_maps": {
+        "place_id": "ChIJ17zBYlpJoTER3u0lByMHiQg",
+        "data_id": "0x31a1495a62c1bcd7:0x88907230725edde",
+        "rating": 4.5,
+        "reviews": 860,
+        "latitude": 9.1826136,
+        "longitude": 105.1474896,
+        "url": "https://www.google.com/maps/search/?api=1&query=Ph%C3%BA%20C%C6%B0%E1%BB%9Dng%20Hotel%20C%C3%A0%20Mau%20C%C3%A0%20Mau&query_place_id=ChIJ17zBYlpJoTER3u0lByMHiQg",
+        "checked_at": "2026-10-28"
       }
     }
   ],

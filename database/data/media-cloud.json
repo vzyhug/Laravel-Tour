@@ -1494,13 +1494,6 @@
             "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/03/037ad0f1699cafa165f20fd6d2496277f93e84024884695dd28ff64b8eb6b576.jpg",
             "sha256": "037ad0f1699cafa165f20fd6d2496277f93e84024884695dd28ff64b8eb6b576"
         },
-        "/images/directory/hotels/muong-thanh-luxury-cao-bang.jpg": {
-            "disk": "supabase",
-            "bucket": "tour-images",
-            "path": "media/55/554384e10f241759532bad7a22868f099357880fce0af2eb7dcce517b875a072.jpg",
-            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/55/554384e10f241759532bad7a22868f099357880fce0af2eb7dcce517b875a072.jpg",
-            "sha256": "554384e10f241759532bad7a22868f099357880fce0af2eb7dcce517b875a072"
-        },
         "/images/directory/hotels/max-boutique-cao-bang.jpg": {
             "disk": "supabase",
             "bucket": "tour-images",
@@ -1521,13 +1514,6 @@
             "path": "media/97/974b1f70d7b60d274835704ecfae76b50709bbeb279ab5c817a46916d787d2c7.webp",
             "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/97/974b1f70d7b60d274835704ecfae76b50709bbeb279ab5c817a46916d787d2c7.webp",
             "sha256": "974b1f70d7b60d274835704ecfae76b50709bbeb279ab5c817a46916d787d2c7"
-        },
-        "/images/directory/hotels/muong-thanh-luxury-moc-chau.jpg": {
-            "disk": "supabase",
-            "bucket": "tour-images",
-            "path": "media/f1/f18c14e87b7cddcadae7dbff9aea29135c3624a1eee9f11c897eaff0603f758f.jpg",
-            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/f1/f18c14e87b7cddcadae7dbff9aea29135c3624a1eee9f11c897eaff0603f758f.jpg",
-            "sha256": "f18c14e87b7cddcadae7dbff9aea29135c3624a1eee9f11c897eaff0603f758f"
         },
         "/images/directory/hotels/thao-nguyen-resort.jpg": {
             "disk": "supabase",
@@ -1564,13 +1550,6 @@
             "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/43/431ddeb2dfc8951367a326f39aa740f4abb8810b15a6af34b887c84a93768a04.jpg",
             "sha256": "431ddeb2dfc8951367a326f39aa740f4abb8810b15a6af34b887c84a93768a04"
         },
-        "/images/directory/hotels/muong-thanh-grand-dien-bien.jpg": {
-            "disk": "supabase",
-            "bucket": "tour-images",
-            "path": "media/6b/6be068f000ba9803c3a339b8837e4e8df0b3462cc9890e1ead79975930b0816b.jpg",
-            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/6b/6be068f000ba9803c3a339b8837e4e8df0b3462cc9890e1ead79975930b0816b.jpg",
-            "sha256": "6be068f000ba9803c3a339b8837e4e8df0b3462cc9890e1ead79975930b0816b"
-        },
         "/images/directory/hotels/him-lam-resort.jpg": {
             "disk": "supabase",
             "bucket": "tour-images",
@@ -1606,13 +1585,6 @@
             "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/6d/6d31c6018c4fd43cf06167856434f8fb457d1c7686835c1934152e0f6cf93c95.jpg",
             "sha256": "6d31c6018c4fd43cf06167856434f8fb457d1c7686835c1934152e0f6cf93c95"
         },
-        "/images/directory/hotels/muong-thanh-holiday-ly-son.jpg": {
-            "disk": "supabase",
-            "bucket": "tour-images",
-            "path": "media/42/429d9fff05308531168f196eae4e83f73b90b5a1442ac8f7b78c6f266007df6a.jpg",
-            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/42/429d9fff05308531168f196eae4e83f73b90b5a1442ac8f7b78c6f266007df6a.jpg",
-            "sha256": "429d9fff05308531168f196eae4e83f73b90b5a1442ac8f7b78c6f266007df6a"
-        },
         "/images/directory/hotels/central-ly-son.jpg": {
             "disk": "supabase",
             "bucket": "tour-images",
@@ -1633,13 +1605,6 @@
             "path": "media/3e/3e04490365cdc89d617321abb0f81721bbc59c6e0838407ee0d41f462dd37bba.jpg",
             "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/3e/3e04490365cdc89d617321abb0f81721bbc59c6e0838407ee0d41f462dd37bba.jpg",
             "sha256": "3e04490365cdc89d617321abb0f81721bbc59c6e0838407ee0d41f462dd37bba"
-        },
-        "/images/directory/hotels/muong-thanh-luxury-buon-ma-thuot.jpg": {
-            "disk": "supabase",
-            "bucket": "tour-images",
-            "path": "media/5f/5f0e5ad4f52c2c3827cb3d75443936e08ae4767284754c9b0daf7d3afd810483.jpg",
-            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/5f/5f0e5ad4f52c2c3827cb3d75443936e08ae4767284754c9b0daf7d3afd810483.jpg",
-            "sha256": "5f0e5ad4f52c2c3827cb3d75443936e08ae4767284754c9b0daf7d3afd810483"
         },
         "/images/directory/hotels/saigon-ban-me.jpg": {
             "disk": "supabase",
@@ -1689,13 +1654,6 @@
             "path": "media/5e/5ea73c33392bf02ba1aba2e70380d8c00adc1bba827323b49b60278b50563e2f.jpg",
             "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/5e/5ea73c33392bf02ba1aba2e70380d8c00adc1bba827323b49b60278b50563e2f.jpg",
             "sha256": "5ea73c33392bf02ba1aba2e70380d8c00adc1bba827323b49b60278b50563e2f"
-        },
-        "/images/directory/hotels/muong-thanh-luxury-ca-mau.jpg": {
-            "disk": "supabase",
-            "bucket": "tour-images",
-            "path": "media/1b/1b2928a8ef9a3112a6be72b1eea4a0e4e3afe236e242dad4f0ce0b24590c1b57.jpg",
-            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/1b/1b2928a8ef9a3112a6be72b1eea4a0e4e3afe236e242dad4f0ce0b24590c1b57.jpg",
-            "sha256": "1b2928a8ef9a3112a6be72b1eea4a0e4e3afe236e242dad4f0ce0b24590c1b57"
         },
         "/images/directory/hotels/phu-cuong-ca-mau.webp": {
             "disk": "supabase",
