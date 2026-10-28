@@ -55,6 +55,11 @@ class DepartureOperationsController extends Controller
     public function attendance(Request $request, TourDeparture $departure, BookingPassenger $passenger): RedirectResponse
     {
         $data = $request->validate(['status' => ['required', 'in:present,absent'], 'notes' => ['nullable', 'string', 'max:500']]);
+        $this->authorizeDeparture($departure);
+        if ($departure->departure_date->isFuture()) {
+            return back()->with('warning', 'Chưa đến ngày khởi hành. Bạn có thể điểm danh từ ngày bắt đầu chuyến.');
+        }
+
         DB::transaction(function () use ($departure, $passenger, $data) {
             $departure = TourDeparture::lockForUpdate()->findOrFail($departure->getKey());
             $actor = $this->authorizeDeparture($departure);
@@ -73,6 +78,31 @@ class DepartureOperationsController extends Controller
     public function status(Request $request, TourDeparture $departure): RedirectResponse
     {
         $data = $request->validate(['operation_status' => ['required', 'in:in_progress,completed']]);
+        $this->authorizeDeparture($departure);
+
+        if ($departure->status === 'cancelled') {
+            return back()->with('warning', 'Chuyến đã hủy nên không thể cập nhật trạng thái.');
+        }
+
+        $next = ['scheduled' => 'in_progress', 'in_progress' => 'completed'];
+        if (($next[$departure->operation_status] ?? null) !== $data['operation_status']) {
+            return back()->with('warning', 'Trạng thái chuyến đã thay đổi. Tải lại trang rồi thử lại.');
+        }
+        if ($departure->departure_date->isFuture()) {
+            return back()->with('warning', 'Chưa đến ngày khởi hành. Bạn có thể bắt đầu chuyến từ ngày khởi hành.');
+        }
+        if ($data['operation_status'] === 'completed') {
+            if ($departure->return_date->isFuture()) {
+                return back()->with('warning', 'Chưa đến ngày kết thúc chuyến nên chưa thể hoàn thành.');
+            }
+
+            $confirmedBookings = $departure->bookings()->where('status', 'confirmed')->orderBy('booking_id')->get();
+            $passengerIds = BookingPassenger::whereIn('booking_id', $confirmedBookings->modelKeys())->pluck('passenger_id');
+            if (PassengerAttendance::whereIn('passenger_id', $passengerIds)->count() !== $passengerIds->count()) {
+                return back()->with('warning', 'Hãy điểm danh đầy đủ hành khách trước khi hoàn thành chuyến.');
+            }
+        }
+
         DB::transaction(function () use ($departure, $data) {
             $departure = TourDeparture::lockForUpdate()->findOrFail($departure->getKey());
             $this->authorizeDeparture($departure);
