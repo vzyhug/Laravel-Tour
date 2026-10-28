@@ -194,8 +194,40 @@ if (tourItinerary) {
         scrollSpeed: 12,
         onEnd: renumberDays,
     });
+    const renumberPlaces = (day) => {
+        const names = [...day.querySelectorAll('[data-day-place-list] [data-itinerary-place]')]
+            .map((place) => place.dataset.placeName)
+            .filter(Boolean);
+        const label = day.querySelector('[data-day-places]');
+        if (label) label.textContent = names.join(' - ') || '—';
+    };
+    tourItinerary.querySelectorAll('[data-day-place-list]').forEach((list) => {
+        Sortable.create(list, {
+            draggable: '[data-itinerary-place]',
+            handle: '[data-place-drag-handle]',
+            animation: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 180,
+            ghostClass: 'place-drag-ghost',
+            chosenClass: 'place-drag-chosen',
+            delay: 120,
+            delayOnTouchOnly: true,
+            touchStartThreshold: 5,
+            scrollSensitivity: 80,
+            scrollSpeed: 12,
+            onEnd: () => renumberPlaces(list.closest('[data-itinerary-day]')),
+        });
+    });
     tourItinerary.addEventListener('keydown', (event) => {
         if (!event.altKey || !['ArrowUp', 'ArrowDown'].includes(event.key)) return;
+        const place = event.target.closest('[data-itinerary-place]');
+        if (place && event.target.closest('[data-place-drag-handle]')) {
+            const siblingPlace = event.key === 'ArrowUp' ? place.previousElementSibling : place.nextElementSibling;
+            if (!siblingPlace?.matches('[data-itinerary-place]')) return;
+            event.preventDefault();
+            if (event.key === 'ArrowUp') siblingPlace.before(place); else siblingPlace.after(place);
+            renumberPlaces(place.closest('[data-itinerary-day]'));
+            place.querySelector('[data-place-drag-handle]')?.focus();
+            return;
+        }
         const day = event.target.closest('[data-itinerary-day]');
         if (!day) return;
         const sibling = event.key === 'ArrowUp' ? day.previousElementSibling : day.nextElementSibling;
