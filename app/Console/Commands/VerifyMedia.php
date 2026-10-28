@@ -27,7 +27,7 @@ class VerifyMedia extends Command
                 $ref = $catalog->reference($image);
                 $objects[$ref->bucket.'/'.$ref->path] = $ref;
             }
-            foreach (['images_tour' => 'img_url', 'itinerary_place_images' => 'path'] as $table => $column) {
+            foreach (['images_tour' => 'img_url', 'itinerary_place_images' => 'path', 'hotel_images' => 'path'] as $table => $column) {
                 foreach (DB::table($table)->get() as $row) {
                     if ($row->storage_disk !== 'supabase' || $row->storage_bucket !== config('media.supabase.bucket')
                         || ! $row->storage_path || ! preg_match('/^[a-f0-9]{64}$/', $row->sha256 ?? '')

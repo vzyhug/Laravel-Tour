@@ -11,7 +11,7 @@ File ảnh được lưu tập trung trên Supabase Storage; dữ liệu tour, t
 
 SQL tham khảo tạo bucket mới với giới hạn JPEG/PNG/WebP và 5 MB: `supabase/storage.sql`. Nếu bucket đã tồn tại, SQL không đổi quyền của bucket đó; kiểm tra Public và hạn mức trong Dashboard.
 
-Supabase hiện có Free plan gồm 1 GB file storage; bộ nguồn hiện khoảng 60 MB. Free project có thể bị tạm dừng sau một tuần không hoạt động; xem điều kiện hiện hành trước triển khai dài hạn: https://supabase.com/pricing
+Supabase hiện có Free plan gồm 1 GB file storage; bộ nguồn hiện khoảng 92 MB (gồm ảnh danh mục điểm đến/khách sạn). Free project có thể bị tạm dừng sau một tuần không hoạt động; xem điều kiện hiện hành trước triển khai dài hạn: https://supabase.com/pricing
 Public bucket chỉ bỏ kiểm soát quyền tải ảnh, các thao tác ghi vẫn chịu kiểm soát: https://supabase.com/docs/guides/storage/buckets/fundamentals
 
 ## 2. Cấu hình Laravel
@@ -52,11 +52,11 @@ php artisan media:verify --remote
 php artisan itineraries:audit --verify-cloud
 ```
 
-- `media:migrate` mặc định chỉ kiểm kê, không upload hoặc ghi database. Đọc 60 ảnh tour + 112 ảnh địa điểm và các ảnh upload dưới `/storage/` đang được database tham chiếu. URL local tuyệt đối theo `APP_URL` cũng được nhận diện. Thiếu file, checksum sai, đường dẫn ra ngoài thư mục nguồn, hoặc URL ngoài kho quản lý làm lệnh dừng để xử lý rõ ràng.
-- `--apply` tạo object theo SHA-256, không upsert/ghi đè nội dung có sẵn. Các đường dẫn trùng nội dung dùng chung file. 172 nguồn ảnh hiện tương ứng 152 file khác nội dung.
+- `media:migrate` mặc định chỉ kiểm kê, không upload hoặc ghi database. Đọc 60 ảnh tour gốc + 112 ảnh địa điểm gốc + 72 ảnh danh mục điểm đến/khách sạn và các ảnh upload dưới `/storage/` đang được database tham chiếu. URL local tuyệt đối theo `APP_URL` cũng được nhận diện. Thiếu file, checksum sai, đường dẫn ra ngoài thư mục nguồn, hoặc URL ngoài kho quản lý làm lệnh dừng để xử lý rõ ràng.
+- `--apply` tạo object theo SHA-256, không upsert/ghi đè nội dung có sẵn. Các đường dẫn trùng nội dung dùng chung file. 244 nguồn ảnh hiện tương ứng 224 file khác nội dung; hai tour Vũng Tàu tái sử dụng ảnh trong danh mục.
 - Backend nhận upload thành công hoặc lỗi Duplicate hợp lệ, sau đó tải ảnh công khai và so SHA-256 trước khi chấp nhận URL. Bucket Private, lỗi upload hoặc checksum sai đều làm bước chuyển dừng.
 - Nhật ký `storage/app/private/media-migration.json` lưu sau từng tham chiếu đã xác minh. Nếu gián đoạn, database chưa đổi; chạy lại để tiếp tục. Nhật ký gắn với database, Project URL và bucket, tránh dùng nhầm môi trường.
-- Chỉ sau khi tất cả ảnh đã xác minh mới cập nhật hai bảng trong một database transaction. Lệnh kiểm tra lại URL cũ để tránh ghi đè thay đổi đồng thời; không thay dữ liệu tour/booking hoặc tác giả/giấy phép.
+- Chỉ sau khi tất cả ảnh đã xác minh mới cập nhật ba bảng `images_tour`, `itinerary_place_images`, `hotel_images` trong một database transaction. Lệnh kiểm tra lại URL cũ để tránh ghi đè thay đổi đồng thời; không thay dữ liệu tour/booking hoặc tác giả/giấy phép.
 - Manifest `database/data/media-cloud.json` được tạo sau chuyển. Phân phối file này cùng bản triển khai để các máy mới seed cùng kho ảnh. Manifest chỉ có URL ảnh công khai, hash và vị trí lưu trữ; không chứa Secret.
 - Seeder/factory đọc manifest ở chế độ Supabase, không upload và không yêu cầu ảnh local. Manifest chưa đủ hoặc không thuộc đúng project/bucket sẽ báo lỗi trước khi seed tour.
 - Nếu ghi manifest cuối cùng lỗi sau khi database đã commit, sửa quyền ghi và chạy lại; nhật ký đã lưu tham chiếu cần thiết.
@@ -67,7 +67,7 @@ Với database mới: chạy `migrate`, `media:migrate --apply`, sau đó `db:se
 
 Phân phối mã nguồn + manifest, cấu hình cùng Project URL/bucket và Secret riêng của môi trường. Chạy migration rồi seed nếu cần dữ liệu mẫu. Không cần sao chép ảnh local hoặc `storage:link` cho ảnh cloud.
 
-Kiểm tra trang chủ, chi tiết tour, ảnh lịch trình, hóa đơn và `/photo-credits`; upload ảnh từ Admin/Sale. `media:verify --remote` phải đạt. Thử khi không có `public/images/tours/demo/`, `public/images/itinerary/` và ảnh local trong `storage/app/public`: các ảnh ứng dụng vẫn phải tải từ Supabase.
+Kiểm tra trang chủ, chi tiết tour, ảnh lịch trình, hóa đơn và `/photo-credits`; upload ảnh từ Admin/Sale. `media:verify --remote` phải đạt. Thử khi không có `public/images/tours/demo/`, `public/images/itinerary/`, `public/images/directory/` và ảnh local trong `storage/app/public`: các ảnh ứng dụng vẫn phải tải từ Supabase.
 
 Chỉ bỏ các file ảnh nguồn khỏi bản triển khai/Git sau khi mọi môi trường dùng cloud và đã xác minh backup. Lệnh chuyển giữ nguồn local để khôi phục; không sửa lịch sử Git. Nguồn và giấy phép tiếp tục nằm trong các manifest dữ liệu gốc và trang ghi công.
 
@@ -97,15 +97,15 @@ Có 8 kiểm thử dữ liệu/đặt tour thất bại sẵn trên main `58e75b
 
 ## Kết quả kiểm tra mã nguồn hiện tại
 
-- 17 kiểm thử kho ảnh đạt trên SQLite và MySQL 8.4.3, bao gồm HTTP Supabase giả lập và toàn bộ luồng dữ liệu.
-- Toàn bộ bộ kiểm thử: 51/59 đạt. 8 trường hợp thất bại trùng với snapshot main gốc (34/42 đạt), không có lỗi kiểm thử mới từ phần kho ảnh.
+- 33 kiểm thử liên quan kho ảnh, danh mục điểm đến/khách sạn và tour mới đạt trên SQLite và MySQL 8.4.3 (439 assertions mỗi hệ quản trị), bao gồm HTTP Supabase giả lập và luồng dữ liệu.
+- Toàn bộ bộ kiểm thử: 61/69 đạt. 8 trường hợp thất bại trùng với snapshot main gốc (34/42 đạt), không có trường hợp thất bại mới. Chi tiết bàn giao: `docs/HANDOFF_DEV_LOC.md`.
 - `composer validate`, Pint và kiểm tra diff đạt; không thêm SDK/dependency ngoài Laravel.
 - Khóa Supabase chỉ nằm trong `.env` bị Git bỏ qua; đã kiểm tra khóa không xuất hiện trong các file Git theo dõi hoặc file mới dự kiến commit.
 
 ## Môi trường demo đã kết nối
 
 - Project URL: `https://tgftmvgboogmmhzmafdc.supabase.co`, bucket Public `tour-images`.
-- 172 tham chiếu trong danh mục đã được chuyển thành 152 file dùng chung; mỗi file được tải công khai và đối chiếu SHA-256 khi chuyển. Bucket có thêm ảnh probe rất nhỏ phục vụ kiểm tra kết nối.
-- Bản main dùng MySQL riêng trên `127.0.0.1:3308`, database `tour_booking`; dữ liệu mẫu có 30 tour, 60 ảnh tour, 112 ảnh địa điểm và 120 booking. Kiểm thử MySQL dùng database khác là `TourDB_codex_test`.
+- 244 tham chiếu trong danh mục đã được chuyển thành 224 file dùng chung; mỗi file được tải công khai và đối chiếu SHA-256 khi chuyển. Bucket có thêm ảnh probe rất nhỏ phục vụ kiểm tra kết nối.
+- Bản main dùng MySQL riêng trên `127.0.0.1:3308`, database `tour_booking`; dữ liệu mẫu có 32 tour, 64 ảnh tour, 120 ảnh địa danh, 64 ảnh khách sạn và 120 booking cũ. Kiểm thử MySQL dùng database khác là `TourDB_codex_test`.
 - Web main tại `http://127.0.0.1:8001/`. Đã kiểm tra HTTP 200 trên trang chủ, danh sách, trang ghi nguồn và 30 trang chi tiết; tất cả src ảnh dùng URL Supabase, không có khóa server trong HTML.
 - Manifest cloud được đưa cùng mã nguồn; Secret, cấu hình máy cá nhân và nhật ký khôi phục nằm ngoài Git. Ảnh nguồn local tạm được giữ để khôi phục trong giai đoạn nhóm chuyển các môi trường sang cloud.

@@ -23,7 +23,11 @@ class TourImageFactory extends Factory
                 $destination = collect($catalogue)->firstWhere('title', $title);
 
                 if (! $destination) {
-                    throw new \InvalidArgumentException('Truyền img_url cho tour ngoài danh mục mẫu.');
+                    $programs = json_decode(file_get_contents(database_path('data/destination-tours.json')), true, 512, JSON_THROW_ON_ERROR)['tours'];
+                    $program = collect($programs)->firstWhere('title', $title)
+                        ?? throw new \InvalidArgumentException('Truyền img_url cho tour ngoài danh mục mẫu.');
+
+                    return app(MediaCatalog::class)->url($program['image_paths'][0]);
                 }
 
                 return app(MediaCatalog::class)->reference(collect($images)->firstWhere('destination', $destination['slug']))->url;

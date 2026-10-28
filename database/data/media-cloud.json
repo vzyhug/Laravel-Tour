@@ -1206,6 +1206,510 @@
             "path": "media/c7/c7fd07e095ef53686a147b2b9f394cd2cc884911f1d93a89480267c3c0977b42.jpg",
             "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/c7/c7fd07e095ef53686a147b2b9f394cd2cc884911f1d93a89480267c3c0977b42.jpg",
             "sha256": "c7fd07e095ef53686a147b2b9f394cd2cc884911f1d93a89480267c3c0977b42"
+        },
+        "/images/directory/museum.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/50/506b55a7b5af1e85b878f53e3e8bbd0f426a5ef65f03514b29fbc7452e3d52ae.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/50/506b55a7b5af1e85b878f53e3e8bbd0f426a5ef65f03514b29fbc7452e3d52ae.jpg",
+            "sha256": "506b55a7b5af1e85b878f53e3e8bbd0f426a5ef65f03514b29fbc7452e3d52ae"
+        },
+        "/images/directory/hon-ba.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/27/276d11cf6969bea0f04f264cb9e4fb2301b8fc358ba755f5714d08dda8a8b49a.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/27/276d11cf6969bea0f04f264cb9e4fb2301b8fc358ba755f5714d08dda8a8b49a.jpg",
+            "sha256": "276d11cf6969bea0f04f264cb9e4fb2301b8fc358ba755f5714d08dda8a8b49a"
+        },
+        "/images/directory/tam-thang.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/88/886f82c1cd9eb7ede20564ec704f6da5e5ef9266056c7000f1453e49b9b37de1.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/88/886f82c1cd9eb7ede20564ec704f6da5e5ef9266056c7000f1453e49b9b37de1.jpg",
+            "sha256": "886f82c1cd9eb7ede20564ec704f6da5e5ef9266056c7000f1453e49b9b37de1"
+        },
+        "/images/directory/bach-dinh.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/da/da40f4832b75af156183c5cf4275a37132d90c8527b19621001508fa17d5fcaf.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/da/da40f4832b75af156183c5cf4275a37132d90c8527b19621001508fa17d5fcaf.jpg",
+            "sha256": "da40f4832b75af156183c5cf4275a37132d90c8527b19621001508fa17d5fcaf"
+        },
+        "/images/directory/hai-dang.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/15/15329def673689504e78178ce58fd1d3a79d2f7b3b9320b505aa3a207674b9e3.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/15/15329def673689504e78178ce58fd1d3a79d2f7b3b9320b505aa3a207674b9e3.jpg",
+            "sha256": "15329def673689504e78178ce58fd1d3a79d2f7b3b9320b505aa3a207674b9e3"
+        },
+        "/images/directory/christ.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/9d/9dd560323f66dfd63ab080e28daee7f558a97bfa9572e712ff2628dc0916910b.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/9d/9dd560323f66dfd63ab080e28daee7f558a97bfa9572e712ff2628dc0916910b.jpg",
+            "sha256": "9dd560323f66dfd63ab080e28daee7f558a97bfa9572e712ff2628dc0916910b"
+        },
+        "/images/directory/bai-sau.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/44/445f3203fa52d6301d90946f93b2b38e75581268debaa46075060d673543e77b.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/44/445f3203fa52d6301d90946f93b2b38e75581268debaa46075060d673543e77b.jpg",
+            "sha256": "445f3203fa52d6301d90946f93b2b38e75581268debaa46075060d673543e77b"
+        },
+        "/images/directory/pullman.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/1d/1d9792c08de7c504940c9cca59e423fc93417f9f0a5a3b71cc2123805fe87195.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/1d/1d9792c08de7c504940c9cca59e423fc93417f9f0a5a3b71cc2123805fe87195.jpg",
+            "sha256": "1d9792c08de7c504940c9cca59e423fc93417f9f0a5a3b71cc2123805fe87195"
+        },
+        "/images/directory/imperial.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/84/846059562f4ed03d9392416d8b2770a27463dc38ee24470150d4edd3a138df2d.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/84/846059562f4ed03d9392416d8b2770a27463dc38ee24470150d4edd3a138df2d.jpg",
+            "sha256": "846059562f4ed03d9392416d8b2770a27463dc38ee24470150d4edd3a138df2d"
+        },
+        "/images/directory/premier.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/9a/9a0954051639d171b7be3fa4f8378524f1d044fb397102795b6102a655179fa6.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/9a/9a0954051639d171b7be3fa4f8378524f1d044fb397102795b6102a655179fa6.jpg",
+            "sha256": "9a0954051639d171b7be3fa4f8378524f1d044fb397102795b6102a655179fa6"
+        },
+        "/images/directory/the-cap.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/15/15f201364cbb0ee4a069d853f4f01f548bca6d991559129991faab81ae5c912f.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/15/15f201364cbb0ee4a069d853f4f01f548bca6d991559129991faab81ae5c912f.jpg",
+            "sha256": "15f201364cbb0ee4a069d853f4f01f548bca6d991559129991faab81ae5c912f"
+        },
+        "/images/directory/metropole.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/e3/e3b6c7f2f571918de536a879184854f09939e09d0cc7f4183010dfefd4cd6685.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/e3/e3b6c7f2f571918de536a879184854f09939e09d0cc7f4183010dfefd4cd6685.jpg",
+            "sha256": "e3b6c7f2f571918de536a879184854f09939e09d0cc7f4183010dfefd4cd6685"
+        },
+        "/images/directory/melia.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/cc/ccccc3aec744bb949b49b654f0ee6786252cfb36011a03a9e0bf39d2fce7c0b2.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/cc/ccccc3aec744bb949b49b654f0ee6786252cfb36011a03a9e0bf39d2fce7c0b2.jpg",
+            "sha256": "ccccc3aec744bb949b49b654f0ee6786252cfb36011a03a9e0bf39d2fce7c0b2"
+        },
+        "/images/directory/palace.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/6a/6ac6d64c304ab3be8ad42a5a2057111bcaf3967c5e95e33d220dc990389a52f7.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/6a/6ac6d64c304ab3be8ad42a5a2057111bcaf3967c5e95e33d220dc990389a52f7.jpg",
+            "sha256": "6ac6d64c304ab3be8ad42a5a2057111bcaf3967c5e95e33d220dc990389a52f7"
+        },
+        "/images/directory/duparc.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/45/45e602882e5c955e21c3be73894cfcf526af4e675623260a8c45134d89e62e29.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/45/45e602882e5c955e21c3be73894cfcf526af4e675623260a8c45134d89e62e29.jpg",
+            "sha256": "45e602882e5c955e21c3be73894cfcf526af4e675623260a8c45134d89e62e29"
+        },
+        "/images/directory/morin.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/25/25f025e19e5d437a42c486816659e94a3e24a9b6a8608f2697a42b38e338d0d3.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/25/25f025e19e5d437a42c486816659e94a3e24a9b6a8608f2697a42b38e338d0d3.jpg",
+            "sha256": "25f025e19e5d437a42c486816659e94a3e24a9b6a8608f2697a42b38e338d0d3"
+        },
+        "/images/directory/azerai.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/2c/2c9ec6b67f09310714cfee6429c85bd13027650c3db87c1f6b5c19f9abf5bc33.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/2c/2c9ec6b67f09310714cfee6429c85bd13027650c3db87c1f6b5c19f9abf5bc33.jpg",
+            "sha256": "2c9ec6b67f09310714cfee6429c85bd13027650c3db87c1f6b5c19f9abf5bc33"
+        },
+        "/images/directory/novotel-danang.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/e0/e000779a5d0241d9801b1526f9401d5741279b4c13dcce01fe0fbd3c4ccdc48c.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/e0/e000779a5d0241d9801b1526f9401d5741279b4c13dcce01fe0fbd3c4ccdc48c.jpg",
+            "sha256": "e000779a5d0241d9801b1526f9401d5741279b4c13dcce01fe0fbd3c4ccdc48c"
+        },
+        "/images/directory/mercure.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/70/706d4d9c957d1218bb9e1d96435c26cc92c5b3b02cfaebd2a4a46a72c45c95f6.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/70/706d4d9c957d1218bb9e1d96435c26cc92c5b3b02cfaebd2a4a46a72c45c95f6.jpg",
+            "sha256": "706d4d9c957d1218bb9e1d96435c26cc92c5b3b02cfaebd2a4a46a72c45c95f6"
+        },
+        "/images/directory/novotel-halong.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/b0/b079fd310d99a3db49b510356993b5f4d90e0bab6836d28103d0b79356c0dd68.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/b0/b079fd310d99a3db49b510356993b5f4d90e0bab6836d28103d0b79356c0dd68.jpg",
+            "sha256": "b079fd310d99a3db49b510356993b5f4d90e0bab6836d28103d0b79356c0dd68"
+        },
+        "/images/directory/wyndham.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/ea/eaa5e234e2ffa1a1f1a6130d6dc1a201ef623615716b7195ef770869426031b8.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/ea/eaa5e234e2ffa1a1f1a6130d6dc1a201ef623615716b7195ef770869426031b8.jpg",
+            "sha256": "eaa5e234e2ffa1a1f1a6130d6dc1a201ef623615716b7195ef770869426031b8"
+        },
+        "/images/directory/hotels/hotel-de-la-coupole.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/7b/7b6d04ae3767e2f2ec3ec34cd15863a8da527295c1196a0fcb41f9e1825373a6.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/7b/7b6d04ae3767e2f2ec3ec34cd15863a8da527295c1196a0fcb41f9e1825373a6.jpg",
+            "sha256": "7b6d04ae3767e2f2ec3ec34cd15863a8da527295c1196a0fcb41f9e1825373a6"
+        },
+        "/images/directory/hotels/silk-path-grand-sapa.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/33/336c6e885c85667145225862edd5fd5d468cd865ab7eb0c36c1beb2a5fa1d570.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/33/336c6e885c85667145225862edd5fd5d468cd865ab7eb0c36c1beb2a5fa1d570.jpg",
+            "sha256": "336c6e885c85667145225862edd5fd5d468cd865ab7eb0c36c1beb2a5fa1d570"
+        },
+        "/images/directory/hotels/la-veranda-phu-quoc.webp": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/b1/b1833ed27f118aebed459e0803dc6ff0a4b3ec31f1ecebea02985c4297472eee.webp",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/b1/b1833ed27f118aebed459e0803dc6ff0a4b3ec31f1ecebea02985c4297472eee.webp",
+            "sha256": "b1833ed27f118aebed459e0803dc6ff0a4b3ec31f1ecebea02985c4297472eee"
+        },
+        "/images/directory/hotels/salinda-phu-quoc.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/0b/0b92c3b1164ed67f1b5d040aa3cc75c61827de314176e8fdc87587482bd73cc5.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/0b/0b92c3b1164ed67f1b5d040aa3cc75c61827de314176e8fdc87587482bd73cc5.jpg",
+            "sha256": "0b92c3b1164ed67f1b5d040aa3cc75c61827de314176e8fdc87587482bd73cc5"
+        },
+        "/images/directory/hotels/emeralda-ninh-binh.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/d2/d2428f0957537534294ff5ac87b5bdf33c2ea81c7defe5872d43b11c0d79dfa3.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/d2/d2428f0957537534294ff5ac87b5bdf33c2ea81c7defe5872d43b11c0d79dfa3.jpg",
+            "sha256": "d2428f0957537534294ff5ac87b5bdf33c2ea81c7defe5872d43b11c0d79dfa3"
+        },
+        "/images/directory/hotels/tam-coc-garden.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/ef/efbaccb1801835292b939dfefdbeca2b53f108cd1c004e3d1aae64a3d15645d7.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/ef/efbaccb1801835292b939dfefdbeca2b53f108cd1c004e3d1aae64a3d15645d7.jpg",
+            "sha256": "efbaccb1801835292b939dfefdbeca2b53f108cd1c004e3d1aae64a3d15645d7"
+        },
+        "/images/directory/hotels/panhou-retreat.webp": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/c1/c103228c69e97834c2d224861706fd50bf04e3072bc169c0171af83521d6fa45.webp",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/c1/c103228c69e97834c2d224861706fd50bf04e3072bc169c0171af83521d6fa45.webp",
+            "sha256": "c103228c69e97834c2d224861706fd50bf04e3072bc169c0171af83521d6fa45"
+        },
+        "/images/directory/hotels/hmong-village.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/4e/4e73068ada383cb18c3e89adb3f797c0c6ad71214626a8440368f39bca6e167c.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/4e/4e73068ada383cb18c3e89adb3f797c0c6ad71214626a8440368f39bca6e167c.jpg",
+            "sha256": "4e73068ada383cb18c3e89adb3f797c0c6ad71214626a8440368f39bca6e167c"
+        },
+        "/images/directory/hotels/intercontinental-nha-trang.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/fb/fbcca6e5cd5161bd2ae0a6f66c770e9cf23c6e49b954150ad8f7bb9416c61c95.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/fb/fbcca6e5cd5161bd2ae0a6f66c770e9cf23c6e49b954150ad8f7bb9416c61c95.jpg",
+            "sha256": "fbcca6e5cd5161bd2ae0a6f66c770e9cf23c6e49b954150ad8f7bb9416c61c95"
+        },
+        "/images/directory/hotels/sheraton-nha-trang.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/4c/4c782b8d5767d0f5ac623a1437f5b35ea53fbcd7150442b4ac3a47d1b48c5b21.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/4c/4c782b8d5767d0f5ac623a1437f5b35ea53fbcd7150442b4ac3a47d1b48c5b21.jpg",
+            "sha256": "4c782b8d5767d0f5ac623a1437f5b35ea53fbcd7150442b4ac3a47d1b48c5b21"
+        },
+        "/images/directory/hotels/anantara-quy-nhon.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/52/525e39f9a4dd780a0df1e07a0d288a55687525fe81e6c1c9cd469a46e34b818d.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/52/525e39f9a4dd780a0df1e07a0d288a55687525fe81e6c1c9cd469a46e34b818d.jpg",
+            "sha256": "525e39f9a4dd780a0df1e07a0d288a55687525fe81e6c1c9cd469a46e34b818d"
+        },
+        "/images/directory/hotels/avani-quy-nhon.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/d2/d2b4e48f49188c26834bf482784736236ea39f11271ea2096a417b372ed04be9.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/d2/d2b4e48f49188c26834bf482784736236ea39f11271ea2096a417b372ed04be9.jpg",
+            "sha256": "d2b4e48f49188c26834bf482784736236ea39f11271ea2096a417b372ed04be9"
+        },
+        "/images/directory/hotels/azerai-can-tho.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/df/df62b81b8cfaace50b284f1c34a33108298087f645eb578994a4e4d5ab0b2c9d.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/df/df62b81b8cfaace50b284f1c34a33108298087f645eb578994a4e4d5ab0b2c9d.jpg",
+            "sha256": "df62b81b8cfaace50b284f1c34a33108298087f645eb578994a4e4d5ab0b2c9d"
+        },
+        "/images/directory/hotels/victoria-can-tho.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/d1/d147a716f97f35ac691e898cc5aeeb61e04c56101b4eb2f7c7cdd5332fd117fa.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/d1/d147a716f97f35ac691e898cc5aeeb61e04c56101b4eb2f7c7cdd5332fd117fa.jpg",
+            "sha256": "d147a716f97f35ac691e898cc5aeeb61e04c56101b4eb2f7c7cdd5332fd117fa"
+        },
+        "/images/directory/hotels/six-senses-con-dao.webp": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/ec/ecf43fca32685f9b0e945b40eaed351bad2474c09dc3fc2a931bc53d949df06c.webp",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/ec/ecf43fca32685f9b0e945b40eaed351bad2474c09dc3fc2a931bc53d949df06c.webp",
+            "sha256": "ecf43fca32685f9b0e945b40eaed351bad2474c09dc3fc2a931bc53d949df06c"
+        },
+        "/images/directory/hotels/poulo-condor.png": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/0c/0c975692051b4aad87ea6846b6f15c4fceca72f0df6f29726b73515822f74afc.png",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/0c/0c975692051b4aad87ea6846b6f15c4fceca72f0df6f29726b73515822f74afc.png",
+            "sha256": "0c975692051b4aad87ea6846b6f15c4fceca72f0df6f29726b73515822f74afc"
+        },
+        "/images/directory/hotels/phong-nha-lake-house.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/09/0957adad192d424b98a2f1ad126cb2b334d1b0589f6c187caa6dd2fa8a3f3bae.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/09/0957adad192d424b98a2f1ad126cb2b334d1b0589f6c187caa6dd2fa8a3f3bae.jpg",
+            "sha256": "0957adad192d424b98a2f1ad126cb2b334d1b0589f6c187caa6dd2fa8a3f3bae"
+        },
+        "/images/directory/hotels/chay-lap-farmstay.webp": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/94/945bc0749404a3831a054152234f51e8b72b3afff5d7fd7f0dfb182ab75a1821.webp",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/94/945bc0749404a3831a054152234f51e8b72b3afff5d7fd7f0dfb182ab75a1821.webp",
+            "sha256": "945bc0749404a3831a054152234f51e8b72b3afff5d7fd7f0dfb182ab75a1821"
+        },
+        "/images/directory/hotels/anantara-mui-ne.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/c5/c527e8da61197efc11a4ae1dd10a0dc5ed7476393ffa4ae380b58fe442732491.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/c5/c527e8da61197efc11a4ae1dd10a0dc5ed7476393ffa4ae380b58fe442732491.jpg",
+            "sha256": "c527e8da61197efc11a4ae1dd10a0dc5ed7476393ffa4ae380b58fe442732491"
+        },
+        "/images/directory/hotels/the-anam-mui-ne.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/03/037ad0f1699cafa165f20fd6d2496277f93e84024884695dd28ff64b8eb6b576.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/03/037ad0f1699cafa165f20fd6d2496277f93e84024884695dd28ff64b8eb6b576.jpg",
+            "sha256": "037ad0f1699cafa165f20fd6d2496277f93e84024884695dd28ff64b8eb6b576"
+        },
+        "/images/directory/hotels/muong-thanh-luxury-cao-bang.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/55/554384e10f241759532bad7a22868f099357880fce0af2eb7dcce517b875a072.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/55/554384e10f241759532bad7a22868f099357880fce0af2eb7dcce517b875a072.jpg",
+            "sha256": "554384e10f241759532bad7a22868f099357880fce0af2eb7dcce517b875a072"
+        },
+        "/images/directory/hotels/max-boutique-cao-bang.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/2f/2f7c54f1c0d49ec869ab1987f53039326429ee9094d0c329c2400a43742d62c0.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/2f/2f7c54f1c0d49ec869ab1987f53039326429ee9094d0c329c2400a43742d62c0.jpg",
+            "sha256": "2f7c54f1c0d49ec869ab1987f53039326429ee9094d0c329c2400a43742d62c0"
+        },
+        "/images/directory/hotels/ba-be-lakeside-bungalow.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/25/25a9c816aa4f2b84c66a58789ceddc09eeea98297a122e7f5f7661ab4e85cbb6.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/25/25a9c816aa4f2b84c66a58789ceddc09eeea98297a122e7f5f7661ab4e85cbb6.jpg",
+            "sha256": "25a9c816aa4f2b84c66a58789ceddc09eeea98297a122e7f5f7661ab4e85cbb6"
+        },
+        "/images/directory/hotels/ba-be-jungle-houses.webp": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/97/974b1f70d7b60d274835704ecfae76b50709bbeb279ab5c817a46916d787d2c7.webp",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/97/974b1f70d7b60d274835704ecfae76b50709bbeb279ab5c817a46916d787d2c7.webp",
+            "sha256": "974b1f70d7b60d274835704ecfae76b50709bbeb279ab5c817a46916d787d2c7"
+        },
+        "/images/directory/hotels/muong-thanh-luxury-moc-chau.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/f1/f18c14e87b7cddcadae7dbff9aea29135c3624a1eee9f11c897eaff0603f758f.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/f1/f18c14e87b7cddcadae7dbff9aea29135c3624a1eee9f11c897eaff0603f758f.jpg",
+            "sha256": "f18c14e87b7cddcadae7dbff9aea29135c3624a1eee9f11c897eaff0603f758f"
+        },
+        "/images/directory/hotels/thao-nguyen-resort.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/0e/0e3fc6bd0f1c03c60fa4ce6704f280905ee8f9b06685fe89a03d571e6d82f555.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/0e/0e3fc6bd0f1c03c60fa4ce6704f280905ee8f9b06685fe89a03d571e6d82f555.jpg",
+            "sha256": "0e3fc6bd0f1c03c60fa4ce6704f280905ee8f9b06685fe89a03d571e6d82f555"
+        },
+        "/images/directory/hotels/mai-chau-ecolodge.png": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/ed/edd6c923b052e5d07ec3f86bf15d6ce910604cba9e7f5705f1a8679d2aa4f46f.png",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/ed/edd6c923b052e5d07ec3f86bf15d6ce910604cba9e7f5705f1a8679d2aa4f46f.png",
+            "sha256": "edd6c923b052e5d07ec3f86bf15d6ce910604cba9e7f5705f1a8679d2aa4f46f"
+        },
+        "/images/directory/hotels/avana-retreat.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/b1/b1fe941b87ec8cebdfb539c03be0d392cac4396d54b9e8bcb626e790c7887f53.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/b1/b1fe941b87ec8cebdfb539c03be0d392cac4396d54b9e8bcb626e790c7887f53.jpg",
+            "sha256": "b1fe941b87ec8cebdfb539c03be0d392cac4396d54b9e8bcb626e790c7887f53"
+        },
+        "/images/directory/hotels/mu-cang-chai-ecolodge.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/83/83f5eb35c0a2fb8241b47ecb9de3c207409cf3fbbaab76dbfc93ce040ef50ae0.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/83/83f5eb35c0a2fb8241b47ecb9de3c207409cf3fbbaab76dbfc93ce040ef50ae0.jpg",
+            "sha256": "83f5eb35c0a2fb8241b47ecb9de3c207409cf3fbbaab76dbfc93ce040ef50ae0"
+        },
+        "/images/directory/hotels/le-champ-tu-le.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/43/431ddeb2dfc8951367a326f39aa740f4abb8810b15a6af34b887c84a93768a04.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/43/431ddeb2dfc8951367a326f39aa740f4abb8810b15a6af34b887c84a93768a04.jpg",
+            "sha256": "431ddeb2dfc8951367a326f39aa740f4abb8810b15a6af34b887c84a93768a04"
+        },
+        "/images/directory/hotels/muong-thanh-grand-dien-bien.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/6b/6be068f000ba9803c3a339b8837e4e8df0b3462cc9890e1ead79975930b0816b.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/6b/6be068f000ba9803c3a339b8837e4e8df0b3462cc9890e1ead79975930b0816b.jpg",
+            "sha256": "6be068f000ba9803c3a339b8837e4e8df0b3462cc9890e1ead79975930b0816b"
+        },
+        "/images/directory/hotels/him-lam-resort.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/e4/e4797a15fb2c49791147e94df2d24ec997ecd1641743836058caea470dc52038.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/e4/e4797a15fb2c49791147e94df2d24ec997ecd1641743836058caea470dc52038.jpg",
+            "sha256": "e4797a15fb2c49791147e94df2d24ec997ecd1641743836058caea470dc52038"
+        },
+        "/images/directory/hotels/flamingo-cat-ba.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/89/891c1d3970eecfc2b1bb9ed4a2531d7700875b3ab6b001e3dc9aee6c93b45d49.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/89/891c1d3970eecfc2b1bb9ed4a2531d7700875b3ab6b001e3dc9aee6c93b45d49.jpg",
+            "sha256": "891c1d3970eecfc2b1bb9ed4a2531d7700875b3ab6b001e3dc9aee6c93b45d49"
+        },
+        "/images/directory/hotels/hotel-perle-dorient-cat-ba.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/28/287944368996225236f0aa785d945d8e09050094c43f81237b277e398ad480d2.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/28/287944368996225236f0aa785d945d8e09050094c43f81237b277e398ad480d2.jpg",
+            "sha256": "287944368996225236f0aa785d945d8e09050094c43f81237b277e398ad480d2"
+        },
+        "/images/directory/hotels/pu-luong-retreat.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/7e/7e5632393aea9d8d163e19ef7c7ed766f8911bf4961880b947485540f7033ba8.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/7e/7e5632393aea9d8d163e19ef7c7ed766f8911bf4961880b947485540f7033ba8.jpg",
+            "sha256": "7e5632393aea9d8d163e19ef7c7ed766f8911bf4961880b947485540f7033ba8"
+        },
+        "/images/directory/hotels/pu-luong-eco-garden.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/6d/6d31c6018c4fd43cf06167856434f8fb457d1c7686835c1934152e0f6cf93c95.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/6d/6d31c6018c4fd43cf06167856434f8fb457d1c7686835c1934152e0f6cf93c95.jpg",
+            "sha256": "6d31c6018c4fd43cf06167856434f8fb457d1c7686835c1934152e0f6cf93c95"
+        },
+        "/images/directory/hotels/muong-thanh-holiday-ly-son.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/42/429d9fff05308531168f196eae4e83f73b90b5a1442ac8f7b78c6f266007df6a.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/42/429d9fff05308531168f196eae4e83f73b90b5a1442ac8f7b78c6f266007df6a.jpg",
+            "sha256": "429d9fff05308531168f196eae4e83f73b90b5a1442ac8f7b78c6f266007df6a"
+        },
+        "/images/directory/hotels/central-ly-son.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/94/94adf040b224fed2681580fd0fcf7607031039ed91f23d666c161b2a73159ea7.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/94/94adf040b224fed2681580fd0fcf7607031039ed91f23d666c161b2a73159ea7.jpg",
+            "sha256": "94adf040b224fed2681580fd0fcf7607031039ed91f23d666c161b2a73159ea7"
+        },
+        "/images/directory/hotels/toong-dam-mang-den.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/b5/b559507d5c86fda4662ed57cad81426aaa40f7a579398191585fe53ced96087f.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/b5/b559507d5c86fda4662ed57cad81426aaa40f7a579398191585fe53ced96087f.jpg",
+            "sha256": "b559507d5c86fda4662ed57cad81426aaa40f7a579398191585fe53ced96087f"
+        },
+        "/images/directory/hotels/dakke-mang-den.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/3e/3e04490365cdc89d617321abb0f81721bbc59c6e0838407ee0d41f462dd37bba.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/3e/3e04490365cdc89d617321abb0f81721bbc59c6e0838407ee0d41f462dd37bba.jpg",
+            "sha256": "3e04490365cdc89d617321abb0f81721bbc59c6e0838407ee0d41f462dd37bba"
+        },
+        "/images/directory/hotels/muong-thanh-luxury-buon-ma-thuot.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/5f/5f0e5ad4f52c2c3827cb3d75443936e08ae4767284754c9b0daf7d3afd810483.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/5f/5f0e5ad4f52c2c3827cb3d75443936e08ae4767284754c9b0daf7d3afd810483.jpg",
+            "sha256": "5f0e5ad4f52c2c3827cb3d75443936e08ae4767284754c9b0daf7d3afd810483"
+        },
+        "/images/directory/hotels/saigon-ban-me.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/2e/2e50aea36d1bb052148056cc420287c69272894bf4a63c776a7b2be26d8250d5.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/2e/2e50aea36d1bb052148056cc420287c69272894bf4a63c776a7b2be26d8250d5.jpg",
+            "sha256": "2e50aea36d1bb052148056cc420287c69272894bf4a63c776a7b2be26d8250d5"
+        },
+        "/images/directory/hotels/cuc-phuong-resort.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/ba/ba7ef460312ef00124551158f548745d5f53fc7f60072709266de9d59c829f13.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/ba/ba7ef460312ef00124551158f548745d5f53fc7f60072709266de9d59c829f13.jpg",
+            "sha256": "ba7ef460312ef00124551158f548745d5f53fc7f60072709266de9d59c829f13"
+        },
+        "/images/directory/hotels/wyndham-grand-vedana.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/95/95ef4dd2e29b83a51593afcdee90f5cca3581e649b712bb2b703ec572ebaa19e.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/95/95ef4dd2e29b83a51593afcdee90f5cca3581e649b712bb2b703ec572ebaa19e.jpg",
+            "sha256": "95ef4dd2e29b83a51593afcdee90f5cca3581e649b712bb2b703ec572ebaa19e"
+        },
+        "/images/directory/hotels/melia-vinpearl-tay-ninh.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/ce/ce65271880d0ab93b8f79176c511f752276dc65e70bd15b5e3ef2fe939c42181.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/ce/ce65271880d0ab93b8f79176c511f752276dc65e70bd15b5e3ef2fe939c42181.jpg",
+            "sha256": "ce65271880d0ab93b8f79176c511f752276dc65e70bd15b5e3ef2fe939c42181"
+        },
+        "/images/directory/hotels/sunrise-tay-ninh.png": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/ee/ee6732c9961212be42f4770bad7c44d8a16f45db580d417de723cc43b75b53c4.png",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/ee/ee6732c9961212be42f4770bad7c44d8a16f45db580d417de723cc43b75b53c4.png",
+            "sha256": "ee6732c9961212be42f4770bad7c44d8a16f45db580d417de723cc43b75b53c4"
+        },
+        "/images/directory/hotels/ben-tre-riverside.webp": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/2c/2cf2bd04a6df7f68460344f34d6f48c20618265392a3134a07dfaa1ce7568d1d.webp",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/2c/2cf2bd04a6df7f68460344f34d6f48c20618265392a3134a07dfaa1ce7568d1d.webp",
+            "sha256": "2cf2bd04a6df7f68460344f34d6f48c20618265392a3134a07dfaa1ce7568d1d"
+        },
+        "/images/directory/hotels/diamond-stars-ben-tre.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/5e/5ea73c33392bf02ba1aba2e70380d8c00adc1bba827323b49b60278b50563e2f.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/5e/5ea73c33392bf02ba1aba2e70380d8c00adc1bba827323b49b60278b50563e2f.jpg",
+            "sha256": "5ea73c33392bf02ba1aba2e70380d8c00adc1bba827323b49b60278b50563e2f"
+        },
+        "/images/directory/hotels/muong-thanh-luxury-ca-mau.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/1b/1b2928a8ef9a3112a6be72b1eea4a0e4e3afe236e242dad4f0ce0b24590c1b57.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/1b/1b2928a8ef9a3112a6be72b1eea4a0e4e3afe236e242dad4f0ce0b24590c1b57.jpg",
+            "sha256": "1b2928a8ef9a3112a6be72b1eea4a0e4e3afe236e242dad4f0ce0b24590c1b57"
+        },
+        "/images/directory/hotels/phu-cuong-ca-mau.webp": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/76/76b5645cb293a7bbf5544754f33594476d39af254741a725e80606d0f333b645.webp",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/76/76b5645cb293a7bbf5544754f33594476d39af254741a725e80606d0f333b645.webp",
+            "sha256": "76b5645cb293a7bbf5544754f33594476d39af254741a725e80606d0f333b645"
+        },
+        "/images/directory/robert-taylor-museum.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/f2/f2c6d353b0bb82d1c24c952fc547daa468cbb6b63f69c7c2c7f57c2129f4c1b9.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/f2/f2c6d353b0bb82d1c24c952fc547daa468cbb6b63f69c7c2c7f57c2129f4c1b9.jpg",
+            "sha256": "f2c6d353b0bb82d1c24c952fc547daa468cbb6b63f69c7c2c7f57c2129f4c1b9"
         }
     }
 }

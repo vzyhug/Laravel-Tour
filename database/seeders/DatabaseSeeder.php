@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
                 DemoAccountSeeder::class,
                 TourSeeder::class,
                 TourItinerarySeeder::class,
+                DestinationDirectorySeeder::class,
+                DestinationTourSeeder::class,
                 DemoBookingSeeder::class,
             ]);
         });

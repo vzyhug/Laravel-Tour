@@ -44,6 +44,7 @@
 </section>
 
 <section id="destinations" class="container-page py-14 sm:py-20">
+    <div class="mb-6 flex flex-wrap gap-5"><a href="{{ route('destinations.index') }}" class="text-link">Cẩm nang điểm đến <x-icon name="arrow" class="size-4"/></a><a href="{{ route('hotels.index') }}" class="text-link">Khám phá khách sạn <x-icon name="arrow" class="size-4"/></a></div>
     <div class="mx-auto max-w-xl text-center"><p class="eyebrow">Bản đồ của những ký ức</p><h2 class="section-title mt-2">Mỗi vùng đất, một câu chuyện.</h2><p class="mt-4 text-sm leading-7 text-muted">Để những điều nhỏ bé dẫn lối: một con đường ven biển, một buổi chợ sớm, hay nụ cười của người bản địa.</p></div>
     <div class="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">@foreach($tours->unique('province_id')->take(4) as $tour)<a href="{{ route('provinces.tours', $tour->province) }}" class="editorial-image group flex min-h-72 flex-col justify-end p-6 text-white">@if($tour->thumbnail_url)<img src="{{ $tour->thumbnail_url }}" alt="{{ $tour->province->province_name }}" class="group-hover:scale-105" loading="lazy">@endif<p class="text-[9px] uppercase tracking-[.18em] text-brand-100">Miền {{ $tour->province->region }}</p><div class="mt-2 flex items-center justify-between"><h3 class="font-serif text-2xl">{{ $tour->province->province_name }}</h3><x-icon name="arrow-up" class="size-4"/></div></a>@endforeach</div>
 </section>

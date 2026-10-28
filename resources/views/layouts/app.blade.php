@@ -19,7 +19,8 @@
         <nav id="main-menu" class="absolute inset-x-0 top-20 hidden border-b border-[#e7dcd1] bg-sand p-5 shadow-lg lg:static lg:flex lg:items-center lg:gap-1 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none" aria-label="Điều hướng chính">
             <a href="{{ route('home') }}" @class(['nav-link', 'nav-link-active' => request()->routeIs('home')]) @if(request()->routeIs('home')) aria-current="page" @endif>Khám phá</a>
             <a href="{{ route('tours.index') }}" @class(['nav-link', 'nav-link-active' => request()->routeIs('tours.*', 'provinces.tours')]) @if(request()->routeIs('tours.*', 'provinces.tours')) aria-current="page" @endif>Tour du lịch</a>
-            <a href="{{ route('home') }}#destinations" class="nav-link">Điểm đến</a>
+            <a href="{{ route('destinations.index') }}" @class(['nav-link', 'nav-link-active' => request()->routeIs('destinations.*', 'places.*')])>Điểm đến</a>
+            <a href="{{ route('hotels.index') }}" @class(['nav-link', 'nav-link-active' => request()->routeIs('hotels.*')])>Khách sạn</a>
             <a href="{{ route('home') }}#why-vietgo" class="nav-link">Về VietGo</a>
             @if(session('customer_id'))
                 <a href="{{ route('customer.dashboard') }}" @class(['nav-link', 'nav-link-active' => request()->routeIs('customer.*')])>Chuyến đi của tôi</a>

@@ -1,0 +1,99 @@
+{
+  "program_origin": "Chương trình minh họa do dự án biên soạn từ các địa danh đã đối chiếu nguồn; không phải lịch bán hay báo giá của khách sạn hoặc website nguồn.",
+  "tours": [
+    {
+      "slug": "vung-tau-bien-di-san-2n1d",
+      "destination": "vung-tau",
+      "title": "Vũng Tàu 2N1Đ – Biển xanh & dấu ấn di sản",
+      "province": "TP. Hồ Chí Minh",
+      "region": "Nam",
+      "category": "Tour Biển",
+      "pickup_point": "Trung tâm TP. Hồ Chí Minh – điểm hẹn được xác nhận trước ngày đi",
+      "min_price": 1990000,
+      "description": "Chương trình mẫu 2 ngày 1 đêm từ TP. Hồ Chí Minh đến Vũng Tàu, kết hợp Bãi Sau, quảng trường Tam Thắng, Bạch Dinh và Hải đăng. Giá và dịch vụ là dữ liệu minh họa để thử đặt tour; lịch thực tế cần được xác nhận khi tư vấn.",
+      "included_services": "Gói mẫu gồm xe khứ hồi từ điểm hẹn TP. Hồ Chí Minh, hướng dẫn viên, 1 đêm lưu trú do đơn vị tổ chức bố trí, bữa ăn được đánh dấu và vé tham quan theo chương trình. Chưa áp dụng lựa chọn khách sạn khi đặt tour. Không gồm vé di chuyển đến điểm đón, dịch vụ vui chơi riêng và chi tiêu cá nhân. Giá mẫu phục vụ kiểm thử, chưa phải báo giá thương mại.",
+      "image_paths": [
+        "/images/directory/hon-ba.jpg",
+        "/images/directory/tam-thang.jpg"
+      ],
+      "days": [
+        {
+          "title": "TP. Hồ Chí Minh – Bảo tàng – Bãi Sau – Tam Thắng",
+          "activities": "07:00 đón tại điểm hẹn ở TP. Hồ Chí Minh, di chuyển đến Vũng Tàu. Tham quan Bảo tàng – Thư viện Bà Rịa – Vũng Tàu, dùng bữa trưa và nhận phòng sau giờ quy định. Chiều nghỉ ngơi tại Bãi Sau, tuân thủ hướng dẫn cứu hộ. Tối dạo quảng trường và ngắm Tháp Tam Thắng, dùng bữa tối rồi nghỉ đêm tại Vũng Tàu. Thứ tự có thể đổi theo giờ mở cửa và thời tiết.",
+          "places": [
+            "bao-tang-ba-ria-vung-tau",
+            "bai-sau-vung-tau",
+            "thap-tam-thang"
+          ],
+          "has_breakfast": false,
+          "has_lunch": true,
+          "has_dinner": true
+        },
+        {
+          "title": "Hải đăng – Bạch Dinh – TP. Hồ Chí Minh",
+          "activities": "Ăn sáng, tham quan Hải đăng Vũng Tàu trên Núi Nhỏ và Bạch Dinh theo giờ mở cửa. Về khách sạn trả phòng trước giờ quy định, dùng bữa trưa. Buổi chiều trở về điểm đón tại TP. Hồ Chí Minh; giờ về phụ thuộc tình hình giao thông.",
+          "places": [
+            "hai-dang-vung-tau",
+            "bach-dinh-vung-tau"
+          ],
+          "has_breakfast": true,
+          "has_lunch": true,
+          "has_dinner": false
+        }
+      ]
+    },
+    {
+      "slug": "vung-tau-van-hoa-bien-dao-3n2d",
+      "destination": "vung-tau",
+      "title": "Vũng Tàu 3N2Đ – Văn hóa, bảo tàng & biển đảo",
+      "province": "TP. Hồ Chí Minh",
+      "region": "Nam",
+      "category": "Tour Văn hóa",
+      "pickup_point": "Trung tâm TP. Hồ Chí Minh – điểm hẹn được xác nhận trước ngày đi",
+      "min_price": 3290000,
+      "description": "Chương trình mẫu 3 ngày 2 đêm khám phá cả tám địa danh Vũng Tàu trong danh mục: hai bảo tàng, Bạch Dinh, Hải đăng, Tượng Chúa Kitô, Hòn Bà, Bãi Sau và Tháp Tam Thắng. Lịch trình và giá dùng cho dữ liệu minh họa; điều kiện tham quan cần xác nhận với đơn vị tổ chức.",
+      "included_services": "Gói mẫu gồm xe khứ hồi từ điểm hẹn TP. Hồ Chí Minh, hướng dẫn viên, 2 đêm lưu trú do đơn vị tổ chức bố trí, bữa ăn được đánh dấu và vé tham quan theo chương trình. Chưa áp dụng lựa chọn khách sạn khi đặt tour. Không gồm vé di chuyển đến điểm đón, dịch vụ vui chơi riêng và chi tiêu cá nhân. Tham quan Hòn Bà phụ thuộc thủy triều và hướng dẫn tại chỗ. Giá mẫu phục vụ kiểm thử, chưa phải báo giá thương mại.",
+      "image_paths": [
+        "/images/directory/bach-dinh.jpg",
+        "/images/directory/museum.jpg"
+      ],
+      "days": [
+        {
+          "title": "TP. Hồ Chí Minh – Bạch Dinh – Bảo tàng tỉnh – Tam Thắng",
+          "activities": "07:00 khởi hành từ điểm hẹn tại TP. Hồ Chí Minh. Đến Vũng Tàu, tìm hiểu Bạch Dinh và Bảo tàng – Thư viện Bà Rịa – Vũng Tàu. Dùng bữa trưa, nhận phòng và nghỉ ngơi. Chiều tối dạo quảng trường Tam Thắng, dùng bữa tối và nghỉ đêm. Thứ tự tham quan được điều chỉnh theo giờ mở cửa.",
+          "places": [
+            "bach-dinh-vung-tau",
+            "bao-tang-ba-ria-vung-tau",
+            "thap-tam-thang"
+          ],
+          "has_breakfast": false,
+          "has_lunch": true,
+          "has_dinner": true
+        },
+        {
+          "title": "Tượng Chúa Kitô – Hòn Bà – Bãi Sau",
+          "activities": "Ăn sáng, đến khu vực Tượng Chúa Kitô và tham quan theo quy định về giờ mở cửa, trang phục và thể lực. Ngắm Hòn Bà từ bờ; chỉ đi bộ ra đảo khi thủy triều, thời tiết và hướng dẫn địa phương cho phép. Không đưa việc ra đảo thành hoạt động bắt buộc. Dùng bữa trưa, dành buổi chiều nghỉ ngơi tại Bãi Sau theo hướng dẫn cứu hộ. Ăn tối và nghỉ đêm tại Vũng Tàu.",
+          "places": [
+            "tuong-chua-kito-vung-tau",
+            "hon-ba-vung-tau",
+            "bai-sau-vung-tau"
+          ],
+          "has_breakfast": true,
+          "has_lunch": true,
+          "has_dinner": true
+        },
+        {
+          "title": "Hải đăng – Bảo tàng Robert Taylor – TP. Hồ Chí Minh",
+          "activities": "Ăn sáng, tham quan Hải đăng Vũng Tàu và Bảo tàng Vũ khí cổ Robert Taylor theo giờ mở cửa. Về khách sạn trả phòng, dùng bữa trưa rồi lên xe về TP. Hồ Chí Minh. Kết thúc tại điểm đón ban đầu; giờ về tùy giao thông.",
+          "places": [
+            "hai-dang-vung-tau",
+            "bao-tang-vu-khi-co-robert-taylor"
+          ],
+          "has_breakfast": true,
+          "has_lunch": true,
+          "has_dinner": false
+        }
+      ]
+    }
+  ]
+}

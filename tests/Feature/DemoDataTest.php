@@ -32,7 +32,7 @@ class DemoDataTest extends TestCase
         Http::preventStrayRequests();
         $this->seed();
 
-        foreach (['roles' => 3, 'employees' => 11, 'customers' => 24, 'tour_categories' => 5, 'provinces' => 26, 'tours' => 30, 'images_tour' => 60, 'tour_schedules' => 83, 'tour_departures' => 120, 'bookings' => 120, 'booking_passengers' => 300, 'payments' => 60, 'bill' => 60, 'review' => 30] as $table => $count) {
+        foreach (['roles' => 3, 'employees' => 11, 'customers' => 24, 'tour_categories' => 5, 'provinces' => 26, 'tours' => 32, 'images_tour' => 64, 'tour_schedules' => 88, 'tour_departures' => 126, 'bookings' => 120, 'booking_passengers' => 300, 'payments' => 60, 'bill' => 60, 'review' => 30] as $table => $count) {
             $this->assertDatabaseCount($table, $count);
         }
         foreach (Tour::with(['schedules', 'images', 'departures', 'reviews'])->get() as $tour) {
@@ -41,7 +41,8 @@ class DemoDataTest extends TestCase
             $this->assertSame($tour->duration_days - 1, $tour->duration_nights);
             $this->assertCount(1, $tour->images->where('is_thumbnail', true));
             $this->assertCount(3, $tour->departures->filter(fn ($d) => $d->departure_date->isFuture()));
-            $this->assertCount(1, $tour->reviews);
+            $baseTitles = array_column(json_decode(file_get_contents(database_path('data/tours.json')), true), 'title');
+            $this->assertCount(in_array($tour->title, $baseTitles, true) ? 1 : 0, $tour->reviews);
         }
         $this->assertTrue(Hash::check('Customer@123', Customer::where('email', 'demo01@vietgo.test')->firstOrFail()->password_hash));
     }
@@ -163,10 +164,10 @@ class DemoDataTest extends TestCase
         $this->seed();
         $this->get('/')->assertOk()->assertSee('Nguồn ảnh địa danh');
         $this->get(route('tours.index'))->assertOk();
-        foreach (Tour::all() as $tour) {
+        foreach (Tour::with('images')->get() as $tour) {
             $this->get(route('tours.show', $tour))->assertOk()
                 ->assertSee($tour->title)
-                ->assertSee('/images/tours/demo/', false);
+                ->assertSee($tour->thumbnail_url, false);
         }
         $booking = Booking::where('status', 'confirmed')->firstOrFail();
         $this->withSession(['customer_id' => $booking->customer_id])

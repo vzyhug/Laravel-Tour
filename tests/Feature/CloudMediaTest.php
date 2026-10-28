@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Actions\SaveTour;
 use App\Models\Employee;
+use App\Models\HotelImage;
 use App\Models\ItineraryPlaceImage;
 use App\Models\Tour;
 use App\Models\TourImage;
@@ -11,6 +12,8 @@ use App\Services\Media\ImageStorage;
 use App\Services\Media\MediaCatalog;
 use App\Services\Media\StoredImage;
 use Database\Seeders\DemoAccountSeeder;
+use Database\Seeders\DestinationDirectorySeeder;
+use Database\Seeders\DestinationTourSeeder;
 use Database\Seeders\TourItinerarySeeder;
 use Database\Seeders\TourSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -210,10 +213,15 @@ class CloudMediaTest extends TestCase
         // Change Laravel's public root instead of moving/deleting the checked-in files.
         $this->app->usePublicPath($this->temporary.'/empty-public');
         try {
-            $this->seed([DemoAccountSeeder::class, TourSeeder::class, TourItinerarySeeder::class]);
+            $this->seed([DemoAccountSeeder::class, TourSeeder::class, TourItinerarySeeder::class, DestinationDirectorySeeder::class, DestinationTourSeeder::class]);
             $this->withoutVite();
             $this->get('/')->assertOk()->assertSee('https://testproject.supabase.co/storage/v1/object/public/tour-images/', false);
             $this->get(route('photo-credits'))->assertOk();
+            $this->get('/destinations/vung-tau')->assertOk()->assertDontSee('/images/directory/', false);
+            $this->get(route('tours.show', Tour::where('title', 'Vũng Tàu 3N2Đ – Văn hóa, bảo tàng & biển đảo')->firstOrFail()))->assertOk()->assertDontSee('/images/directory/', false)->assertSee('Robert Taylor');
+            $this->get('/hotels/pullman-vung-tau')->assertOk()->assertSee('https://testproject.supabase.co/storage/v1/object/public/tour-images/', false);
+            $this->assertSame('supabase', HotelImage::factory()->create()->storage_disk);
+            $this->artisan('media:verify')->assertSuccessful();
             $this->get(route('tours.show', Tour::first()))->assertOk();
             $this->assertSame('supabase', TourImage::factory()->create()->storage_disk);
         } finally {

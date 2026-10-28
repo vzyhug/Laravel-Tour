@@ -17,7 +17,7 @@ class MediaMigration
             $sources[$image['path']] = ['source' => $image['path'], 'sha256' => $image['sha256']];
         }
         $rows = [];
-        foreach (['images_tour' => ['image_id', 'img_url'], 'itinerary_place_images' => ['id', 'path']] as $table => [$id, $url]) {
+        foreach (['images_tour' => ['image_id', 'img_url'], 'itinerary_place_images' => ['id', 'path'], 'hotel_images' => ['id', 'path']] as $table => [$id, $url]) {
             foreach (DB::table($table)->get() as $row) {
                 if ($row->storage_disk === 'supabase') {
                     if ($row->storage_bucket !== config('media.supabase.bucket')

@@ -33,4 +33,21 @@ class TourFactory extends Factory
             'created_by' => Employee::factory()->admin(),
         ];
     }
+
+    public function destinationProgram(string $slug): static
+    {
+        $programs = json_decode(file_get_contents(database_path('data/destination-tours.json')), true, 512, JSON_THROW_ON_ERROR)['tours'];
+        $program = collect($programs)->firstWhere('slug', $slug)
+            ?? throw new \InvalidArgumentException('Không có chương trình tour mẫu: '.$slug);
+
+        return $this->state(fn () => [
+            'title' => $program['title'],
+            'category_id' => fn () => TourCategory::firstOrCreate(['category_name' => $program['category']])->getKey(),
+            'province_id' => fn () => Province::firstOrCreate(['province_name' => $program['province']], ['region' => $program['region']])->getKey(),
+            'duration_days' => count($program['days']), 'duration_nights' => count($program['days']) - 1,
+            'pickup_point' => $program['pickup_point'], 'description' => $program['description'],
+            'itinerary_summary' => implode(' – ', array_column($program['days'], 'title')),
+            'included_services' => $program['included_services'], 'min_price' => $program['min_price'], 'is_active' => true,
+        ]);
+    }
 }
