@@ -110,9 +110,9 @@ class InputValidationBugTest extends TestCase
     }
 
     /**
-     * BUG #3: Trang đặt tour (/bookings) cho phép hành khách 'child' không nhập ngày sinh.
+     * Mọi hành khách phải có CCCD/Hộ chiếu; ngày sinh hiện không bắt buộc.
      */
-    public function test_booking_child_passenger_requires_date_of_birth(): void
+    public function test_booking_requires_identity_for_every_passenger(): void
     {
         $customer = $this->createCustomer();
         $tour = $this->createTour();
@@ -130,13 +130,14 @@ class InputValidationBugTest extends TestCase
         $response = $this->withSession(['customer_id' => $customer->getKey()])
             ->post(route('bookings.store'), [
                 'departure_id' => $departure->getKey(),
+                'pickup_type' => 'self',
                 'passengers' => [
                     ['full_name' => 'Nguyễn Người Lớn', 'passenger_type' => 'adult', 'id_card' => '012345678901'],
                     ['full_name' => 'Bé Trẻ Em', 'passenger_type' => 'child', 'date_of_birth' => null],
                 ],
             ]);
 
-        $response->assertSessionHasErrors(['passengers.1.date_of_birth']);
+        $response->assertSessionHasErrors(['passengers.1.id_card']);
     }
 
     /**
@@ -170,9 +171,9 @@ class InputValidationBugTest extends TestCase
     }
 
     /**
-     * BUG #5: Admin thêm lịch khởi hành cho phép giá trẻ em đắt hơn giá người lớn.
+     * Giá trẻ em cũ không được ghi đè mức giá chung của lịch khởi hành.
      */
-    public function test_admin_departure_rejects_child_price_greater_than_adult_price(): void
+    public function test_admin_departure_uses_one_price_and_ignores_legacy_child_price(): void
     {
         $admin = $this->createAdminEmployee();
         $tour = $this->createTour();
@@ -192,11 +193,11 @@ class InputValidationBugTest extends TestCase
             'status' => 'open',
         ]);
 
-        $response->assertSessionHasErrors(['child_price']);
-        $this->assertDatabaseMissing('tour_departures', [
+        $response->assertSessionHasNoErrors()->assertRedirect(route('admin.departures.index'));
+        $this->assertDatabaseHas('tour_departures', [
             'tour_id' => $tour->getKey(),
             'adult_price' => 1000000,
-            'child_price' => 9000000,
+            'child_price' => 1000000,
         ]);
     }
 

@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Employee;
 use App\Models\Tour;
+use App\Models\TourDeparture;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -12,7 +14,7 @@ class StoreDepartureRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return session()->has('employee_id');
+        return session()->has('employee_id') && Employee::whereKey(session('employee_id'))->where('is_active', true)->whereHas('role', fn ($q) => $q->whereIn('role_name', ['Admin', 'Sale']))->exists();
     }
 
     protected function prepareForValidation(): void
@@ -59,7 +61,8 @@ class StoreDepartureRequest extends FormRequest
             'max_seats' => ['required', 'integer', 'min:1', 'max:200'],
             'available_seats' => ['required', 'integer', 'min:0', 'lte:max_seats'],
             'adult_price' => ['required', 'numeric', 'min:0'],
-            'guide_id' => ['nullable', 'exists:employees,employee_id'],
+            'guide_id' => ['nullable', 'integer', 'exists:employees,employee_id'],
+            'cancellation_reason' => ['nullable', 'string', 'max:500'],
             'status' => ['required', Rule::in(['open', 'full', 'cancelled'])],
         ];
     }
@@ -69,6 +72,22 @@ class StoreDepartureRequest extends FormRequest
         $validator->after(function (Validator $validator): void {
             if ($validator->errors()->hasAny(['tour_id', 'departure_date', 'return_date'])) {
                 return;
+            }
+
+            if ($this->filled('guide_id') && ! $validator->errors()->has('guide_id')) {
+                $guide = Employee::with('role')->find($this->integer('guide_id'));
+                if (! $guide || ! $guide->is_active || $guide->role->role_name !== 'Guide') {
+                    $validator->errors()->add('guide_id', 'Hãy chọn hướng dẫn viên đang hoạt động.');
+                } elseif ($this->input('status') !== 'cancelled') {
+                    $current = $this->route('departure');
+                    $overlap = TourDeparture::where('guide_id', $guide->getKey())->where('status', '!=', 'cancelled')
+                        ->when($current instanceof TourDeparture, fn ($q) => $q->whereKeyNot($current->getKey()))
+                        ->whereDate('departure_date', '<=', $this->input('return_date'))
+                        ->whereDate('return_date', '>=', $this->input('departure_date'))->exists();
+                    if ($overlap) {
+                        $validator->errors()->add('guide_id', 'Hướng dẫn viên đã có chuyến trong khoảng ngày này.');
+                    }
+                }
             }
 
             $tour = Tour::find($this->integer('tour_id'));

@@ -102,6 +102,67 @@ document.querySelector('[data-sort-tours]')?.addEventListener('change', (event) 
     event.target.form?.requestSubmit();
 });
 
+const hotelStayForm = document.querySelector('[data-hotel-search]');
+if (hotelStayForm) {
+    const checkIn = hotelStayForm.querySelector('[data-hotel-check-in]');
+    const checkOut = hotelStayForm.querySelector('[data-hotel-check-out]');
+    const stayLength = hotelStayForm.querySelector('[data-hotel-stay-length]');
+    const submitButton = hotelStayForm.querySelector('[data-hotel-search-submit]');
+    const nextDay = (value) => {
+        if (!value) return '';
+        const date = new Date(`${value}T00:00:00`);
+        date.setDate(date.getDate() + 1);
+        return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+    };
+    const updateStay = (adjustCheckout = false) => {
+        const minimumCheckout = nextDay(checkIn.value);
+        checkOut.min = minimumCheckout;
+        if (adjustCheckout && minimumCheckout && (!checkOut.value || checkOut.value < minimumCheckout)) {
+            checkOut.value = minimumCheckout;
+        }
+        if (!stayLength) return;
+        if (!checkIn.value || !checkOut.value || checkOut.value <= checkIn.value) {
+            stayLength.textContent = 'Chọn ngày nhận và trả phòng để xem giá theo từng đêm.';
+            return;
+        }
+        const start = new Date(`${checkIn.value}T00:00:00`);
+        const end = new Date(`${checkOut.value}T00:00:00`);
+        const nights = Math.round((end - start) / 86400000);
+        stayLength.textContent = `${nights} đêm lưu trú · Giá tính theo từng đêm`;
+    };
+    checkIn.addEventListener('change', () => updateStay(true));
+    checkOut.addEventListener('change', () => updateStay());
+    hotelStayForm.addEventListener('submit', (event) => {
+        updateStay();
+        if (checkIn.value && checkOut.value && checkOut.value <= checkIn.value) {
+            event.preventDefault();
+            checkOut.setCustomValidity('Ngày trả phòng cần sau ngày nhận phòng.');
+            checkOut.reportValidity();
+            checkOut.addEventListener('change', () => checkOut.setCustomValidity(''), { once: true });
+            return;
+        }
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<span class="hotel-spinner" aria-hidden="true"></span> Đang tìm phòng…';
+        }
+    });
+    updateStay();
+}
+
+document.querySelectorAll('[data-hotel-gallery]').forEach((gallery) => {
+    const mainImage = gallery.querySelector('[data-gallery-main]');
+    const caption = gallery.querySelector('[data-gallery-caption]');
+    if (!mainImage) return;
+    gallery.querySelectorAll('[data-gallery-pick]').forEach((button) => {
+        button.addEventListener('click', () => {
+            mainImage.src = button.dataset.src;
+            mainImage.alt = button.dataset.alt || '';
+            if (caption) caption.textContent = button.dataset.caption || '';
+            gallery.querySelectorAll('[data-gallery-pick]').forEach((thumb) => thumb.setAttribute('aria-pressed', String(thumb === button)));
+        });
+    });
+});
+
 document.querySelector('[data-expand-itinerary]')?.addEventListener('click', (event) => {
     const days = [...document.querySelectorAll('[data-itinerary] details')];
     const shouldOpen = days.some((day) => !day.open);

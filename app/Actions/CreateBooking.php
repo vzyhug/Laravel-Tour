@@ -23,7 +23,11 @@ class CreateBooking
             $children = 0;
             $seats = $adults;
 
-            if ($departure->status !== 'open' || $departure->available_seats < $seats) {
+            if ($departure->departure_date->lt(today())) {
+                throw ValidationException::withMessages(['departure_id' => 'Lịch khởi hành đã qua, vui lòng chọn lịch khác.']);
+            }
+
+            if ($departure->operation_status !== 'scheduled' || $departure->is_private || $departure->status !== 'open' || $departure->available_seats < $seats) {
                 throw ValidationException::withMessages(['passengers' => 'Lịch khởi hành không còn đủ chỗ.']);
             }
 
@@ -57,6 +61,7 @@ class CreateBooking
                 'coupon_id' => $coupon?->getKey(),
                 'discount_amount' => $discount,
                 'status' => 'pending',
+                'hold_expires_at' => now()->addMinutes((int) config('booking.hold_minutes', 30)),
                 'pickup_type' => $pickupType,
                 'pickup_address' => $pickupType === 'door' ? ($data['pickup_address'] ?? null) : null,
                 'pickup_note' => $data['pickup_note'] ?? null,

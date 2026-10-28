@@ -13,7 +13,7 @@ class BookingController extends Controller
 {
     // Admin chỉ được xác nhận và hoàn thành đơn, không được hủy đơn của khách
     private const TRANSITIONS = [
-        'pending'   => ['confirmed'],
+        'pending' => ['confirmed'],
         'confirmed' => ['completed'],
         'completed' => [],
         'cancelled' => [],
@@ -28,9 +28,9 @@ class BookingController extends Controller
             ->when($keyword !== '', function ($q) use ($keyword) {
                 $q->where(function ($w) use ($keyword) {
                     $w->where('booking_code', 'like', "%{$keyword}%")
-                      ->orWhereHas('customer', fn ($c) => $c
-                          ->where('full_name', 'like', "%{$keyword}%")
-                          ->orWhere('email', 'like', "%{$keyword}%"));
+                        ->orWhereHas('customer', fn ($c) => $c
+                            ->where('full_name', 'like', "%{$keyword}%")
+                            ->orWhere('email', 'like', "%{$keyword}%"));
                 });
             })
             ->orderByDesc('booking_date')
@@ -59,12 +59,16 @@ class BookingController extends Controller
         $error = DB::transaction(function () use ($booking, $data) {
             $booking = Booking::with('departure')->lockForUpdate()->findOrFail($booking->getKey());
 
+            if ($booking->status === 'pending' && $booking->holdHasExpired()) {
+                return 'Đơn đã hết hạn giữ chỗ, không thể xác nhận.';
+            }
+
             if (! in_array($data['status'], self::TRANSITIONS[$booking->status] ?? [], true)) {
                 return 'Không thể chuyển đơn sang trạng thái này.';
             }
 
-            if ($data['status'] === 'completed' && $booking->departure->departure_date->isFuture()) {
-                return 'Chuyến đi chưa khởi hành nên chưa thể hoàn thành đơn.';
+            if ($data['status'] === 'completed' && $booking->departure->return_date->isFuture()) {
+                return 'Chuyến đi chưa đến ngày kết thúc nên chưa thể hoàn thành đơn.';
             }
 
             $booking->update(['status' => $data['status']]);

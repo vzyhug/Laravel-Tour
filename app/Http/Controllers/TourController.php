@@ -92,7 +92,7 @@ class TourController extends Controller
     public function show(Tour $tour): View
     {
         abort_unless($tour->is_active, 404);
-        $tour->load(['province', 'category', 'images', 'schedules', 'reviews.customer', 'departures' => fn ($q) => $q->where('status', 'open')->whereDate('departure_date', '>=', today())->orderBy('departure_date')]);
+        $tour->load(['province', 'category', 'images', 'schedules', 'reviews.customer', 'departures' => fn ($q) => $q->publiclyBookable()->where('status', 'open')->whereDate('departure_date', '>=', today())->orderBy('departure_date')]);
 
         return view('tours.show', ['tour' => $tour, 'itineraryData' => app(TourItineraryService::class)->payload($tour, session('customer_id') ? (int) session('customer_id') : null)]);
     }

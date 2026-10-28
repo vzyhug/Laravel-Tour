@@ -2,20 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bill;
+use App\Actions\ExpireBooking;
 use App\Models\Booking;
-use App\Models\Payment;
+use App\Models\PaymentAttempt;
+use App\Services\Payments\PaymentWorkflow;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class PaymentController extends Controller
 {
-    // Đơn ở các trạng thái này không được thanh toán nữa
-    private const CLOSED_STATUSES = ['cancelled', 'completed'];
-
     private function owned(Booking $booking): void
     {
         abort_unless($booking->customer_id === (int) session('customer_id'), 403);
@@ -24,28 +21,39 @@ class PaymentController extends Controller
     public function create(Booking $booking): View|RedirectResponse
     {
         $this->owned($booking);
-
-        if (in_array($booking->status, self::CLOSED_STATUSES, true)) {
+        app(ExpireBooking::class)->handle($booking);
+        $booking->refresh();
+        if (! in_array($booking->status, ['pending', 'confirmed'], true)) {
             return redirect()->route('customer.bookings.show', $booking);
         }
 
-        return view('booking.payment', ['booking' => $booking->load('departure.tour', 'passengers', 'payment')]);
+        return view('booking.payment', ['booking' => $booking->load('departure.tour', 'passengers', 'payment.attempts', 'payment.refunds'), 'attemptKey' => (string) Str::uuid()]);
     }
 
     public function store(Request $request, Booking $booking): RedirectResponse
     {
         $this->owned($booking);
-        $data = $request->validate(['payment_method' => ['required', 'in:bank_transfer,cash,momo,card']]);
+        $data = $request->validate([
+            'payment_method' => ['required', 'in:bank_transfer,cash,momo,card'],
+            'idempotency_key' => ['nullable', 'uuid'],
+            'demo_outcome' => ['nullable', 'in:succeeded,failed,pending'],
+        ]);
+        app(ExpireBooking::class)->handle($booking);
+        $attempt = app(PaymentWorkflow::class)->pay($booking, $data['payment_method'], $data['idempotency_key'] ?? (string) Str::uuid(), $data['demo_outcome'] ?? 'succeeded');
 
-        DB::transaction(function () use ($booking, $data) {
-            $lockedBooking = Booking::query()->lockForUpdate()->findOrFail($booking->getKey());
-            abort_if(in_array($lockedBooking->status, self::CLOSED_STATUSES, true), 409, 'Đơn hàng đã đóng, không thể thanh toán.');
-            abort_if($lockedBooking->payment()->exists(), 409, 'Đơn hàng đã được thanh toán.');
-            Payment::create(['booking_id' => $lockedBooking->getKey(), 'amount' => $lockedBooking->total_amount, 'payment_method' => $data['payment_method'], 'transaction_code' => 'TXN-'.Str::upper(Str::random(12)), 'status' => 'completed']);
-            $lockedBooking->update(['status' => 'confirmed']);
-            Bill::create(['bill_number' => 'INV-'.now()->format('Ymd').'-'.$lockedBooking->getKey(), 'booking_id' => $lockedBooking->getKey(), 'final_amount' => $lockedBooking->total_amount]);
+        return redirect()->route($attempt->status === 'succeeded' ? 'customer.bookings.show' : 'payments.create', $booking)->with('success', match ($attempt->status) {
+            'succeeded' => 'Thanh toán mô phỏng thành công.', 'failed' => 'Thanh toán mô phỏng thất bại. Bạn có thể thử lại.', default => 'Giao dịch mô phỏng đang chờ xử lý.',
         });
+    }
 
-        return redirect()->route('customer.bookings.show', $booking)->with('success', 'Thanh toán thành công.');
+    public function resolve(Request $request, PaymentAttempt $attempt): RedirectResponse
+    {
+        $booking = $attempt->payment->booking;
+        $this->owned($booking);
+        $data = $request->validate(['outcome' => ['required', 'in:succeeded,failed']]);
+        app(ExpireBooking::class)->handle($booking);
+        app(PaymentWorkflow::class)->settle($attempt, $data['outcome']);
+
+        return redirect()->route('customer.bookings.show', $booking)->with('success', 'Đã xử lý kết quả mô phỏng.');
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,11 +17,16 @@ class TourDeparture extends Model
 
     protected $primaryKey = 'departure_id';
 
-    protected $fillable = ['tour_id', 'departure_date', 'return_date', 'max_seats', 'available_seats', 'adult_price', 'child_price', 'guide_id', 'status', 'departure_time'];
+    protected $fillable = ['tour_id', 'departure_date', 'return_date', 'max_seats', 'available_seats', 'adult_price', 'child_price', 'guide_id', 'status', 'departure_time', 'is_private'];
 
     protected function casts(): array
     {
-        return ['departure_date' => 'date', 'return_date' => 'date', 'adult_price' => 'decimal:2', 'child_price' => 'decimal:2'];
+        return ['departure_date' => 'date', 'return_date' => 'date', 'adult_price' => 'decimal:2', 'child_price' => 'decimal:2', 'is_private' => 'boolean'];
+    }
+
+    public function scopePubliclyBookable(Builder $query): Builder
+    {
+        return $query->where('is_private', false);
     }
 
     public function tour(): BelongsTo
@@ -40,7 +47,7 @@ class TourDeparture extends Model
     public function getTimeLabelAttribute(): ?string
     {
         return $this->departure_time
-            ? \Carbon\Carbon::parse($this->departure_time)->format('h:i A')
+            ? Carbon::parse($this->departure_time)->format('h:i A')
             : null;
     }
 }

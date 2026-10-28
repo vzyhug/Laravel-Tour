@@ -38,36 +38,36 @@ class BranchIntegrationTest extends TestCase
             ->assertSee('data-booking-form', false)->assertSee($coupon->code)
             ->assertSee('name="pickup_type"', false)->assertSee($departure->time_label);
         $this->postJson(route('coupons.check'), [
-            'departure_id' => $departure->getKey(), 'adults' => 2, 'children' => 1, 'code' => ' welcome10 ',
-        ])->assertOk()->assertJson(['valid' => true, 'subtotal' => 2500000, 'discount' => 200000, 'total' => 2300000]);
+            'departure_id' => $departure->getKey(), 'adults' => 3, 'code' => ' welcome10 ',
+        ])->assertOk()->assertJson(['valid' => true, 'subtotal' => 3000000, 'discount' => 200000, 'total' => 2800000]);
 
         $payload = $this->bookingPayload($departure);
         $payload['passengers'][] = ['full_name' => 'Nguyễn Bình', 'passenger_type' => 'adult', 'id_card' => '012345678902'];
-        $payload['passengers'][] = ['full_name' => 'Nguyễn Chi', 'passenger_type' => 'child', 'date_of_birth' => today()->subYears(7)->toDateString()];
+        $payload['passengers'][] = ['full_name' => 'Nguyễn Chi', 'passenger_type' => 'child', 'id_card' => '012345678903', 'date_of_birth' => today()->subYears(7)->toDateString()];
         $payload += ['coupon_code' => ' welcome10 ', 'pickup_address' => '123 Đường Mới', 'pickup_note' => 'Liên hệ trước khi đón'];
         $payload['pickup_type'] = 'door';
         $response = $this->post(route('bookings.store'), $payload);
 
         $booking = $customer->bookings()->firstOrFail();
         $response->assertRedirect(route('payments.create', $booking));
-        $this->assertSame('2300000.00', $booking->total_amount);
+        $this->assertSame('2800000.00', $booking->total_amount);
         $this->assertSame('200000.00', $booking->discount_amount);
         $this->assertSame($coupon->getKey(), $booking->coupon_id);
         $this->assertSame('door', $booking->pickup_type);
         $this->assertSame('123 Đường Mới', $booking->pickup_address);
         $this->assertSame(7, $departure->fresh()->available_seats);
-        $this->get(route('payments.create', $booking))->assertOk()->assertSee($coupon->code)->assertSee('2.300.000₫');
+        $this->get(route('payments.create', $booking))->assertOk()->assertSee($coupon->code)->assertSee('2.800.000₫');
         $this->post(route('payments.store', $booking), ['payment_method' => 'bank_transfer'])
             ->assertRedirect(route('customer.bookings.show', $booking));
-        $this->assertDatabaseHas('payments', ['booking_id' => $booking->getKey(), 'amount' => 2300000, 'status' => 'completed']);
+        $this->assertDatabaseHas('payments', ['booking_id' => $booking->getKey(), 'amount' => 2800000, 'status' => 'completed']);
         $this->get(route('customer.bookings.show', $booking))->assertOk()
             ->assertSee('123 Đường Mới')->assertSee(route('customer.bookings.cancel', $booking), false);
-        $this->get(route('customer.bookings.invoice', $booking))->assertOk()->assertSee('2.300.000');
+        $this->get(route('customer.bookings.invoice', $booking))->assertOk()->assertSee('2.800.000');
 
         $this->post(route('customer.bookings.cancel', $booking), ['cancel_reason' => 'Thay đổi kế hoạch'])
             ->assertSessionHasNoErrors();
         $this->assertSame('cancelled', $booking->fresh()->status);
-        $this->assertSame('2300000.00', $booking->fresh()->refund_amount);
+        $this->assertSame('2800000.00', $booking->fresh()->refund_amount);
         $this->assertSame('refunded', $booking->payment()->firstOrFail()->status);
         $this->assertSame(10, $departure->fresh()->available_seats);
         $this->post(route('customer.bookings.cancel', $booking), ['cancel_reason' => 'Thử hủy lần nữa'])
@@ -149,14 +149,14 @@ class BranchIntegrationTest extends TestCase
         $this->assertSame('pending', $tooLate->fresh()->status);
     }
 
-    public function test_invalid_child_dates_and_adult_identity_return_validation_errors_without_a_500(): void
+    public function test_invalid_passenger_dates_and_identity_return_validation_errors_without_a_500(): void
     {
         $customer = Customer::factory()->create();
         $departure = TourDeparture::factory()->create();
         $this->withSession(['customer_id' => $customer->getKey()]);
-        foreach (['not-a-date', today()->subYears(12)->toDateString()] as $date) {
+        foreach (['not-a-date', today()->addDay()->toDateString()] as $date) {
             $payload = $this->bookingPayload($departure);
-            $payload['passengers'][] = ['full_name' => 'Trẻ em', 'passenger_type' => 'child', 'date_of_birth' => $date];
+            $payload['passengers'][] = ['full_name' => 'Hành khách', 'id_card' => '012345678902', 'date_of_birth' => $date];
             $this->post(route('bookings.store'), $payload)->assertSessionHasErrors('passengers.1.date_of_birth');
         }
         $payload = $this->bookingPayload($departure);

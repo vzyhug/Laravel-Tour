@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'hold_minutes' => 30,
+
     // Khách chỉ được hủy khi còn cách ngày khởi hành tối thiểu số ngày này
     'cancel_before_days' => 5,
 

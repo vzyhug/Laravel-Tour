@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -16,11 +17,26 @@ class Booking extends Model
 
     protected $primaryKey = 'booking_id';
 
-    protected $fillable = ['booking_code', 'customer_id', 'departure_id', 'total_adults', 'total_children', 'total_amount', 'status', 'created_by_employee', 'pickup_type', 'pickup_address', 'pickup_note', 'cancelled_at', 'cancel_reason', 'refund_percent', 'refund_amount', 'coupon_id', 'discount_amount'];
+    protected $fillable = ['booking_code', 'customer_id', 'departure_id', 'total_adults', 'total_children', 'total_amount', 'status', 'created_by_employee', 'pickup_type', 'pickup_address', 'pickup_note', 'cancelled_at', 'cancel_reason', 'refund_percent', 'refund_amount', 'coupon_id', 'discount_amount', 'hold_expires_at', 'consultation_id', 'quote_snapshot'];
 
     protected function casts(): array
     {
-        return ['booking_date' => 'datetime', 'cancelled_at' => 'datetime', 'total_amount' => 'decimal:2', 'refund_amount' => 'decimal:2', 'discount_amount' => 'decimal:2'];
+        return ['quote_snapshot' => 'array', 'hold_expires_at' => 'datetime', 'booking_date' => 'datetime', 'cancelled_at' => 'datetime', 'total_amount' => 'decimal:2', 'refund_amount' => 'decimal:2', 'discount_amount' => 'decimal:2'];
+    }
+
+    public function holdHasExpired(): bool
+    {
+        return $this->hold_expires_at !== null && $this->hold_expires_at->lte(now());
+    }
+
+    public function changes(): HasMany
+    {
+        return $this->hasMany(BookingChange::class, 'booking_id')->latest('id');
+    }
+
+    public function consultation(): BelongsTo
+    {
+        return $this->belongsTo(ItineraryConsultation::class, 'consultation_id');
     }
 
     public function customer(): BelongsTo
@@ -48,7 +64,7 @@ class Booking extends Model
         return $this->hasOne(Bill::class, 'booking_id');
     }
 
-    public function cancelDeadline(): \Carbon\Carbon
+    public function cancelDeadline(): Carbon
     {
         return $this->departure->departure_date->copy()
             ->subDays((int) config('booking.cancel_before_days'))

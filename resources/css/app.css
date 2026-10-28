@@ -48,6 +48,36 @@
     .tour-card { @apply relative flex h-full flex-col overflow-hidden rounded-xl border border-[#e8ded5] bg-white transition duration-300 hover:-translate-y-1 hover:shadow-lg; }
     .tour-card-image { @apply relative aspect-[4/3] overflow-hidden bg-linen; }
     .tour-card-image img { @apply size-full object-cover transition duration-700 group-hover:scale-105; }
+    .hotel-catalog-hero { min-height: 420px; box-shadow: 0 24px 70px rgba(49, 32, 24, .16); }
+    .hotel-catalog-hero > img { animation: hotel-hero-drift 24s ease-in-out infinite alternate; }
+    .hotel-search-field { @apply min-h-16 rounded-xl bg-sand px-4 py-3 transition focus-within:ring-2 focus-within:ring-brand-500; }
+    .destination-pill { @apply inline-flex min-h-12 shrink-0 items-center gap-2 rounded-full border border-[#e7dcd1] bg-white px-4 py-2 text-xs font-medium text-ink transition duration-200 hover:-translate-y-0.5 hover:border-brand-500 hover:bg-brand-50; }
+    .destination-pill-active { @apply border-brand-600 bg-brand-600 text-white hover:bg-brand-700 hover:text-white; }
+    .destination-pill-count { @apply grid size-6 place-items-center rounded-full bg-black/5 text-[10px] text-current; }
+    .hotel-card { @apply overflow-hidden rounded-2xl border border-[#e7dcd1] bg-white transition duration-300 hover:-translate-y-1 hover:border-[#d9b39e] hover:shadow-[0_18px_45px_rgba(58,40,25,.12)]; }
+    .hotel-card-image { @apply relative aspect-[1.28/1] overflow-hidden bg-linen; }
+    .hotel-card-image img { @apply size-full object-cover transition duration-700 group-hover:scale-105; }
+    .hotel-card-image::after { content: ''; @apply pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/10; }
+    .hotel-card-photo-count { @apply absolute left-4 top-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-2 text-[10px] font-semibold text-ink shadow-sm backdrop-blur; }
+    .hotel-card-photo-price { @apply absolute bottom-4 left-4 z-10 rounded-full bg-white px-3 py-2 text-[10px] font-bold text-brand-700 shadow-sm; }
+    .hotel-card-arrow { @apply absolute bottom-4 right-4 z-10 grid size-10 place-items-center rounded-full bg-white/90 text-ink transition duration-200 group-hover:-translate-y-0.5 group-hover:bg-brand-600 group-hover:text-white; }
+    .hotel-search-hero { @apply relative isolate min-h-[330px] overflow-hidden rounded-[2rem] bg-[#35261f] sm:min-h-[390px]; }
+    .hotel-search-hero > img { animation: hotel-hero-drift 24s ease-in-out infinite alternate; }
+    .hotel-info-chip { @apply inline-flex min-h-10 items-center gap-2 rounded-full border border-[#e7dcd1] bg-white px-4 py-2 text-[11px] text-muted; }
+    .hotel-gallery-caption { @apply absolute bottom-5 left-5 z-10 max-w-[70%] rounded-full bg-black/45 px-3 py-2 text-[10px] text-white backdrop-blur; }
+    .hotel-gallery-count { @apply absolute right-4 top-4 z-10 inline-flex items-center rounded-full bg-black/45 px-3 py-2 text-[10px] text-white backdrop-blur; }
+    .hotel-booking-card { @apply rounded-3xl border border-[#eadfd6] bg-white p-6 shadow-[0_18px_55px_rgba(58,40,25,.08)] sm:p-7; }
+    .room-offer-card { @apply grid gap-5 rounded-2xl border border-[#e7dcd1] bg-white p-5 transition duration-300 hover:border-[#d9b39e] hover:shadow-[0_12px_36px_rgba(58,40,25,.08)] md:grid-cols-[auto_minmax(0,1fr)_250px] md:p-6; }
+    .room-offer-icon { @apply grid size-14 place-items-center rounded-2xl bg-brand-50 text-brand-600; }
+    .room-offer-price { @apply rounded-2xl bg-sand p-4 md:p-5; }
+    .hotel-empty-state { @apply flex flex-col gap-5 rounded-3xl border border-dashed border-[#d9cabe] bg-linen/60 p-6 sm:flex-row sm:items-center sm:p-9; }
+    .hotel-process-step { @apply relative overflow-hidden rounded-2xl border border-[#e7dcd1] bg-white p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lg; }
+    .hotel-process-number { @apply absolute right-4 top-1 font-serif text-6xl text-brand-50; }
+    .hotel-spinner { @apply size-4 animate-spin rounded-full border-2 border-white/40 border-t-white; }
+    .hotel-gallery-main { @apply relative min-h-80 overflow-hidden rounded-3xl bg-linen sm:min-h-[460px]; }
+    .hotel-gallery-main img { @apply absolute inset-0 size-full object-cover; }
+    .hotel-gallery-thumb { @apply relative aspect-[1.4/1] min-h-32 overflow-hidden rounded-2xl bg-linen; }
+    .hotel-gallery-thumb img { @apply size-full object-cover transition duration-500 group-hover:scale-105; }
     .editorial-image { @apply relative isolate overflow-hidden rounded-xl bg-linen; }
     .editorial-image img { @apply absolute inset-0 -z-20 size-full object-cover transition duration-700; }
     .editorial-image::after { content: ''; @apply absolute inset-0 -z-10 bg-gradient-to-t from-black/80 via-black/15 to-transparent; }
@@ -71,7 +101,13 @@
     .travel-site h1, .travel-site h2, .travel-site h3 { text-wrap: pretty; }
 }
 
+@keyframes hotel-hero-drift {
+    from { transform: scale(1.02) translateX(0); }
+    to { transform: scale(1.08) translateX(-1.5%); }
+}
+
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    .hotel-catalog-hero > img { animation: none; }
 }

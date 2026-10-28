@@ -49,7 +49,7 @@ document.querySelectorAll('[data-personal-itinerary]').forEach((root) => {
         container.replaceChildren();
         state.consultations.forEach((request) => {
             const card = el('article', 'rounded-lg border border-[#e5d9cf] bg-white p-4');
-            const labels = { submitted: 'Đang chờ tư vấn', quoted: 'Đã có báo giá', closed: 'Đã đóng' };
+            const labels = { submitted: 'Đang chờ tư vấn', quoted: 'Đã có báo giá', accepted: 'Đã chấp nhận báo giá', rejected: 'Đã từ chối báo giá', closed: 'Đã đóng' };
             card.append(el('p', 'font-semibold text-sm', `Yêu cầu #${request.id} · ${labels[request.status] || request.status} · Lịch phiên bản ${request.itinerary_version}`));
             const link = el('a', 'text-link mt-3 inline-block', 'Xem lịch đã gửi và phản hồi');
             link.href = request.url;

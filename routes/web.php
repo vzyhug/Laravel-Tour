@@ -23,6 +23,13 @@ use App\Http\Controllers\TourItineraryController;
 use App\Models\Tour;
 use Illuminate\Support\Facades\Route;
 
+require __DIR__.'/booking_lifecycle.php';
+require __DIR__.'/payment_workflows.php';
+require __DIR__.'/custom_tour_checkout.php';
+require __DIR__.'/hotel_booking.php';
+require __DIR__.'/account_recovery.php';
+require __DIR__.'/tour_operations.php';
+
 Route::get('/destinations', [DestinationController::class, 'index'])->name('destinations.index');
 Route::get('/destinations/{destination}', [DestinationController::class, 'show'])->name('destinations.show');
 Route::get('/places', [DestinationController::class, 'places'])->name('places.index');

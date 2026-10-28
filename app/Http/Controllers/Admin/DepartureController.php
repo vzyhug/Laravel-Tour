@@ -7,7 +7,11 @@ use App\Http\Requests\StoreDepartureRequest;
 use App\Models\Employee;
 use App\Models\Tour;
 use App\Models\TourDeparture;
+use App\Services\Operations\CancelDeparture;
+use App\Services\Operations\SaveDeparture;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class DepartureController extends Controller
@@ -24,10 +28,12 @@ class DepartureController extends Controller
 
     public function edit(TourDeparture $departure): View
     {
+        abort_if($departure->is_private, 404);
+
         return view('admin.departures.form', $this->formData($departure));
     }
 
-    public function store(StoreDepartureRequest $request): RedirectResponse
+    public function store(StoreDepartureRequest $request, SaveDeparture $saveDeparture): RedirectResponse
     {
         $data = $request->validated();
         // Keep the legacy column populated for old invoice/report code; new bookings use one fare.
@@ -35,16 +41,17 @@ class DepartureController extends Controller
         $default = config('booking.default_departure_time');
 
         // Chỉ Admin được đặt giờ, người khác dùng giờ mặc định
-        $data['departure_time'] = $this->canEditTime(new TourDeparture())
+        $data['departure_time'] = $this->canEditTime(new TourDeparture)
             ? ($data['departure_time'] ?? $default)
             : $default;
 
-        TourDeparture::create($data);
+        unset($data['cancellation_reason']);
+        $saveDeparture->handle($data);
 
         return redirect()->route('admin.departures.index')->with('success', 'Đã thêm lịch khởi hành.');
     }
 
-    public function update(StoreDepartureRequest $request, TourDeparture $departure): RedirectResponse
+    public function update(StoreDepartureRequest $request, TourDeparture $departure, SaveDeparture $saveDeparture, CancelDeparture $cancelDeparture): RedirectResponse
     {
         $data = $request->validated();
 
@@ -53,14 +60,24 @@ class DepartureController extends Controller
             unset($data['departure_time']);
         }
 
-        $departure->update($data);
+        $reason = $data['cancellation_reason'] ?? 'Nhà tổ chức hủy chuyến.';
+        unset($data['cancellation_reason']);
+        DB::transaction(function () use ($data, $departure, $saveDeparture, $cancelDeparture, $reason) {
+            if ($data['status'] === 'cancelled') {
+                // Do not persist cancelled before CancelDeparture has processed affected bookings.
+                $cancelDeparture->handle($departure, (int) session('employee_id'), $reason);
+            } else {
+                $saveDeparture->handle($data, $departure);
+            }
+        }, 3);
 
         return redirect()->route('admin.departures.index')->with('success', 'Đã cập nhật lịch khởi hành.');
     }
 
-    public function destroy(TourDeparture $departure): RedirectResponse
+    public function destroy(Request $request, TourDeparture $departure, CancelDeparture $cancelDeparture): RedirectResponse
     {
-        $departure->update(['status' => 'cancelled']);
+        $data = $request->validate(['cancellation_reason' => ['nullable', 'string', 'max:500']]);
+        $cancelDeparture->handle($departure, (int) session('employee_id'), $data['cancellation_reason'] ?? 'Nhà tổ chức hủy chuyến.');
 
         return back()->with('success', 'Đã hủy lịch khởi hành.');
     }

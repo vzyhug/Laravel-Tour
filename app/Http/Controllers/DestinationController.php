@@ -25,7 +25,10 @@ class DestinationController extends Controller
 
     public function show(Destination $destination): View
     {
-        $destination->load(['places.images', 'places.destinations', 'hotels.images', 'hotels.destination']);
+        $destination->load([
+            'places.images', 'places.destinations', 'hotels.images', 'hotels.destination',
+            'hotels.roomTypes' => fn ($rooms) => $rooms->where('is_active', true)->withMin(['inventory as min_nightly_price' => fn ($nights) => $nights->whereDate('stay_date', '>=', today())], 'nightly_price'),
+        ]);
 
         $tours = Tour::active()->with(['province', 'category', 'images'])
             ->whereHas('schedules.stops.place.destinations', fn ($query) => $query->where('destinations.id', $destination->id))
@@ -47,25 +50,39 @@ class DestinationController extends Controller
     public function hotels(Request $request): View
     {
         $filters = $this->filters($request);
-        $records = $this->search(Hotel::with(['destination', 'images']), $filters)->orderBy('name')->paginate(9)->withQueryString();
+        $request->validate(['sort' => ['nullable', Rule::in(['name'])]]);
+        $query = $this->search(Hotel::with(['destination', 'images', 'roomTypes' => fn ($rooms) => $rooms->where('is_active', true)->withMin(['inventory as min_nightly_price' => fn ($nights) => $nights->whereDate('stay_date', '>=', today())], 'nightly_price')]), $filters);
+        $query->orderBy('name');
+        $records = $query->paginate(9)->withQueryString();
+        $destinations = Destination::query()->whereHas('hotels')->withCount('hotels')->orderBy('name')->get();
+        $featuredSlugs = ['vung-tau', 'ha-noi', 'da-nang', 'da-lat', 'phu-quoc', 'ha-long'];
+        $featuredDestinations = $destinations->filter(fn (Destination $destination) => in_array($destination->slug, $featuredSlugs, true))
+            ->sortBy(fn (Destination $destination) => array_search($destination->slug, $featuredSlugs, true))
+            ->values();
 
-        return view('directory.index', ['records' => $records, 'kind' => 'hotels', 'destinations' => Destination::orderBy('name')->get(), 'categories' => []]);
+        return view('directory.index', ['records' => $records, 'kind' => 'hotels', 'destinations' => $destinations, 'featuredDestinations' => $featuredDestinations, 'categories' => []]);
     }
 
     public function place(ItineraryPlace $place): View
     {
         $place->load(['destinations', 'images']);
-        $hotels = Hotel::whereIn('destination_id', $place->destinations->modelKeys())->with(['images', 'destination'])->orderBy('name')->limit(4)->get();
+        $hotels = Hotel::whereIn('destination_id', $place->destinations->modelKeys())->with([
+            'images', 'destination',
+            'roomTypes' => fn ($rooms) => $rooms->where('is_active', true)->withMin(['inventory as min_nightly_price' => fn ($nights) => $nights->whereDate('stay_date', '>=', today())], 'nightly_price'),
+        ])->orderBy('name')->limit(4)->get();
 
         return view('directory.show', ['record' => $place, 'kind' => 'places', 'hotels' => $hotels]);
     }
 
     public function hotel(Hotel $hotel): View
     {
-        $hotel->load(['destination', 'images']);
+        $hotel->load(['destination', 'images', 'roomTypes' => fn ($query) => $query->where('is_active', true)->withMin(['inventory as min_nightly_price' => fn ($nights) => $nights->whereDate('stay_date', '>=', today())], 'nightly_price')]);
         $places = $hotel->destination->places()->with(['images', 'destinations'])->orderBy('name')->limit(6)->get();
+        $tours = Tour::active()->with(['province', 'category', 'images'])
+            ->whereHas('schedules.stops.place.destinations', fn ($query) => $query->where('destinations.id', $hotel->destination_id))
+            ->orderBy('tour_id')->limit(3)->get();
 
-        return view('directory.show', ['record' => $hotel, 'kind' => 'hotels', 'places' => $places]);
+        return view('directory.show', ['record' => $hotel, 'kind' => 'hotels', 'places' => $places, 'tours' => $tours]);
     }
 
     private function filters(Request $request, bool $places = false): array

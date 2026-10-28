@@ -8,12 +8,14 @@
 <body class="min-h-screen bg-slate-100">
 <div class="min-h-screen lg:grid lg:grid-cols-[260px_1fr]">
     <aside class="bg-ink p-5 text-slate-300 lg:min-h-screen">
-        <div class="flex items-center justify-between"><a href="{{ route('admin.dashboard') }}" class="text-xl font-black text-white">VietGo Admin</a><button class="rounded-lg p-2 lg:hidden" data-menu-toggle="admin-menu" aria-expanded="false" aria-label="Mở menu">☰</button></div>
+        <div class="flex items-center justify-between"><a href="{{ route(session('employee_role') === 'Guide' ? 'operations.index' : 'admin.dashboard') }}" class="text-xl font-black text-white">VietGo Admin</a><button class="rounded-lg p-2 lg:hidden" data-menu-toggle="admin-menu" aria-expanded="false" aria-label="Mở menu">☰</button></div>
         <nav id="admin-menu" class="mt-8 hidden gap-2 lg:grid" aria-label="Menu quản trị">
             @foreach([
-                ['admin.dashboard','Tổng quan'], ['admin.itinerary-consultations.index','Tư vấn lịch trình'], ['admin.tours.index','Quản lý tour'], ['admin.departures.index','Lịch khởi hành'], ['admin.bookings.index','Đơn đặt tour'], ['admin.coupons.index','Mã giảm giá'], ['admin.customers.index','Khách hàng'], ['admin.employees.index','Nhân viên'], ['admin.payments.index','Thanh toán'], ['admin.provinces.index','Địa điểm']
+                ['admin.dashboard','Tổng quan'], ['operations.index','Điều hành chuyến đi'], ['admin.itinerary-consultations.index','Tư vấn lịch trình'], ['admin.tours.index','Quản lý tour'], ['admin.departures.index','Lịch khởi hành'], ['admin.bookings.index','Đơn đặt tour'], ['admin.hotel-booking.index','Đặt phòng khách sạn'], ['admin.coupons.index','Mã giảm giá'], ['admin.customers.index','Khách hàng'], ['admin.employees.index','Nhân viên'], ['admin.payments.index','Thanh toán'], ['admin.provinces.index','Địa điểm']
             ] as [$name,$label])
-                <a href="{{ route($name) }}" class="rounded-xl px-4 py-3 font-medium transition {{ request()->routeIs($name) ? 'bg-brand-600 text-white' : 'hover:bg-white/10 hover:text-white' }}">{{ $label }}</a>
+                @if((session('employee_role') !== 'Guide' || $name === 'operations.index') && (session('employee_role') === 'Admin' || !in_array($name, ['admin.coupons.index', 'admin.employees.index', 'admin.provinces.index'], true)))
+                    <a href="{{ route($name) }}" class="rounded-xl px-4 py-3 font-medium transition {{ request()->routeIs($name) ? 'bg-brand-600 text-white' : 'hover:bg-white/10 hover:text-white' }}">{{ $label }}</a>
+                @endif
             @endforeach
             <form action="{{ route('admin.logout') }}" method="POST" class="mt-6">@csrf<button class="w-full rounded-xl border border-white/20 px-4 py-3 text-left font-medium hover:bg-white/10">Đăng xuất</button></form>
         </nav>

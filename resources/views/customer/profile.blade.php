@@ -23,5 +23,5 @@
         @error('address') <span class="text-xs font-semibold text-red-600 mt-1 block">{{ $message }}</span> @enderror
     </label>
     <button class="btn-primary">Lưu thay đổi</button>
-</form></div></section>
+</form><a class="text-link mt-5 inline-block" href="{{ route('customer.password.change') }}">Đổi mật khẩu</a></div></section>
 @endsection

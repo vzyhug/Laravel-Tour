@@ -1,7 +1,11 @@
 @extends('layouts.app')
 @section('title', 'Chuyến đi của tôi · VietGo')
 @section('content')
-<div class="container-page pt-5"><a class="text-link" href="{{ route('tour-itinerary.index') }}">Lịch tùy chỉnh & yêu cầu tư vấn của tôi →</a></div>
+<nav class="container-page flex flex-wrap gap-5 pt-5" aria-label="Quản lý đặt chỗ">
+    <a class="text-link" href="{{ route('tour-itinerary.index') }}">Lịch tùy chỉnh & tư vấn</a>
+    <a class="text-link" href="{{ route('customer.booking-changes.index') }}">Đổi lịch tour & lịch sử thay đổi</a>
+    <a class="text-link" href="{{ route('hotel-bookings.index') }}">Đơn đặt phòng</a>
+</nav>
 <div class="relative isolate overflow-hidden">
     <div class="pointer-events-none absolute -top-20 left-1/4 -z-10 size-96 rounded-full bg-brand-100/20 blur-3xl"></div>
     <div class="container-page py-8 sm:py-10">
