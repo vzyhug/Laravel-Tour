@@ -25,6 +25,6 @@ class ItineraryPlace extends Model
 
     public function images()
     {
-        return $this->hasMany(ItineraryPlaceImage::class, 'place_id');
+        return $this->hasMany(ItineraryPlaceImage::class, 'place_id')->orderBy('id');
     }
 }

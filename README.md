@@ -42,9 +42,11 @@ Mặc định `.env.example` dùng MySQL database `tour_booking`. Có thể đ�
 
 ## Dữ liệu mẫu, factory và ảnh địa danh
 
-Seeder hiện có **30 tour**, **83 ngày lịch trình**, **120 lịch khởi hành**, **24 khách hàng**, **120 đơn đặt tour**, **300 hành khách**, **60 thanh toán**, **60 hóa đơn** và **30 đánh giá**. Có 14 factory nghiệp vụ, bên cạnh `UserFactory` có sẵn.
+Seeder hiện có **32 tour**, **88 ngày lịch trình**, **126 lịch khởi hành**, **24 khách hàng**, **120 đơn đặt tour**, **300 hành khách**, **60 thanh toán**, **60 hóa đơn** và **30 đánh giá**. Có 14 factory nghiệp vụ, bên cạnh `UserFactory` có sẵn.
 
-Ảnh dùng **Supabase Storage chung**; dữ liệu nghiệp vụ giữ ở MySQL. Danh mục có **244 tham chiếu ảnh nguồn dùng chung 224 file trên cloud**, được chuyển một lần bằng `media:migrate --apply`. Seeder/factory đọc manifest cloud, không upload và không cần ảnh local sau chuyển. Ảnh nguồn tạm được giữ để chuyển/khôi phục; metadata gốc tiếp tục được bảo toàn trong dữ liệu nội bộ; giao diện học tập đã bỏ phần nguồn/quyền ảnh. Xem [cấu hình, chuyển ảnh và nghiệm thu Supabase](docs/SUPABASE_STORAGE.md).
+120 địa danh có giới thiệu riêng và tổng cộng 335 ảnh (2–3 ảnh/địa danh), bấm ảnh để mở bộ xem phóng to. Xem [thư viện ảnh địa danh](docs/PLACE_GALLERIES.md).
+
+Ảnh dùng **Supabase Storage chung**; dữ liệu nghiệp vụ giữ ở MySQL. Danh mục có **459 tham chiếu ảnh nguồn dùng chung 438 file trên cloud**, được chuyển một lần bằng `media:migrate --apply`. Seeder/factory đọc manifest cloud, không upload và không cần ảnh local sau chuyển. Ảnh nguồn tạm được giữ để chuyển/khôi phục; metadata gốc tiếp tục được bảo toàn trong dữ liệu nội bộ; giao diện học tập đã bỏ phần nguồn/quyền ảnh. Xem [cấu hình, chuyển ảnh và nghiệm thu Supabase](docs/SUPABASE_STORAGE.md).
 
 Để phát triển offline, đặt `MEDIA_DRIVER=local` trước khi seed; chế độ này bị chặn trong production.
 
@@ -63,3 +65,7 @@ Xem [hướng dẫn seeder, factory và tải lại ảnh](docs/SEEDING.md) đ�
 ## Dữ liệu Spring cũ
 
 File SQL ban đầu nằm tại `legacy-spring/src/main/resources/mysql_query/Java_data_query.sql`. Schema Laravel giữ tên bảng và khóa chính tương thích để thuận tiện tái sử dụng dữ liệu hiện có. Các password dạng BCrypt của Spring có thể được Laravel xác thực; các chuỗi demo như `hash123` phải được reset/hash lại.
+
+## Thanh toán QR demo
+
+Có luồng VietQR mô phỏng: tạo QR theo đơn, chờ kết quả, mô phỏng thành công/thất bại/hết hạn và tạo hóa đơn sau thành công. Bật `PAYMENT_DEMO_ENABLED=true` trong môi trường local, chạy migration và build giao diện. Xem [hướng dẫn trình diễn trước giảng viên](docs/QR_PAYMENT_DEMO.md).

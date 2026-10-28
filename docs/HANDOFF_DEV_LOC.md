@@ -4,11 +4,11 @@
 
 Nhánh chứa phần kho ảnh Supabase và đợt bổ sung danh mục, khách sạn, tour mới. Database nghiệp vụ vẫn dùng MySQL. Main đã kiểm tra tại commit `58e75be`; trước lần đẩy này, dev-Loc trên GitHub ở `0be8e69` và không có thay đổi từ thành viên khác.
 
-- 31 nhóm điểm đến, 120 địa danh có ảnh và 64 khách sạn/resort/lodge. Vũng Tàu có 4 cơ sở, mỗi điểm đến khác có 2.
+- 31 nhóm điểm đến, 120 địa danh có giới thiệu riêng và 335 ảnh (2–3 ảnh/địa danh), 64 khách sạn/resort/lodge. Vũng Tàu có 4 cơ sở, mỗi điểm đến khác có 2.
 - Trang tìm kiếm, bộ lọc, phân trang, chi tiết và liên kết tour theo điểm đến: `/destinations`, `/places`, `/hotels`.
 - Thêm hai tour Vũng Tàu 2N1Đ và 3N2Đ, đủ lịch trình và 6 lịch khởi hành tương lai. Tổng bộ mẫu: 32 tour, 88 ngày chương trình, 133 điểm dừng, 126 lịch khởi hành và 64 ảnh tour.
 - Seeder/factory cho điểm đến, địa danh, khách sạn, ảnh khách sạn và hai chương trình mới; chạy lại không nhân bản các bản ghi mẫu. Lịch khởi hành neo theo ngày chạy nên có thể thêm đợt mới khi chạy vào ngày khác.
-- 72 ảnh danh mục mới được tải về làm nguồn khôi phục. Web dùng URL Supabase: 244 tham chiếu nguồn ứng với 224 file theo nội dung. Mở rộng lệnh chuyển/kiểm tra/khôi phục ảnh để quản lý cả ảnh khách sạn.
+- 72 ảnh danh mục mới được tải về làm nguồn khôi phục. Sau đợt thư viện ảnh, web dùng URL Supabase: 459 tham chiếu nguồn ứng với 438 file theo nội dung. Mở rộng lệnh chuyển/kiểm tra/khôi phục ảnh để quản lý cả ảnh khách sạn.
 
 ## Cập nhật máy đã có dữ liệu tour cũ
 
@@ -95,3 +95,25 @@ Kiểm tra liên quan: 15/15 trên SQLite (215 assertions), 7/7 trên MySQL (121
 Máy chủ kiểm tra lại cả khi JavaScript không chạy hoặc URL bị sửa. Khi lỗi, web bỏ hai giá khỏi URL kết quả để tránh vòng lặp chuyển hướng, giữ nguyên giá nhập trong form cùng tỉnh/từ khóa/sắp xếp và hiện lỗi; JSON trả 422 cho trường sai. Kiểm thử cũ kỳ vọng tự đảo khoảng giá đã được cập nhật theo yêu cầu mới.
 
 Đã thử trên trình duyệt đúng ví dụ 5.000.000 → 111.111, chặn gửi form, sửa thì hết lỗi, khoảng bằng nhau/một đầu, giá âm/chữ và giữ lại dữ liệu sau lỗi máy chủ; desktop/mobile không tràn ngang. MySQL: 11/11 kiểm thử liên quan đạt, 166 assertions. Toàn bộ SQLite: 68/76 đạt, 8 trường hợp lỗi cũ trùng báo cáo trước, không có tên kiểm thử thất bại mới. Build, kiểm tra cú pháp JavaScript và diff đạt.
+
+## Bổ sung giới thiệu và thư viện ảnh địa danh
+
+- Thay 112 đoạn mô tả chung bằng giới thiệu riêng; giữ 8 giới thiệu Vũng Tàu đã có. Bổ sung 215 ảnh thực tế cho toàn bộ 120 địa danh, tổng 335 ảnh. Snapshot mới: `database/data/place-galleries.json`, seeder: `PlaceGallerySeeder`.
+- Bấm ảnh để phóng to, dùng Trước/Sau hoặc phím mũi tên; Escape, nút Đóng hoặc nền ngoài đóng ảnh và trả focus về ảnh đã chọn. Dùng được trên điện thoại. Ảnh trong lịch tour/lịch riêng cũng có thể phóng to. Không thêm phần nguồn/quyền ảnh trên giao diện.
+- 25 kiểm thử liên quan đạt trên MySQL (2.931 assertions); toàn bộ SQLite có 70/78 đạt (5.344 assertions). 8 lỗi còn lại trùng bộ lỗi cũ, không có trường hợp lỗi mới. Kiểm thử mới xác nhận đủ địa danh, checksum/file ảnh, tính lặp lại của seeder và giữ nguyên ảnh đại diện/lịch trình.
+- Hướng dẫn cập nhật: [PLACE_GALLERIES.md](PLACE_GALLERIES.md). Chạy chuyển ảnh trước khi chạy seeder; không reset database đang có đơn.
+
+Nghiệm thu thư viện ảnh trên máy demo: đủ 459 mapping/438 object đã tải công khai và so SHA-256 khi chuyển; `media:verify` xác nhận không còn tham chiếu local; audit 32 tour/88 ngày/133 điểm dừng/335 ảnh không có vấn đề. Snapshot dữ liệu trước/sau xác nhận giữ nguyên tour, đơn, hành khách, thanh toán, lịch khởi hành và lịch chương trình đã có. Trình duyệt kiểm tra Phong Nha, Cầu Rồng, chợ Sa Pa, khách sạn Pullman và ảnh trong lịch tour; mở/đóng/chuyển ảnh, phím mũi tên/Escape, focus, URL cloud và bố cục 390px đạt. Web demo ở cổng 8001.
+
+## Thanh toán QR demo
+
+Thêm luồng VietQR mô phỏng dành cho trình diễn học tập: QR SVG riêng theo đơn/số tiền sau giảm giá, thời hạn 10 phút, chờ kết quả rồi mới ghi payment/xác nhận booking/tạo hóa đơn. Tab ngân hàng mô phỏng có ba kết quả thành công, thất bại và hết hạn. Có polling trạng thái, tạo lại mã, tải QR và tiếp tục QR từ chi tiết đơn. Dùng BIN/tài khoản giả, không kết nối hoặc chuyển tiền qua ngân hàng thật. Flag `PAYMENT_DEMO_ENABLED` mặc định tắt và bị chặn trong production.
+
+Chạy `composer install`, `php artisan migrate`, `npm install` và `npm run build`; môi trường local bật flag theo [QR_PAYMENT_DEMO.md](QR_PAYMENT_DEMO.md). Đã thêm bảng `payment_intents`, không reset bảng cũ. Thêm BaconQrCode 3.1.1, dasprid/enum và yêu cầu PHP XMLWriter.
+
+13 kiểm thử liên quan thanh toán đạt trên MySQL (176 assertions). Toàn bộ SQLite có 82/90 đạt (5.512 assertions), 8 trường hợp lỗi trùng baseline trước đợt QR. Trình duyệt kiểm tra trên database riêng `tour_qr_demo_preview`: tạo đơn qua luồng web, giải mã ảnh SVG bằng công cụ độc lập, chờ thanh toán, kết quả thành công tự cập nhật, kết quả lặp, chỉ phát hành hóa đơn sau thành công, thất bại/hết hạn/tạo lại QR, CSRF, quyền chủ đơn, lỗi mạng và bố cục điện thoại. Web chính cổng 8001 đã bật demo và migration mới; dữ liệu tour/booking đã có được đối chiếu không thay đổi.
+
+
+## SePay Sandbox và QR mở thanh toán trên Android
+
+Đã bổ sung cổng SePay Sandbox với HMAC checkout, callback IPN, QR liên kết điện thoại có chữ ký/hạn dùng, cập nhật trạng thái tự động và hóa đơn demo. Luồng đã nhận IPN thật từ SePay Sandbox trên MySQL kiểm thử. Cấu hình và kịch bản trình diễn: [SEPAY_SANDBOX.md](SEPAY_SANDBOX.md). Không gửi `.env` hoặc các khóa tích hợp vào Git.

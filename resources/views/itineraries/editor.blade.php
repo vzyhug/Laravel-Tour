@@ -1,5 +1,5 @@
 @if(count($itineraryData['defaults']))
-<div class="mt-6" data-personal-itinerary>
+<div class="mt-6" data-personal-itinerary data-image-gallery>
     <script type="application/json" data-itinerary-json>{!! json_encode($itineraryData, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) !!}</script>
     <button type="button" class="mt-4 text-link" data-editor-toggle aria-expanded="false" aria-controls="personal-itinerary-panel">Tùy chỉnh lịch & gửi tư vấn</button>
     <div id="personal-itinerary-panel" class="mt-5 hidden rounded-xl border border-[#e5d9cf] bg-[#fcf8f3] p-4 sm:p-6">

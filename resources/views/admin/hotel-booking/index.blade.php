@@ -18,7 +18,7 @@
         <div>
             <p class="admin-page-eyebrow">Khách sạn · Quản lý đặt phòng</p>
             <h1 class="admin-page-title">Đặt phòng khách sạn</h1>
-            <p class="mt-2 max-w-2xl text-xs leading-6 text-[#78837b]">Quản lý đơn lưu trú, loại phòng, giá và số phòng mở bán theo từng đêm.</p>
+            <p class="mt-2 max-w-2xl text-xs leading-6 text-[#78837b]">Quản trị đặt khách sạn: xử lý đơn lưu trú, loại phòng, giá và số phòng mở bán theo từng đêm.</p>
         </div>
         <a href="#hotel-bookings" class="inline-flex min-h-10 items-center gap-2 rounded-lg bg-[#28745a] px-4 py-2 text-[10px] font-semibold text-white shadow-sm transition hover:bg-[#205d48]">
             <x-icon name="bed" class="size-4" /> Xem đơn lưu trú

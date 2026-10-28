@@ -36,7 +36,7 @@
             <span class="hotel-create-icon"><x-icon name="calendar" class="size-5" /></span>
             <p class="admin-page-eyebrow mt-4">Mở bán theo ngày</p>
             <h2 class="mt-1 text-base font-bold text-[#29312c]">Cập nhật tồn và giá</h2>
-            <p class="mt-1 text-[10px] leading-5 text-[#78837b]">Mỗi dòng áp dụng cho một đêm. Ngày trả phòng không chiếm tồn; ngày chưa nhập sẽ không mở bán.</p>
+            <p class="mt-1 text-[10px] leading-5 text-[#78837b]">Nhập theo từng đêm. Ngày trả phòng không chiếm tồn; ngày chưa nhập sẽ không mở bán.</p>
             <form method="POST" action="{{ route('admin.hotel-booking.inventory.save', $type) }}" class="mt-5 grid gap-3">
                 @csrf @method('PUT')
                 <label class="hotel-form-label">Đêm lưu trú<input class="hotel-form-control" type="date" name="stay_date" min="{{ today()->toDateString() }}" required></label>

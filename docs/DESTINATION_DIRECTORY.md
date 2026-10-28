@@ -6,7 +6,8 @@
 - 120 địa danh: tái sử dụng 112 bản ghi gốc, thêm 8 tại Vũng Tàu. Một địa danh có thể thuộc nhiều nhóm điểm đến qua bảng liên kết.
 - Phân loại 120 địa danh theo bảo tàng, biển đảo, di tích, tâm linh, thiên nhiên, làng bản, chợ và khu vực khám phá.
 - 64 khách sạn/resort/lodge trên toàn bộ 31 điểm đến: Vũng Tàu có 4, mỗi điểm đến còn lại có 2. Bao gồm 50 cơ sở bổ sung để phủ 25 điểm đến trước đây chưa có khách sạn.
-- 72 ảnh mới: đủ 8 địa danh Vũng Tàu và 64 khách sạn. Ảnh hiện vật Bảo tàng Robert Taylor lấy từ bài giới thiệu của Vietnam Tourism.
+- 120 địa danh có giới thiệu riêng và 335 ảnh (2–3 ảnh mỗi địa danh), gồm 215 ảnh bổ sung trong `place-galleries.json`. Bấm ảnh để xem lớn; hỗ trợ Trước/Sau, phím mũi tên và Escape.
+- Đợt danh mục ban đầu có 72 ảnh: đủ 8 địa danh Vũng Tàu và 64 khách sạn. Ảnh hiện vật Bảo tàng Robert Taylor lấy từ bài giới thiệu của Vietnam Tourism.
 - Có thêm 2 tour Vũng Tàu (2N1Đ và 3N2Đ), 5 ngày lịch trình và 6 lịch khởi hành tương lai. 30 tour cũ và dữ liệu đơn đặt trước đó được giữ nguyên. Chưa có tính năng chọn khách sạn khi đặt tour.
 
 ## Trang sử dụng
@@ -29,10 +30,12 @@ Máy đã có dữ liệu tour/lịch trình:
 
 ```sh
 php artisan migrate
+php artisan db:seed --class=TourItinerarySeeder
 php artisan db:seed --class=DestinationDirectorySeeder
+php artisan db:seed --class=PlaceGallerySeeder
 ```
 
-Database mới: chạy `php artisan migrate --seed` sau khi cấu hình database và kho ảnh. DatabaseSeeder gọi DestinationDirectorySeeder sau TourItinerarySeeder, rồi gọi DestinationTourSeeder để tạo các tour mới. Seeder chạy lại không nhân bản điểm đến, địa danh, khách sạn hay ảnh; không xóa các bản ghi ngoài bộ mẫu. Nếu thiếu địa danh gốc, toàn bộ transaction của seeder danh mục sẽ được rollback.
+Database mới: chạy `php artisan migrate --seed` sau khi cấu hình database và kho ảnh. DatabaseSeeder gọi DestinationDirectorySeeder sau TourItinerarySeeder, gọi PlaceGallerySeeder bổ sung thư viện ảnh, rồi gọi DestinationTourSeeder để tạo các tour mới. Seeder chạy lại không nhân bản điểm đến, địa danh, khách sạn hay ảnh; không xóa các bản ghi ngoài bộ mẫu. Nếu thiếu địa danh gốc, toàn bộ transaction của seeder danh mục sẽ được rollback.
 
 Nếu bổ sung hoặc thay ảnh trong JSON, tải ảnh nguồn vào đường dẫn tương ứng, ghi SHA-256 và ghi công, rồi chạy:
 

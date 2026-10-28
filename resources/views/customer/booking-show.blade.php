@@ -71,8 +71,21 @@
                     </div>
                 </dl>
 
-                @if((!$booking->payment || in_array($booking->payment->status, ['pending', 'failed'], true)) && in_array($booking->status, ['pending', 'confirmed'], true) && !$booking->holdHasExpired())
-                    <a class="btn-primary mt-5 w-full" href="{{ route('payments.create', $booking) }}">Thanh toán ngay</a>
+                @if($booking->payment)
+                    @if(str_starts_with($booking->payment->transaction_code ?? '', 'SEPAY-SBX-'))<p class="mt-3 text-xs text-muted">SePay Sandbox · Giao dịch thử nghiệm, không chuyển tiền thật.</p>@endif
+                    <p class="mt-3 break-all text-xs leading-7 text-muted">Mã giao dịch: <strong class="text-ink">{{ $booking->payment->transaction_code }}</strong></p>
+                    @if($booking->payment->payment_method === 'bank_transfer' && str_starts_with($booking->payment->transaction_code ?? '', 'DEMO-'))<p class="mt-1 text-xs text-muted">Chuyển khoản VietQR · Demo</p>@endif
+                @endif
+                @if($pendingSePay && $pendingSePay->status === 'review')
+                    <p class="mt-5 rounded-lg bg-amber-50 p-4 text-sm text-amber-900">Giao dịch SePay đang cần nhân viên kiểm tra trước khi có thể thanh toán lại.</p>
+                @elseif((!$booking->payment || in_array($booking->payment->status, ['pending', 'failed'], true)) && in_array($booking->status, ['pending', 'confirmed'], true) && !$booking->holdHasExpired())
+                    @if(!$booking->payment && $pendingSePay)
+                        <a class="btn-primary mt-5 w-full" href="{{ route('payments.sepay.show', [$booking, $pendingSePay]) }}">Xem thanh toán SePay Sandbox</a>
+                    @elseif(!$booking->payment && $pendingQr)
+                        <a class="btn-primary mt-5 w-full" href="{{ route('payments.qr.show', [$booking, $pendingQr]) }}">Tiếp tục thanh toán QR</a>
+                    @else
+                        <a class="btn-primary mt-5 w-full" href="{{ route('payments.create', $booking) }}">Thanh toán ngay</a>
+                    @endif
                 @endif
                 @if($booking->status === 'pending' && !$booking->payment && !$booking->consultation_id && !$departure->is_private && !$booking->holdHasExpired())
                     <a class="btn-secondary mt-3 w-full" href="{{ route('customer.booking-changes.edit', $booking) }}">Đổi ngày hoặc đổi tour</a>

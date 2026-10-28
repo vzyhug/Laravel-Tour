@@ -43,7 +43,7 @@ class DestinationTourTest extends TestCase
         $this->assertDatabaseCount('tour_itinerary_stops', 133);
         $this->assertDatabaseCount('tour_departures', 126);
         $this->assertDatabaseCount('images_tour', 64);
-        $this->assertDatabaseCount('itinerary_place_images', 120);
+        $this->assertDatabaseCount('itinerary_place_images', 335);
         $tours = $this->newTours();
         $this->assertCount(2, $tours);
         $allPlaces = [];

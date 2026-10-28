@@ -6,7 +6,9 @@ use App\Models\Booking;
 use App\Models\Customer;
 use App\Models\Review;
 use App\Models\TourDeparture;
+use App\Services\Payments\DemoQrPayment;
 use App\Services\Payments\RefundService;
+use App\Services\Payments\SePaySandbox;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -56,7 +58,15 @@ class CustomerDashboardController extends Controller
     {
         $this->owned($booking);
 
-        return view('customer.booking-show', ['booking' => $booking->load(['departure.tour', 'passengers', 'payment.refunds', 'bill'])]);
+        $pendingQr = DemoQrPayment::enabled()
+            ? $booking->paymentIntents()->where('provider', 'vietqr_demo')->where('status', 'pending')->where('expires_at', '>', now())->latest('id')->first()
+            : null;
+
+        $pendingSePay = SePaySandbox::enabled()
+            ? $booking->paymentIntents()->where('provider', SePaySandbox::PROVIDER)->whereIn('status', ['pending', 'review'])->latest('id')->first()
+            : null;
+
+        return view('customer.booking-show', ['booking' => $booking->load(['departure.tour', 'passengers', 'payment.attempts', 'payment.refunds', 'bill']), 'pendingQr' => $pendingQr, 'pendingSePay' => $pendingSePay]);
     }
 
     public function invoice(Booking $booking): View
@@ -158,6 +168,8 @@ class CustomerDashboardController extends Controller
                 $departure->status = 'open';
             }
             $departure->save();
+
+            $booking->paymentIntents()->where('status', 'pending')->update(['status' => 'cancelled']);
 
             $booking->update([
                 'status' => 'cancelled',

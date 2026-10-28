@@ -14,7 +14,7 @@ class TourItinerarySeeder extends Seeder
     public function run(): void
     {
         $data = json_decode(file_get_contents(database_path('data/tour-itineraries.json')), true, 512, JSON_THROW_ON_ERROR);
-        // Resolve all references before writing; Firebase mode never reads local photos or uploads.
+        // Resolve all references before writing; Supabase mode never reads local photos or uploads.
         $catalog = app(MediaCatalog::class);
         $references = collect($data['places'])->mapWithKeys(fn ($place) => [$place['slug'] => $catalog->reference($place['image'])]);
         DB::transaction(function () use ($data, $references) {

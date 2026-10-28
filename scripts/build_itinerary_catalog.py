@@ -16,6 +16,7 @@ TARGET.mkdir(parents=True,exist_ok=True)
 blueprint=json.loads((ROOT/'database/data/itinerary-blueprint.json').read_text(encoding='utf-8'))
 reviews=json.loads((RAW/'places-review.json').read_text(encoding='utf-8'))
 existing=json.loads((ROOT/'database/data/tour-images.json').read_text(encoding='utf-8'))
+INTRODUCTIONS={p['slug']:p['description'] for p in json.loads((ROOT/'database/data/tour-itineraries.json').read_text(encoding='utf-8'))['places']}
 
 REUSE={
  'Sa Pa':'sapa-1.jpg','Hồ Ba Bể':'ba-be-1.jpg','Văn Miếu – Quốc Tử Giám':'ha-noi-2.jpg',
@@ -83,7 +84,7 @@ def from_commons(filename):
 def build(row):
  name=row['name'];key=slug(name)
  record={'slug':key,'name':name,'verified_on':'2026-10-28',
-         'description':'Địa điểm có thật được đưa vào chương trình hiện có. Ngày, giờ và thứ tự tham quan là phương án cần thống nhất khi tư vấn.',
+         'description':INTRODUCTIONS[key],
          'source_url':row.get('source_url'),'latitude':None,'longitude':None}
  coordinates=row.get('raw_page',{}).get('coordinates',[])
  if coordinates and row['status']!='ambiguous':record.update(latitude=coordinates[0]['lat'],longitude=coordinates[0]['lon'])

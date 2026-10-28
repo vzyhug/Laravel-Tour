@@ -59,6 +59,11 @@ class Booking extends Model
         return $this->hasOne(Payment::class, 'booking_id');
     }
 
+    public function paymentIntents(): HasMany
+    {
+        return $this->hasMany(PaymentIntent::class, 'booking_id');
+    }
+
     public function bill(): HasOne
     {
         return $this->hasOne(Bill::class, 'booking_id');

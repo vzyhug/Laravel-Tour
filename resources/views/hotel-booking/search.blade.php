@@ -17,7 +17,7 @@
         <label><span class="label flex items-center gap-2"><x-icon name="map" class="size-4 text-brand-600"/> Số phòng</span><select class="field" name="rooms">@for($count = 1; $count <= 10; $count++)<option value="{{ $count }}" @selected((int) $data['rooms'] === $count)>{{ $count }} phòng</option>@endfor</select></label>
         <label><span class="label flex items-center gap-2"><x-icon name="users" class="size-4 text-brand-600"/> Số khách</span><select class="field" name="guests">@for($count = 1; $count <= 10; $count++)<option value="{{ $count }}" @selected((int) $data['guests'] === $count)>{{ $count }} khách</option>@endfor</select></label>
         <button class="btn-primary min-h-12 w-full md:w-auto" data-hotel-search-submit><x-icon name="search" class="size-4"/> Tìm phòng</button>
-        <p class="md:col-span-5 text-[10px] text-muted" aria-live="polite" data-hotel-stay-length>@if(!empty($data['check_in']) && !empty($data['check_out'])){{ \Carbon\Carbon::parse($data['check_in'])->diffInDays(\Carbon\Carbon::parse($data['check_out'])) }} đêm lưu trú · Giá tính theo từng đêm@elseGiá và số phòng là mức tham khảo VietGo thiết lập, chưa kết nối tồn thực tế của khách sạn.@endif</p>
+        <p class="md:col-span-5 text-[10px] text-muted" aria-live="polite" data-hotel-stay-length>@if(!empty($data['check_in']) && !empty($data['check_out'])){{ \Carbon\Carbon::parse($data['check_in'])->diffInDays(\Carbon\Carbon::parse($data['check_out'])) }} đêm lưu trú · Giá tính theo từng đêm · Thanh toán mô phỏng@elseGiá và số phòng là mức tham khảo VietGo thiết lập, chưa kết nối tồn thực tế của khách sạn. Thanh toán mô phỏng.@endif</p>
     </form>
 
     @if(!empty($data['check_in']))

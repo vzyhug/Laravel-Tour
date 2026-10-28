@@ -59,6 +59,7 @@
         <div class="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-[#e5d9cf] pt-6 text-[10px] text-muted"><p>© {{ date('Y') }} VietGo Travel. Đồng hành trên mọi hành trình.</p><span class="flex items-center gap-2"><x-icon name="leaf" class="size-4 text-sage"/> Trân trọng thiên nhiên, kết nối văn hóa.</span></div>
     </div>
 </footer>
+<x-image-viewer/>
 @stack('scripts')
 </body>
 </html>

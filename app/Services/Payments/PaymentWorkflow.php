@@ -27,6 +27,7 @@ class PaymentWorkflow
             $payment = $booking->payment()->lockForUpdate()->first();
             abort_if($payment && in_array($payment->status, ['completed', 'refunded'], true), 409, 'Đơn hàng đã được thanh toán.');
             abort_if($payment && $payment->attempts()->where('status', 'pending')->exists(), 409, 'Đang có giao dịch chờ xử lý.');
+            abort_if($booking->paymentIntents()->where('status', 'review')->exists(), 409, 'Đơn có giao dịch cần kiểm tra.');
             $payment ??= $booking->payment()->create(['amount' => $booking->total_amount, 'payment_method' => $method, 'status' => 'pending']);
             $payment->update(['payment_method' => $method, 'status' => 'pending']);
             $attempt = $payment->attempts()->create(['idempotency_key' => $key, 'amount' => $booking->total_amount, 'status' => 'pending', 'provider' => 'mock']);
@@ -91,6 +92,7 @@ class PaymentWorkflow
                 return $attempt->refresh();
             }
             $booking->update(['status' => 'confirmed', 'hold_expires_at' => null]);
+            $booking->paymentIntents()->where('status', 'pending')->update(['status' => 'cancelled']);
             Bill::firstOrCreate(['booking_id' => $booking->getKey()], ['bill_number' => 'INV-'.now()->format('Ymd').'-'.$booking->getKey(), 'final_amount' => $booking->total_amount]);
 
             return $attempt->refresh();

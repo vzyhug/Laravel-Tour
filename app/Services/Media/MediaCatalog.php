@@ -13,8 +13,11 @@ class MediaCatalog
 
         $directory = json_decode(file_get_contents(database_path('data/destination-directory.json')), true, 512, JSON_THROW_ON_ERROR);
 
+        $galleries = json_decode(file_get_contents(database_path('data/place-galleries.json')), true, 512, JSON_THROW_ON_ERROR);
+
         return array_merge($tours, array_column($itineraries['places'], 'image'),
-            array_column($directory['places'], 'image'), array_column($directory['hotels'], 'image'));
+            array_column($directory['places'], 'image'), array_column($directory['hotels'], 'image'),
+            collect($galleries['places'])->pluck('images')->flatten(1)->all());
     }
 
     public function cloudMap(): array

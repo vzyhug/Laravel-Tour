@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\Booking;
 use App\Models\Customer;
+use App\Models\PaymentIntent;
 use App\Models\Tour;
 use App\Models\TourDeparture;
 use App\Models\TourImage;
@@ -124,7 +125,7 @@ class TravelPortalTest extends TestCase
             ->assertSee('Bạn chưa có chuyến đi sắp tới.');
     }
 
-    public function test_payment_form_displays_the_booking_amount_and_confirms_the_selected_method(): void
+    public function test_payment_form_shows_the_amount_and_bank_transfer_waits_for_the_demo_bank_result(): void
     {
         $this->withoutVite();
         $customer = Customer::factory()->create();
@@ -134,8 +135,13 @@ class TravelPortalTest extends TestCase
             ->get(route('payments.create', $booking))->assertOk()
             ->assertSee('1.500.000₫')->assertSeeText('Mã đặt tour:')->assertSee('name="payment_method"', false);
 
-        $this->post(route('payments.store', $booking), ['payment_method' => 'bank_transfer'])
-            ->assertRedirect(route('customer.bookings.show', $booking));
+        $response = $this->post(route('payments.store', $booking), ['payment_method' => 'bank_transfer']);
+        $intent = PaymentIntent::where('booking_id', $booking->getKey())->firstOrFail();
+        $response->assertRedirect(route('payments.qr.show', [$booking, $intent]));
+        $this->assertSame('pending', $booking->fresh()->status);
+        $this->assertDatabaseCount('payments', 0);
+        $this->post(route('payments.qr.simulate', [$booking, $intent]), ['outcome' => 'success'])
+            ->assertRedirect(route('payments.qr.demo', [$booking, $intent]));
         $this->assertDatabaseHas('payments', [
             'booking_id' => $booking->getKey(),
             'payment_method' => 'bank_transfer',
