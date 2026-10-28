@@ -21,7 +21,9 @@ document.querySelectorAll('[data-qr-payment]').forEach((root) => {
         root.querySelector('[data-qr-active]').hidden = !pending;
         root.querySelector('[data-qr-result]').hidden = pending;
         root.querySelector('[data-qr-result-title]').textContent = labels[state.status];
-        root.querySelector('[data-qr-result-description]').textContent = paid
+        root.querySelector('[data-qr-result-description]').textContent = state.status === 'review'
+            ? 'SePay đã gửi thông báo giao dịch cần đối soát. Vui lòng liên hệ nhân viên; chưa thể tự động xác nhận hoặc tạo phiên thanh toán mới.'
+            : paid
             ? 'Đã ghi nhận giao dịch demo và xác nhận đơn. Bạn có thể xem lại chuyến đi và hóa đơn.'
             : 'Không ghi nhận khoản thanh toán thành công từ mã QR này. Bạn có thể xem lại đơn hoặc tạo mã mới nếu đơn vẫn đang chờ thanh toán.';
         const invoice = root.querySelector('[data-qr-invoice]');

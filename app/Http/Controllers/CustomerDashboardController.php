@@ -7,6 +7,7 @@ use App\Models\Customer;
 use App\Models\Review;
 use App\Models\TourDeparture;
 use App\Services\Payments\DemoQrPayment;
+use App\Services\Payments\SePaySandbox;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -60,7 +61,11 @@ class CustomerDashboardController extends Controller
             ? $booking->paymentIntents()->where('provider', 'vietqr_demo')->where('status', 'pending')->where('expires_at', '>', now())->latest('id')->first()
             : null;
 
-        return view('customer.booking-show', ['booking' => $booking->load(['departure.tour', 'passengers', 'payment', 'bill']), 'pendingQr' => $pendingQr]);
+        $pendingSePay = SePaySandbox::enabled()
+            ? $booking->paymentIntents()->where('provider', SePaySandbox::PROVIDER)->whereIn('status', ['pending', 'review'])->latest('id')->first()
+            : null;
+
+        return view('customer.booking-show', ['booking' => $booking->load(['departure.tour', 'passengers', 'payment', 'bill']), 'pendingQr' => $pendingQr, 'pendingSePay' => $pendingSePay]);
     }
 
     public function invoice(Booking $booking): View

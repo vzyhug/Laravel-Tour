@@ -6,6 +6,7 @@ use App\Models\Bill;
 use App\Models\Booking;
 use App\Models\Payment;
 use App\Services\Payments\DemoQrPayment;
+use App\Services\Payments\SePaySandbox;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -36,7 +37,13 @@ class PaymentController extends Controller
     public function store(Request $request, Booking $booking): RedirectResponse
     {
         $this->owned($booking);
-        $data = $request->validate(['payment_method' => ['required', 'in:bank_transfer,cash,momo,card']]);
+        $data = $request->validate(['payment_method' => ['required', 'in:sepay,bank_transfer,cash,momo,card']]);
+
+        if ($data['payment_method'] === 'sepay') {
+            $intent = app(SePaySandbox::class)->start($booking);
+
+            return redirect()->route('payments.sepay.show', [$booking, $intent]);
+        }
 
         if ($data['payment_method'] === 'bank_transfer') {
             $intent = app(DemoQrPayment::class)->start($booking);
@@ -48,6 +55,7 @@ class PaymentController extends Controller
             $lockedBooking = Booking::query()->lockForUpdate()->findOrFail($booking->getKey());
             abort_if(in_array($lockedBooking->status, self::CLOSED_STATUSES, true), 409, 'Đơn hàng đã đóng, không thể thanh toán.');
             abort_if($lockedBooking->payment()->exists(), 409, 'Đơn hàng đã được thanh toán.');
+            abort_if($lockedBooking->paymentIntents()->where('status', 'review')->exists(), 409, 'Đơn có giao dịch cần kiểm tra.');
             Payment::create(['booking_id' => $lockedBooking->getKey(), 'amount' => $lockedBooking->total_amount, 'payment_method' => $data['payment_method'], 'transaction_code' => 'TXN-'.Str::upper(Str::random(12)), 'status' => 'completed']);
             $lockedBooking->update(['status' => 'confirmed']);
             $lockedBooking->paymentIntents()->where('status', 'pending')->update(['status' => 'cancelled']);

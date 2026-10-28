@@ -15,6 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        $middleware->preventRequestForgery(except: ['payments/sepay-sandbox/ipn']);
         $middleware->alias([
             'customer.auth' => CustomerAuthenticated::class,
             'admin.auth' => AdminAuthenticated::class,

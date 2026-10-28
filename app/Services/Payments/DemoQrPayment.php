@@ -30,6 +30,7 @@ class DemoQrPayment
             $locked = Booking::lockForUpdate()->findOrFail($booking->getKey());
             $this->assertPayable($locked);
             abort_if($locked->payment()->exists(), 409, 'Đơn đã có giao dịch thanh toán.');
+            abort_if($locked->paymentIntents()->where('status', 'review')->exists(), 409, 'Đơn có giao dịch cần kiểm tra.');
             if (! preg_match('/^([1-9][0-9]{0,12})\.00$/D', $locked->total_amount, $match)) {
                 throw ValidationException::withMessages(['payment_method' => 'Thanh toán QR cần số tiền nguyên VND lớn hơn 0.']);
             }
@@ -91,22 +92,6 @@ class DemoQrPayment
 
     public function state(Booking $booking, PaymentIntent $intent): array
     {
-        $booking->loadMissing('payment', 'bill');
-        $status = $intent->status;
-        if ($booking->status === 'cancelled') {
-            $status = 'cancelled';
-        } elseif ($booking->payment?->status === 'completed') {
-            $status = $intent->status === 'paid' ? 'paid' : 'superseded';
-        } elseif (! in_array($booking->status, ['pending', 'confirmed'], true) || $intent->amount !== $booking->total_amount) {
-            $status = 'cancelled';
-        } elseif ($status === 'pending' && $intent->expires_at->lessThanOrEqualTo(now())) {
-            $status = 'expired';
-        }
-
-        return ['status' => $status, 'reference' => $intent->reference, 'amount' => $intent->amount,
-            'seconds_remaining' => $status === 'pending' ? max(0, $intent->expires_at->timestamp - now()->timestamp) : 0,
-            'can_retry' => in_array($booking->status, ['pending', 'confirmed'], true) && ! $booking->payment && in_array($status, ['expired', 'failed', 'cancelled'], true),
-            'booking_url' => route('customer.bookings.show', $booking),
-            'invoice_url' => $booking->bill && in_array($status, ['paid', 'superseded'], true) ? route('customer.bookings.invoice', $booking) : null];
+        return app(PaymentStatus::class)->state($booking, $intent);
     }
 }

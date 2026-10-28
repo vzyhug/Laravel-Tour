@@ -2,7 +2,7 @@
 @section('title', 'Thanh toán QR · VietGo')
 @section('content')
 @php
-    $labels = ['pending' => 'Đang chờ thanh toán', 'paid' => 'Thanh toán demo thành công', 'failed' => 'Giao dịch demo thất bại', 'expired' => 'Mã QR đã hết hạn', 'cancelled' => 'Mã QR đã đóng', 'superseded' => 'Đơn đã được thanh toán bằng giao dịch khác'];
+    $labels = ['review' => 'Giao dịch cần kiểm tra', 'pending' => 'Đang chờ thanh toán', 'paid' => 'Thanh toán demo thành công', 'failed' => 'Giao dịch demo thất bại', 'expired' => 'Mã QR đã hết hạn', 'cancelled' => 'Mã QR đã đóng', 'superseded' => 'Đơn đã được thanh toán bằng giao dịch khác'];
     $paid = in_array($state['status'], ['paid', 'superseded'], true);
     $pending = $state['status'] === 'pending';
 @endphp

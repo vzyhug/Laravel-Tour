@@ -112,3 +112,8 @@ Thêm luồng VietQR mô phỏng dành cho trình diễn học tập: QR SVG ri�
 Chạy `composer install`, `php artisan migrate`, `npm install` và `npm run build`; môi trường local bật flag theo [QR_PAYMENT_DEMO.md](QR_PAYMENT_DEMO.md). Đã thêm bảng `payment_intents`, không reset bảng cũ. Thêm BaconQrCode 3.1.1, dasprid/enum và yêu cầu PHP XMLWriter.
 
 13 kiểm thử liên quan thanh toán đạt trên MySQL (176 assertions). Toàn bộ SQLite có 82/90 đạt (5.512 assertions), 8 trường hợp lỗi trùng baseline trước đợt QR. Trình duyệt kiểm tra trên database riêng `tour_qr_demo_preview`: tạo đơn qua luồng web, giải mã ảnh SVG bằng công cụ độc lập, chờ thanh toán, kết quả thành công tự cập nhật, kết quả lặp, chỉ phát hành hóa đơn sau thành công, thất bại/hết hạn/tạo lại QR, CSRF, quyền chủ đơn, lỗi mạng và bố cục điện thoại. Web chính cổng 8001 đã bật demo và migration mới; dữ liệu tour/booking đã có được đối chiếu không thay đổi.
+
+
+## SePay Sandbox và QR mở thanh toán trên Android
+
+Đã bổ sung cổng SePay Sandbox với HMAC checkout, callback IPN, QR liên kết điện thoại có chữ ký/hạn dùng, cập nhật trạng thái tự động và hóa đơn demo. Luồng đã nhận IPN thật từ SePay Sandbox trên MySQL kiểm thử. Cấu hình và kịch bản trình diễn: [SEPAY_SANDBOX.md](SEPAY_SANDBOX.md). Không gửi `.env` hoặc các khóa tích hợp vào Git.
