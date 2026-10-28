@@ -27,3 +27,11 @@ Phạm vi: tour booking hiện tại. Không kết nối ngân hàng/cổng than
 Adapter hiện tại chạy đồng bộ và cục bộ. Tích hợp thật cần adapter theo nhà cung cấp được chọn, xác minh webhook, inbox/outbox, retry và đối soát bên ngoài. Endpoint `resolve-demo` yêu cầu đăng nhập và quyền sở hữu; đây không phải webhook của nhà cung cấp. Không dùng các trạng thái mô phỏng làm bằng chứng thu/hoàn tiền thật.
 
 Kiểm thử: `php vendor/bin/phpunit tests/Feature/PaymentWorkflowTest.php` trên database test; không migrate database đang sử dụng để chạy test.
+
+
+## Bảo vệ settlement và đối soát bổ sung
+
+- Settlement kiểm tra loại giao dịch, khóa idempotency, trạng thái và số tiền trong sổ demo khớp lần thử, payment và booking trước khi ghi thành công. Dữ liệu lệch trả 409; không xác nhận đơn hoặc tạo hóa đơn.
+- Refund từ chối số tiền không hữu hạn, không dương hoặc có quá hai chữ số thập phân, tránh ghi nhận hoàn 0 đồng do làm tròn. Kết quả sổ demo phải đúng loại, số tiền và trạng thái trước khi đánh dấu hoàn.
+- Đối soát kiểm tra cả lần thử pending/failed, refund failed, trạng thái payment tổng hợp, mã giao dịch và giá trị hóa đơn. Sai lệch chỉ được ghi để kiểm tra, không tự sửa dữ liệu hoặc tự thử lại khoản đã thành công trong sổ demo.
+- Đối soát vẫn dùng sổ demo cục bộ; không chứng minh tiền thật đã được thu/hoàn. Chưa có đối soát nguồn bên ngoài hoặc xử lý tranh chấp đồng thời trên MySQL.

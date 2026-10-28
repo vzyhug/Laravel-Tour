@@ -196,4 +196,75 @@ class HotelBookingTest extends TestCase
         $this->assertDatabaseCount('hotels', 1);
         $this->assertDatabaseCount('hotel_room_inventory', 30);
     }
+
+    public function test_same_day_hold_expires_at_midnight_instead_of_allowing_past_check_in_payment(): void
+    {
+        $this->travelTo(today()->setTime(23, 55));
+        [$customer, , $type, $data] = $this->fixture();
+        $type->inventory()->create(['stay_date' => today(), 'total_rooms' => 1, 'available_rooms' => 1, 'nightly_price' => 400000]);
+        $data['check_in'] = today()->toDateString();
+        $service = app(HotelBookingService::class);
+        $booking = $service->hold($customer->getKey(), $data);
+        $this->assertTrue($booking->expires_at->equalTo(today()->addDay()));
+        $this->travel(5)->minutes();
+        $this->assertFalse($service->pay($booking));
+        $this->assertSame('expired', $booking->fresh()->status);
+        $this->assertDatabaseCount('hotel_payments', 0);
+        $this->assertSame(3, (int) $type->inventory()->sum('available_rooms'));
+        $this->assertSame(0, $service->expire());
+    }
+
+    public function test_scheduler_releases_legacy_pending_hold_when_check_in_has_passed(): void
+    {
+        [$customer, , $type, $data] = $this->fixture();
+        $service = app(HotelBookingService::class);
+        $booking = $service->hold($customer->getKey(), $data);
+        $this->travel(2)->days();
+        $booking->update(['expires_at' => now()->addMinutes(10)]);
+        $this->assertSame(1, $service->expire());
+        $this->assertSame(0, $service->expire());
+        $this->assertFalse($service->pay($booking));
+        $this->assertSame(2, (int) $type->inventory()->sum('available_rooms'));
+    }
+
+    public function test_service_rejects_invalid_quantities_without_creating_inventory_or_booking_changes(): void
+    {
+        [$customer, , $type, $data] = $this->fixture();
+        $service = app(HotelBookingService::class);
+        foreach ([['rooms' => 0], ['rooms' => -1], ['rooms' => 11], ['guests' => 0], ['guests' => -1], ['guests' => 101]] as $invalid) {
+            try {
+                $service->hold($customer->getKey(), [...$data, ...$invalid]);
+                $this->fail('Invalid quantities must not reach inventory allocation.');
+            } catch (ValidationException $exception) {
+                $this->assertArrayHasKey(array_key_first($invalid), $exception->errors());
+            }
+        }
+        $this->assertDatabaseCount('hotel_bookings', 0);
+        $this->assertDatabaseCount('hotel_booking_nights', 0);
+        $this->assertSame(2, (int) $type->inventory()->sum('available_rooms'));
+    }
+
+    public function test_service_rejects_non_calendar_dates_instead_of_normalizing_them(): void
+    {
+        foreach (['2027-02-30', 'not-a-date', '2027-03-01 10:00:00'] as $invalidDate) {
+            try {
+                app(HotelBookingService::class)->dates($invalidDate, '2027-03-03');
+                $this->fail('Only exact valid calendar dates are accepted.');
+            } catch (ValidationException $exception) {
+                $this->assertArrayHasKey('check_in', $exception->errors());
+            }
+        }
+    }
+
+    public function test_future_check_in_keeps_full_fifteen_minute_hold_across_midnight(): void
+    {
+        $this->travelTo(today()->setTime(23, 55));
+        [$customer, , , $data] = $this->fixture();
+        $service = app(HotelBookingService::class);
+        $booking = $service->hold($customer->getKey(), $data);
+        $this->assertTrue($booking->expires_at->equalTo(now()->addMinutes(15)));
+        $this->travel(6)->minutes();
+        $this->assertTrue($service->pay($booking));
+        $this->assertSame('confirmed', $booking->fresh()->status);
+    }
 }

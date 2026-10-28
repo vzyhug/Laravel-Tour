@@ -48,6 +48,16 @@ class PaymentWorkflow
                 return $attempt;
             }
             $gateway = app(MockPaymentGateway::class)->transact('payment', 'payment:'.$attempt->idempotency_key, (float) $attempt->amount, $outcome);
+            abort_unless(
+                $gateway->kind === 'payment'
+                && $gateway->idempotency_key === 'payment:'.$attempt->idempotency_key
+                && round((float) $gateway->amount, 2) === round((float) $attempt->amount, 2)
+                && round((float) $attempt->amount, 2) === round((float) $payment->amount, 2)
+                && round((float) $payment->amount, 2) === round((float) $booking->total_amount, 2)
+                && in_array($gateway->status, ['pending', 'succeeded', 'failed'], true),
+                409,
+                'Giao dịch mô phỏng không khớp đơn hàng. Vui lòng đối soát trước khi xử lý.'
+            );
             // The explicit demo resolution updates only an unsettled local transaction.
             if ($gateway->status === 'pending' && $outcome !== 'pending') {
                 DB::table('mock_gateway_transactions')->where('id', $gateway->id)->where('status', 'pending')->update(['status' => $outcome, 'updated_at' => now()]);

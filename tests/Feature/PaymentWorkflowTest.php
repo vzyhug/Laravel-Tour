@@ -185,4 +185,93 @@ class PaymentWorkflowTest extends TestCase
         app(PaymentWorkflow::class)->pay($booking, 'card', (string) Str::uuid(), 'pending');
         $this->withSession(['customer_id' => $booking->customer_id])->get(route('payments.create', $booking))->assertOk()->assertSee('Mô phỏng thành công')->assertDontSee('Thanh toán đã hoàn tất.');
     }
+
+    public function test_pending_settlement_rejects_a_ledger_amount_mismatch_without_confirming_the_booking(): void
+    {
+        $booking = Booking::factory()->create(['total_amount' => 1000000]);
+        $service = app(PaymentWorkflow::class);
+        $attempt = $service->pay($booking, 'card', (string) Str::uuid(), 'pending');
+        DB::table('mock_gateway_transactions')->where('reference', $attempt->provider_reference)->update(['amount' => 1]);
+        try {
+            $service->settle($attempt, 'succeeded');
+            $this->fail('A mismatched transaction must not confirm the booking.');
+        } catch (HttpException $exception) {
+            $this->assertSame(409, $exception->getStatusCode());
+        }
+        $this->assertSame('pending', $booking->fresh()->status);
+        $this->assertSame('pending', $attempt->fresh()->status);
+        $this->assertSame('pending', $booking->payment()->firstOrFail()->status);
+        $this->assertDatabaseCount('bill', 0);
+        $this->assertSame(1, app(ReconcilePayments::class)->handle());
+    }
+
+    public function test_reconciliation_flags_pending_and_failed_attempts_that_disagree_with_the_ledger(): void
+    {
+        foreach (['pending', 'failed'] as $status) {
+            $booking = Booking::factory()->create();
+            $attempt = app(PaymentWorkflow::class)->pay($booking, 'card', (string) Str::uuid(), $status);
+            DB::table('mock_gateway_transactions')->where('reference', $attempt->provider_reference)->update(['status' => 'succeeded']);
+        }
+        $this->assertSame(2, app(ReconcilePayments::class)->handle());
+        $this->assertSame(2, DB::table('payment_reconciliations')->where('status', 'mismatch')->count());
+    }
+
+    public function test_reconciliation_checks_invoice_amount_and_summary_payment_status(): void
+    {
+        $booking = Booking::factory()->create(['total_amount' => 1000000]);
+        app(PaymentWorkflow::class)->pay($booking, 'card', (string) Str::uuid(), 'succeeded');
+        $booking->bill()->update(['final_amount' => 1]);
+        $this->assertSame(1, app(ReconcilePayments::class)->handle());
+        $booking->bill()->update(['final_amount' => 1000000]);
+        $booking->payment()->update(['status' => 'failed']);
+        $this->assertSame(1, app(ReconcilePayments::class)->handle());
+        $this->assertSame('failed', $booking->payment()->firstOrFail()->status);
+    }
+
+    public function test_refunds_reject_sub_cent_and_non_finite_amounts_without_writing_records(): void
+    {
+        $booking = Booking::factory()->confirmed()->create(['total_amount' => 1000000]);
+        Payment::factory()->for($booking)->create(['amount' => 1000000]);
+        foreach ([0.001, 0.009, 100.001, INF, NAN] as $amount) {
+            try {
+                app(RefundService::class)->request($booking, $amount, (string) Str::uuid(), 'Invalid precision');
+                $this->fail('Invalid money must be rejected before creating a refund.');
+            } catch (ValidationException $exception) {
+                $this->assertArrayHasKey('refund', $exception->errors());
+            }
+        }
+        $this->assertDatabaseCount('payment_refunds', 0);
+        $this->assertDatabaseCount('mock_gateway_transactions', 0);
+    }
+
+    public function test_reconciliation_detects_failed_refund_that_succeeded_in_the_ledger(): void
+    {
+        $booking = Booking::factory()->create(['total_amount' => 1000000]);
+        app(PaymentWorkflow::class)->pay($booking, 'card', (string) Str::uuid(), 'succeeded');
+        config(['payments.mock_refund_outcome' => 'failed']);
+        $refund = app(RefundService::class)->request($booking, 300000, 'failed-refund-ledger', 'Refund test');
+        $this->assertSame(0, app(ReconcilePayments::class)->handle());
+        DB::table('mock_gateway_transactions')->where('reference', $refund->provider_reference)->update(['status' => 'succeeded']);
+        $this->assertSame(1, app(ReconcilePayments::class)->handle());
+        $this->assertSame('failed', $refund->fresh()->status);
+    }
+
+    public function test_refund_rejects_an_existing_demo_transaction_with_a_different_amount(): void
+    {
+        $booking = Booking::factory()->confirmed()->create(['total_amount' => 1000000]);
+        Payment::factory()->for($booking)->create(['amount' => 1000000]);
+        DB::table('mock_gateway_transactions')->insert([
+            'reference' => 'CORRUPTED-REFUND', 'kind' => 'refund',
+            'idempotency_key' => 'refund:guarded-refund:1', 'amount' => 1,
+            'status' => 'succeeded', 'created_at' => now(), 'updated_at' => now(),
+        ]);
+        try {
+            app(RefundService::class)->request($booking, 1000000, 'guarded-refund', 'Refund test');
+            $this->fail('A mismatched ledger transaction must not count as a successful refund.');
+        } catch (HttpException $exception) {
+            $this->assertSame(409, $exception->getStatusCode());
+        }
+        $this->assertDatabaseCount('payment_refunds', 0);
+        $this->assertSame('completed', $booking->payment()->firstOrFail()->status);
+    }
 }

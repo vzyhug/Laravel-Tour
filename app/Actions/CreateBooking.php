@@ -23,7 +23,11 @@ class CreateBooking
             $children = 0;
             $seats = $adults;
 
-            if ($departure->is_private || $departure->status !== 'open' || $departure->departure_date->lt(today()) || $departure->available_seats < $seats) {
+            if ($departure->departure_date->lt(today())) {
+                throw ValidationException::withMessages(['departure_id' => 'Lịch khởi hành đã qua, vui lòng chọn lịch khác.']);
+            }
+
+            if ($departure->operation_status !== 'scheduled' || $departure->is_private || $departure->status !== 'open' || $departure->available_seats < $seats) {
                 throw ValidationException::withMessages(['passengers' => 'Lịch khởi hành không còn đủ chỗ.']);
             }
 

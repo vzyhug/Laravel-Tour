@@ -54,7 +54,8 @@ class AcceptItineraryQuote
             $departureAt = $quote->travel_date->copy()->setTimeFromTimeString($departureTime);
             abort_if($departureAt->lte(now()), 422, 'Đã quá giờ khởi hành của phương án này. Vui lòng yêu cầu báo giá mới.');
 
-            $durationDays = max(1, (int) collect($quote->snapshot['days'] ?? [])->max('number'));
+            $durationDays = max(1, (int) ($quote->snapshot['duration_days']
+                ?? collect($quote->snapshot['days'] ?? [])->max('number')));
             $durationNights = (int) ($quote->snapshot['duration_nights'] ?? $durationDays - 1);
             $returnDate = $quote->travel_date->copy()->addDays($durationDays - 1);
             $holdExpiresAt = now()->addMinutes(max(1, (int) config('booking.hold_minutes', 30)));
@@ -86,7 +87,9 @@ class AcceptItineraryQuote
                 'reply' => $quote->reply, 'valid_until' => $quote->valid_until->toDateString(),
                 'accepted_at' => now()->toIso8601String(),
                 'contact_name' => $quote->contact_name, 'contact_phone' => $quote->contact_phone,
-                'contact_email' => $quote->contact_email, 'pickup_point' => $quote->snapshot['pickup_point'] ?? $tour->pickup_point,
+                'contact_email' => $quote->contact_email,
+                'pickup_point' => array_key_exists('pickup_point', $quote->snapshot)
+                    ? $quote->snapshot['pickup_point'] : $tour->pickup_point,
             ];
 
             $booking = Booking::create([

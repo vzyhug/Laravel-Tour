@@ -10,6 +10,7 @@ use App\Models\TourDeparture;
 use App\Notifications\CustomerTransaction;
 use App\Services\Notifications\TransactionalNotifier;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
@@ -77,5 +78,29 @@ class CustomerTransactionNotificationTest extends TestCase
         $customer = $this->customer();
         DB::transaction(fn () => app(TransactionalNotifier::class)->record($customer->getKey(), 'booking.created', 'queue-outage', []));
         $this->assertDatabaseHas('notification_deliveries', ['event' => 'booking.created', 'sent_at' => null]);
+    }
+
+    public function test_retry_includes_old_outbox_rows_and_continues_after_a_queue_failure(): void
+    {
+        $customer = $this->customer();
+        $first = NotificationDelivery::create([
+            'customer_id' => $customer->getKey(), 'event' => 'booking.created',
+            'deduplication_key' => hash('sha256', 'old-delivery'), 'payload' => [],
+            'created_at' => now()->subDays(8),
+        ]);
+        $second = NotificationDelivery::create([
+            'customer_id' => $customer->getKey(), 'event' => 'booking.created',
+            'deduplication_key' => hash('sha256', 'new-delivery'), 'payload' => [],
+        ]);
+        $attempted = [];
+        Bus::shouldReceive('dispatch')->twice()->andReturnUsing(function ($job) use (&$attempted, $first) {
+            $attempted[] = $job->deliveryId;
+            if ($job->deliveryId === $first->id) {
+                throw new \RuntimeException('Queue unavailable');
+            }
+        });
+        $this->artisan('customer:departure-reminders')->assertFailed();
+        $this->assertSame([$first->id, $second->id], $attempted);
+        $this->assertNull($first->fresh()->sent_at);
     }
 }

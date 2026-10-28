@@ -32,7 +32,7 @@ class DemoDataTest extends TestCase
         Http::preventStrayRequests();
         $this->seed();
 
-        foreach (['roles' => 3, 'employees' => 11, 'customers' => 24, 'tour_categories' => 5, 'provinces' => 26, 'tours' => 32, 'images_tour' => 64, 'tour_schedules' => 88, 'tour_departures' => 126, 'bookings' => 120, 'booking_passengers' => 300, 'payments' => 60, 'bill' => 60, 'review' => 30] as $table => $count) {
+        foreach (['roles' => 3, 'employees' => 11, 'customers' => 24, 'tour_categories' => 5, 'provinces' => 26, 'tours' => 32, 'images_tour' => 64, 'tour_schedules' => 88, 'tour_departures' => 126, 'bookings' => 120, 'booking_passengers' => 270, 'payments' => 60, 'bill' => 60, 'review' => 30] as $table => $count) {
             $this->assertDatabaseCount($table, $count);
         }
         foreach (Tour::with(['schedules', 'images', 'departures', 'reviews'])->get() as $tour) {
@@ -112,14 +112,14 @@ class DemoDataTest extends TestCase
         $tour = Tour::factory()->create(['duration_days' => 4, 'duration_nights' => 3, 'min_price' => 3000000]);
         $departure = TourDeparture::factory()->for($tour, 'tour')->create(['departure_date' => '2027-03-10', 'adult_price' => 3500000, 'max_seats' => 20]);
         $this->assertSame('2027-03-13', $departure->return_date->toDateString());
-        $this->assertSame('2450000.00', $departure->child_price);
+        $this->assertSame('3500000.00', $departure->child_price);
         $this->assertSame(20, $departure->available_seats);
         $this->assertSame('Guide', $departure->guide->role->role_name);
-        $booking = Booking::factory()->for($departure, 'departure')->withPassengers()->create(['total_adults' => 2, 'total_children' => 1]);
-        $this->assertSame('9450000.00', $booking->total_amount);
-        $this->assertCount(2, $booking->passengers->where('passenger_type', 'adult'));
-        $this->assertCount(1, $booking->passengers->where('passenger_type', 'child'));
-        $this->assertNull($booking->passengers->firstWhere('passenger_type', 'child')->id_card);
+        $booking = Booking::factory()->for($departure, 'departure')->withPassengers()->create(['total_adults' => 3, 'total_children' => 0]);
+        $this->assertSame('10500000.00', $booking->total_amount);
+        $this->assertCount(3, $booking->passengers->where('passenger_type', 'adult'));
+        $this->assertCount(0, $booking->passengers->where('passenger_type', 'child'));
+        $this->assertTrue($booking->passengers->every(fn ($passenger) => filled($passenger->id_card)));
         $this->assertSame($booking->total_amount, Payment::factory()->for($booking, 'booking')->create()->amount);
         $this->assertSame($booking->total_amount, Bill::factory()->for($booking, 'booking')->create()->final_amount);
         $this->assertSame(0, TourDeparture::factory()->full()->create()->available_seats);

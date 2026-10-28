@@ -67,8 +67,8 @@ class BookingController extends Controller
                 return 'Không thể chuyển đơn sang trạng thái này.';
             }
 
-            if ($data['status'] === 'completed' && $booking->departure->departure_date->isFuture()) {
-                return 'Chuyến đi chưa khởi hành nên chưa thể hoàn thành đơn.';
+            if ($data['status'] === 'completed' && $booking->departure->return_date->isFuture()) {
+                return 'Chuyến đi chưa đến ngày kết thúc nên chưa thể hoàn thành đơn.';
             }
 
             $booking->update(['status' => $data['status']]);

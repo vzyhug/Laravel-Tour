@@ -7,9 +7,11 @@ use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\Rules\Password as PasswordRule;
 use Illuminate\Validation\ValidationException;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 
 class CustomerPasswordController extends Controller
 {
@@ -21,7 +23,12 @@ class CustomerPasswordController extends Controller
     public function email(Request $request)
     {
         $data = $request->validate(['email' => ['required', 'email', 'max:100']]);
-        Password::broker('customers')->sendResetLink([...$data, 'is_active' => true]);
+        try {
+            Password::broker('customers')->sendResetLink([...$data, 'is_active' => true]);
+        } catch (TransportExceptionInterface $exception) {
+            // Keep transport outages from revealing which addresses belong to customers.
+            Log::warning('Customer password reset email could not be delivered.', ['exception_type' => $exception::class]);
+        }
 
         return back()->with('success', 'Nếu email thuộc tài khoản đang hoạt động, liên kết đặt lại mật khẩu sẽ được gửi.');
     }

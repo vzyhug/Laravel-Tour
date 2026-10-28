@@ -161,4 +161,57 @@ class CustomTourCheckoutTest extends TestCase
         $this->assertSame('Tên tour khi gửi', $booking->quote_snapshot['tour']);
         $this->get(route('customer.bookings.invoice', $booking))->assertOk()->assertSee('5.500.001');
     }
+
+    public function test_acceptance_preserves_explicit_duration_and_null_pickup_from_the_sent_snapshot(): void
+    {
+        [$customer, $tour, , $quote] = $this->quotedPlan();
+        $quote->update(['snapshot' => [
+            ...$quote->snapshot, 'duration_days' => 4, 'duration_nights' => 3,
+            'days' => [], 'pickup_point' => null,
+        ]]);
+        $tour->update(['duration_days' => 7, 'duration_nights' => 6, 'pickup_point' => 'Điểm đón mới sau báo giá']);
+
+        $booking = app(AcceptItineraryQuote::class)->handle($customer->getKey(), $quote, $this->acceptance());
+
+        $this->assertSame($quote->travel_date->copy()->addDays(3)->toDateString(), $booking->departure->return_date->toDateString());
+        $this->assertSame(4, $booking->quote_snapshot['duration_days']);
+        $this->assertSame(3, $booking->quote_snapshot['duration_nights']);
+        $this->assertArrayHasKey('pickup_point', $booking->quote_snapshot);
+        $this->assertNull($booking->quote_snapshot['pickup_point']);
+        $this->assertSame('5500001.00', $booking->total_amount);
+        $this->withSession(['customer_id' => $customer->getKey()]);
+        $this->get(route('customer.bookings.show', $booking))->assertOk()->assertDontSee('Điểm đón mới sau báo giá')->assertSee('điểm tập trung sẽ thông báo');
+        $this->post(route('payments.store', $booking), ['payment_method' => 'cash'])->assertRedirect();
+        $this->get(route('customer.bookings.invoice', $booking))->assertOk()->assertDontSee('Điểm đón mới sau báo giá')->assertSee('sẽ thông báo');
+    }
+
+    public function test_quote_is_valid_until_end_of_day_and_its_hold_does_not_outlive_the_quote(): void
+    {
+        $this->travelTo(now()->startOfDay()->setTime(23, 50));
+        [$customer, , , $quote] = $this->quotedPlan(['valid_until' => today()]);
+
+        $booking = app(AcceptItineraryQuote::class)->handle($customer->getKey(), $quote, $this->acceptance());
+
+        $this->assertSame(today()->toDateString().' 23:59:59', $booking->hold_expires_at->format('Y-m-d H:i:s'));
+        $this->assertSame('accepted', $quote->fresh()->status);
+    }
+
+    public function test_same_day_quote_hold_is_capped_at_departure_and_cannot_be_accepted_at_departure(): void
+    {
+        $this->travelTo(now()->startOfDay()->setTime(8, 50));
+        [$customer, , , $quote] = $this->quotedPlan(['travel_date' => today(), 'valid_until' => today()]);
+        $quote->update(['snapshot' => [...$quote->snapshot, 'departure_time' => '09:00']]);
+
+        $booking = app(AcceptItineraryQuote::class)->handle($customer->getKey(), $quote, $this->acceptance());
+        $this->assertSame(today()->toDateString().' 09:00:00', $booking->hold_expires_at->format('Y-m-d H:i:s'));
+
+        [$other, , , $lateQuote] = $this->quotedPlan(['travel_date' => today(), 'valid_until' => today()]);
+        $lateQuote->update(['snapshot' => [...$lateQuote->snapshot, 'departure_time' => '09:00']]);
+        $this->travelTo(now()->setTime(9, 0));
+        $this->withSession(['customer_id' => $other->getKey()])
+            ->postJson(route('itinerary-consultations.accept', $lateQuote), $this->acceptance())->assertUnprocessable();
+        $this->assertDatabaseCount('bookings', 1);
+        $this->assertDatabaseCount('tour_departures', 1);
+        $this->assertSame('quoted', $lateQuote->fresh()->status);
+    }
 }

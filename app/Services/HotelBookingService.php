@@ -8,6 +8,7 @@ use App\Models\HotelRoomInventory;
 use App\Models\HotelRoomType;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
@@ -15,6 +16,10 @@ class HotelBookingService
 {
     public function dates(string $checkIn, string $checkOut): array
     {
+        Validator::make(['check_in' => $checkIn, 'check_out' => $checkOut], [
+            'check_in' => ['required', 'date_format:Y-m-d'],
+            'check_out' => ['required', 'date_format:Y-m-d'],
+        ])->validate();
         $start = CarbonImmutable::parse($checkIn)->startOfDay();
         $end = CarbonImmutable::parse($checkOut)->startOfDay();
         if ($start->lt(today()) || $end->lte($start) || $start->diffInDays($end) > 30) {
@@ -30,6 +35,14 @@ class HotelBookingService
 
     public function hold(int $customerId, array $data): HotelBooking
     {
+        $data = Validator::make($data, [
+            'request_key' => ['required', 'uuid'],
+            'room_type_id' => ['required', 'integer', 'exists:hotel_room_types,id'],
+            'check_in' => ['required', 'date_format:Y-m-d'],
+            'check_out' => ['required', 'date_format:Y-m-d'],
+            'rooms' => ['required', 'integer', 'between:1,10'],
+            'guests' => ['required', 'integer', 'between:1,100'],
+        ])->validate();
         $dates = $this->dates($data['check_in'], $data['check_out']);
 
         return DB::transaction(function () use ($customerId, $data, $dates) {
@@ -54,7 +67,8 @@ class HotelBookingService
                 ...collect($data)->only(['request_key', 'room_type_id', 'check_in', 'check_out', 'rooms', 'guests'])->all(),
                 'customer_id' => $customerId, 'code' => 'HT'.Str::upper(Str::random(16)),
                 'total_amount' => $nights->sum('nightly_price') * $data['rooms'],
-                'status' => 'pending', 'expires_at' => now()->addMinutes(15),
+                // A same-day hold must not carry a new booking into a past check-in date.
+                'status' => 'pending', 'expires_at' => now()->addMinutes(15)->min(CarbonImmutable::parse($data['check_in'])->addDay()),
             ]);
             foreach ($nights as $night) {
                 $night->decrement('available_rooms', $data['rooms']);
@@ -75,7 +89,7 @@ class HotelBookingService
             if ($locked->status !== 'pending') {
                 return false;
             }
-            if ($locked->expires_at->lte(now())) {
+            if ($locked->expires_at->lte(now()) || $locked->check_in->lt(today())) {
                 $this->releaseLocked($locked, 'expired');
 
                 return false;
@@ -94,7 +108,7 @@ class HotelBookingService
             if (in_array($locked->status, ['cancelled', 'expired'], true)) {
                 return;
             }
-            if ($locked->status === 'pending' && $locked->expires_at->lte(now())) {
+            if ($locked->status === 'pending' && ($locked->expires_at->lte(now()) || $locked->check_in->lt(today()))) {
                 $this->releaseLocked($locked, 'expired');
 
                 return;
@@ -110,11 +124,11 @@ class HotelBookingService
     public function expire(): int
     {
         $count = 0;
-        HotelBooking::where('status', 'pending')->where('expires_at', '<=', now())->select('id')->chunkById(100, function ($bookings) use (&$count) {
+        HotelBooking::where('status', 'pending')->where(fn ($query) => $query->where('expires_at', '<=', now())->orWhere('check_in', '<', today()->toDateString()))->select('id')->chunkById(100, function ($bookings) use (&$count) {
             foreach ($bookings as $booking) {
                 $count += DB::transaction(function () use ($booking) {
                     $locked = HotelBooking::query()->lockForUpdate()->find($booking->id);
-                    if (! $locked || $locked->status !== 'pending' || $locked->expires_at->gt(now())) {
+                    if (! $locked || $locked->status !== 'pending' || ($locked->expires_at->gt(now()) && $locked->check_in->gte(today()))) {
                         return 0;
                     }
                     $this->releaseLocked($locked, 'expired');

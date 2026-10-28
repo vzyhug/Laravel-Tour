@@ -11,10 +11,14 @@
     @endif
     @if(session('success'))<p role="status" class="mt-4 rounded bg-green-50 p-3 text-green-800">{{ session('success') }}</p>@endif
     @if($errors->any())<div role="alert" class="mt-4 rounded bg-red-50 p-3 text-red-800">@foreach($errors->all() as $error)<p>{{ $error }}</p>@endforeach</div>@endif
-    @if($booking->status === 'pending' && !$booking->holdHasExpired() && !$booking->payment && !$booking->consultation_id && !$booking->departure->is_private)
+    @if($booking->status === 'pending' && !$booking->holdHasExpired() && !$booking->payment && !$booking->consultation_id && !$booking->departure->is_private && $booking->departure->operation_status === 'scheduled')
         <form method="POST" action="{{ route('customer.booking-changes.update', $booking) }}" class="mt-6 space-y-4 rounded-xl border bg-white p-5">
             @csrf
             <input type="hidden" name="expected_departure_id" value="{{ $booking->departure_id }}">
+            @foreach($departures as $departure)
+                <input type="hidden" name="quoted_prices[{{ $departure->getKey() }}][adult_price]" value="{{ $departure->adult_price }}">
+                <input type="hidden" name="quoted_prices[{{ $departure->getKey() }}][child_price]" value="{{ $departure->child_price }}">
+            @endforeach
             <label class="block">Lịch khởi hành mới
                 <select name="departure_id" required class="mt-1 block w-full rounded border p-3">
                     <option value="">Chọn lịch mới</option>

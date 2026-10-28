@@ -89,7 +89,8 @@ class DepartureOperationsController extends Controller
                     $booking->update(['status' => 'completed']);
                 }
             }
-            $departure->forceFill($data)->save();
+            // Stop public sales even when the departure still has unused seats.
+            $departure->forceFill([...$data, 'status' => 'full'])->save();
         }, 3);
 
         return back()->with('success', 'Đã cập nhật trạng thái chuyến.');

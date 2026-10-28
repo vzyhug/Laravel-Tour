@@ -10,9 +10,9 @@ use Illuminate\Validation\ValidationException;
 
 class ChangeBookingDeparture
 {
-    public function handle(Booking $booking, int $customerId, int $targetId, int $expectedDepartureId, string $reason): Booking
+    public function handle(Booking $booking, int $customerId, int $targetId, int $expectedDepartureId, string $reason, ?array $expectedPrices = null): Booking
     {
-        return DB::transaction(function () use ($booking, $customerId, $targetId, $expectedDepartureId, $reason) {
+        return DB::transaction(function () use ($booking, $customerId, $targetId, $expectedDepartureId, $reason, $expectedPrices) {
             $snapshot = Booking::query()->findOrFail($booking->getKey());
             $departures = TourDeparture::query()->with('tour')->whereIn('departure_id', [$snapshot->departure_id, $targetId])
                 ->orderBy('departure_id')->lockForUpdate()->get()->keyBy('departure_id');
@@ -28,10 +28,18 @@ class ChangeBookingDeparture
             $source = $departures->get($booking->departure_id);
             $target = $departures->get($targetId);
             $seats = $booking->total_adults + $booking->total_children;
-            if (! $target || $source->is_private || $source->departure_date->lte(today()) || $source->status === 'cancelled'
+            if (! $target || $source->operation_status !== 'scheduled' || $target->operation_status !== 'scheduled' || $source->is_private || $source->departure_date->lte(today()) || $source->status === 'cancelled'
                 || $target->is_private || $target->status !== 'open' || $target->departure_date->lte(today())
                 || ! $target->tour->is_active || $target->available_seats < $seats) {
                 $reject('Lịch khởi hành không hợp lệ, đã khởi hành hoặc không đủ chỗ.');
+            }
+            // Compare the displayed fares while the target is locked. Never silently
+            // charge a new price after the customer has accepted an older quote.
+            if ($expectedPrices !== null && (
+                number_format((float) $expectedPrices['adult_price'], 2, '.', '') !== $target->adult_price
+                || ($booking->total_children > 0 && number_format((float) $expectedPrices['child_price'], 2, '.', '') !== $target->child_price)
+            )) {
+                $reject('Giá lịch khởi hành đã thay đổi. Vui lòng kiểm tra giá mới và xác nhận lại.');
             }
             $subtotal = $booking->total_adults * (float) $target->adult_price + $booking->total_children * (float) $target->child_price;
             $discount = 0;

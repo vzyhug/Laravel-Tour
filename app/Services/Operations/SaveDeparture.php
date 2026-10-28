@@ -15,8 +15,11 @@ class SaveDeparture
             if ($departure) {
                 $departure = TourDeparture::lockForUpdate()->findOrFail($departure->getKey());
                 abort_if($departure->is_private, 422, 'Lịch riêng theo báo giá không được sửa bằng biểu mẫu lịch chung.');
-                if ($departure->status === 'cancelled' && $data['status'] !== 'cancelled') {
-                    throw ValidationException::withMessages(['status' => 'Không thể mở lại chuyến đã hủy.']);
+                if ($departure->status === 'cancelled' || $departure->operation_status !== 'scheduled') {
+                    throw ValidationException::withMessages(['status' => 'Chuyến đã bắt đầu, hoàn thành hoặc hủy; không thể sửa lịch khởi hành.']);
+                }
+                if ($data['status'] === 'cancelled') {
+                    throw ValidationException::withMessages(['status' => 'Hãy dùng luồng hủy chuyến để xử lý đơn và hoàn tiền.']);
                 }
                 $reserved = $departure->bookings()->where('status', '!=', 'cancelled')->get()
                     ->sum(fn ($booking) => $booking->total_adults + $booking->total_children);
@@ -28,10 +31,13 @@ class SaveDeparture
                             throw ValidationException::withMessages([$field => 'Chuyến đã có khách; hãy dùng luồng đổi lịch và thông báo cho khách.']);
                         }
                     }
-                    if ((int) $data['max_seats'] < $reserved) {
-                        throw ValidationException::withMessages(['max_seats' => 'Sức chứa không thể nhỏ hơn số chỗ đã đặt.']);
-                    }
-                    $data['available_seats'] = (int) $data['max_seats'] - $reserved;
+                }
+                if ((int) $data['max_seats'] < $reserved) {
+                    throw ValidationException::withMessages(['max_seats' => 'Sức chứa không thể nhỏ hơn số chỗ đã đặt.']);
+                }
+                $data['available_seats'] = (int) $data['max_seats'] - $reserved;
+                if ($data['available_seats'] === 0) {
+                    $data['status'] = 'full';
                 }
             }
             if (! empty($data['guide_id']) && $data['status'] !== 'cancelled') {

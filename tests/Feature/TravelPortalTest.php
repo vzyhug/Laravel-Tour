@@ -86,7 +86,7 @@ class TravelPortalTest extends TestCase
                 'pickup_type' => 'self',
                 'passengers' => [
                     ['full_name' => 'Nguyễn An <script>', 'passenger_type' => 'adult', 'id_card' => '012345678901'],
-                    ['full_name' => 'Nguyễn Bình', 'passenger_type' => 'child', 'date_of_birth' => today()->addDay()->toDateString()],
+                    ['full_name' => 'Nguyễn Bình', 'id_card' => '012345678902', 'date_of_birth' => today()->addDay()->toDateString()],
                 ],
             ]);
 
@@ -95,7 +95,7 @@ class TravelPortalTest extends TestCase
             ->assertSee('Nguyễn An &lt;script&gt;', false)
             ->assertSee('Nguyễn Bình')
             ->assertSee('name="passengers[1][full_name]"', false)
-            ->assertSee('1.500.000₫');
+            ->assertSee('2.000.000₫');
         $this->assertDatabaseCount('bookings', 0);
     }
 

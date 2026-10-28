@@ -13,3 +13,9 @@ Admin/Sale: `/admin/hotel-booking` creates room types and edits daily capacity/r
 All room allocation/return paths serialize on room type; holds also lock daily inventory in date order. Booking transitions lock the booking row. Retry operations do not reserve/release twice. SQL row locking requires MySQL/PostgreSQL; SQLite tests validate sequential exhaustion and rollback, not true concurrent contention. Run concurrent database integration tests before production.
 
 Automatic booking deletion and room-inventory deletion are intentionally restricted by foreign keys to retain snapshots and financial history. Cancellation before check-in returns all reserved nights and marks simulated payment refunded.
+
+## Midnight and service validation safeguards
+
+A same-day hold expires no later than midnight at the end of its check-in date. Holds for future check-in retain the full 15-minute window across midnight. Payment, cancellation and the expiry job also expire older pending holds whose check-in date has already passed, even if their stored expiry timestamp is later. This prevents confirming a new stay with a past check-in date.
+
+The service validates quantities and strict calendar dates before allocation, in addition to HTTP validation, so calls from commands or other services cannot allocate zero/negative rooms or normalize invalid dates. Regression tests cover midnight boundaries, old pending holds and invalid service inputs. SQLite checks sequential allocation and release only; MySQL concurrency remains to be verified.

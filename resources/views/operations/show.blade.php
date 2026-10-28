@@ -4,7 +4,7 @@
 <a class="font-semibold text-brand-700" href="{{ route('operations.index') }}">← Danh sách chuyến</a>
 <h1 class="mt-4 text-3xl font-black">{{ $departure->tour->title }}</h1>
 <p class="mt-2">{{ $departure->departure_date->format('d/m/Y') }} → {{ $departure->return_date->format('d/m/Y') }} · {{ $departure->guide?->full_name ?? 'Chưa phân công' }}</p>
-<p>Trạng thái: {{ ['open' => 'Đang nhận khách', 'full' => 'Đã đủ khách', 'cancelled' => 'Đã hủy'][$departure->status] ?? $departure->status }} · {{ ['scheduled' => 'Chưa khởi hành', 'in_progress' => 'Đang thực hiện', 'completed' => 'Đã hoàn thành'][$departure->operation_status] ?? $departure->operation_status }}</p>
+<p>Trạng thái: {{ ['open' => 'Đang nhận khách', 'full' => $departure->operation_status === 'scheduled' ? 'Đã ngừng nhận khách' : 'Đã đóng nhận khách', 'cancelled' => 'Đã hủy'][$departure->status] ?? $departure->status }} · {{ ['scheduled' => 'Chưa khởi hành', 'in_progress' => 'Đang thực hiện', 'completed' => 'Đã hoàn thành'][$departure->operation_status] ?? $departure->operation_status }}</p>
 @if($departure->status !== 'cancelled' && $departure->operation_status !== 'completed')
     <form method="POST" action="{{ route('operations.status', $departure) }}" class="mt-5">
         @csrf @method('PATCH')

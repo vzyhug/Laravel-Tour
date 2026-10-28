@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Password;
+use Symfony\Component\Mailer\Exception\TransportException;
 use Tests\TestCase;
 
 class CustomerRecoveryTest extends TestCase
@@ -78,5 +79,17 @@ class CustomerRecoveryTest extends TestCase
         $this->withSession(['customer_id' => $customer->getKey()])->get(route('customer.password.change'))->assertOk();
         $customer->forceFill(['session_version' => 1])->save();
         $this->get(route('customer.password.change'))->assertRedirect(route('login'));
+    }
+
+    public function test_mail_transport_outage_keeps_the_same_generic_reset_response(): void
+    {
+        $customer = $this->customer();
+        Notification::shouldReceive('send')->once()->andThrow(new TransportException('SMTP unavailable'));
+        $known = $this->from('/forgot-password')->post(route('customer.password.email'), ['email' => $customer->email]);
+        $known->assertRedirect('/forgot-password')->assertSessionHasNoErrors();
+        $message = session('success');
+        $this->from('/forgot-password')->post(route('customer.password.email'), ['email' => 'missing@example.test'])
+            ->assertRedirect('/forgot-password')->assertSessionHas('success', $message);
+        $this->assertTrue(Hash::check('OldPassword123', $customer->fresh()->password_hash));
     }
 }

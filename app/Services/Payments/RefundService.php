@@ -11,6 +11,11 @@ class RefundService
 {
     public function request(Booking $booking, float $amount, string $key, string $reason): PaymentRefund
     {
+        if (! is_finite($amount) || $amount <= 0 || abs($amount - round($amount, 2)) > 0.000001) {
+            throw ValidationException::withMessages(['refund' => 'Số tiền hoàn phải dương và có tối đa hai chữ số thập phân.']);
+        }
+        $amount = round($amount, 2);
+
         return DB::transaction(function () use ($booking, $amount, $key, $reason) {
             $booking = Booking::whereKey($booking->getKey())->lockForUpdate()->firstOrFail();
             $payment = $booking->payment()->lockForUpdate()->firstOrFail();
@@ -45,6 +50,13 @@ class RefundService
             $outcome = config('payments.mock_refund_outcome', 'succeeded');
             abort_unless(in_array($outcome, ['succeeded', 'failed'], true), 500);
             $gateway = app(MockPaymentGateway::class)->transact('refund', 'refund:'.$refund->idempotency_key.':'.$refund->attempt_count, (float) $refund->amount, $outcome);
+            abort_unless(
+                $gateway->kind === 'refund'
+                && round((float) $gateway->amount, 2) === round((float) $refund->amount, 2)
+                && in_array($gateway->status, ['succeeded', 'failed'], true),
+                409,
+                'Giao dịch hoàn tiền mô phỏng không khớp yêu cầu.'
+            );
             $refund->update(['status' => $gateway->status, 'provider_reference' => $gateway->reference]);
             $total = (float) $payment->refunds()->where('status', 'succeeded')->sum('amount');
             if ($total >= (float) $payment->amount) {

@@ -55,7 +55,7 @@
                                     <span class="block text-xs font-normal text-slate-500">{{ $booking->pickup_note }}</span>
                                 @endif
                             @else
-                                Tự đến: {{ $quote['pickup_point'] ?? ($departure->tour->pickup_point ?: 'điểm tập trung sẽ thông báo') }}
+                                Tự đến: {{ (array_key_exists('pickup_point', $quote) ? $quote['pickup_point'] : $departure->tour->pickup_point) ?: 'điểm tập trung sẽ thông báo' }}
                             @endif
                         </dd>
                     </div>
