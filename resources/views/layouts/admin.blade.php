@@ -7,7 +7,7 @@
     <title>@yield('title', 'Quản trị') · VietGo</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="admin-app min-h-screen bg-[#f5f6f7] text-[#202522] antialiased">
+<body @class(['admin-app min-h-screen antialiased', 'guide-app bg-sand text-ink' => session('employee_role') === 'Guide', 'bg-[#f5f6f7] text-[#202522]' => session('employee_role') !== 'Guide'])>
 @php
     $employeeRole = session('employee_role');
     $navigation = [

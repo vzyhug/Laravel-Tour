@@ -87,6 +87,36 @@
     .operations-status-completed { @apply bg-slate-100 text-slate-600; }
     .operations-empty-state { @apply flex min-h-[280px] flex-col items-center justify-center rounded-2xl border border-dashed border-[#dce5de] bg-white px-6 py-12 text-center; }
     .operations-empty-icon { @apply grid size-12 place-items-center rounded-2xl bg-[#edf5ef] text-[#28745a]; }
+    .guide-app { --admin-green: #98421c; --admin-green-soft: #fcf0e9; --admin-border: #eadfd4; background: #fff8f3; color: #1d1b18; }
+    .guide-app .admin-sidebar, .guide-app .admin-topbar { border-color: #eadfd4; background: #fffdf9; }
+    .guide-app .admin-brand-mark, .guide-app .admin-avatar { background: #fcf0e9; color: #98421c; }
+    .guide-app .admin-nav-link { color: #76675e; }
+    .guide-app .admin-nav-link:hover { background: #fcf0e9; color: #98421c; }
+    .guide-app .admin-nav-link-active { background: #fcf0e9; color: #7c2e08; }
+    .guide-app .admin-nav-indicator { background: #b85a32; }
+    .guide-app .admin-sidebar-footer { border-color: #eadfd4; }
+    .guide-app .admin-topbar-menu, .guide-app .admin-role-chip { border-color: #eadfd4; color: #76675e; }
+    .guide-app .admin-role-chip > span { background: #b85a32; }
+    .guide-app .admin-topbar-menu:hover { background: #fcf0e9; }
+    .guide-app .admin-site-link { border-color: #f0d5c6; background: #fcf0e9; color: #7c2e08; }
+    .guide-app .admin-site-link:hover { border-color: #deb59e; background: #f8e5da; }
+    .guide-app .admin-main { background: #fff8f3; }
+    .guide-app .admin-main h1 { color: #1d1b18; font-family: var(--font-serif); font-weight: 500; }
+    .guide-app .admin-main .card { border-color: #eadfd4; background: #fffdf9; }
+    .guide-app .admin-page-eyebrow { color: #98421c; }
+    .guide-app .admin-page-title { color: #1d1b18; }
+    .guide-app .operations-heading-note { border-color: #eadfd4; background: #fffdf9; }
+    .guide-app .operations-heading-note-icon, .guide-app .operations-empty-icon { background: #fcf0e9; color: #98421c; }
+    .guide-app .operations-heading-note strong, .guide-app .operations-trip-date > strong { color: #1d1b18; }
+    .guide-app .operations-trip-card { border-color: #eadfd4; background: #fffdf9; }
+    .guide-app .operations-trip-card:hover { border-color: #ddb49d; box-shadow: 0 10px 25px rgb(152 66 28 / .09); }
+    .guide-app .operations-trip-card:hover h3 { color: #98421c; }
+    .guide-app .operations-trip-date { border-color: #f0d5c6; background: #fcf0e9; color: #98421c; }
+    .guide-app .operations-trip-arrow { background: #f3ede7; color: #76675e; }
+    .guide-app .operations-trip-card:hover .operations-trip-arrow { background: #fcf0e9; color: #98421c; }
+    .guide-app .operations-empty-state { border-color: #eadfd4; background: #fffdf9; }
+    .guide-app .admin-data-table thead { background: #fcf7f3; }
+    .guide-app .admin-nav-heading { color: #9b897c; }
     .hotel-count-chip { @apply inline-flex items-center rounded-full border border-[#e3ebe4] bg-[#f5f9f6] px-3 py-1.5 text-[9px] font-semibold text-[#52715d]; }
     .hotel-source-demo { @apply inline-flex rounded-full bg-amber-50 px-2.5 py-1.5 text-[8px] font-semibold text-amber-700; }
     .hotel-source-live { @apply inline-flex rounded-full bg-emerald-50 px-2.5 py-1.5 text-[8px] font-semibold text-emerald-700; }
