@@ -114,6 +114,10 @@ Chạy `composer install`, `php artisan migrate`, `npm install` và `npm run bui
 13 kiểm thử liên quan thanh toán đạt trên MySQL (176 assertions). Toàn bộ SQLite có 82/90 đạt (5.512 assertions), 8 trường hợp lỗi trùng baseline trước đợt QR. Trình duyệt kiểm tra trên database riêng `tour_qr_demo_preview`: tạo đơn qua luồng web, giải mã ảnh SVG bằng công cụ độc lập, chờ thanh toán, kết quả thành công tự cập nhật, kết quả lặp, chỉ phát hành hóa đơn sau thành công, thất bại/hết hạn/tạo lại QR, CSRF, quyền chủ đơn, lỗi mạng và bố cục điện thoại. Web chính cổng 8001 đã bật demo và migration mới; dữ liệu tour/booking đã có được đối chiếu không thay đổi.
 
 
-## SePay Sandbox và QR mở thanh toán trên Android
+## SePay Sandbox mở trực tiếp, xác minh qua API
 
-Đã bổ sung cổng SePay Sandbox với HMAC checkout, callback IPN, QR liên kết điện thoại có chữ ký/hạn dùng, cập nhật trạng thái tự động và hóa đơn demo. Luồng đã nhận IPN thật từ SePay Sandbox trên MySQL kiểm thử. Cấu hình và kịch bản trình diễn: [SEPAY_SANDBOX.md](SEPAY_SANDBOX.md). Không gửi `.env` hoặc các khóa tích hợp vào Git.
+Chọn SePay sẽ mở thẳng trang thanh toán thử ở tab mới; tab VietGo theo dõi trạng thái. Sau thao tác **Giả lập thanh toán**, VietGo xác minh trạng thái đơn qua API riêng của SePay rồi mới xác nhận booking và tạo hóa đơn demo. Đã bỏ QR liên kết điện thoại, gateway Python, IPN và ngrok; máy thành viên chỉ cần cấu hình Merchant ID/Secret Key Sandbox trong `.env` và chạy website. Chi tiết: [SEPAY_SANDBOX.md](SEPAY_SANDBOX.md).
+
+## Tích hợp SePay vào main mới — 29/10/2026
+
+Đã đưa SePay không cần ngrok từ dev-Loc `8a58ea5` vào main `c665b7f`, giữ MoMo/VNPAY và cơ chế giữ chỗ mới. Xem cấu hình, quy trình demo và kết quả kiểm thử hiện tại tại [SEPAY_SANDBOX.md](SEPAY_SANDBOX.md). Các số liệu và giới hạn trong các mục bàn giao phía trên là lịch sử của từng đợt, không thay thế kết quả của bản main mới.

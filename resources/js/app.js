@@ -1,3 +1,4 @@
+import './sepay-checkout';
 import './qr-payment';
 import './image-viewer';
 import './itinerary';

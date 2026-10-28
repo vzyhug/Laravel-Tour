@@ -22,7 +22,7 @@ document.querySelectorAll('[data-qr-payment]').forEach((root) => {
         root.querySelector('[data-qr-result]').hidden = pending;
         root.querySelector('[data-qr-result-title]').textContent = labels[state.status];
         root.querySelector('[data-qr-result-description]').textContent = state.status === 'review'
-            ? 'SePay đã gửi thông báo giao dịch cần đối soát. Vui lòng liên hệ nhân viên; chưa thể tự động xác nhận hoặc tạo phiên thanh toán mới.'
+            ? 'Kết quả từ SePay cần được đối soát. Vui lòng liên hệ nhân viên; chưa thể tự động xác nhận hoặc tạo phiên thanh toán mới.'
             : paid
             ? 'Đã ghi nhận giao dịch demo và xác nhận đơn. Bạn có thể xem lại chuyến đi và hóa đơn.'
             : 'Không ghi nhận khoản thanh toán thành công từ mã QR này. Bạn có thể xem lại đơn hoặc tạo mã mới nếu đơn vẫn đang chờ thanh toán.';
@@ -46,6 +46,7 @@ document.querySelectorAll('[data-qr-payment]').forEach((root) => {
             const response = await fetch(root.dataset.statusUrl, { headers: { Accept: 'application/json' }, cache: 'no-store', signal: AbortSignal.timeout(10000) });
             if (!response.ok || response.redirected) throw new Error('Status request failed');
             const next = await response.json();
+            if (next.verification_available === false) throw new Error('Provider verification unavailable');
             if (!Object.hasOwn(labels, next.status)) throw new Error('Unknown payment status');
             state = next;
             receivedAt = performance.now();

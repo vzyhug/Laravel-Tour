@@ -25,7 +25,8 @@ class PaymentStatus
 
         return ['status' => $status, 'reference' => $intent->reference, 'amount' => $intent->amount,
             'seconds_remaining' => $status === 'pending' ? max(0, $intent->expires_at->timestamp - now()->timestamp) : 0,
-            'can_retry' => in_array($booking->status, ['pending', 'confirmed'], true) && ! $booking->payment && in_array($status, ['expired', 'failed', 'cancelled'], true),
+            'can_retry' => in_array($booking->status, ['pending', 'confirmed'], true) && (! $booking->payment || ($booking->payment->status === 'failed' && ! $booking->payment->attempts()->where('status', 'pending')->exists()))
+                && in_array($status, ['expired', 'failed', 'cancelled'], true),
             'booking_url' => route('customer.bookings.show', $booking),
             'invoice_url' => $booking->bill && in_array($status, ['paid', 'superseded'], true) ? route('customer.bookings.invoice', $booking) : null];
     }

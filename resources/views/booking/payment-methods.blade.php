@@ -9,7 +9,7 @@
         'cash' => ['Thanh toán tại văn phòng', 'Thanh toán nội bộ khi xác nhận với nhân viên VietGo.', false],
         'card' => ['Thẻ tín dụng / ghi nợ (mô phỏng)', 'Luồng mô phỏng nội bộ.', false],
     ];
-    if ($sepay) $methods = ['sepay' => ['QR ngân hàng · SePay Sandbox', 'Thử thanh toán tại SePay Sandbox.', false]] + $methods;
+    if ($sepay) $methods = ['sepay' => ['QR ngân hàng · SePay Sandbox', 'SePay mở ở tab mới; VietGo tự kiểm tra kết quả.', false]] + $methods;
     if ($qrDemo) $methods['vietqr_demo'] = ['QR VietQR demo', 'Mã QR nội bộ để kiểm thử; không phải giao dịch ngân hàng thật.', false];
     $defaultMethod = $vnpay ? 'bank_transfer' : ($sepay ? 'sepay' : ($momo ? 'momo' : null));
     $gatewayMethods = implode(',', array_values(array_filter([

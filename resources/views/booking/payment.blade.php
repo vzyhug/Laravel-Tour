@@ -30,7 +30,7 @@
             @if($hasPaymentReview)
                 <div class="mt-8 rounded-xl border border-amber-200 bg-amber-50 p-5"><h3 class="font-serif text-xl text-amber-900">Giao dịch cần được kiểm tra</h3><p class="mt-2 text-xs leading-6 text-amber-800">Nhà cung cấp đã gửi thông tin thanh toán chưa khớp với đơn. Tạm thời không thể tạo giao dịch mới; VietGo cần đối soát trước.</p></div>
             @elseif($pendingSePay && !$booking->payment)
-                <div class="mt-8 rounded-xl bg-sand p-5"><h3 class="font-serif text-xl">Bạn đang có phiên thanh toán SePay Sandbox</h3><p class="mt-2 text-xs leading-6 text-muted">Tiếp tục phiên QR hiện tại để tránh tạo giao dịch trùng.</p><a class="btn-primary mt-4" href="{{ route('payments.sepay.show', [$booking, $pendingSePay]) }}">Tiếp tục thanh toán SePay</a></div>
+                <div class="mt-8 rounded-xl bg-sand p-5"><h3 class="font-serif text-xl">Bạn đang có phiên thanh toán SePay Sandbox</h3><p class="mt-2 text-xs leading-6 text-muted">Mở lại trang theo dõi để kiểm tra kết quả hoặc tiếp tục tại SePay.</p><a class="btn-primary mt-4" href="{{ route('payments.sepay.show', [$booking, $pendingSePay]) }}">Tiếp tục thanh toán SePay</a></div>
             @elseif($pendingQr && !$booking->payment)
                 <div class="mt-8 rounded-xl bg-sand p-5"><h3 class="font-serif text-xl">Bạn đang có mã VietQR demo còn hiệu lực</h3><p class="mt-2 text-xs leading-6 text-muted">Mở lại mã hiện tại để hoàn tất phiên demo nội bộ.</p><a class="btn-primary mt-4" href="{{ route('payments.qr.show', [$booking, $pendingQr]) }}">Tiếp tục phiên QR demo</a></div>
             @elseif($pendingMomo)
@@ -47,7 +47,7 @@
                     <p class="mt-2 text-[10px] leading-5 text-muted">Phiên mới mở NCB Sandbox để nhập thẻ test; không quét QR.</p>
                 </div>
             @elseif(!$booking->payment || $booking->payment->status === 'failed')
-                <form method="POST" action="{{ route('payments.store', $booking) }}" class="mt-9" id="payment-form">
+                <form data-payment-method-form data-booking-id="{{ $booking->getKey() }}" method="POST" action="{{ route('payments.store', $booking) }}" class="mt-9" id="payment-form">
                     @csrf
                     <input type="hidden" name="idempotency_key" value="{{ $attemptKey }}">
                     @include('booking.payment-methods')

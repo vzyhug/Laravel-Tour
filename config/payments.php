@@ -7,8 +7,7 @@ return [
         'enabled' => env('SEPAY_SANDBOX_ENABLED', false),
         'merchant_id' => env('SEPAY_SANDBOX_MERCHANT_ID', ''),
         'secret_key' => env('SEPAY_SANDBOX_SECRET_KEY', ''),
-        'ipn_secret' => env('SEPAY_SANDBOX_IPN_SECRET', ''),
-        'public_url' => env('SEPAY_SANDBOX_PUBLIC_URL', ''),
+        'ca_bundle' => env('SEPAY_SANDBOX_CA_BUNDLE'),
     ],
     'qr_lifetime_minutes' => (int) env('PAYMENT_QR_LIFETIME_MINUTES', 10),
     'vnpay' => [
