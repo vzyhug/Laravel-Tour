@@ -23,7 +23,7 @@
                         <summary>
                             <span class="day-drag-handle" data-day-drag-handle role="button" tabindex="0" aria-label="K&#xE9;o &#x111;&#x1EC3; s&#x1EAF;p x&#x1EBF;p Ng&#xE0;y {{ $schedule->day_number }}" title="K&#xE9;o &#x111;&#x1EC3; &#x111;&#x1ED5;i th&#x1EE9; t&#x1EF1; ng&#xE0;y">&#x28FF;</span>
                             <span class="font-serif text-3xl text-brand-600/65" data-day-ordinal>{{ str_pad($schedule->day_number, 2, '0', STR_PAD_LEFT) }}</span>
-                            <span class="flex-1"><span class="eyebrow text-[9px] text-muted" data-day-label>Ng&#xE0;y {{ $schedule->day_number }}</span><span class="mt-1 block font-serif text-lg">&#x110;&#x1ECB;a &#x111;i&#x1EC3;m trong ng&#xE0;y</span></span>
+                            <span class="flex-1"><span class="eyebrow text-[9px] text-muted" data-day-label>Ng&#xE0;y {{ $schedule->day_number }}</span><span class="mt-1 block font-serif text-lg">{{ $schedule->stops->map(fn ($stop) => $stop->place->name)->implode(' - ') }}</span></span>
                             <x-icon name="chevron" class="itinerary-chevron size-4 shrink-0 text-muted transition"/>
                         </summary>
                         <div class="border-t border-[#eee5dd] px-5 py-5 sm:pl-16">
