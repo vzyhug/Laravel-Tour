@@ -5,7 +5,7 @@
 Nhánh chứa phần kho ảnh Supabase và đợt bổ sung danh mục, khách sạn, tour mới. Database nghiệp vụ vẫn dùng MySQL. Main đã kiểm tra tại commit `58e75be`; trước lần đẩy này, dev-Loc trên GitHub ở `0be8e69` và không có thay đổi từ thành viên khác.
 
 - 31 nhóm điểm đến, 120 địa danh có ảnh và 64 khách sạn/resort/lodge. Vũng Tàu có 4 cơ sở, mỗi điểm đến khác có 2.
-- Trang tìm kiếm, bộ lọc, phân trang, chi tiết, nguồn ảnh/thông tin và liên kết tour theo điểm đến: `/destinations`, `/places`, `/hotels`, `/photo-credits`.
+- Trang tìm kiếm, bộ lọc, phân trang, chi tiết và liên kết tour theo điểm đến: `/destinations`, `/places`, `/hotels`.
 - Thêm hai tour Vũng Tàu 2N1Đ và 3N2Đ, đủ lịch trình và 6 lịch khởi hành tương lai. Tổng bộ mẫu: 32 tour, 88 ngày chương trình, 133 điểm dừng, 126 lịch khởi hành và 64 ảnh tour.
 - Seeder/factory cho điểm đến, địa danh, khách sạn, ảnh khách sạn và hai chương trình mới; chạy lại không nhân bản các bản ghi mẫu. Lịch khởi hành neo theo ngày chạy nên có thể thêm đợt mới khi chạy vào ngày khác.
 - 72 ảnh danh mục mới được tải về làm nguồn khôi phục. Web dùng URL Supabase: 244 tham chiếu nguồn ứng với 224 file theo nội dung. Mở rộng lệnh chuyển/kiểm tra/khôi phục ảnh để quản lý cả ảnh khách sạn.
@@ -64,8 +64,12 @@ Tám kiểm thử cũ cần nhóm theo dõi riêng:
 ## Giới hạn cần nắm khi nghiệm thu
 
 - Đặt tour chưa có lựa chọn khách sạn; danh mục chỉ phục vụ tra cứu. Muốn thêm cần cấu hình khách sạn cho tour, phụ thu/số đêm và lưu lựa chọn/giá vào đơn đặt.
-- Giá của hai tour mới là giá mẫu kiểm thử, chưa phải báo giá thương mại. 57 ảnh mới từ website khách sạn/đơn vị du lịch chưa công bố giấy phép tái sử dụng; cần thống nhất quyền dùng trước phát hành thương mại. 15 ảnh mới còn lại có giấy phép mở/thuộc phạm vi công cộng, ghi công trong dữ liệu.
+- Giá của hai tour mới là giá mẫu kiểm thử, chưa phải báo giá thương mại.
 - Nhóm điểm đến là nhóm hành trình, không phải đơn vị hành chính. Khách sạn cùng nhóm không bảo đảm ở gần mọi địa danh hoặc có phòng trống.
 - Secret, `.env`, database, bản sao lưu và báo cáo nội bộ không được đưa lên Git. Ảnh nguồn được giữ để có thể khôi phục/chuyển kho; ảnh ứng dụng hiển thị từ Supabase.
+
+Đợt sửa giao diện sau bàn giao: bỏ phần nguồn/quyền ảnh trên web và dữ liệu trả cho trình chỉnh lịch; gỡ trang ghi công. Sửa các chuỗi tiếng Việt bị chuyển sai bảng mã trong `resources/js/itinerary.js` (24 dòng bị ảnh hưởng trước sửa), thêm nhãn “Mã đặt tour” ở danh sách, chi tiết và thanh toán. Mã BK... là booking_code, không phải mã lịch trình.
+
+Sau đợt sửa này, 40 kiểm thử liên quan trên MySQL đạt (1.026 assertions). Toàn bộ 69 kiểm thử SQLite vẫn có 61 đạt, 8 trường hợp lỗi cũ, không có trường hợp lỗi mới. Build và kiểm tra cú pháp JavaScript đạt. Rà soát các tệp văn bản mã nguồn/dữ liệu được Git theo dõi không tìm thấy chuỗi sai bảng mã tương tự. Trình duyệt đã kiểm tra trang địa danh, khách sạn, tour, tài khoản và chi tiết đơn; các nhãn tiếng Việt và trạng thái lưu/gửi tư vấn hiển thị đúng, bố cục không tràn ngang trên desktop/mobile. Kiểm tra thông báo bằng phản hồi giả lập trong trình duyệt, không tạo yêu cầu tư vấn thật hoặc sửa lịch riêng đang lưu.
 
 Chi tiết dữ liệu: [DESTINATION_DIRECTORY.md](DESTINATION_DIRECTORY.md) và [DESTINATION_TOURS.md](DESTINATION_TOURS.md).

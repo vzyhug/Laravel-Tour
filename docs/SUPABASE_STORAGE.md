@@ -67,9 +67,9 @@ Với database mới: chạy `migrate`, `media:migrate --apply`, sau đó `db:se
 
 Phân phối mã nguồn + manifest, cấu hình cùng Project URL/bucket và Secret riêng của môi trường. Chạy migration rồi seed nếu cần dữ liệu mẫu. Không cần sao chép ảnh local hoặc `storage:link` cho ảnh cloud.
 
-Kiểm tra trang chủ, chi tiết tour, ảnh lịch trình, hóa đơn và `/photo-credits`; upload ảnh từ Admin/Sale. `media:verify --remote` phải đạt. Thử khi không có `public/images/tours/demo/`, `public/images/itinerary/`, `public/images/directory/` và ảnh local trong `storage/app/public`: các ảnh ứng dụng vẫn phải tải từ Supabase.
+Kiểm tra trang chủ, chi tiết tour, ảnh lịch trình, hóa đơn, danh mục điểm đến và khách sạn; upload ảnh từ Admin/Sale. `media:verify --remote` phải đạt. Thử khi không có `public/images/tours/demo/`, `public/images/itinerary/`, `public/images/directory/` và ảnh local trong `storage/app/public`: các ảnh ứng dụng vẫn phải tải từ Supabase.
 
-Chỉ bỏ các file ảnh nguồn khỏi bản triển khai/Git sau khi mọi môi trường dùng cloud và đã xác minh backup. Lệnh chuyển giữ nguồn local để khôi phục; không sửa lịch sử Git. Nguồn và giấy phép tiếp tục nằm trong các manifest dữ liệu gốc và trang ghi công.
+Chỉ bỏ các file ảnh nguồn khỏi bản triển khai/Git sau khi mọi môi trường dùng cloud và đã xác minh backup. Lệnh chuyển giữ nguồn local để khôi phục; không sửa lịch sử Git. Nguồn và giấy phép tiếp tục nằm trong các manifest dữ liệu gốc để kiểm tra nội bộ.
 
 ## 5. Khôi phục và lỗi upload
 

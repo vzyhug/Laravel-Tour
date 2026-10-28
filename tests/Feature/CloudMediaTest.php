@@ -180,7 +180,7 @@ class CloudMediaTest extends TestCase
         $this->withoutVite();
         $this->get('/')->assertOk()->assertSee('https://testproject.supabase.co/storage/v1/object/public/tour-images/', false)->assertDontSee('/images/tours/demo/', false);
         $this->get(route('tours.show', Tour::first()))->assertOk()->assertSee('https://testproject.supabase.co/storage/v1/object/public/tour-images/', false)->assertDontSee('/images/itinerary/', false);
-        $this->get(route('photo-credits'))->assertOk()->assertSee('Taewangkorea')->assertDontSee('/images/tours/demo/', false);
+        $this->get('/photo-credits')->assertNotFound();
         $journalFile = config('media.journal');
         $originalJournal = file_get_contents($journalFile);
         $otherDatabaseJournal = json_decode($originalJournal, true);
@@ -216,7 +216,7 @@ class CloudMediaTest extends TestCase
             $this->seed([DemoAccountSeeder::class, TourSeeder::class, TourItinerarySeeder::class, DestinationDirectorySeeder::class, DestinationTourSeeder::class]);
             $this->withoutVite();
             $this->get('/')->assertOk()->assertSee('https://testproject.supabase.co/storage/v1/object/public/tour-images/', false);
-            $this->get(route('photo-credits'))->assertOk();
+            $this->get('/photo-credits')->assertNotFound();
             $this->get('/destinations/vung-tau')->assertOk()->assertDontSee('/images/directory/', false);
             $this->get(route('tours.show', Tour::where('title', 'Vũng Tàu 3N2Đ – Văn hóa, bảo tàng & biển đảo')->firstOrFail()))->assertOk()->assertDontSee('/images/directory/', false)->assertSee('Robert Taylor');
             $this->get('/hotels/pullman-vung-tau')->assertOk()->assertSee('https://testproject.supabase.co/storage/v1/object/public/tour-images/', false);

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $booking->booking_code . ' · VietGo')
+@section('title', 'Mã đặt tour: '.$booking->booking_code.' · VietGo')
 
 @php
     $labels = ['pending' => 'Chờ xác nhận', 'confirmed' => 'Đã xác nhận', 'completed' => 'Hoàn thành', 'cancelled' => 'Đã hủy'];
@@ -14,7 +14,7 @@
 
         <div class="mt-5 flex flex-wrap justify-between gap-4">
             <div>
-                <p class="text-sm text-slate-500">{{ $booking->booking_code }}</p>
+                <p class="text-sm text-slate-500">Mã đặt tour: <span class="font-semibold text-ink">{{ $booking->booking_code }}</span></p>
                 <h1 class="text-3xl font-black text-ink">{{ $departure->tour->title }}</h1>
             </div>
             <div class="flex items-center gap-3">

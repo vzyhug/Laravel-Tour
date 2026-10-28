@@ -6,7 +6,7 @@
         <p class="eyebrow">Một hành trình theo cách của bạn</p>
         <h3 class="mt-2 font-serif text-2xl">Sắp xếp chuyến đi mong muốn.</h3>
         <p class="mt-3 text-xs leading-7 text-muted">Trong lịch riêng, bạn có thể đổi ngày tham quan, thêm/bỏ điểm và ghi giờ dự kiến. Nhân viên sẽ kiểm tra cung đường, dịch vụ và báo giá riêng; lịch tùy chỉnh không tự thay đổi tour hay đơn đã đặt.</p>
-        <p class="mt-3 text-xs leading-7 text-muted">Địa danh và ảnh có nguồn bên dưới từng điểm. Phân ngày theo chương trình VietGo hiện có; giờ bạn chọn là dự kiến, chưa xác nhận với điểm tham quan.</p>
+        <p class="mt-3 text-xs leading-7 text-muted">Phân ngày theo chương trình VietGo hiện có; giờ bạn chọn là dự kiến, chưa xác nhận với điểm tham quan.</p>
         <div class="mt-5 flex flex-wrap items-center gap-3">
             @if(session('customer_id'))<button type="button" class="btn-primary" data-itinerary-save>Lưu lịch của tôi</button><a href="{{ route('tour-itinerary.index') }}" class="text-link">Lịch đã lưu</a>
             @else<a href="{{ route('login') }}" class="btn-primary">Đăng nhập để lưu & gửi tư vấn</a>@endif

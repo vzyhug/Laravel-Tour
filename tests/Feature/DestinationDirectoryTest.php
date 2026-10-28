@@ -48,7 +48,7 @@ class DestinationDirectoryTest extends TestCase
         $this->assertSame(0, Destination::doesntHave('hotels')->count());
     }
 
-    public function test_public_directory_search_filters_pagination_and_sources(): void
+    public function test_public_directory_search_filters_pagination_and_details(): void
     {
         $this->seedDirectory();
         $this->get('/destinations?q=Vũng')->assertOk()->assertSee('Vũng Tàu')->assertSee('8 địa danh')->assertSee('4 khách sạn');
@@ -61,8 +61,8 @@ class DestinationDirectoryTest extends TestCase
         $this->get('/hotels?destination=ba-be')->assertOk()->assertSee('2 khách sạn')->assertSee('Ba Be Lakeside Bungalow')->assertSee('Ba Be Jungle Houses');
         $this->get('/hotels?destination=mang-den')->assertOk()->assertSee('2 khách sạn')->assertSee('Toong Dam')->assertSee('Đắk Ke');
         $this->get('/hotels?q=khongcokhachsan')->assertOk()->assertSee('Chưa tìm thấy kết quả phù hợp');
-        $this->get('/places/hon-ba-vung-tau')->assertOk()->assertSee('Nguồn ảnh')->assertSee('CC BY 3.0')->assertSee('Khách sạn cùng điểm đến');
-        $this->get('/hotels/pullman-vung-tau')->assertOk()->assertSee('15 Thi Sách')->assertSee('Website khách sạn')->assertSee('https://www.pullmanvungtau.com/', false)->assertSee('Địa danh cùng điểm đến');
+        $this->get('/places/hon-ba-vung-tau')->assertOk()->assertDontSee('Nguồn ảnh')->assertDontSee('CC BY')->assertDontSee('Đối chiếu nguồn')->assertSee('Khách sạn cùng điểm đến');
+        $this->get('/hotels/pullman-vung-tau')->assertOk()->assertSee('15 Thi Sách')->assertSee('Website khách sạn')->assertSee('https://www.pullmanvungtau.com/', false)->assertDontSee('Nguồn thông tin')->assertDontSee('giấy phép')->assertSee('Địa danh cùng điểm đến');
         $this->get('/places/bao-tang-vu-khi-co-robert-taylor')->assertOk()->assertSee('Hiện vật giáp trưng bày tại Bảo tàng Vũ khí cổ Robert Taylor');
         $this->get('/destinations?page=2')->assertOk()->assertSee('page=3', false);
     }

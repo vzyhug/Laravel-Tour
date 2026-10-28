@@ -15,7 +15,7 @@
 - `/destinations/vung-tau`: tour có địa danh thuộc Vũng Tàu, địa danh và khách sạn của điểm đến.
 - `/places`: tìm theo tên/địa chỉ, lọc điểm đến và loại địa danh.
 - `/hotels`: tìm theo tên/địa chỉ và lọc điểm đến.
-- `/places/{slug}`, `/hotels/{slug}`: ảnh, ghi công, nguồn thông tin, ngày đối chiếu, bản đồ tìm kiếm; khách sạn có website/liên hệ và gợi ý địa danh cùng điểm đến.
+- `/places/{slug}`, `/hotels/{slug}`: ảnh, bản đồ tìm kiếm; khách sạn có website/liên hệ và gợi ý địa danh cùng điểm đến.
 
 ## Dữ liệu và cách chạy
 
@@ -41,15 +41,15 @@ php artisan itineraries:audit
 
 Chế độ Supabase dùng URL công khai trong manifest `database/data/media-cloud.json`. Seeder và factory không cần đọc file ảnh local trong chế độ này. Bí mật SUPABASE_SECRET_KEY chỉ nằm ở `.env`, không đưa lên Git hoặc frontend. `media:verify`, `media:migrate` và rollback đã quản lý thêm bảng `hotel_images`.
 
-## Ảnh và quyền sử dụng
+## Ảnh địa điểm
 
-15 ảnh mới có giấy phép mở/thuộc phạm vi công cộng theo metadata Wikimedia Commons. 57 ảnh từ website cơ sở lưu trú/đơn vị quản lý du lịch chưa thấy công bố giấy phép tái sử dụng; được đánh dấu đúng trạng thái này trong JSON và trên trang ghi công, không gán nhãn Creative Commons. Cần thống nhất quyền dùng những ảnh này trước khi phát hành thương mại. Ảnh là tư liệu tại thời điểm chụp, không bảo đảm mô tả hiện trạng mới nhất. Một số ảnh là phòng nghỉ, sảnh hoặc khuôn viên của cơ sở. Premier Pearl sử dụng ảnh phòng Classic Twin Ocean View, được ghi rõ chú thích; không dùng ảnh tòa nhà đang xây năm 2021.
+Ảnh là tư liệu tại thời điểm chụp, không bảo đảm mô tả hiện trạng mới nhất. Một số ảnh là phòng nghỉ, sảnh hoặc khuôn viên của cơ sở. Premier Pearl sử dụng ảnh phòng Classic Twin Ocean View, được ghi rõ chú thích; không dùng ảnh tòa nhà đang xây năm 2021.
 
 Trong đợt mở rộng 50 cơ sở, nguồn ưu tiên là website khách sạn, website thương hiệu hoặc hồ sơ trên Cơ sở dữ liệu ngành Du lịch/cổng thông tin địa phương. Tên hiện hành được đối chiếu nguồn: Mường Thanh **Luxury** Mộc Châu và **Cuc Phuong Mineral Retreat**. Danh mục gồm cả resort/farmstay/lodge tại các vùng sinh thái; không tự gán hạng sao, giá phòng hoặc tình trạng phòng trống. Một số website cơ sở không truy cập được tại lúc thu thập; hồ sơ nguồn của cơ quan du lịch được dùng để đối chiếu và giữ nguyên website do hồ sơ công bố. Thông tin chưa xác minh được như số điện thoại riêng của một vài cơ sở được để trống. Với nơi chưa có địa chỉ đường/số nhà rõ ràng, ghi khu vực theo nguồn và dùng tìm kiếm bản đồ theo tên.
 
 Các nhóm Hà Giang, Bến Tre, Mai Châu, Mù Cang Chải… là nhóm hành trình cũ; địa chỉ cơ sở có thể ghi tỉnh/phường mới theo website nguồn. Địa danh cùng nhóm hành trình có thể cách xa nhau, vì vậy gợi ý “cùng điểm đến” không phải cam kết ở gần hoặc phù hợp với mọi lịch trình.
 
-Mỗi ảnh giữ URL trang nguồn, URL tải, tác giả/đơn vị công bố, giấy phép, chú thích và SHA-256. Ảnh mới được đưa lên bucket Supabase `tour-images` và kiểm tra nội dung trước khi seed. `/photo-credits` hiển thị nguồn của toàn bộ ảnh.
+Mỗi ảnh giữ URL trang nguồn, URL tải, tác giả/đơn vị công bố, giấy phép, chú thích và SHA-256. Ảnh mới được đưa lên bucket Supabase `tour-images` và kiểm tra nội dung trước khi seed. Giao diện dự án học tập chỉ hiển thị ảnh địa điểm; đã bỏ trang ghi công, liên kết nguồn, ngày đối chiếu và thông tin quyền ảnh. Metadata gốc vẫn nằm trong dữ liệu nội bộ để kiểm tra ảnh và khôi phục.
 
 ## Factory và kiểm thử
 

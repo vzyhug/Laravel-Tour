@@ -18,7 +18,6 @@ use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\PhotoCreditController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\TourItineraryController;
 use App\Models\Tour;
@@ -30,7 +29,6 @@ Route::get('/places', [DestinationController::class, 'places'])->name('places.in
 Route::get('/places/{place:slug}', [DestinationController::class, 'place'])->name('places.show');
 Route::get('/hotels', [DestinationController::class, 'hotels'])->name('hotels.index');
 Route::get('/hotels/{hotel}', [DestinationController::class, 'hotel'])->name('hotels.show');
-Route::get('/photo-credits', PhotoCreditController::class)->name('photo-credits');
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/tours', [TourController::class, 'index'])->name('tours.index');
 Route::get('/tours/{tour}', [TourController::class, 'show'])->name('tours.show');

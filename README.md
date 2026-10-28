@@ -46,7 +46,7 @@ Mặc định `.env.example` dùng MySQL database `tour_booking`. Có thể đ�
 
 Seeder hiện có **30 tour**, **83 ngày lịch trình**, **120 lịch khởi hành**, **24 khách hàng**, **120 đơn đặt tour**, **300 hành khách**, **60 thanh toán**, **60 hóa đơn** và **30 đánh giá**. Có 14 factory nghiệp vụ, bên cạnh `UserFactory` có sẵn.
 
-Ảnh dùng **Supabase Storage chung**; dữ liệu nghiệp vụ giữ ở MySQL. Danh mục có **60 ảnh tour và 112 ảnh địa điểm**, được chuyển một lần bằng `media:migrate --apply`. Seeder/factory đọc manifest cloud, không upload và không cần ảnh local sau chuyển. Ảnh nguồn tạm được giữ để chuyển/khôi phục; nguồn, tác giả và giấy phép tiếp tục được bảo toàn. Xem [cấu hình, chuyển ảnh và nghiệm thu Supabase](docs/SUPABASE_STORAGE.md).
+Ảnh dùng **Supabase Storage chung**; dữ liệu nghiệp vụ giữ ở MySQL. Danh mục có **244 tham chiếu ảnh nguồn dùng chung 224 file trên cloud**, được chuyển một lần bằng `media:migrate --apply`. Seeder/factory đọc manifest cloud, không upload và không cần ảnh local sau chuyển. Ảnh nguồn tạm được giữ để chuyển/khôi phục; metadata gốc tiếp tục được bảo toàn trong dữ liệu nội bộ; giao diện học tập đã bỏ phần nguồn/quyền ảnh. Xem [cấu hình, chuyển ảnh và nghiệm thu Supabase](docs/SUPABASE_STORAGE.md).
 
 Để phát triển offline, đặt `MEDIA_DRIVER=local` trước khi seed; chế độ này bị chặn trong production.
 

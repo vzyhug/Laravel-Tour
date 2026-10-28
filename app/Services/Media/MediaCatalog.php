@@ -62,9 +62,4 @@ class MediaCatalog
 
         return $this->reference($image)->url;
     }
-
-    public function credits(): array
-    {
-        return array_map(fn ($image) => array_merge($image, ['url' => $this->reference($image)->url]), $this->images());
-    }
 }

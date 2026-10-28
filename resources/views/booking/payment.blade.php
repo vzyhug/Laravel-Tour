@@ -5,7 +5,7 @@
     <p class="eyebrow">Bước cuối / Hoàn thiện hành trình</p><h1 class="section-title mt-2">Sẵn sàng cho những trải nghiệm mới.</h1><p class="mt-4 text-sm text-muted">Kiểm tra đặt tour và chọn phương thức thanh toán của bạn.</p>
     <div class="mt-8 grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_350px]">
         <div class="card p-6 sm:p-8">
-            <div class="flex flex-wrap justify-between gap-4 border-b border-[#e5d9cf] pb-6"><div><p class="eyebrow text-[9px] text-muted">Hành trình đã giữ chỗ</p><h2 class="mt-2 font-serif text-2xl">{{ $booking->departure->tour->title }}</h2></div><span class="badge h-fit">{{ $booking->booking_code }}</span></div>
+            <div class="flex flex-wrap justify-between gap-4 border-b border-[#e5d9cf] pb-6"><div><p class="eyebrow text-[9px] text-muted">Hành trình đã giữ chỗ</p><h2 class="mt-2 font-serif text-2xl">{{ $booking->departure->tour->title }}</h2></div><span class="badge h-fit">Mã đặt tour: {{ $booking->booking_code }}</span></div>
             <dl class="mt-6 grid gap-5 text-xs sm:grid-cols-3"><div><dt class="label">Khởi hành</dt><dd class="font-semibold">{{ $booking->departure->departure_date->format('d/m/Y') }}</dd></div><div><dt class="label">Người đồng hành</dt><dd class="font-semibold">{{ $booking->total_adults + $booking->total_children }} hành khách</dd></div><div><dt class="label">Thời gian</dt><dd class="font-semibold">{{ $booking->departure->tour->duration_days }} ngày · {{ $booking->departure->tour->duration_nights }} đêm</dd></div></dl>
             @if((float) $booking->discount_amount > 0)
                 <dl class="mt-6 grid gap-3 rounded-xl bg-sand p-5 text-xs">

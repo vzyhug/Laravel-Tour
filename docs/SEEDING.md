@@ -112,7 +112,7 @@ Các file trong `public/images/tours/demo/` là nguồn để chuyển và khôi
 
 - Danh sách Wikimedia được chọn: `database/data/tour-image-sources.json`.
 - Nguồn, tác giả, giấy phép, mô tả và SHA-256 từng ảnh: `database/data/tour-images.json`.
-- Trang ghi công được liên kết ở chân trang website: `/photo-credits`, hiển thị URL cloud và ghi công cho cả ảnh tour lẫn địa điểm.
+- Giao diện học tập hiển thị ảnh bằng URL cloud; phần nguồn/quyền ảnh và trang ghi công đã được gỡ khỏi website.
 - Ghi công dễ đọc: `public/images/tours/demo/ATTRIBUTION.md`.
 
 Tải lại bằng Python 3, chỉ dùng thư viện chuẩn:

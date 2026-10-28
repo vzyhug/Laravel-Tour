@@ -15,7 +15,7 @@ Giá và dịch vụ là dữ liệu minh họa để thử luồng đặt tour,
 - Mỗi tour mới có 3 đợt khởi hành tương lai, 24 chỗ/đợt, giờ khởi hành mẫu 07:00. Không tự tạo đánh giá hay đơn đặt đã hoàn thành cho tour mới.
 - Ngày bắt đầu dự kiến là hôm nay +10/+40/+70 ngày, cộng thêm 7 ngày với chương trình thứ hai. Seeder tìm hướng dẫn viên không trùng lịch (tính cả ngày đi/ngày về), có thể dời tối đa 14 ngày để có người rảnh; nếu không tìm được thì transaction được rollback.
 - Khi chạy lại trong cùng khung ngày, seeder giữ lịch khởi hành đã tồn tại, bao gồm giá, số chỗ và trạng thái hủy. Ngày neo trượt theo ngày chạy, nên chạy vào ngày khác có thể bổ sung lịch mới, tương tự dữ liệu mẫu cũ.
-- Tái sử dụng các bản ghi địa danh và ảnh Supabase đã có; thêm ảnh hiện vật Bảo tàng Robert Taylor từ https://vietnam.travel/things-to-do/vung-tau-family-holiday/ (trang nguồn chưa công bố giấy phép tái sử dụng).
+- Tái sử dụng các bản ghi địa danh và ảnh Supabase đã có; thêm ảnh hiện vật Bảo tàng Robert Taylor từ https://vietnam.travel/things-to-do/vung-tau-family-holiday/.
 - Trang điểm đến có thêm danh sách tour đi qua các địa danh thuộc nhóm đó. Tìm kiếm “Vũng” trong danh sách tour cũng hiển thị hai chương trình.
 
 ## Cách chạy

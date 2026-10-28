@@ -29,11 +29,8 @@ class TourItineraryService
             'days' => $tour->schedules->map(fn ($day) => ['number' => $day->day_number, 'title' => $day->title, 'activities' => $day->activities])->values(),
             'places' => $places->map(fn ($place) => [
                 'id' => $place->id, 'name' => $place->name, 'description' => $place->description,
-                'source_url' => $place->source_url, 'verified_on' => $place->verified_on,
                 'image' => $place->images->first() ? ['url' => $place->images->first()->url,
-                    'caption' => $place->images->first()->caption, 'author' => $place->images->first()->author,
-                    'source_url' => $place->images->first()->source_url, 'license' => $place->images->first()->license,
-                    'license_url' => $place->images->first()->license_url] : null,
+                    'caption' => $place->images->first()->caption] : null,
             ])->values(),
             'defaults' => $defaults,
             'items' => $plan ? $plan->items->map(fn ($item) => [

@@ -4,7 +4,7 @@
 
 Đã đọc toàn bộ database hiện tại trước khi thay đổi: **30 tour, 83 ngày**, đối chiếu với `database/data/tours.json`. Giữ nguyên `tour_schedules`, giá, lịch khởi hành và đơn tour hiện có. Phân tách thêm **120 lượt ghé / 112 địa danh** cùng **112 ảnh địa danh** vào `database/data/tour-itineraries.json`.
 
-Điểm tham quan và ảnh được đối chiếu từ Wikipedia/Wikimedia Commons và các trang du lịch đã đọc (Cổng du lịch Côn Đảo, iVIVU, VinWonders, Lữ Hành Việt Nam, PYS Travel, VHA). Có nguồn, ngày đối chiếu, tác giả, giấy phép và SHA-256 cho từng ảnh. Ưu tiên ảnh Commons có giấy phép mở; 9 ảnh từ trang du lịch được ghi rõ chưa xác minh giấy phép mở, không gán nhãn CC cho ảnh đó. Chi tiết quyền nằm trong mỗi bản ghi và hiện ngay trong UI.
+Điểm tham quan và ảnh được đối chiếu từ Wikipedia/Wikimedia Commons và các trang du lịch đã đọc (Cổng du lịch Côn Đảo, iVIVU, VinWonders, Lữ Hành Việt Nam, PYS Travel, VHA). Có nguồn, ngày đối chiếu, tác giả, giấy phép và SHA-256 cho từng ảnh. Ưu tiên ảnh Commons có giấy phép mở; 9 ảnh từ trang du lịch được ghi rõ chưa xác minh giấy phép mở, không gán nhãn CC cho ảnh đó. Metadata lưu nội bộ; giao diện học tập đã bỏ thông tin nguồn/quyền ảnh.
 
 **Phân biệt bằng chứng:** địa danh/ảnh là dữ liệu từ nguồn công khai. Phân ngày, bữa ăn và hoạt động là chương trình VietGo đã có trong repo; không khẳng định các website nguồn bán đúng chương trình này. Không tự đặt giá vé, giờ mở cửa, thời gian lái xe, thời lượng tham quan hoặc cơ sở ăn/nghỉ chưa được nêu tên. Các hoạt động chung như mua đặc sản/nghỉ ngơi giữ trong ghi chú ngày, không bịa tên cửa hàng/khách sạn. Tọa độ nếu có là tọa độ bài nguồn, có thể là tâm khu vực, không phải cổng vào đã geocode.
 
@@ -32,7 +32,7 @@ Yêu cầu tư vấn chụp lại ngày, item và nguồn tại lúc gửi. Sau 
 
 ## Luồng sử dụng
 
-1. Mở `/tours/{id}` (hoặc `/tour/{id}` sẽ chuyển đến trang này), xem phần **Lịch trình của bạn**. Từng ngày có ảnh, liên kết nguồn và tác giả.
+1. Mở `/tours/{id}` (hoặc `/tour/{id}` sẽ chuyển đến trang này), xem phần **Lịch trình của bạn**. Từng ngày có ảnh và tên địa danh.
 2. Trên lịch trình gốc ở trang tour, kéo tay nắm **⠿** trên thẻ Ngày 1, Ngày 2… để đổi thứ tự hiển thị; bàn phím hỗ trợ `Alt + ↑/↓`. Trong **Tùy chỉnh lịch & gửi tư vấn**, chọn ngày cho từng hoạt động, thêm/bỏ địa danh, nhập giờ dự kiến, thời lượng hoặc ghi chú rồi chọn **Lưu lịch của tôi**. Lịch cá nhân lưu riêng và không sửa chương trình gốc.
 3. Đăng nhập và chọn **Lưu lịch của tôi**. Chương trình và dịch vụ nguyên bản từng ngày cũng được sao thành ghi chú có thể sửa, tránh mất phần di chuyển/bữa ăn khi gửi tư vấn.
 4. Chọn ngày đi, số người, liên hệ và nhu cầu thêm rồi **Gửi yêu cầu tư vấn**.

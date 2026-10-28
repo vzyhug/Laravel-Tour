@@ -48,6 +48,7 @@ class TravelPortalTest extends TestCase
             ->assertOk()
             ->assertSee($customer->full_name)
             ->assertSee($upcoming->booking_code)
+            ->assertSeeText('Mã đặt tour:')
             ->assertSee($ongoing->booking_code)
             ->assertDontSee($completed->booking_code)
             ->assertDontSee($cancelled->booking_code)
@@ -56,6 +57,8 @@ class TravelPortalTest extends TestCase
             ->assertViewHas('summary', [
                 'upcoming' => 2, 'completed' => 1, 'history' => 3, 'saved' => 1, 'total' => 5,
             ]);
+
+        $this->get(route('customer.bookings.show', $upcoming))->assertOk()->assertSeeText('Mã đặt tour:')->assertSee($upcoming->booking_code);
 
         $this->get(route('customer.dashboard', ['tab' => 'history']))
             ->assertOk()
@@ -129,7 +132,7 @@ class TravelPortalTest extends TestCase
 
         $this->withSession(['customer_id' => $customer->getKey()])
             ->get(route('payments.create', $booking))->assertOk()
-            ->assertSee('1.500.000₫')->assertSee('name="payment_method"', false);
+            ->assertSee('1.500.000₫')->assertSeeText('Mã đặt tour:')->assertSee('name="payment_method"', false);
 
         $this->post(route('payments.store', $booking), ['payment_method' => 'bank_transfer'])
             ->assertRedirect(route('customer.bookings.show', $booking));

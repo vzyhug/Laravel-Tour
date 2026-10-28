@@ -162,7 +162,7 @@ class DemoDataTest extends TestCase
     {
         $this->withoutVite();
         $this->seed();
-        $this->get('/')->assertOk()->assertSee('Nguồn ảnh địa danh');
+        $this->get('/')->assertOk()->assertDontSee('Nguồn ảnh địa danh');
         $this->get(route('tours.index'))->assertOk();
         foreach (Tour::with('images')->get() as $tour) {
             $this->get(route('tours.show', $tour))->assertOk()

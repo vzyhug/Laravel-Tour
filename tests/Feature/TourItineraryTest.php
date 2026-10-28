@@ -62,7 +62,13 @@ class TourItineraryTest extends TestCase
         $this->artisan('itineraries:audit', ['--json' => true])->assertSuccessful();
         foreach (Tour::with('schedules')->get() as $tour) {
             $this->assertSame($before[$tour->tour_id], $tour->schedules->toArray());
-            $this->get(route('tours.show', $tour))->assertOk()->assertSee('Tùy chỉnh lịch');
+            $this->get(route('tours.show', $tour))->assertOk()->assertSee('Tùy chỉnh lịch')->assertDontSee('Nguồn địa danh')->assertDontSee('Nguồn ảnh &amp; tác giả', false);
+            $payload = app(TourItineraryService::class)->payload($tour, null);
+            foreach ($payload['places'] as $place) {
+                $this->assertArrayNotHasKey('source_url', $place);
+                $this->assertArrayNotHasKey('verified_on', $place);
+                $this->assertSame(['url', 'caption'], array_keys($place['image']));
+            }
         }
         $this->seed(TourItinerarySeeder::class);
         $this->assertDatabaseCount('itinerary_place_images', 112);

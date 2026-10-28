@@ -40,7 +40,7 @@ class DemoDataIntegrationTest extends TestCase
         $this->assertDatabaseHas('favorites', ['customer_id' => $customer->getKey(), 'tour_id' => $tour->getKey()]);
         $this->assertTrue($customer->favoriteTours()->where('tours.tour_id', $tour->getKey())->exists());
         $this->get(route('favorites.index'))->assertOk()->assertSee($tour->title);
-        $this->get(route('home'))->assertOk()->assertSee('Nguồn ảnh địa danh')->assertSee('Yêu thích');
+        $this->get(route('home'))->assertOk()->assertDontSee('Nguồn ảnh địa danh')->assertSee('Yêu thích');
         $this->post(route('favorites.toggle', $tour))->assertRedirect();
         $this->assertDatabaseMissing('favorites', ['customer_id' => $customer->getKey(), 'tour_id' => $tour->getKey()]);
     }
