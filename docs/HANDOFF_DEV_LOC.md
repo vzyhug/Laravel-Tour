@@ -73,3 +73,9 @@ Tám kiểm thử cũ cần nhóm theo dõi riêng:
 Sau đợt sửa này, 40 kiểm thử liên quan trên MySQL đạt (1.026 assertions). Toàn bộ 69 kiểm thử SQLite vẫn có 61 đạt, 8 trường hợp lỗi cũ, không có trường hợp lỗi mới. Build và kiểm tra cú pháp JavaScript đạt. Rà soát các tệp văn bản mã nguồn/dữ liệu được Git theo dõi không tìm thấy chuỗi sai bảng mã tương tự. Trình duyệt đã kiểm tra trang địa danh, khách sạn, tour, tài khoản và chi tiết đơn; các nhãn tiếng Việt và trạng thái lưu/gửi tư vấn hiển thị đúng, bố cục không tràn ngang trên desktop/mobile. Kiểm tra thông báo bằng phản hồi giả lập trong trình duyệt, không tạo yêu cầu tư vấn thật hoặc sửa lịch riêng đang lưu.
 
 Chi tiết dữ liệu: [DESTINATION_DIRECTORY.md](DESTINATION_DIRECTORY.md) và [DESTINATION_TOURS.md](DESTINATION_TOURS.md).
+
+## Sửa tìm kiếm tỉnh từ trang chủ
+
+Nút Tìm hành trình trước đây gửi GET về trang chủ; kết quả lọc nằm dưới phần giới thiệu nên dễ bị hiểu là không có phản hồi. Form đã chuyển sang `/tours`; trang danh sách xử lý và kiểm tra tỉnh, hiển thị tên tỉnh/số kết quả ngay ở đầu trang, giữ tỉnh khi kết hợp từ khóa, sắp xếp và phân trang. Trang tour theo tỉnh cũng gửi bộ lọc về cùng trang kết quả. Xóa bộ lọc đưa về tất cả tour.
+
+Hai kiểm thử HomeSearchTest kiểm tra luồng này, kết hợp từ khóa, tour ẩn/khác tỉnh, trang thứ hai, không có kết quả và tỉnh không hợp lệ. Nhóm kiểm thử liên quan đạt 13/13 trên SQLite (187 assertions), 5/5 trên MySQL (93 assertions). Build giao diện đạt. Trình duyệt đã thử chọn Lâm Đồng từ trang chủ, thấy đúng hai tour trong database demo; sắp xếp giữ tỉnh, tìm không có kết quả hiện thông báo, xóa lọc trở về danh sách chung, mobile không tràn ngang.

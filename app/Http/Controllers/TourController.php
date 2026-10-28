@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Province;
 use App\Models\Tour;
 use App\Models\TourCategory;
+use App\Services\TourItineraryService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -13,6 +14,8 @@ class TourController extends Controller
 {
     public function index(Request $request): View|RedirectResponse
     {
+        $request->validate(['province' => ['nullable', 'integer', 'exists:provinces,province_id']]);
+        $selectedProvince = $request->filled('province') ? Province::findOrFail($request->integer('province')) : null;
         $rawMin = (string) $request->input('price_min');
         $rawMax = (string) $request->input('price_max');
 
@@ -38,6 +41,7 @@ class TourController extends Controller
 
         $tours = Tour::query()->active()->with(['province', 'category', 'images'])
             ->when($request->filled('q'), fn ($q) => $q->where('title', 'like', '%'.$request->string('q')->trim().'%'))
+            ->when($selectedProvince, fn ($query) => $query->where('province_id', $selectedProvince->getKey()))
             ->when($request->filled('region'), fn ($q) => $q->whereHas('province', fn ($p) => $p->where('region', $request->string('region'))))
             ->when($request->filled('category'), fn ($q) => $q->where('category_id', $request->integer('category')))
             ->when($min !== '', fn ($q) => $q->where('min_price', '>=', (int) $min))
@@ -47,7 +51,11 @@ class TourController extends Controller
             ->when($sort === 'price_asc', fn ($q) => $q->orderBy('min_price'))
             ->orderBy('tour_id')->paginate(9)->withQueryString();
 
-        return view('tours.index', ['tours' => $tours, 'categories' => TourCategory::orderBy('category_name')->get(), 'sort' => $sort]);
+        return view('tours.index', [
+            'tours' => $tours, 'categories' => TourCategory::orderBy('category_name')->get(), 'sort' => $sort,
+            'provinces' => Province::orderBy('province_name')->get(), 'selectedProvince' => $selectedProvince,
+            'heading' => $selectedProvince ? 'Tour tại '.$selectedProvince->province_name : null,
+        ]);
     }
 
     public function show(Tour $tour): View
@@ -55,13 +63,17 @@ class TourController extends Controller
         abort_unless($tour->is_active, 404);
         $tour->load(['province', 'category', 'images', 'schedules', 'reviews.customer', 'departures' => fn ($q) => $q->where('status', 'open')->whereDate('departure_date', '>=', today())->orderBy('departure_date')]);
 
-        return view('tours.show', ['tour' => $tour, 'itineraryData' => app(\App\Services\TourItineraryService::class)->payload($tour, session('customer_id') ? (int) session('customer_id') : null)]);
+        return view('tours.show', ['tour' => $tour, 'itineraryData' => app(TourItineraryService::class)->payload($tour, session('customer_id') ? (int) session('customer_id') : null)]);
     }
 
     public function province(Province $province): View
     {
         $tours = $province->tours()->active()->with(['province', 'category', 'images'])->paginate(9);
 
-        return view('tours.index', ['tours' => $tours, 'categories' => TourCategory::orderBy('category_name')->get(), 'heading' => 'Tour tại '.$province->province_name]);
+        return view('tours.index', [
+            'tours' => $tours, 'categories' => TourCategory::orderBy('category_name')->get(),
+            'provinces' => Province::orderBy('province_name')->get(), 'selectedProvince' => $province,
+            'heading' => 'Tour tại '.$province->province_name,
+        ]);
     }
 }
