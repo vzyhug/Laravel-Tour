@@ -21,13 +21,22 @@ class StoreDepartureRequest extends FormRequest
     {
         $merge = [];
 
-        // Ngày nhập dạng dd/mm/yyyy -> đổi về yyyy-mm-dd để lưu
-        foreach (['departure_date', 'return_date'] as $field) {
-            $value = trim((string) $this->input($field));
+        // Accept the date-picker format and the legacy dd/mm/yyyy format.
+        $value = trim((string) $this->input('departure_date'));
+        if (preg_match('#^(\d{1,2})/(\d{1,2})/(\d{4})$#', $value, $m) && checkdate((int) $m[2], (int) $m[1], (int) $m[3])) {
+            $value = sprintf('%04d-%02d-%02d', $m[3], $m[2], $m[1]);
+            $merge['departure_date'] = $value;
+        }
 
-            if (preg_match('#^(\d{1,2})/(\d{1,2})/(\d{4})$#', $value, $m) && checkdate((int) $m[2], (int) $m[1], (int) $m[3])) {
-                $merge[$field] = sprintf('%04d-%02d-%02d', $m[3], $m[2], $m[1]);
-            }
+        // The return date is derived from the selected tour; ignore any client-sent value.
+        $tour = Tour::find($this->integer('tour_id'));
+        if ($tour && preg_match('#^(\d{4})-(\d{2})-(\d{2})$#', $value, $m)
+            && checkdate((int) $m[2], (int) $m[3], (int) $m[1])) {
+            $merge['return_date'] = Carbon::createFromFormat('Y-m-d', $value)
+                ->addDays(max(0, (int) $tour->duration_days - 1))
+                ->format('Y-m-d');
+        } else {
+            $merge['return_date'] = null;
         }
 
         // Giá nhập dạng 5.000.000 -> bỏ dấu chấm, chỉ giữ chữ số

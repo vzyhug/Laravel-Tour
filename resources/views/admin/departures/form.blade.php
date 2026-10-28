@@ -8,24 +8,17 @@
     $minute = (int) old('time_minute', $current->format('i'));
     $meridiem = old('time_meridiem', $current->format('A'));
 
-    // Tách ngày thành [ngày, tháng, năm] để đổ vào 3 ô
-    $dateParts = function (string $field) use ($departure) {
-        $value = old($field);
-
-        if ($value === null) {
-            $value = $departure->$field?->format('d/m/Y');
-        }
-
-        if (is_string($value) && preg_match('#^(\d{4})-(\d{2})-(\d{2})$#', $value, $m)) {
-            return [$m[3], $m[2], $m[1]];
-        }
-
-        if (is_string($value) && preg_match('#^(\d{0,2})/(\d{0,2})/(\d{0,4})$#', $value, $m)) {
-            return [$m[1], $m[2], $m[3]];
-        }
-
-        return ['', '', ''];
-    };
+    $rawDepartureDate = old('departure_date', $departure->departure_date?->format('Y-m-d'));
+    if (is_string($rawDepartureDate) && preg_match('#^(\d{1,2})/(\d{1,2})/(\d{4})$#', $rawDepartureDate, $dateMatch)) {
+        $rawDepartureDate = sprintf('%04d-%02d-%02d', $dateMatch[3], $dateMatch[2], $dateMatch[1]);
+    }
+    if (! is_string($rawDepartureDate) || ! preg_match('#^\d{4}-\d{2}-\d{2}$#', $rawDepartureDate)) {
+        $rawDepartureDate = '';
+    }
+    $selectedTour = $tours->firstWhere('tour_id', (int) old('tour_id', $departure->tour_id));
+    $returnPreview = $rawDepartureDate && $selectedTour
+        ? \Carbon\Carbon::parse($rawDepartureDate)->addDays(max(0, (int) $selectedTour->duration_days - 1))->format('d/m/Y')
+        : null;
 
     // Hiển thị giá dạng 5.000.000
     $moneyValue = function (string $field) use ($departure) {
@@ -34,7 +27,6 @@
         return ($value === null || $value === '') ? '' : number_format((float) $value, 0, ',', '.');
     };
 
-    $dateFields = ['departure_date' => 'Ngày khởi hành', 'return_date' => 'Ngày về'];
 @endphp
 
 @section('content')
@@ -44,57 +36,53 @@
         {{ $departure->exists ? 'Chỉnh sửa lịch' : 'Thêm lịch khởi hành' }}
     </h1>
 
-    <form class="card mt-7 grid gap-5 p-6 md:grid-cols-2" method="POST"
+    <form class="card mt-6 grid max-w-5xl gap-7 p-5 sm:p-7" method="POST"
           action="{{ $departure->exists ? route('admin.departures.update', $departure) : route('admin.departures.store') }}">
         @csrf
         @if($departure->exists)
             @method('PUT')
         @endif
 
-        <label class="md:col-span-2">
-            <span class="label">Tour</span>
-            <select class="field" name="tour_id">
-                @foreach($tours as $tour)
-                    <option value="{{ $tour->getKey() }}" data-days="{{ $tour->duration_days }}"
-                        @selected(old('tour_id', $departure->tour_id) == $tour->getKey())>
-                        {{ $tour->title }} ({{ $tour->duration_days }} ngày)
-                    </option>
-                @endforeach
-            </select>
-            @error('tour_id')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
-        </label>
+        <section class="grid gap-4 border-b border-[#eee4db] pb-6">
+            <div>
+                <h2 class="text-sm font-bold text-ink">Lịch trình</h2>
+                <p class="mt-1 text-xs text-muted">Ngày về được tính tự động theo thời lượng tour.</p>
+            </div>
+            <label>
+                <span class="label">Tour</span>
+                <select class="field" name="tour_id" data-tour-duration>
+                    @foreach($tours as $tour)
+                        <option value="{{ $tour->getKey() }}" data-days="{{ $tour->duration_days }}"
+                            @selected(old('tour_id', $departure->tour_id) == $tour->getKey())>
+                            {{ $tour->title }} · {{ $tour->duration_days }} ngày
+                        </option>
+                    @endforeach
+                </select>
+                @error('tour_id')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
+            </label>
 
-        @foreach($dateFields as $field => $label)
-            @php [$d, $m, $y] = $dateParts($field); @endphp
-            <div data-date-field>
-                <span class="label">{{ $label }}</span>
-
-                <div class="field flex items-center gap-1" style="padding-top:0;padding-bottom:0;">
-                    <input type="text" data-part="d" inputmode="numeric" maxlength="2" placeholder="dd"
-                           autocomplete="off" value="{{ $d }}"
-                           style="border:0;outline:0;background:transparent;width:2.6rem;text-align:center;padding:0.6rem 0;">
-                    <span class="text-slate-400">/</span>
-                    <input type="text" data-part="m" inputmode="numeric" maxlength="2" placeholder="mm"
-                           autocomplete="off" value="{{ $m }}"
-                           style="border:0;outline:0;background:transparent;width:2.6rem;text-align:center;padding:0.6rem 0;">
-                    <span class="text-slate-400">/</span>
-                    <input type="text" data-part="y" inputmode="numeric" maxlength="4" placeholder="yyyy"
-                           autocomplete="off" value="{{ $y }}"
-                           style="border:0;outline:0;background:transparent;width:4.2rem;text-align:center;padding:0.6rem 0;">
-
-                    <button type="button" data-date-open title="Chọn từ lịch"
-                            style="margin-left:auto;background:none;border:0;cursor:pointer;font-size:1.1rem;">📅</button>
-                    <input type="date" data-date-picker tabindex="-1" aria-hidden="true"
-                           style="position:absolute;opacity:0;pointer-events:none;width:0;height:0;">
+            <div class="grid gap-4 md:grid-cols-2">
+                <div>
+                    <span class="label">Ngày khởi hành</span>
+                    <input class="field" type="date" name="departure_date" data-departure-date value="{{ $rawDepartureDate }}" @if(! $departure->exists) min="{{ today()->format('Y-m-d') }}" @endif required>
+                    <p class="mt-1.5 text-[10px] text-muted">Chọn ngày bắt đầu tour.</p>
+                    @error('departure_date')<p class="mt-1 text-sm text-red-600">{{ $message }}</p>@enderror
                 </div>
 
-                <input type="hidden" name="{{ $field }}" data-date-value value="">
-
-                @error($field)
-                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                @enderror
+                <div>
+                    <span class="label">Ngày về dự kiến</span>
+                    <div class="flex min-h-[48px] items-center justify-between gap-3 rounded-xl border border-[#eadfd4] bg-[#fcf7f3] px-4">
+                        <span data-return-preview aria-live="polite" class="text-sm font-bold text-ink">{{ $returnPreview ?? 'Chọn ngày khởi hành' }}</span>
+                        <span data-return-duration class="shrink-0 rounded-full bg-white px-2.5 py-1 text-[10px] font-semibold text-muted">{{ $selectedTour ? $selectedTour->duration_days.' ngày' : 'Theo tour' }}</span>
+                    </div>
+                    <p class="mt-1.5 text-[10px] leading-4 text-muted">Tự động tính, bao gồm cả ngày khởi hành.</p>
+                    @error('return_date')<p class="mt-1 text-sm text-red-600">{{ $message }}</p>@enderror
+                </div>
             </div>
-        @endforeach
+        </section>
+
+        <section class="grid gap-4 border-b border-[#eee4db] pb-6 md:grid-cols-2">
+            <div class="md:col-span-2"><h2 class="text-sm font-bold text-ink">Giờ và sức chứa</h2><p class="mt-1 text-xs text-muted">Thiết lập giờ tập trung và số khách tối đa cho chuyến.</p></div>
 
         <div>
             <span class="label">Giờ khởi hành</span>
@@ -143,6 +131,11 @@
             @error('available_seats')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
         </label>
 
+        </section>
+
+        <section class="grid gap-4 border-b border-[#eee4db] pb-6 md:grid-cols-2">
+            <div class="md:col-span-2"><h2 class="text-sm font-bold text-ink">Giá và phân công</h2><p class="mt-1 text-xs text-muted">Chọn giá bán, hướng dẫn viên và trạng thái mở bán.</p></div>
+
         <label>
             <span class="label">Giá người lớn (₫)</span>
             <input class="field" type="text" name="adult_price" data-money-mask
@@ -177,91 +170,38 @@
             </select>
         </label>
 
-        <div class="md:col-span-2">
+        </section>
+
+        <div class="flex flex-wrap items-center justify-between gap-3">
+            <p class="text-xs text-muted">Kiểm tra lại thông tin tour và ngày về tự động trước khi lưu.</p>
             <button class="btn-primary">Lưu lịch khởi hành</button>
         </div>
     </form>
 
     <script>
-        // ===== Ngày: 3 ô dd / mm / yyyy, gõ xong tự nhảy ô =====
-        document.querySelectorAll('[data-date-field]').forEach(box => {
-            const parts = [...box.querySelectorAll('[data-part]')];
-            const hidden = box.querySelector('[data-date-value]');
-            const picker = box.querySelector('[data-date-picker]');
-            const openBtn = box.querySelector('[data-date-open]');
-            const limits = { d: 31, m: 12 };
-
-            const sync = () => {
-                const [d, m, y] = parts.map(p => p.value);
-                hidden.value = (d || m || y) ? `${d}/${m}/${y}` : '';
-            };
-
-            const pad = p => {
-                if ((p.dataset.part === 'd' || p.dataset.part === 'm') && p.value.length === 1) {
-                    p.value = p.value.padStart(2, '0');
-                }
-            };
-
-            parts.forEach((p, i) => {
-                p.addEventListener('input', () => {
-                    p.value = p.value.replace(/\D/g, '');
-                    const type = p.dataset.part;
-
-                    if (limits[type] && p.value.length === 2 && +p.value > limits[type]) {
-                        p.value = String(limits[type]);
-                    }
-
-                    // Gõ số lớn (ví dụ 4 cho ngày, 2 cho tháng) thì tự thêm số 0 phía trước
-                    if (limits[type] && p.value.length === 1 && +p.value > Math.floor(limits[type] / 10)) {
-                        p.value = p.value.padStart(2, '0');
-                    }
-
-                    sync();
-
-                    if (p.value.length >= p.maxLength && parts[i + 1]) {
-                        parts[i + 1].focus();
-                        parts[i + 1].select();
-                    }
-                });
-
-                p.addEventListener('keydown', e => {
-                    if (e.key === '/' || e.key === '.' || e.key === '-') {
-                        e.preventDefault();
-                        pad(p);
-                        sync();
-                        parts[i + 1]?.focus();
-                    }
-                    if (e.key === 'Backspace' && p.value === '' && parts[i - 1]) {
-                        e.preventDefault();
-                        parts[i - 1].focus();
-                    }
-                });
-
-                p.addEventListener('focus', () => p.select());
-                p.addEventListener('blur', () => { pad(p); sync(); });
-            });
-
-            // Nút 📅 mở lịch chọn ngày
-            openBtn.addEventListener('click', () => {
-                const [d, m, y] = parts.map(p => p.value);
-                if (d && m && y.length === 4) {
-                    picker.value = `${y}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`;
-                }
-                try { picker.showPicker(); } catch (e) { picker.focus(); }
-            });
-
-            picker.addEventListener('change', () => {
-                const [y, m, d] = picker.value.split('-');
-                if (y && m && d) {
-                    parts[0].value = d;
-                    parts[1].value = m;
-                    parts[2].value = y;
-                    sync();
-                }
-            });
-
-            sync();
-        });
+        // Ngày về thay đổi ngay khi đổi ngày khởi hành hoặc đổi tour.
+        const departureDateInput = document.querySelector('[data-departure-date]');
+        const tourSelect = document.querySelector('[data-tour-duration]');
+        const returnPreview = document.querySelector('[data-return-preview]');
+        const returnDuration = document.querySelector('[data-return-duration]');
+        const updateReturnPreview = () => {
+            const days = Number(tourSelect?.selectedOptions[0]?.dataset.days || 0);
+            if (returnDuration) returnDuration.textContent = days ? `${days} ngày` : 'Theo tour';
+            if (!returnPreview) return;
+            if (!departureDateInput?.value || !days) {
+                returnPreview.textContent = 'Chọn ngày khởi hành';
+                return;
+            }
+            const [year, month, day] = departureDateInput.value.split('-').map(Number);
+            const date = new Date(Date.UTC(year, month - 1, day));
+            date.setUTCDate(date.getUTCDate() + days - 1);
+            returnPreview.textContent = new Intl.DateTimeFormat('vi-VN', {
+                day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC',
+            }).format(date);
+        };
+        departureDateInput?.addEventListener('input', updateReturnPreview);
+        tourSelect?.addEventListener('change', updateReturnPreview);
+        updateReturnPreview();
 
         // ===== Giá: gõ 5000000 tự thành 5.000.000 =====
         document.querySelectorAll('[data-money-mask]').forEach(input => {
