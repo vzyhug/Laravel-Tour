@@ -16,7 +16,7 @@ class TourImage extends Model
 
     protected $primaryKey = 'image_id';
 
-    protected $fillable = ['tour_id', 'img_url', 'is_thumbnail'];
+    protected $fillable = ['tour_id', 'img_url', 'is_thumbnail', 'storage_disk', 'storage_bucket', 'storage_path', 'sha256'];
 
     protected function casts(): array
     {

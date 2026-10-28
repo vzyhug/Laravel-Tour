@@ -106,11 +106,13 @@ Factory tính ngày về từ số ngày tour, giá trẻ em từ giá người 
 
 ## Ảnh thực tế và tải lại
 
-Ảnh được lưu sẵn tại `public/images/tours/demo/`. Seeder chỉ đọc file cục bộ, dùng đường dẫn `/images/tours/demo/...`, không gọi dịch vụ ảnh và không cần `storage:link` cho bộ ảnh này.
+Mặc định ảnh được tham chiếu từ Supabase Storage chung. Hoàn tất [cấu hình và chuyển ảnh](SUPABASE_STORAGE.md) trước khi seed lần đầu. Seeder chỉ đọc manifest cloud, không gọi mạng hoặc upload; máy mới không cần các file ảnh local.
+
+Các file trong `public/images/tours/demo/` là nguồn để chuyển và khôi phục trong giai đoạn chuyển đổi. `MEDIA_DRIVER=local` chỉ dùng khi phát triển offline/kiểm thử; production bắt buộc Supabase. Các script bên dưới chỉ tải lại bộ nguồn, không quyết định nơi ứng dụng lưu ảnh upload.
 
 - Danh sách Wikimedia được chọn: `database/data/tour-image-sources.json`.
 - Nguồn, tác giả, giấy phép, mô tả và SHA-256 từng ảnh: `database/data/tour-images.json`.
-- Trang ghi công được liên kết ở chân trang website: `public/images/tours/demo/credits.html`.
+- Trang ghi công được liên kết ở chân trang website: `/photo-credits`, hiển thị URL cloud và ghi công cho cả ảnh tour lẫn địa điểm.
 - Ghi công dễ đọc: `public/images/tours/demo/ATTRIBUTION.md`.
 
 Tải lại bằng Python 3, chỉ dùng thư viện chuẩn:

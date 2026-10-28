@@ -30,7 +30,7 @@ class TourItineraryService
             'places' => $places->map(fn ($place) => [
                 'id' => $place->id, 'name' => $place->name, 'description' => $place->description,
                 'source_url' => $place->source_url, 'verified_on' => $place->verified_on,
-                'image' => $place->images->first() ? ['url' => asset($place->images->first()->path),
+                'image' => $place->images->first() ? ['url' => $place->images->first()->url,
                     'caption' => $place->images->first()->caption, 'author' => $place->images->first()->author,
                     'source_url' => $place->images->first()->source_url, 'license' => $place->images->first()->license,
                     'license_url' => $place->images->first()->license_url] : null,

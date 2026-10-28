@@ -10,6 +10,11 @@ class ItineraryPlaceImage extends Model
 
     protected $guarded = [];
 
+    public function getUrlAttribute(): string
+    {
+        return asset($this->path);
+    }
+
     public function place()
     {
         return $this->belongsTo(ItineraryPlace::class, 'place_id');

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Actions\SaveTour;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTourRequest;
 use App\Models\Province;
 use App\Models\Tour;
 use App\Models\TourCategory;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class TourController extends Controller
@@ -30,16 +30,14 @@ class TourController extends Controller
 
     public function store(StoreTourRequest $request): RedirectResponse
     {
-        $tour = Tour::create($this->tourData($request));
-        $this->storeImage($request, $tour);
+        app(SaveTour::class)->handle(null, $this->tourData($request), $request->file('image'));
 
         return redirect()->route('admin.tours.index')->with('success', 'Đã thêm tour.');
     }
 
     public function update(StoreTourRequest $request, Tour $tour): RedirectResponse
     {
-        $tour->update($this->tourData($request));
-        $this->storeImage($request, $tour);
+        app(SaveTour::class)->handle($tour, $this->tourData($request), $request->file('image'));
 
         return redirect()->route('admin.tours.index')->with('success', 'Đã cập nhật tour.');
     }
@@ -59,15 +57,5 @@ class TourController extends Controller
     private function tourData(StoreTourRequest $request): array
     {
         return array_merge($request->safe()->except('image'), ['is_active' => $request->boolean('is_active'), 'created_by' => session('employee_id')]);
-    }
-
-    private function storeImage(StoreTourRequest $request, Tour $tour): void
-    {
-        if (! $request->hasFile('image')) {
-            return;
-        }
-        $path = $request->file('image')->store('tours', 'public');
-        $tour->images()->update(['is_thumbnail' => false]);
-        $tour->images()->create(['img_url' => Storage::url($path), 'is_thumbnail' => true]);
     }
 }

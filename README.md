@@ -20,15 +20,18 @@ composer install
 npm install
 cp .env.example .env
 php artisan key:generate
-php artisan migrate --seed
+php artisan migrate
+# Cấu hình Supabase theo docs/SUPABASE_STORAGE.md trước khi seed lần đầu:
+php artisan media:doctor --probe
+php artisan media:migrate --apply
+php artisan db:seed
 npm run build
-php artisan storage:link
 php artisan serve
 ```
 
 Trên Windows PowerShell bị chặn `npm.ps1`, dùng `npm.cmd install` và `npm.cmd run build`.
 
-Mặc định `.env.example` dùng MySQL database `TourDB`. Có thể đổi sang SQLite bằng `DB_CONNECTION=sqlite` và tạo file `database/database.sqlite`.
+Mặc định `.env.example` dùng MySQL database `tour_booking`. Có thể đổi sang SQLite bằng `DB_CONNECTION=sqlite` và tạo file `database/database.sqlite`.
 
 ## Tài khoản demo sau khi seed
 
@@ -43,16 +46,19 @@ Mặc định `.env.example` dùng MySQL database `TourDB`. Có thể đổi san
 
 Seeder hiện có **30 tour**, **83 ngày lịch trình**, **120 lịch khởi hành**, **24 khách hàng**, **120 đơn đặt tour**, **300 hành khách**, **60 thanh toán**, **60 hóa đơn** và **30 đánh giá**. Có 14 factory nghiệp vụ, bên cạnh `UserFactory` có sẵn.
 
-Bộ **60 ảnh thực tế** được lưu tại `public/images/tours/demo/`, dùng trực tiếp sau khi clone, không cần tải ảnh qua mạng khi seed. Tác giả, nguồn, giấy phép và mã SHA-256 nằm trong `database/data/tour-images.json`; bản ghi nguồn dễ đọc tại `public/images/tours/demo/ATTRIBUTION.md`.
+Ảnh dùng **Supabase Storage chung**; dữ liệu nghiệp vụ giữ ở MySQL. Danh mục có **60 ảnh tour và 112 ảnh địa điểm**, được chuyển một lần bằng `media:migrate --apply`. Seeder/factory đọc manifest cloud, không upload và không cần ảnh local sau chuyển. Ảnh nguồn tạm được giữ để chuyển/khôi phục; nguồn, tác giả và giấy phép tiếp tục được bảo toàn. Xem [cấu hình, chuyển ảnh và nghiệm thu Supabase](docs/SUPABASE_STORAGE.md).
+
+Để phát triển offline, đặt `MEDIA_DRIVER=local` trước khi seed; chế độ này bị chặn trong production.
 
 ```bash
+# Sau khi có manifest Supabase hợp lệ (hoặc MEDIA_DRIVER=local khi phát triển):
 php artisan migrate --seed
 # Cập nhật dự án đã có dữ liệu:
 php artisan migrate
 php artisan db:seed
 ```
 
-Bộ dữ liệu đã vượt qua cùng 15 kiểm thử trên SQLite và MySQL 8.4.3. Cấu hình kiểm thử MySQL: `phpunit.mysql.xml`.
+Phần kho ảnh có 17 kiểm thử mới đạt trên SQLite và MySQL 8.4.3. Bộ kiểm thử toàn dự án còn 8 lỗi đã có trên main; xem báo cáo trong `docs/SUPABASE_STORAGE.md`. Cấu hình kiểm thử MySQL: `phpunit.mysql.xml`.
 
 Xem [hướng dẫn seeder, factory và tải lại ảnh](docs/SEEDING.md) để biết tài khoản demo, cấu trúc dữ liệu và ví dụ sử dụng. Seeder giữ các đơn đã tồn tại và số chỗ đã giữ; chạy lại cùng ngày không tạo thêm dữ liệu trùng.
 

@@ -1,28 +1,33 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\BookingController as AdminBookingController;
+use App\Http\Controllers\Admin\CouponController as AdminCouponController;
 use App\Http\Controllers\Admin\CustomerController as AdminCustomerController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\DepartureController as AdminDepartureController;
 use App\Http\Controllers\Admin\EmployeeController as AdminEmployeeController;
+use App\Http\Controllers\Admin\ItineraryConsultationController;
 use App\Http\Controllers\Admin\PaymentController as AdminPaymentController;
 use App\Http\Controllers\Admin\ProvinceController as AdminProvinceController;
 use App\Http\Controllers\Admin\TourController as AdminTourController;
-use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CustomerDashboardController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PhotoCreditController;
 use App\Http\Controllers\TourController;
+use App\Http\Controllers\TourItineraryController;
+use App\Models\Tour;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\CouponController as AdminCouponController;
-use App\Http\Controllers\Admin\BookingController as AdminBookingController;
 
+Route::get('/photo-credits', PhotoCreditController::class)->name('photo-credits');
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/tours', [TourController::class, 'index'])->name('tours.index');
 Route::get('/tours/{tour}', [TourController::class, 'show'])->name('tours.show');
-Route::get('/tour/{tour}', fn (\App\Models\Tour $tour) => redirect()->route('tours.show', $tour));
+Route::get('/tour/{tour}', fn (Tour $tour) => redirect()->route('tours.show', $tour));
 Route::get('/provinces/{province}/tours', [TourController::class, 'province'])->name('provinces.tours');
 
 Route::group([], function () {
@@ -34,10 +39,10 @@ Route::group([], function () {
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('customer.auth')->group(function () {
-    Route::put('/tours/{tour}/itinerary', [\App\Http\Controllers\TourItineraryController::class, 'update'])->name('tour-itinerary.update');
-    Route::post('/tours/{tour}/itinerary/consultations', [\App\Http\Controllers\TourItineraryController::class, 'consult'])->middleware('throttle:10,1')->name('tour-itinerary.consult');
-    Route::get('/account/itineraries', [\App\Http\Controllers\TourItineraryController::class, 'index'])->name('tour-itinerary.index');
-    Route::get('/account/itinerary-consultations/{consultation}', [\App\Http\Controllers\TourItineraryController::class, 'consultation'])->name('itinerary-consultations.show');
+    Route::put('/tours/{tour}/itinerary', [TourItineraryController::class, 'update'])->name('tour-itinerary.update');
+    Route::post('/tours/{tour}/itinerary/consultations', [TourItineraryController::class, 'consult'])->middleware('throttle:10,1')->name('tour-itinerary.consult');
+    Route::get('/account/itineraries', [TourItineraryController::class, 'index'])->name('tour-itinerary.index');
+    Route::get('/account/itinerary-consultations/{consultation}', [TourItineraryController::class, 'consultation'])->name('itinerary-consultations.show');
     Route::get('/booking/{departure}', [BookingController::class, 'create'])->name('bookings.create');
     Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
     Route::post('/coupons/check', [BookingController::class, 'checkCoupon'])->name('coupons.check');
@@ -52,7 +57,7 @@ Route::middleware('customer.auth')->group(function () {
     Route::post('/account/bookings/{booking}/cancel', [CustomerDashboardController::class, 'cancel'])->name('customer.bookings.cancel');
     Route::get('/account/favorites', [FavoriteController::class, 'index'])->name('favorites.index');
     Route::post('/favorites/{tour}', [FavoriteController::class, 'toggle'])->name('favorites.toggle');
-    });
+});
 
 Route::prefix('admin')->name('admin.')->group(function () {
 
@@ -61,9 +66,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/dashboard', AdminDashboardController::class)->name('dashboard');
 
         Route::middleware('admin.role:Admin,Sale')->group(function () {
-            Route::get('/itinerary-consultations', [\App\Http\Controllers\Admin\ItineraryConsultationController::class, 'index'])->name('itinerary-consultations.index');
-            Route::get('/itinerary-consultations/{consultation}', [\App\Http\Controllers\Admin\ItineraryConsultationController::class, 'show'])->name('itinerary-consultations.show');
-            Route::patch('/itinerary-consultations/{consultation}', [\App\Http\Controllers\Admin\ItineraryConsultationController::class, 'update'])->name('itinerary-consultations.update');
+            Route::get('/itinerary-consultations', [ItineraryConsultationController::class, 'index'])->name('itinerary-consultations.index');
+            Route::get('/itinerary-consultations/{consultation}', [ItineraryConsultationController::class, 'show'])->name('itinerary-consultations.show');
+            Route::patch('/itinerary-consultations/{consultation}', [ItineraryConsultationController::class, 'update'])->name('itinerary-consultations.update');
             Route::resource('tours', AdminTourController::class)->except('show');
             Route::resource('departures', AdminDepartureController::class)->except('show');
             Route::get('/customers', [AdminCustomerController::class, 'index'])->name('customers.index');

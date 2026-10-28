@@ -9,6 +9,7 @@ use App\Models\TourCategory;
 use App\Models\TourDeparture;
 use App\Models\TourImage;
 use App\Models\TourSchedule;
+use App\Services\Media\MediaCatalog;
 use Illuminate\Database\Seeder;
 use RuntimeException;
 
@@ -18,11 +19,8 @@ class TourSeeder extends Seeder
     {
         $catalogue = json_decode(file_get_contents(database_path('data/tours.json')), true, 512, JSON_THROW_ON_ERROR);
         $images = collect(json_decode(file_get_contents(database_path('data/tour-images.json')), true, 512, JSON_THROW_ON_ERROR));
-        foreach ($images as $image) {
-            if (! is_file(public_path(ltrim($image['path'], '/')))) {
-                throw new RuntimeException('Thiếu ảnh '.$image['path'].'. Chạy python -X utf8 scripts/download_tour_images.py');
-            }
-        }
+        $catalog = app(MediaCatalog::class);
+        $references = $images->mapWithKeys(fn ($image) => [$image['path'] => $catalog->reference($image)]);
 
         $admin = Employee::where('username', 'admin')->firstOrFail();
         $guideNames = ['guide', 'guide_tuan', 'guide_huong', 'guide_long', 'guide_phuong', 'guide_hai', 'guide_mai', 'guide_bao'];
@@ -54,10 +52,10 @@ class TourSeeder extends Seeder
             }
             $tour->images()->where('is_thumbnail', true)->update(['is_thumbnail' => false]);
             foreach ($tourImages as $imageIndex => $image) {
-                TourImage::updateOrCreate([
-                    'tour_id' => $tour->getKey(),
-                    'img_url' => $image['path'],
-                ], ['is_thumbnail' => $imageIndex === 0]);
+                $record = TourImage::where('tour_id', $tour->getKey())
+                    ->where(fn ($query) => $query->where('sha256', $image['sha256'])->orWhere('img_url', $image['path']))->first();
+                $record ??= new TourImage(['tour_id' => $tour->getKey()]);
+                $record->fill(array_merge($references[$image['path']]->columns(), ['is_thumbnail' => $imageIndex === 0]))->save();
             }
 
             foreach ($data['days'] as $dayIndex => $day) {

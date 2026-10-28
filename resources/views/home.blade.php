@@ -2,7 +2,7 @@
 @section('title', 'VietGo · Khám phá Việt Nam theo cách của bạn')
 @section('content')
 <section class="relative isolate overflow-hidden bg-linen">
-    <img src="{{ asset('images/tours/demo/da-nang-2.jpg') }}" alt="Phong cảnh Việt Nam trong ánh nắng dịu" class="absolute inset-0 -z-20 size-full object-cover object-center" fetchpriority="high">
+    <img src="{{ app(\App\Services\Media\MediaCatalog::class)->url(config('media.hero')) }}" alt="Phong cảnh Việt Nam trong ánh nắng dịu" class="absolute inset-0 -z-20 size-full object-cover object-center" fetchpriority="high">
     <div class="absolute inset-0 -z-10 bg-gradient-to-r from-sand/95 via-sand/65 to-sand/10"></div>
     <div class="absolute inset-0 -z-10 bg-gradient-to-t from-sand via-transparent to-sand/10"></div>
     <div class="container-page flex min-h-[700px] flex-col justify-between py-9 sm:min-h-[750px] sm:py-12">

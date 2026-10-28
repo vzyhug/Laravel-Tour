@@ -1,0 +1,1211 @@
+{
+    "version": 1,
+    "project_url": "https://tgftmvgboogmmhzmafdc.supabase.co",
+    "bucket": "tour-images",
+    "images": {
+        "/images/tours/demo/ha-long-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/7c/7c860cc4ad64a069d8abb1e07ffbac543d67dabde82b6dfc92a965115ea4839e.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/7c/7c860cc4ad64a069d8abb1e07ffbac543d67dabde82b6dfc92a965115ea4839e.jpg",
+            "sha256": "7c860cc4ad64a069d8abb1e07ffbac543d67dabde82b6dfc92a965115ea4839e"
+        },
+        "/images/tours/demo/ha-long-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/24/24f88bfe6a66771d192529db27847dd9b3c4ae4ea6aa35d0a652a59a82db0cfa.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/24/24f88bfe6a66771d192529db27847dd9b3c4ae4ea6aa35d0a652a59a82db0cfa.jpg",
+            "sha256": "24f88bfe6a66771d192529db27847dd9b3c4ae4ea6aa35d0a652a59a82db0cfa"
+        },
+        "/images/tours/demo/sapa-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/c6/c64574ec51df2e4e2925643cb22e194f90f898ebb63946277e73eddbeba15501.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/c6/c64574ec51df2e4e2925643cb22e194f90f898ebb63946277e73eddbeba15501.jpg",
+            "sha256": "c64574ec51df2e4e2925643cb22e194f90f898ebb63946277e73eddbeba15501"
+        },
+        "/images/tours/demo/sapa-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/22/22d451823d1fba5af0c78f92afb0dc226b82513fc2cde0fa54b651b05bb6ca79.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/22/22d451823d1fba5af0c78f92afb0dc226b82513fc2cde0fa54b651b05bb6ca79.jpg",
+            "sha256": "22d451823d1fba5af0c78f92afb0dc226b82513fc2cde0fa54b651b05bb6ca79"
+        },
+        "/images/tours/demo/da-nang-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/5f/5f4935f3a99752a33d9c0b1e1e5b8fd204b5f0147f94b2a307c411f92e8cbcda.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/5f/5f4935f3a99752a33d9c0b1e1e5b8fd204b5f0147f94b2a307c411f92e8cbcda.jpg",
+            "sha256": "5f4935f3a99752a33d9c0b1e1e5b8fd204b5f0147f94b2a307c411f92e8cbcda"
+        },
+        "/images/tours/demo/da-nang-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/7e/7e2167fa921868cbd61f7c4cfa760f3a4cfe9bdf8da06a83a8aebda8c263ed2e.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/7e/7e2167fa921868cbd61f7c4cfa760f3a4cfe9bdf8da06a83a8aebda8c263ed2e.jpg",
+            "sha256": "7e2167fa921868cbd61f7c4cfa760f3a4cfe9bdf8da06a83a8aebda8c263ed2e"
+        },
+        "/images/tours/demo/da-lat-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/07/075508c6dbe8feeb4a36de280bae10d392e9f26694be93767c34689afed1b290.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/07/075508c6dbe8feeb4a36de280bae10d392e9f26694be93767c34689afed1b290.jpg",
+            "sha256": "075508c6dbe8feeb4a36de280bae10d392e9f26694be93767c34689afed1b290"
+        },
+        "/images/tours/demo/da-lat-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/55/55ee4c6419e0bf3314425b98a9c4b8e5307192bae123a39d95b03dcdfb0c57db.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/55/55ee4c6419e0bf3314425b98a9c4b8e5307192bae123a39d95b03dcdfb0c57db.jpg",
+            "sha256": "55ee4c6419e0bf3314425b98a9c4b8e5307192bae123a39d95b03dcdfb0c57db"
+        },
+        "/images/tours/demo/phu-quoc-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/27/27957a4273e14d5869c3f015aa0a0401117410b1cf851ecf2958c14af77ed800.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/27/27957a4273e14d5869c3f015aa0a0401117410b1cf851ecf2958c14af77ed800.jpg",
+            "sha256": "27957a4273e14d5869c3f015aa0a0401117410b1cf851ecf2958c14af77ed800"
+        },
+        "/images/tours/demo/phu-quoc-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/38/38dac9bd2c8fe41b6e1439f37f22db558537ff0c3bf9adf737d3131402834fd0.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/38/38dac9bd2c8fe41b6e1439f37f22db558537ff0c3bf9adf737d3131402834fd0.jpg",
+            "sha256": "38dac9bd2c8fe41b6e1439f37f22db558537ff0c3bf9adf737d3131402834fd0"
+        },
+        "/images/tours/demo/ninh-binh-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/aa/aa165aaba730174ee27fc218c8adac0c1adbf4d675c021be9e24e2767ee388fe.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/aa/aa165aaba730174ee27fc218c8adac0c1adbf4d675c021be9e24e2767ee388fe.jpg",
+            "sha256": "aa165aaba730174ee27fc218c8adac0c1adbf4d675c021be9e24e2767ee388fe"
+        },
+        "/images/tours/demo/ninh-binh-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/c2/c280166cfefb4468f1e0f1fce07c17e3242b496514f242e906fcf4ad7f681fd5.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/c2/c280166cfefb4468f1e0f1fce07c17e3242b496514f242e906fcf4ad7f681fd5.jpg",
+            "sha256": "c280166cfefb4468f1e0f1fce07c17e3242b496514f242e906fcf4ad7f681fd5"
+        },
+        "/images/tours/demo/ha-giang-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/26/2661fcacd7aff0512c83bb7d87fc2bc34381a5b3258b12a08cde3507a18d0077.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/26/2661fcacd7aff0512c83bb7d87fc2bc34381a5b3258b12a08cde3507a18d0077.jpg",
+            "sha256": "2661fcacd7aff0512c83bb7d87fc2bc34381a5b3258b12a08cde3507a18d0077"
+        },
+        "/images/tours/demo/ha-giang-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/f4/f4f0a52d202c2994c19fc18ab8f2ae571478cd3e0ac57d1c721d695e189c6027.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/f4/f4f0a52d202c2994c19fc18ab8f2ae571478cd3e0ac57d1c721d695e189c6027.jpg",
+            "sha256": "f4f0a52d202c2994c19fc18ab8f2ae571478cd3e0ac57d1c721d695e189c6027"
+        },
+        "/images/tours/demo/ha-noi-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/22/22862be5b37522bcb71758592cbf94fe6a9e0bc30981500eff58881c20544e60.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/22/22862be5b37522bcb71758592cbf94fe6a9e0bc30981500eff58881c20544e60.jpg",
+            "sha256": "22862be5b37522bcb71758592cbf94fe6a9e0bc30981500eff58881c20544e60"
+        },
+        "/images/tours/demo/ha-noi-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/de/de4816aa25cfa832ccb82afa8d3660dba1f5700cd8d2bfe0f5db61a7ccef1a22.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/de/de4816aa25cfa832ccb82afa8d3660dba1f5700cd8d2bfe0f5db61a7ccef1a22.jpg",
+            "sha256": "de4816aa25cfa832ccb82afa8d3660dba1f5700cd8d2bfe0f5db61a7ccef1a22"
+        },
+        "/images/tours/demo/hue-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/38/38e6cb2631ee49703622d57975a8384e8ceb4522a4afabe31fb94fbbe2df0214.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/38/38e6cb2631ee49703622d57975a8384e8ceb4522a4afabe31fb94fbbe2df0214.jpg",
+            "sha256": "38e6cb2631ee49703622d57975a8384e8ceb4522a4afabe31fb94fbbe2df0214"
+        },
+        "/images/tours/demo/hue-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/fb/fb69e87647138228e08a1ece384983ac6efbc932157be747c0be5fade49c6cad.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/fb/fb69e87647138228e08a1ece384983ac6efbc932157be747c0be5fade49c6cad.jpg",
+            "sha256": "fb69e87647138228e08a1ece384983ac6efbc932157be747c0be5fade49c6cad"
+        },
+        "/images/tours/demo/nha-trang-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/f9/f9f7a1de4d2818a7ce0411815aa3882df944e504190bd2473cdfa82d4abe10ff.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/f9/f9f7a1de4d2818a7ce0411815aa3882df944e504190bd2473cdfa82d4abe10ff.jpg",
+            "sha256": "f9f7a1de4d2818a7ce0411815aa3882df944e504190bd2473cdfa82d4abe10ff"
+        },
+        "/images/tours/demo/nha-trang-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/aa/aab2b5f3721633df70d08ca3a05dc79251645bd70940783ebb688957e22cefe7.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/aa/aab2b5f3721633df70d08ca3a05dc79251645bd70940783ebb688957e22cefe7.jpg",
+            "sha256": "aab2b5f3721633df70d08ca3a05dc79251645bd70940783ebb688957e22cefe7"
+        },
+        "/images/tours/demo/quy-nhon-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/fe/feae89dfa6f712337b32b5ff8749ed9fe0e230611b3d627e64f97ffed6130aa8.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/fe/feae89dfa6f712337b32b5ff8749ed9fe0e230611b3d627e64f97ffed6130aa8.jpg",
+            "sha256": "feae89dfa6f712337b32b5ff8749ed9fe0e230611b3d627e64f97ffed6130aa8"
+        },
+        "/images/tours/demo/quy-nhon-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/51/51d9280e1f592d2cddf4c450830006ef69b38114151adce7f941d4616812296a.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/51/51d9280e1f592d2cddf4c450830006ef69b38114151adce7f941d4616812296a.jpg",
+            "sha256": "51d9280e1f592d2cddf4c450830006ef69b38114151adce7f941d4616812296a"
+        },
+        "/images/tours/demo/can-tho-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/04/046dbd3d1e0d16c7904476265f7a61e093a4f908129d2b6d1844adf17cd75212.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/04/046dbd3d1e0d16c7904476265f7a61e093a4f908129d2b6d1844adf17cd75212.jpg",
+            "sha256": "046dbd3d1e0d16c7904476265f7a61e093a4f908129d2b6d1844adf17cd75212"
+        },
+        "/images/tours/demo/can-tho-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/da/dad62938db3e695f0c85b9dba6c34e32015294233c6d045cbc3ba2718f91c5d2.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/da/dad62938db3e695f0c85b9dba6c34e32015294233c6d045cbc3ba2718f91c5d2.jpg",
+            "sha256": "dad62938db3e695f0c85b9dba6c34e32015294233c6d045cbc3ba2718f91c5d2"
+        },
+        "/images/tours/demo/con-dao-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/c5/c5adc3a0cb4ef5e2033a7f0cf8a53021368ba9316e1adeab75e6bf70f9faddaf.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/c5/c5adc3a0cb4ef5e2033a7f0cf8a53021368ba9316e1adeab75e6bf70f9faddaf.jpg",
+            "sha256": "c5adc3a0cb4ef5e2033a7f0cf8a53021368ba9316e1adeab75e6bf70f9faddaf"
+        },
+        "/images/tours/demo/con-dao-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/09/09f790002b1b57818cc515faa4ffc7830af00154633f2a4b9a83af7104a930c3.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/09/09f790002b1b57818cc515faa4ffc7830af00154633f2a4b9a83af7104a930c3.jpg",
+            "sha256": "09f790002b1b57818cc515faa4ffc7830af00154633f2a4b9a83af7104a930c3"
+        },
+        "/images/tours/demo/phong-nha-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/a8/a88da6fbf9245b3c848a7deb546408341067976197bc10228244e222066c92c3.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/a8/a88da6fbf9245b3c848a7deb546408341067976197bc10228244e222066c92c3.jpg",
+            "sha256": "a88da6fbf9245b3c848a7deb546408341067976197bc10228244e222066c92c3"
+        },
+        "/images/tours/demo/phong-nha-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/5c/5c4f52272ee0f2126b15e0c7652e4c83ba6c6335b67f8436a718e596ecb0673f.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/5c/5c4f52272ee0f2126b15e0c7652e4c83ba6c6335b67f8436a718e596ecb0673f.jpg",
+            "sha256": "5c4f52272ee0f2126b15e0c7652e4c83ba6c6335b67f8436a718e596ecb0673f"
+        },
+        "/images/tours/demo/mui-ne-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/7b/7b16416a433ff652c3b017bd81a88a515220b742a7bc74d04b2a7b90d53331fb.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/7b/7b16416a433ff652c3b017bd81a88a515220b742a7bc74d04b2a7b90d53331fb.jpg",
+            "sha256": "7b16416a433ff652c3b017bd81a88a515220b742a7bc74d04b2a7b90d53331fb"
+        },
+        "/images/tours/demo/mui-ne-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/90/9082f8923464869b058328a3a60d93e13189ae9782dba905a6356bad98571772.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/90/9082f8923464869b058328a3a60d93e13189ae9782dba905a6356bad98571772.jpg",
+            "sha256": "9082f8923464869b058328a3a60d93e13189ae9782dba905a6356bad98571772"
+        },
+        "/images/tours/demo/cao-bang-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/45/45202d5222601cc34d46e7407b12e7969c7a1a860cfaf9cebb2106a9d2c420ca.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/45/45202d5222601cc34d46e7407b12e7969c7a1a860cfaf9cebb2106a9d2c420ca.jpg",
+            "sha256": "45202d5222601cc34d46e7407b12e7969c7a1a860cfaf9cebb2106a9d2c420ca"
+        },
+        "/images/tours/demo/cao-bang-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/f6/f60245b31bb45055a138249efae9a6e2c5aa69c639c15ca4598ac394b84eced5.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/f6/f60245b31bb45055a138249efae9a6e2c5aa69c639c15ca4598ac394b84eced5.jpg",
+            "sha256": "f60245b31bb45055a138249efae9a6e2c5aa69c639c15ca4598ac394b84eced5"
+        },
+        "/images/tours/demo/ba-be-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/1c/1c185f797ba2601be5d72d71a3380e596dd7001d1b067f8e73c45707f612ed72.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/1c/1c185f797ba2601be5d72d71a3380e596dd7001d1b067f8e73c45707f612ed72.jpg",
+            "sha256": "1c185f797ba2601be5d72d71a3380e596dd7001d1b067f8e73c45707f612ed72"
+        },
+        "/images/tours/demo/ba-be-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/b5/b595a25f4dbabbc4e32b516f35332f364305c352d32c0dd0de32a9e84d6af294.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/b5/b595a25f4dbabbc4e32b516f35332f364305c352d32c0dd0de32a9e84d6af294.jpg",
+            "sha256": "b595a25f4dbabbc4e32b516f35332f364305c352d32c0dd0de32a9e84d6af294"
+        },
+        "/images/tours/demo/moc-chau-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/17/178d46dbe52ce454f344a7e65767e42d0c929f98ffc3842d25313bf9ef6c68c8.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/17/178d46dbe52ce454f344a7e65767e42d0c929f98ffc3842d25313bf9ef6c68c8.jpg",
+            "sha256": "178d46dbe52ce454f344a7e65767e42d0c929f98ffc3842d25313bf9ef6c68c8"
+        },
+        "/images/tours/demo/moc-chau-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/f6/f6601589a2d3a54fb4eb8b9900693ee5e39fa9df7f5a9a0e1ef68f019f951137.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/f6/f6601589a2d3a54fb4eb8b9900693ee5e39fa9df7f5a9a0e1ef68f019f951137.jpg",
+            "sha256": "f6601589a2d3a54fb4eb8b9900693ee5e39fa9df7f5a9a0e1ef68f019f951137"
+        },
+        "/images/tours/demo/mai-chau-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/9f/9fcbf797d4888eb2410ed1c98c0c9d93205dbef0616288e9af1b39edba87c2fe.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/9f/9fcbf797d4888eb2410ed1c98c0c9d93205dbef0616288e9af1b39edba87c2fe.jpg",
+            "sha256": "9fcbf797d4888eb2410ed1c98c0c9d93205dbef0616288e9af1b39edba87c2fe"
+        },
+        "/images/tours/demo/mai-chau-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/a9/a982f2a83888ed227ff6724b989ef5394027bc6441d57a66bf20b13e5a250941.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/a9/a982f2a83888ed227ff6724b989ef5394027bc6441d57a66bf20b13e5a250941.jpg",
+            "sha256": "a982f2a83888ed227ff6724b989ef5394027bc6441d57a66bf20b13e5a250941"
+        },
+        "/images/tours/demo/mu-cang-chai-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/db/dbc4a8b88ddadf8ff45dcd1c190ccf2cd631575739cb0508ac876da69c670fc9.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/db/dbc4a8b88ddadf8ff45dcd1c190ccf2cd631575739cb0508ac876da69c670fc9.jpg",
+            "sha256": "dbc4a8b88ddadf8ff45dcd1c190ccf2cd631575739cb0508ac876da69c670fc9"
+        },
+        "/images/tours/demo/mu-cang-chai-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/ad/adc947e2ca511acf59bd29513e63630759810db9481c95778f295e7355a878b8.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/ad/adc947e2ca511acf59bd29513e63630759810db9481c95778f295e7355a878b8.jpg",
+            "sha256": "adc947e2ca511acf59bd29513e63630759810db9481c95778f295e7355a878b8"
+        },
+        "/images/tours/demo/dien-bien-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/b4/b439cd2308c6d4f106c7d903d42d838b1e32f24c634a68fccef0e9887543e0ac.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/b4/b439cd2308c6d4f106c7d903d42d838b1e32f24c634a68fccef0e9887543e0ac.jpg",
+            "sha256": "b439cd2308c6d4f106c7d903d42d838b1e32f24c634a68fccef0e9887543e0ac"
+        },
+        "/images/tours/demo/dien-bien-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/80/8077e27ec37593c7632258b2202bcf3f7fab12f54651ea6dfe6d133137208ef5.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/80/8077e27ec37593c7632258b2202bcf3f7fab12f54651ea6dfe6d133137208ef5.jpg",
+            "sha256": "8077e27ec37593c7632258b2202bcf3f7fab12f54651ea6dfe6d133137208ef5"
+        },
+        "/images/tours/demo/cat-ba-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/31/31a624a7686ececbc90b6f31472d7dc765be379236a732b6b5575e65dc69eef0.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/31/31a624a7686ececbc90b6f31472d7dc765be379236a732b6b5575e65dc69eef0.jpg",
+            "sha256": "31a624a7686ececbc90b6f31472d7dc765be379236a732b6b5575e65dc69eef0"
+        },
+        "/images/tours/demo/cat-ba-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/04/04d27027e7de10915b88fff2f7c99010c1a9c37808366a3c1bc621a231f3bbaf.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/04/04d27027e7de10915b88fff2f7c99010c1a9c37808366a3c1bc621a231f3bbaf.jpg",
+            "sha256": "04d27027e7de10915b88fff2f7c99010c1a9c37808366a3c1bc621a231f3bbaf"
+        },
+        "/images/tours/demo/pu-luong-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/80/807b3b68ce5a507b2a190176f1f229277d347c1f65b9a8270a3eda7cf4434ced.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/80/807b3b68ce5a507b2a190176f1f229277d347c1f65b9a8270a3eda7cf4434ced.jpg",
+            "sha256": "807b3b68ce5a507b2a190176f1f229277d347c1f65b9a8270a3eda7cf4434ced"
+        },
+        "/images/tours/demo/pu-luong-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/eb/ebdf68576686ad247326f7c54520462111f74636be6fd39dbebe3025818246d0.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/eb/ebdf68576686ad247326f7c54520462111f74636be6fd39dbebe3025818246d0.jpg",
+            "sha256": "ebdf68576686ad247326f7c54520462111f74636be6fd39dbebe3025818246d0"
+        },
+        "/images/tours/demo/ly-son-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/3a/3ac5cf97d0e2ef5ccf69dd94e155cd9001836fc017e7430481d622bdf82289bb.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/3a/3ac5cf97d0e2ef5ccf69dd94e155cd9001836fc017e7430481d622bdf82289bb.jpg",
+            "sha256": "3ac5cf97d0e2ef5ccf69dd94e155cd9001836fc017e7430481d622bdf82289bb"
+        },
+        "/images/tours/demo/ly-son-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/4c/4c2aefdc0b365ba16c88abd84181545b6591b208858b8d7e5f825fc8313e9dce.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/4c/4c2aefdc0b365ba16c88abd84181545b6591b208858b8d7e5f825fc8313e9dce.jpg",
+            "sha256": "4c2aefdc0b365ba16c88abd84181545b6591b208858b8d7e5f825fc8313e9dce"
+        },
+        "/images/tours/demo/mang-den-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/dd/dd119616dd31eb70423abb9be47097477eba0bbbca6b54395efa263c068f6fb1.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/dd/dd119616dd31eb70423abb9be47097477eba0bbbca6b54395efa263c068f6fb1.jpg",
+            "sha256": "dd119616dd31eb70423abb9be47097477eba0bbbca6b54395efa263c068f6fb1"
+        },
+        "/images/tours/demo/mang-den-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/c9/c93ef52fe753c6a5a5e98b3e8a4bd81a3491ebe3a97543f0f169b50c88677fae.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/c9/c93ef52fe753c6a5a5e98b3e8a4bd81a3491ebe3a97543f0f169b50c88677fae.jpg",
+            "sha256": "c93ef52fe753c6a5a5e98b3e8a4bd81a3491ebe3a97543f0f169b50c88677fae"
+        },
+        "/images/tours/demo/buon-ma-thuot-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/17/17831fc83a9d828cf4efdf659eeb601f50a1ff16da85da941974b40bf504f6db.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/17/17831fc83a9d828cf4efdf659eeb601f50a1ff16da85da941974b40bf504f6db.jpg",
+            "sha256": "17831fc83a9d828cf4efdf659eeb601f50a1ff16da85da941974b40bf504f6db"
+        },
+        "/images/tours/demo/buon-ma-thuot-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/c6/c6321bd66b28a97410942feb548f91026ea920d94ec599fce130659ef8ebbec7.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/c6/c6321bd66b28a97410942feb548f91026ea920d94ec599fce130659ef8ebbec7.jpg",
+            "sha256": "c6321bd66b28a97410942feb548f91026ea920d94ec599fce130659ef8ebbec7"
+        },
+        "/images/tours/demo/cuc-phuong-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/0e/0edf89ce99ba3b08bad2a010928b4dabc233b245bde75bd9317fef0ae452e92c.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/0e/0edf89ce99ba3b08bad2a010928b4dabc233b245bde75bd9317fef0ae452e92c.jpg",
+            "sha256": "0edf89ce99ba3b08bad2a010928b4dabc233b245bde75bd9317fef0ae452e92c"
+        },
+        "/images/tours/demo/cuc-phuong-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/86/86f459bf7bd5d0e92ea7ae8c13cdbc24eacbcac0fad74047919500f88235db1c.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/86/86f459bf7bd5d0e92ea7ae8c13cdbc24eacbcac0fad74047919500f88235db1c.jpg",
+            "sha256": "86f459bf7bd5d0e92ea7ae8c13cdbc24eacbcac0fad74047919500f88235db1c"
+        },
+        "/images/tours/demo/tay-ninh-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/d9/d9c3b26e04570c117c3fe8bf7a1538d1e4325457cb3a91c3d50425cbfe95f135.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/d9/d9c3b26e04570c117c3fe8bf7a1538d1e4325457cb3a91c3d50425cbfe95f135.jpg",
+            "sha256": "d9c3b26e04570c117c3fe8bf7a1538d1e4325457cb3a91c3d50425cbfe95f135"
+        },
+        "/images/tours/demo/tay-ninh-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/56/56e3b8a58256bc37c4a0597b1c5efeb4c8ce93ba3904dbbe35e92fe861093668.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/56/56e3b8a58256bc37c4a0597b1c5efeb4c8ce93ba3904dbbe35e92fe861093668.jpg",
+            "sha256": "56e3b8a58256bc37c4a0597b1c5efeb4c8ce93ba3904dbbe35e92fe861093668"
+        },
+        "/images/tours/demo/ben-tre-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/74/74cebed0d3344c92d29614a43ad91dcdbb7d03a858241dc3ec41cae50d34931a.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/74/74cebed0d3344c92d29614a43ad91dcdbb7d03a858241dc3ec41cae50d34931a.jpg",
+            "sha256": "74cebed0d3344c92d29614a43ad91dcdbb7d03a858241dc3ec41cae50d34931a"
+        },
+        "/images/tours/demo/ben-tre-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/5a/5a0384ffb95fad21cbbfb3dcb45920979b261127b64bd4e56319bf61c4f71123.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/5a/5a0384ffb95fad21cbbfb3dcb45920979b261127b64bd4e56319bf61c4f71123.jpg",
+            "sha256": "5a0384ffb95fad21cbbfb3dcb45920979b261127b64bd4e56319bf61c4f71123"
+        },
+        "/images/tours/demo/ca-mau-1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/1e/1e9897a0913e606ecd62be34199b6b3a7a94a0b874872d3f3470f9154175f148.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/1e/1e9897a0913e606ecd62be34199b6b3a7a94a0b874872d3f3470f9154175f148.jpg",
+            "sha256": "1e9897a0913e606ecd62be34199b6b3a7a94a0b874872d3f3470f9154175f148"
+        },
+        "/images/tours/demo/ca-mau-2.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/6c/6cb21e51486182741a390d7ca01762a767b055a4a8a53b6da11e41cffb6aeaac.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/6c/6cb21e51486182741a390d7ca01762a767b055a4a8a53b6da11e41cffb6aeaac.jpg",
+            "sha256": "6cb21e51486182741a390d7ca01762a767b055a4a8a53b6da11e41cffb6aeaac"
+        },
+        "/images/itinerary/bien-my-khe.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/c7/c7949985943805e06ca5961c441f6cb263948143066b17efd57b544efaf82ee6.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/c7/c7949985943805e06ca5961c441f6cb263948143066b17efd57b544efaf82ee6.jpg",
+            "sha256": "c7949985943805e06ca5961c441f6cb263948143066b17efd57b544efaf82ee6"
+        },
+        "/images/itinerary/buon-ma-thuot.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/c3/c31943822cd53e2973c2511d2fd496fa340d7dc7b2476584727a610890d72e4f.png",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/c3/c31943822cd53e2973c2511d2fd496fa340d7dc7b2476584727a610890d72e4f.png",
+            "sha256": "c31943822cd53e2973c2511d2fd496fa340d7dc7b2476584727a610890d72e4f"
+        },
+        "/images/itinerary/ba-na-hills.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/c4/c4030227f868557972ceab1384f0c6e79b7354d5b51fd775a1400e56ab980759.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/c4/c4030227f868557972ceab1384f0c6e79b7354d5b51fd775a1400e56ab980759.jpg",
+            "sha256": "c4030227f868557972ceab1384f0c6e79b7354d5b51fd775a1400e56ab980759"
+        },
+        "/images/itinerary/bai-sao.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/27/27957a4273e14d5869c3f015aa0a0401117410b1cf851ecf2958c14af77ed800.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/27/27957a4273e14d5869c3f015aa0a0401117410b1cf851ecf2958c14af77ed800.jpg",
+            "sha256": "27957a4273e14d5869c3f015aa0a0401117410b1cf851ecf2958c14af77ed800"
+        },
+        "/images/itinerary/bai-bien-nha-trang.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/5b/5b664e9b93c07b563b2d482ee39824a241cb9ffb14f8ff0367e3bf00e4cd77ea.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/5b/5b664e9b93c07b563b2d482ee39824a241cb9ffb14f8ff0367e3bf00e4cd77ea.jpg",
+            "sha256": "5b664e9b93c07b563b2d482ee39824a241cb9ffb14f8ff0367e3bf00e4cd77ea"
+        },
+        "/images/itinerary/bai-dam-trau.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/09/099f0017e450f5b628a4ceb54c0724d5bdb3144891db3a5163c8bab9e79b4815.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/09/099f0017e450f5b628a4ceb54c0724d5bdb3144891db3a5163c8bab9e79b4815.jpg",
+            "sha256": "099f0017e450f5b628a4ceb54c0724d5bdb3144891db3a5163c8bab9e79b4815"
+        },
+        "/images/itinerary/ban-cat-cat.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/2f/2fcb3cc1a8ebdbfa68192f6e5956165d6d2e524282146ab841040ccdd5a5817b.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/2f/2fcb3cc1a8ebdbfa68192f6e5956165d6d2e524282146ab841040ccdd5a5817b.jpg",
+            "sha256": "2fcb3cc1a8ebdbfa68192f6e5956165d6d2e524282146ab841040ccdd5a5817b"
+        },
+        "/images/itinerary/ban-lac.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/be/be4b7155e025652afd537951c8c869b9e279979396dde746025096dcaeffefa7.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/be/be4b7155e025652afd537951c8c869b9e279979396dde746025096dcaeffefa7.jpg",
+            "sha256": "be4b7155e025652afd537951c8c869b9e279979396dde746025096dcaeffefa7"
+        },
+        "/images/itinerary/ban-pac-ngoi.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/a0/a07a0f0cbc14000a3492987ed062f2f6ef37b3f6fd7bd34d7f5c965c0c54ef0b.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/a0/a07a0f0cbc14000a3492987ed062f2f6ef37b3f6fd7bd34d7f5c965c0c54ef0b.jpg",
+            "sha256": "a07a0f0cbc14000a3492987ed062f2f6ef37b3f6fd7bd34d7f5c965c0c54ef0b"
+        },
+        "/images/itinerary/ban-don-pu-luong.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/bc/bc84fb806140f888a31b50e9f28519e77cb622173f0c13410ee2ab3f22c772fa.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/bc/bc84fb806140f888a31b50e9f28519e77cb622173f0c13410ee2ab3f22c772fa.jpg",
+            "sha256": "bc84fb806140f888a31b50e9f28519e77cb622173f0c13410ee2ab3f22c772fa"
+        },
+        "/images/itinerary/bao-tang-chien-thang-dien-bien-phu.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/b4/b439cd2308c6d4f106c7d903d42d838b1e32f24c634a68fccef0e9887543e0ac.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/b4/b439cd2308c6d4f106c7d903d42d838b1e32f24c634a68fccef0e9887543e0ac.jpg",
+            "sha256": "b439cd2308c6d4f106c7d903d42d838b1e32f24c634a68fccef0e9887543e0ac"
+        },
+        "/images/itinerary/bao-tang-co-vat-cung-dinh-hue.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/ae/aed0332fd0791af6e7bd989ac22aea90a915d46fc81faee916526b2b808c8512.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/ae/aed0332fd0791af6e7bd989ac22aea90a915d46fc81faee916526b2b808c8512.jpg",
+            "sha256": "aed0332fd0791af6e7bd989ac22aea90a915d46fc81faee916526b2b808c8512"
+        },
+        "/images/itinerary/bao-tang-dak-lak.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/1d/1d10e0851081e7d06132e53e775900fa02da03356c62ff12f0706cfb9d568268.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/1d/1d10e0851081e7d06132e53e775900fa02da03356c62ff12f0706cfb9d568268.jpg",
+            "sha256": "1d10e0851081e7d06132e53e775900fa02da03356c62ff12f0706cfb9d568268"
+        },
+        "/images/itinerary/ben-ninh-kieu.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/1a/1a831bfe9f9660489c2b5a2d6bb0383dd795845ed198f746958a978193680129.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/1a/1a831bfe9f9660489c2b5a2d6bb0383dd795845ed198f746958a978193680129.jpg",
+            "sha256": "1a831bfe9f9660489c2b5a2d6bb0383dd795845ed198f746958a978193680129"
+        },
+        "/images/itinerary/ben-tre.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/26/26e1b64c24603ffb3e636ded81eb66ba61aa62b8530ea0c0c3aced1135d5712a.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/26/26e1b64c24603ffb3e636ded81eb66ba61aa62b8530ea0c0c3aced1135d5712a.jpg",
+            "sha256": "26e1b64c24603ffb3e636ded81eb66ba61aa62b8530ea0c0c3aced1135d5712a"
+        },
+        "/images/itinerary/cao-bang.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/d5/d59d9a16d89bb619bea2144ab1d43bbf9c5ae32cdb10ac60196a0ffc02ff9c86.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/d5/d59d9a16d89bb619bea2144ab1d43bbf9c5ae32cdb10ac60196a0ffc02ff9c86.jpg",
+            "sha256": "d59d9a16d89bb619bea2144ab1d43bbf9c5ae32cdb10ac60196a0ffc02ff9c86"
+        },
+        "/images/itinerary/cao-nguyen-da-dong-van.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/f7/f708bb73a9a45744e77341736da1f077cda9fc25f1f6f93b31a7f999c631250a.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/f7/f708bb73a9a45744e77341736da1f077cda9fc25f1f6f93b31a7f999c631250a.jpg",
+            "sha256": "f708bb73a9a45744e77341736da1f077cda9fc25f1f6f93b31a7f999c631250a"
+        },
+        "/images/itinerary/chua-hang-ly-son.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/7d/7d2ce336b6b8997fdcc2001eb42cc1ba1a69129593dcdf3373b7264360017717.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/7d/7d2ce336b6b8997fdcc2001eb42cc1ba1a69129593dcdf3373b7264360017717.jpg",
+            "sha256": "7d2ce336b6b8997fdcc2001eb42cc1ba1a69129593dcdf3373b7264360017717"
+        },
+        "/images/itinerary/chua-thien-mu.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/fb/fb69e87647138228e08a1ece384983ac6efbc932157be747c0be5fade49c6cad.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/fb/fb69e87647138228e08a1ece384983ac6efbc932157be747c0be5fade49c6cad.jpg",
+            "sha256": "fb69e87647138228e08a1ece384983ac6efbc932157be747c0be5fade49c6cad"
+        },
+        "/images/itinerary/che-cu-nha.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/bc/bc859e5a77700f444c6924078bd27f1dca4814cbf3fa7074f1ff318ca29b53e0.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/bc/bc859e5a77700f444c6924078bd27f1dca4814cbf3fa7074f1ff318ca29b53e0.jpg",
+            "sha256": "bc859e5a77700f444c6924078bd27f1dca4814cbf3fa7074f1ff318ca29b53e0"
+        },
+        "/images/itinerary/cho-han.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/d0/d0ad590a9259482cc0de4bac47e64b3228eb3d28ca9500527429eda7c9f9f724.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/d0/d0ad590a9259482cc0de4bac47e64b3228eb3d28ca9500527429eda7c9f9f724.jpg",
+            "sha256": "d0ad590a9259482cc0de4bac47e64b3228eb3d28ca9500527429eda7c9f9f724"
+        },
+        "/images/itinerary/cho-sa-pa.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/da/da90069c0c483d054242944b68b2a314ce1f60d569440e5116f7005d053604b0.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/da/da90069c0c483d054242944b68b2a314ce1f60d569440e5116f7005d053604b0.jpg",
+            "sha256": "da90069c0c483d054242944b68b2a314ce1f60d569440e5116f7005d053604b0"
+        },
+        "/images/itinerary/cho-noi-cai-rang.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/93/93c0e3cda94e4a9c73ea6e10fcf5957cca113fa794cb2fc254476d4c90613631.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/93/93c0e3cda94e4a9c73ea6e10fcf5957cca113fa794cb2fc254476d4c90613631.jpg",
+            "sha256": "93c0e3cda94e4a9c73ea6e10fcf5957cca113fa794cb2fc254476d4c90613631"
+        },
+        "/images/itinerary/cho-da-lat.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/0c/0c5ff4509099602dcece56fd2adaad3b5f81eba104a7ea596234d548d1f5a1e5.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/0c/0c5ff4509099602dcece56fd2adaad3b5f81eba104a7ea596234d548d1f5a1e5.jpg",
+            "sha256": "0c5ff4509099602dcece56fd2adaad3b5f81eba104a7ea596234d548d1f5a1e5"
+        },
+        "/images/itinerary/cho-dong-ba.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/cf/cf5a30f9ceec0db039dee0d6faa088fe27c93338f095f6b2c16e2ba64de8d783.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/cf/cf5a30f9ceec0db039dee0d6faa088fe27c93338f095f6b2c16e2ba64de8d783.jpg",
+            "sha256": "cf5a30f9ceec0db039dee0d6faa088fe27c93338f095f6b2c16e2ba64de8d783"
+        },
+        "/images/itinerary/cho-dem-phu-quoc.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/91/914ee16ecae05a0ab29099c2d955baa50328c3951c881b301fc9cc4e9bbb922c.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/91/914ee16ecae05a0ab29099c2d955baa50328c3951c881b301fc9cc4e9bbb922c.jpg",
+            "sha256": "914ee16ecae05a0ab29099c2d955baa50328c3951c881b301fc9cc4e9bbb922c"
+        },
+        "/images/itinerary/ca-mau.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/2f/2fa5c39ac27267667f34f3eeaa2af0dd7a4e28c9cd211b2994d38557064d7051.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/2f/2fa5c39ac27267667f34f3eeaa2af0dd7a4e28c9cd211b2994d38557064d7051.jpg",
+            "sha256": "2fa5c39ac27267667f34f3eeaa2af0dd7a4e28c9cd211b2994d38557064d7051"
+        },
+        "/images/itinerary/cau-rong.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/ae/aebfcccafed7175e5a3b4f7bf495cf4aae5bcccdeaa43041f73f7f7b9e7c32c1.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/ae/aebfcccafed7175e5a3b4f7bf495cf4aae5bcccdeaa43041f73f7f7b9e7c32c1.jpg",
+            "sha256": "aebfcccafed7175e5a3b4f7bf495cf4aae5bcccdeaa43041f73f7f7b9e7c32c1"
+        },
+        "/images/itinerary/cau-vang.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/ff/ffae5aed7d4b666aeaf2786ad6186bc51043401719f54e44ec1521eb343c649e.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/ff/ffae5aed7d4b666aeaf2786ad6186bc51043401719f54e44ec1521eb343c649e.jpg",
+            "sha256": "ffae5aed7d4b666aeaf2786ad6186bc51043401719f54e44ec1521eb343c649e"
+        },
+        "/images/itinerary/co-do-hoa-lu.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/9c/9c171013d4a7cb834e1c595190ff4a06a3998a127fbc3e6ac1811c5f11091b95.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/9c/9c171013d4a7cb834e1c595190ff4a06a3998a127fbc3e6ac1811c5f11091b95.jpg",
+            "sha256": "9c171013d4a7cb834e1c595190ff4a06a3998a127fbc3e6ac1811c5f11091b95"
+        },
+        "/images/itinerary/dinh-thu-ho-vuong.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/96/967371c2c7da57fa9907fe8d68e2e6bebfe38c23d232027ea38b3960995d3324.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/96/967371c2c7da57fa9907fe8d68e2e6bebfe38c23d232027ea38b3960995d3324.jpg",
+            "sha256": "967371c2c7da57fa9907fe8d68e2e6bebfe38c23d232027ea38b3960995d3324"
+        },
+        "/images/itinerary/duong-dong.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/7a/7a20e105ee1cf45178c2ae700c73000056578a5336da5e0bac343cd0fff7488f.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/7a/7a20e105ee1cf45178c2ae700c73000056578a5336da5e0bac343cd0fff7488f.jpg",
+            "sha256": "7a20e105ee1cf45178c2ae700c73000056578a5336da5e0bac343cd0fff7488f"
+        },
+        "/images/itinerary/eo-gio.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/10/103bb3e0217c8ff815c79ea810dd0f2522864d1d1df3acc5b6fbb76db949b43c.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/10/103bb3e0217c8ff815c79ea810dd0f2522864d1d1df3acc5b6fbb76db949b43c.jpg",
+            "sha256": "103bb3e0217c8ff815c79ea810dd0f2522864d1d1df3acc5b6fbb76db949b43c"
+        },
+        "/images/itinerary/fansipan.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/12/124df6d97efe66106431cf1a56792bbe6f1d35a7d61a3a2b9b1b8d907cfaa9b4.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/12/124df6d97efe66106431cf1a56792bbe6f1d35a7d61a3a2b9b1b8d907cfaa9b4.jpg",
+            "sha256": "124df6d97efe66106431cf1a56792bbe6f1d35a7d61a3a2b9b1b8d907cfaa9b4"
+        },
+        "/images/itinerary/hang-sung-sot.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/9c/9cae67157a630b1fab2c7c51288855d326fd20c44056a6e480e7a500629bf313.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/9c/9cae67157a630b1fab2c7c51288855d326fd20c44056a6e480e7a500629bf313.jpg",
+            "sha256": "9cae67157a630b1fab2c7c51288855d326fd20c44056a6e480e7a500629bf313"
+        },
+        "/images/itinerary/hoang-thanh-thang-long.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/ad/ad709455397e23c4b1b97af254117138ba1314a9a704a03be093cb34088a9c67.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/ad/ad709455397e23c4b1b97af254117138ba1314a9a704a03be093cb34088a9c67.jpg",
+            "sha256": "ad709455397e23c4b1b97af254117138ba1314a9a704a03be093cb34088a9c67"
+        },
+        "/images/itinerary/ham-do-cat.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/ab/abc8632ece86d07d2066bd8fe7e6ea5896557338e11abc40083d193bd59e3a74.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/ab/abc8632ece86d07d2066bd8fe7e6ea5896557338e11abc40083d193bd59e3a74.jpg",
+            "sha256": "abc8632ece86d07d2066bd8fe7e6ea5896557338e11abc40083d193bd59e3a74"
+        },
+        "/images/itinerary/hem-tu-san.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/12/12f844e7c46aaa386160e93635fbb824e43f1ca7d1e05a1fff8734fe608b9429.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/12/12f844e7c46aaa386160e93635fbb824e43f1ca7d1e05a1fff8734fe608b9429.jpg",
+            "sha256": "12f844e7c46aaa386160e93635fbb824e43f1ca7d1e05a1fff8734fe608b9429"
+        },
+        "/images/itinerary/ho-ba-be.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/1c/1c185f797ba2601be5d72d71a3380e596dd7001d1b067f8e73c45707f612ed72.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/1c/1c185f797ba2601be5d72d71a3380e596dd7001d1b067f8e73c45707f612ed72.jpg",
+            "sha256": "1c185f797ba2601be5d72d71a3380e596dd7001d1b067f8e73c45707f612ed72"
+        },
+        "/images/itinerary/ho-hoan-kiem.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/fb/fbe73c2b097aa19ad8a64a426f607f7d301a30d9609fbee23eb277bb354136eb.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/fb/fbe73c2b097aa19ad8a64a426f607f7d301a30d9609fbee23eb277bb354136eb.jpg",
+            "sha256": "fbe73c2b097aa19ad8a64a426f607f7d301a30d9609fbee23eb277bb354136eb"
+        },
+        "/images/itinerary/ho-tuyen-lam.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/a5/a5bcb043b9ddc56b45839f16f7481eef2319c844027b6ba51b5e176b0514daf8.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/a5/a5bcb043b9ddc56b45839f16f7481eef2319c844027b6ba51b5e176b0514daf8.jpg",
+            "sha256": "a5bcb043b9ddc56b45839f16f7481eef2319c844027b6ba51b5e176b0514daf8"
+        },
+        "/images/itinerary/ho-xuan-huong.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/07/075508c6dbe8feeb4a36de280bae10d392e9f26694be93767c34689afed1b290.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/07/075508c6dbe8feeb4a36de280bae10d392e9f26694be93767c34689afed1b290.jpg",
+            "sha256": "075508c6dbe8feeb4a36de280bae10d392e9f26694be93767c34689afed1b290"
+        },
+        "/images/itinerary/ho-dak-ke.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/db/dbc7041b268c4b4ea48dc83bd568b2cee7520c426e07074b6fe3b87a77effb26.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/db/dbc7041b268c4b4ea48dc83bd568b2cee7520c426e07074b6fe3b87a77effb26.jpg",
+            "sha256": "dbc7041b268c4b4ea48dc83bd568b2cee7520c426e07074b6fe3b87a77effb26"
+        },
+        "/images/itinerary/ky-co.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/b2/b2b3af23f4a462127f9eb53964314d7a4443a683b0ea98f9fc162d8224a4ecfd.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/b2/b2b3af23f4a462127f9eb53964314d7a4443a683b0ea98f9fc162d8224a4ecfd.jpg",
+            "sha256": "b2b3af23f4a462127f9eb53964314d7a4443a683b0ea98f9fc162d8224a4ecfd"
+        },
+        "/images/itinerary/lang-kon-pring.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/ba/bac35fe1408a4f3c2d433f7662ce7bb497d645e4054ac62b4359807061b7973b.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/ba/bac35fe1408a4f3c2d433f7662ce7bb497d645e4054ac62b4359807061b7973b.jpg",
+            "sha256": "bac35fe1408a4f3c2d433f7662ce7bb497d645e4054ac62b4359807061b7973b"
+        },
+        "/images/itinerary/lang-da-khuoi-ky.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/71/714724b2e425ffaffe12f1b520eb79f3ddef64b0931e08a441cbbdff1dca3fe0.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/71/714724b2e425ffaffe12f1b520eb79f3ddef64b0931e08a441cbbdff1dca3fe0.jpg",
+            "sha256": "714724b2e425ffaffe12f1b520eb79f3ddef64b0931e08a441cbbdff1dca3fe0"
+        },
+        "/images/itinerary/lang-da-non-nuoc.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/6f/6f9288e8d15340fa1f2d6ad5656330bb97fc1f05d03885522bdcf8c74864cfb1.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/6f/6f9288e8d15340fa1f2d6ad5656330bb97fc1f05d03885522bdcf8c74864cfb1.jpg",
+            "sha256": "6f9288e8d15340fa1f2d6ad5656330bb97fc1f05d03885522bdcf8c74864cfb1"
+        },
+        "/images/itinerary/lang-minh-mang.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/96/96c11574ddb0b98463813738ac103bd25dc5179a4bbfe44da9f38f5fe52d0d9e.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/96/96c11574ddb0b98463813738ac103bd25dc5179a4bbfe44da9f38f5fe52d0d9e.jpg",
+            "sha256": "96c11574ddb0b98463813738ac103bd25dc5179a4bbfe44da9f38f5fe52d0d9e"
+        },
+        "/images/itinerary/mai-chau.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/9f/9fcbf797d4888eb2410ed1c98c0c9d93205dbef0616288e9af1b39edba87c2fe.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/9f/9fcbf797d4888eb2410ed1c98c0c9d93205dbef0616288e9af1b39edba87c2fe.jpg",
+            "sha256": "9fcbf797d4888eb2410ed1c98c0c9d93205dbef0616288e9af1b39edba87c2fe"
+        },
+        "/images/itinerary/mu-cang-chai.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/4e/4e1df25209d248bf6f1535c753541b740cfe3d8b0f065c9b645517f428a600b2.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/4e/4e1df25209d248bf6f1535c753541b740cfe3d8b0f065c9b645517f428a600b2.jpg",
+            "sha256": "4e1df25209d248bf6f1535c753541b740cfe3d8b0f065c9b645517f428a600b2"
+        },
+        "/images/itinerary/mang-den.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/c9/c93ef52fe753c6a5a5e98b3e8a4bd81a3491ebe3a97543f0f169b50c88677fae.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/c9/c93ef52fe753c6a5a5e98b3e8a4bd81a3491ebe3a97543f0f169b50c88677fae.jpg",
+            "sha256": "c93ef52fe753c6a5a5e98b3e8a4bd81a3491ebe3a97543f0f169b50c88677fae"
+        },
+        "/images/itinerary/mui-ca-mau.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/27/27b5a15f996a369c3c9b35a1de24ad2bcc8c02291369c523304b51146e55c321.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/27/27b5a15f996a369c3c9b35a1de24ad2bcc8c02291369c523304b51146e55c321.jpg",
+            "sha256": "27b5a15f996a369c3c9b35a1de24ad2bcc8c02291369c523304b51146e55c321"
+        },
+        "/images/itinerary/mui-ne.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/bd/bd10730019dedabdd7ddcc44a368c9a97efb61a84723f40829b1ac4e5c09cf90.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/bd/bd10730019dedabdd7ddcc44a368c9a97efb61a84723f40829b1ac4e5c09cf90.jpg",
+            "sha256": "bd10730019dedabdd7ddcc44a368c9a97efb61a84723f40829b1ac4e5c09cf90"
+        },
+        "/images/itinerary/muong-phang.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/bc/bc4a08081719584fe198e554c9b499723d4894826902d70ab8be2797053d6b6c.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/bc/bc4a08081719584fe198e554c9b499723d4894826902d70ab8be2797053d6b6c.jpg",
+            "sha256": "bc4a08081719584fe198e554c9b499723d4894826902d70ab8be2797053d6b6c"
+        },
+        "/images/itinerary/moc-chau.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/f6/f6601589a2d3a54fb4eb8b9900693ee5e39fa9df7f5a9a0e1ef68f019f951137.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/f6/f6601589a2d3a54fb4eb8b9900693ee5e39fa9df7f5a9a0e1ef68f019f951137.jpg",
+            "sha256": "f6601589a2d3a54fb4eb8b9900693ee5e39fa9df7f5a9a0e1ef68f019f951137"
+        },
+        "/images/itinerary/nghia-lo.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/33/3378e45f561ef8427cb7a3721cd0d76e204ae28f0736fc8fb8b4c027cdbcfec1.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/33/3378e45f561ef8427cb7a3721cd0d76e204ae28f0736fc8fb8b4c027cdbcfec1.jpg",
+            "sha256": "3378e45f561ef8427cb7a3721cd0d76e204ae28f0736fc8fb8b4c027cdbcfec1"
+        },
+        "/images/itinerary/nghia-trang-hang-duong.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/6a/6a271afd29883eea516713fa8a2bb11f339e395ec2c6f4704a8e23825ad2cd72.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/6a/6a271afd29883eea516713fa8a2bb11f339e395ec2c6f4704a8e23825ad2cd72.jpg",
+            "sha256": "6a271afd29883eea516713fa8a2bb11f339e395ec2c6f4704a8e23825ad2cd72"
+        },
+        "/images/itinerary/nghia-trang-dien-bien-phu.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/80/8077e27ec37593c7632258b2202bcf3f7fab12f54651ea6dfe6d133137208ef5.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/80/8077e27ec37593c7632258b2202bcf3f7fab12f54651ea6dfe6d133137208ef5.jpg",
+            "sha256": "8077e27ec37593c7632258b2202bcf3f7fab12f54651ea6dfe6d133137208ef5"
+        },
+        "/images/itinerary/ngu-hanh-son.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/f6/f63e1149d91046b097a41785e3d2dd7d6c4ce16eff78c26cb1e999eb42714948.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/f6/f63e1149d91046b097a41785e3d2dd7d6c4ce16eff78c26cb1e999eb42714948.jpg",
+            "sha256": "f63e1149d91046b097a41785e3d2dd7d6c4ce16eff78c26cb1e999eb42714948"
+        },
+        "/images/itinerary/nha-co-binh-thuy.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/da/dad62938db3e695f0c85b9dba6c34e32015294233c6d045cbc3ba2718f91c5d2.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/da/dad62938db3e695f0c85b9dba6c34e32015294233c6d045cbc3ba2718f91c5d2.jpg",
+            "sha256": "dad62938db3e695f0c85b9dba6c34e32015294233c6d045cbc3ba2718f91c5d2"
+        },
+        "/images/itinerary/nha-tu-con-dao.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/1f/1faba339c969c1b99dd760ce0c56cd4cfd172df84090ea9d98d612b6860f1d4a.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/1f/1faba339c969c1b99dd760ce0c56cd4cfd172df84090ea9d98d612b6860f1d4a.jpg",
+            "sha256": "1faba339c969c1b99dd760ce0c56cd4cfd172df84090ea9d98d612b6860f1d4a"
+        },
+        "/images/itinerary/nui-ba-den.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/d9/d9c3b26e04570c117c3fe8bf7a1538d1e4325457cb3a91c3d50425cbfe95f135.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/d9/d9c3b26e04570c117c3fe8bf7a1538d1e4325457cb3a91c3d50425cbfe95f135.jpg",
+            "sha256": "d9c3b26e04570c117c3fe8bf7a1538d1e4325457cb3a91c3d50425cbfe95f135"
+        },
+        "/images/itinerary/phu-quoc.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/39/394af0a132497315bd4ea078385a6291cd1d616d30a5e931f420c8ab4578615b.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/39/394af0a132497315bd4ea078385a6291cd1d616d30a5e931f420c8ab4578615b.jpg",
+            "sha256": "394af0a132497315bd4ea078385a6291cd1d616d30a5e931f420c8ab4578615b"
+        },
+        "/images/itinerary/pho-co-ha-noi.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/95/9593ac10546e62d3e26e7e78f6b073528f6fa9986240d267fc1ec61555bc2b5c.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/95/9593ac10546e62d3e26e7e78f6b073528f6fa9986240d267fc1ec61555bc2b5c.jpg",
+            "sha256": "9593ac10546e62d3e26e7e78f6b073528f6fa9986240d267fc1ec61555bc2b5c"
+        },
+        "/images/itinerary/pho-co-hoi-an.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/01/01729a0959adab9db4332b9eb5f5e79515b1e3d3574e31d2e6e9be937b9c0e9c.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/01/01729a0959adab9db4332b9eb5f5e79515b1e3d3574e31d2e6e9be937b9c0e9c.jpg",
+            "sha256": "01729a0959adab9db4332b9eb5f5e79515b1e3d3574e31d2e6e9be937b9c0e9c"
+        },
+        "/images/itinerary/pac-bo.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/65/658c569fe85178ab590723f6e0af97868f9c648db1816f40bab443d71e1b2c55.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/65/658c569fe85178ab590723f6e0af97868f9c648db1816f40bab443d71e1b2c55.jpg",
+            "sha256": "658c569fe85178ab590723f6e0af97868f9c648db1816f40bab443d71e1b2c55"
+        },
+        "/images/itinerary/pu-luong.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/3f/3f87ac7e7d08c37cdf9f45bd134345107dff91e342786018deea3ef114997a79.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/3f/3f87ac7e7d08c37cdf9f45bd134345107dff91e342786018deea3ef114997a79.jpg",
+            "sha256": "3f87ac7e7d08c37cdf9f45bd134345107dff91e342786018deea3ef114997a79"
+        },
+        "/images/itinerary/quy-nhon.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/a4/a46266816b2188e3408aca6ab014a88a751e3e40c9eafef3e30475faad568bd7.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/a4/a46266816b2188e3408aca6ab014a88a751e3e40c9eafef3e30475faad568bd7.jpg",
+            "sha256": "a46266816b2188e3408aca6ab014a88a751e3e40c9eafef3e30475faad568bd7"
+        },
+        "/images/itinerary/quan-ba.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/2e/2e114ea0f711311f32d1c5ed74b8b7769db87c2cec4f5432bea26defd7af85f5.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/2e/2e114ea0f711311f32d1c5ed74b8b7769db87c2cec4f5432bea26defd7af85f5.jpg",
+            "sha256": "2e114ea0f711311f32d1c5ed74b8b7769db87c2cec4f5432bea26defd7af85f5"
+        },
+        "/images/itinerary/rung-thong-ban-ang.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/a2/a285e8f808c0a81edb1253343758a01c41b7d1d4dae3456f0ca0fad07240c9f3.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/a2/a285e8f808c0a81edb1253343758a01c41b7d1d4dae3456f0ca0fad07240c9f3.jpg",
+            "sha256": "a285e8f808c0a81edb1253343758a01c41b7d1d4dae3456f0ca0fad07240c9f3"
+        },
+        "/images/itinerary/sa-pa.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/c6/c64574ec51df2e4e2925643cb22e194f90f898ebb63946277e73eddbeba15501.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/c6/c64574ec51df2e4e2925643cb22e194f90f898ebb63946277e73eddbeba15501.jpg",
+            "sha256": "c64574ec51df2e4e2925643cb22e194f90f898ebb63946277e73eddbeba15501"
+        },
+        "/images/itinerary/suoi-tien-mui-ne.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/e1/e19b3f88c5eab3cc76ed1041c92edf99457a28699ba8e0350e6f29a7f6ac7e4d.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/e1/e19b3f88c5eab3cc76ed1041c92edf99457a28699ba8e0350e6f29a7f6ac7e4d.jpg",
+            "sha256": "e19b3f88c5eab3cc76ed1041c92edf99457a28699ba8e0350e6f29a7f6ac7e4d"
+        },
+        "/images/itinerary/song-han.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/5a/5a4b070b0cce828fb1344fd553fa82977351ff59f3d642be8b2004818f3e6351.png",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/5a/5a4b070b0cce828fb1344fd553fa82977351ff59f3d642be8b2004818f3e6351.png",
+            "sha256": "5a4b070b0cce828fb1344fd553fa82977351ff59f3d642be8b2004818f3e6351"
+        },
+        "/images/itinerary/song-huong.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/46/46711e508ab44577c08d3dd2970e456d0c3eaf87f46db8acb9d37a4bfb06e5c9.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/46/46711e508ab44577c08d3dd2970e456d0c3eaf87f46db8acb9d37a4bfb06e5c9.jpg",
+            "sha256": "46711e508ab44577c08d3dd2970e456d0c3eaf87f46db8acb9d37a4bfb06e5c9"
+        },
+        "/images/itinerary/song-son.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/13/1377199423daa545266745fe9d5e416e60195c18f42c27db0db555f0715cabf7.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/13/1377199423daa545266745fe9d5e416e60195c18f42c27db0db555f0715cabf7.jpg",
+            "sha256": "1377199423daa545266745fe9d5e416e60195c18f42c27db0db555f0715cabf7"
+        },
+        "/images/itinerary/tam-coc.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/aa/aa165aaba730174ee27fc218c8adac0c1adbf4d675c021be9e24e2767ee388fe.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/aa/aa165aaba730174ee27fc218c8adac0c1adbf4d675c021be9e24e2767ee388fe.jpg",
+            "sha256": "aa165aaba730174ee27fc218c8adac0c1adbf4d675c021be9e24e2767ee388fe"
+        },
+        "/images/itinerary/thien-vien-truc-lam-da-lat.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/d6/d6a3b511d1f606c679ef1014fa26c4611d5a82a88eab2f6853ce774a46e0aab7.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/d6/d6a3b511d1f606c679ef1014fa26c4611d5a82a88eab2f6853ce774a46e0aab7.jpg",
+            "sha256": "d6a3b511d1f606c679ef1014fa26c4611d5a82a88eab2f6853ce774a46e0aab7"
+        },
+        "/images/itinerary/thung-lung-muong-hoa.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/4c/4c595abc00b65eb94b92fc023a0a440e986ad84bcec8bf8374ee899a4b8b8413.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/4c/4c595abc00b65eb94b92fc023a0a440e986ad84bcec8bf8374ee899a4b8b8413.jpg",
+            "sha256": "4c595abc00b65eb94b92fc023a0a440e986ad84bcec8bf8374ee899a4b8b8413"
+        },
+        "/images/itinerary/thac-ban-gioc.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/f8/f8a1d701de36c358b48a233f25f448f3542815c862b66b656a64782d57c14348.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/f8/f8a1d701de36c358b48a233f25f448f3542815c862b66b656a64782d57c14348.jpg",
+            "sha256": "f8a1d701de36c358b48a233f25f448f3542815c862b66b656a64782d57c14348"
+        },
+        "/images/itinerary/thac-dray-nur.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/0e/0e5c6a9739798a7b70a4d17bd4e8c1f9e3b8015ac0277b5f6a39596e00f5b0ca.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/0e/0e5c6a9739798a7b70a4d17bd4e8c1f9e3b8015ac0277b5f6a39596e00f5b0ca.jpg",
+            "sha256": "0e5c6a9739798a7b70a4d17bd4e8c1f9e3b8015ac0277b5f6a39596e00f5b0ca"
+        },
+        "/images/itinerary/thac-dai-yem.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/f6/f6601589a2d3a54fb4eb8b9900693ee5e39fa9df7f5a9a0e1ef68f019f951137.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/f6/f6601589a2d3a54fb4eb8b9900693ee5e39fa9df7f5a9a0e1ef68f019f951137.jpg",
+            "sha256": "f6601589a2d3a54fb4eb8b9900693ee5e39fa9df7f5a9a0e1ef68f019f951137"
+        },
+        "/images/itinerary/thac-pa-sy.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/c9/c93ef52fe753c6a5a5e98b3e8a4bd81a3491ebe3a97543f0f169b50c88677fae.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/c9/c93ef52fe753c6a5a5e98b3e8a4bd81a3491ebe3a97543f0f169b50c88677fae.jpg",
+            "sha256": "c93ef52fe753c6a5a5e98b3e8a4bd81a3491ebe3a97543f0f169b50c88677fae"
+        },
+        "/images/itinerary/thac-pongour.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/fa/faf53fe9645cce85180ac40b5320e8874314ee414601c9524675cc807082cdab.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/fa/faf53fe9645cce85180ac40b5320e8874314ee414601c9524675cc807082cdab.jpg",
+            "sha256": "faf53fe9645cce85180ac40b5320e8874314ee414601c9524675cc807082cdab"
+        },
+        "/images/itinerary/thap-ba-ponagar.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/a4/a41bf2321f832059347eae2c01dd4d797a2970a4340bdc2dfd4c018b5422ffad.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/a4/a41bf2321f832059347eae2c01dd4d797a2970a4340bdc2dfd4c018b5422ffad.jpg",
+            "sha256": "a41bf2321f832059347eae2c01dd4d797a2970a4340bdc2dfd4c018b5422ffad"
+        },
+        "/images/itinerary/thap-banh-it.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/c1/c1a567329785d8708301b90b90cc75d89d39d0761b3822d3cc636009647c6762.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/c1/c1a567329785d8708301b90b90cc75d89d39d0761b3822d3cc636009647c6762.jpg",
+            "sha256": "c1a567329785d8708301b90b90cc75d89d39d0761b3822d3cc636009647c6762"
+        },
+        "/images/itinerary/thap-po-sah-inu.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/dc/dc6de3444941e5f4ce730ee32321c3bbafd9d18073940c74562d168f609c633a.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/dc/dc6de3444941e5f4ce730ee32321c3bbafd9d18073940c74562d168f609c633a.jpg",
+            "sha256": "dc6de3444941e5f4ce730ee32321c3bbafd9d18073940c74562d168f609c633a"
+        },
+        "/images/itinerary/trang-an.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/82/823013810b670397b30a14a919c1e20bae784541ba5dda6ee2d5a81f0bdb21ac.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/82/823013810b670397b30a14a919c1e20bae784541ba5dda6ee2d5a81f0bdb21ac.jpg",
+            "sha256": "823013810b670397b30a14a919c1e20bae784541ba5dda6ee2d5a81f0bdb21ac"
+        },
+        "/images/itinerary/tuan-chau.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/1d/1d6a097d0e77760a18ee0d9ecec13d15d18fcfdcbbae9ab03e9241f4d5f0f26b.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/1d/1d6a097d0e77760a18ee0d9ecec13d15d18fcfdcbbae9ab03e9241f4d5f0f26b.jpg",
+            "sha256": "1d6a097d0e77760a18ee0d9ecec13d15d18fcfdcbbae9ab03e9241f4d5f0f26b"
+        },
+        "/images/itinerary/toa-thanh-tay-ninh.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/56/56e3b8a58256bc37c4a0597b1c5efeb4c8ce93ba3904dbbe35e92fe861093668.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/56/56e3b8a58256bc37c4a0597b1c5efeb4c8ce93ba3904dbbe35e92fe861093668.jpg",
+            "sha256": "56e3b8a58256bc37c4a0597b1c5efeb4c8ce93ba3904dbbe35e92fe861093668"
+        },
+        "/images/itinerary/tu-le.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/84/8494b764040dc84f9e5069288f0897d23751f98c466339477f254c4622fd13c6.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/84/8494b764040dc84f9e5069288f0897d23751f98c466339477f254c4622fd13c6.jpg",
+            "sha256": "8494b764040dc84f9e5069288f0897d23751f98c466339477f254c4622fd13c6"
+        },
+        "/images/itinerary/van-mieu-quoc-tu-giam.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/de/de4816aa25cfa832ccb82afa8d3660dba1f5700cd8d2bfe0f5db61a7ccef1a22.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/de/de4816aa25cfa832ccb82afa8d3660dba1f5700cd8d2bfe0f5db61a7ccef1a22.jpg",
+            "sha256": "de4816aa25cfa832ccb82afa8d3660dba1f5700cd8d2bfe0f5db61a7ccef1a22"
+        },
+        "/images/itinerary/vuon-quoc-gia-cat-ba.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/bd/bd2b3d06778e247a7f45e6bedf140b9359fabfe580e3f629182dd7abc7d6fc03.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/bd/bd2b3d06778e247a7f45e6bedf140b9359fabfe580e3f629182dd7abc7d6fc03.jpg",
+            "sha256": "bd2b3d06778e247a7f45e6bedf140b9359fabfe580e3f629182dd7abc7d6fc03"
+        },
+        "/images/itinerary/vuon-quoc-gia-con-dao.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/c5/c5adc3a0cb4ef5e2033a7f0cf8a53021368ba9316e1adeab75e6bf70f9faddaf.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/c5/c5adc3a0cb4ef5e2033a7f0cf8a53021368ba9316e1adeab75e6bf70f9faddaf.jpg",
+            "sha256": "c5adc3a0cb4ef5e2033a7f0cf8a53021368ba9316e1adeab75e6bf70f9faddaf"
+        },
+        "/images/itinerary/vuon-quoc-gia-cuc-phuong.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/ba/ba27f7c18f56c1dc120da45b5b553e5dae1a14aa5bae0fb779e8f76cfce33a24.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/ba/ba27f7c18f56c1dc120da45b5b553e5dae1a14aa5bae0fb779e8f76cfce33a24.jpg",
+            "sha256": "ba27f7c18f56c1dc120da45b5b553e5dae1a14aa5bae0fb779e8f76cfce33a24"
+        },
+        "/images/itinerary/vuon-quoc-gia-phu-quoc.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/ab/abd9cb057d3a58860d069e511ca561c8da4dd20cf1fbd2123b9c1623f59b8dd5.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/ab/abd9cb057d3a58860d069e511ca561c8da4dd20cf1fbd2123b9c1623f59b8dd5.jpg",
+            "sha256": "abd9cb057d3a58860d069e511ca561c8da4dd20cf1fbd2123b9c1623f59b8dd5"
+        },
+        "/images/itinerary/vinh-ha-long.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/b3/b31df58213582c82a08ef1c96754dfbc3e6c7d6af9a48849d6370502fc1d5896.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/b3/b31df58213582c82a08ef1c96754dfbc3e6c7d6af9a48849d6370502fc1d5896.jpg",
+            "sha256": "b31df58213582c82a08ef1c96754dfbc3e6c7d6af9a48849d6370502fc1d5896"
+        },
+        "/images/itinerary/vinh-lan-ha.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/90/9096f1a07879e7eeda11a63ad336a5cb15638fbe84808037436954ba92eceec1.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/90/9096f1a07879e7eeda11a63ad336a5cb15638fbe84808037436954ba92eceec1.jpg",
+            "sha256": "9096f1a07879e7eeda11a63ad336a5cb15638fbe84808037436954ba92eceec1"
+        },
+        "/images/itinerary/vinh-nha-trang.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/1f/1f57e8205191bfd525098e57653ea62509f112de24d1604f66876ffba9b9424f.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/1f/1f57e8205191bfd525098e57653ea62509f112de24d1604f66876ffba9b9424f.jpg",
+            "sha256": "1f57e8205191bfd525098e57653ea62509f112de24d1604f66876ffba9b9424f"
+        },
+        "/images/itinerary/deo-khau-pha.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/fa/fa5089ed7e4e763846adf7e71e0048de194fa79c3a7d8da927409c134e80d483.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/fa/fa5089ed7e4e763846adf7e71e0048de194fa79c3a7d8da927409c134e80d483.jpg",
+            "sha256": "fa5089ed7e4e763846adf7e71e0048de194fa79c3a7d8da927409c134e80d483"
+        },
+        "/images/itinerary/deo-ma-pi-leng.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/81/81265b496e317bc613993ca75eb2e8f382addc873e991272b05cdd3aff4e75ae.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/81/81265b496e317bc613993ca75eb2e8f382addc873e991272b05cdd3aff4e75ae.jpg",
+            "sha256": "81265b496e317bc613993ca75eb2e8f382addc873e991272b05cdd3aff4e75ae"
+        },
+        "/images/itinerary/dai-noi-hue.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/38/38e6cb2631ee49703622d57975a8384e8ceb4522a4afabe31fb94fbbe2df0214.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/38/38e6cb2631ee49703622d57975a8384e8ceb4522a4afabe31fb94fbbe2df0214.jpg",
+            "sha256": "38e6cb2631ee49703622d57975a8384e8ceb4522a4afabe31fb94fbbe2df0214"
+        },
+        "/images/itinerary/dao-cat-ba.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/33/33cc72a20aa18345afa659f2c6d86ff8586e675d292c63623d3869cb349a3ae9.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/33/33cc72a20aa18345afa659f2c6d86ff8586e675d292c63623d3869cb349a3ae9.jpg",
+            "sha256": "33cc72a20aa18345afa659f2c6d86ff8586e675d292c63623d3869cb349a3ae9"
+        },
+        "/images/itinerary/dao-ly-son.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/8d/8d61ab156784e049235d15c6fe96f9d1c370ca21aa4ddedbb7f2b2e026ebc3bf.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/8d/8d61ab156784e049235d15c6fe96f9d1c370ca21aa4ddedbb7f2b2e026ebc3bf.jpg",
+            "sha256": "8d61ab156784e049235d15c6fe96f9d1c370ca21aa4ddedbb7f2b2e026ebc3bf"
+        },
+        "/images/itinerary/den-ngoc-son.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/68/68c9fbeacdbdaf9c7b21fa8dc68eda51ff3ded454b4ccac5605ecf57a1a31a35.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/68/68c9fbeacdbdaf9c7b21fa8dc68eda51ff3ded454b4ccac5605ecf57a1a31a35.jpg",
+            "sha256": "68c9fbeacdbdaf9c7b21fa8dc68eda51ff3ded454b4ccac5605ecf57a1a31a35"
+        },
+        "/images/itinerary/doi-a1.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/95/95760d1adb654d0e43457e2af7e58c64e9518322e6a86bacd6c71aa3e2796653.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/95/95760d1adb654d0e43457e2af7e58c64e9518322e6a86bacd6c71aa3e2796653.jpg",
+            "sha256": "95760d1adb654d0e43457e2af7e58c64e9518322e6a86bacd6c71aa3e2796653"
+        },
+        "/images/itinerary/doi-che-moc-chau.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/17/178d46dbe52ce454f344a7e65767e42d0c929f98ffc3842d25313bf9ef6c68c8.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/17/178d46dbe52ce454f344a7e65767e42d0c929f98ffc3842d25313bf9ef6c68c8.jpg",
+            "sha256": "178d46dbe52ce454f344a7e65767e42d0c929f98ffc3842d25313bf9ef6c68c8"
+        },
+        "/images/itinerary/doi-cat-mui-ne.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/7d/7dda9b5f2ad4453d3edc14ce1144e9efc9bea18d73884db9f1a4f845e22d5394.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/7d/7dda9b5f2ad4453d3edc14ce1144e9efc9bea18d73884db9f1a4f845e22d5394.jpg",
+            "sha256": "7dda9b5f2ad4453d3edc14ce1144e9efc9bea18d73884db9f1a4f845e22d5394"
+        },
+        "/images/itinerary/dong-van.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/1c/1c5fee32e72dbb76897f0028ee5c3c429bd2b6fbe61d7d7dd80cdc78087f47a6.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/1c/1c5fee32e72dbb76897f0028ee5c3c429bd2b6fbe61d7d7dd80cdc78087f47a6.jpg",
+            "sha256": "1c5fee32e72dbb76897f0028ee5c3c429bd2b6fbe61d7d7dd80cdc78087f47a6"
+        },
+        "/images/itinerary/dong-nguom-ngao.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/15/151d128823d80823a94a819f8bf7f9ba1681e8ad6a26669f5e3788a83f3b3d7b.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/15/151d128823d80823a94a819f8bf7f9ba1681e8ad6a26669f5e3788a83f3b3d7b.jpg",
+            "sha256": "151d128823d80823a94a819f8bf7f9ba1681e8ad6a26669f5e3788a83f3b3d7b"
+        },
+        "/images/itinerary/dong-phong-nha.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/14/1410b534bb817878f502fdd083c409bd6b708a5e492f2ad41d1b9d65f82f88d8.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/14/1410b534bb817878f502fdd083c409bd6b708a5e492f2ad41d1b9d65f82f88d8.jpg",
+            "sha256": "1410b534bb817878f502fdd083c409bd6b708a5e492f2ad41d1b9d65f82f88d8"
+        },
+        "/images/itinerary/dong-puong.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/dc/dc9fea0645772aa16037c140e9b73d283b0330671d9990bd6f223969eb3fc020.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/dc/dc9fea0645772aa16037c140e9b73d283b0330671d9990bd6f223969eb3fc020.jpg",
+            "sha256": "dc9fea0645772aa16037c140e9b73d283b0330671d9990bd6f223969eb3fc020"
+        },
+        "/images/itinerary/dong-thien-duong.jpg": {
+            "disk": "supabase",
+            "bucket": "tour-images",
+            "path": "media/c7/c7fd07e095ef53686a147b2b9f394cd2cc884911f1d93a89480267c3c0977b42.jpg",
+            "url": "https://tgftmvgboogmmhzmafdc.supabase.co/storage/v1/object/public/tour-images/media/c7/c7fd07e095ef53686a147b2b9f394cd2cc884911f1d93a89480267c3c0977b42.jpg",
+            "sha256": "c7fd07e095ef53686a147b2b9f394cd2cc884911f1d93a89480267c3c0977b42"
+        }
+    }
+}

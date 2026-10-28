@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\ItineraryPlace;
 use App\Models\Tour;
+use App\Services\Media\MediaCatalog;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use RuntimeException;
@@ -13,23 +14,18 @@ class TourItinerarySeeder extends Seeder
     public function run(): void
     {
         $data = json_decode(file_get_contents(database_path('data/tour-itineraries.json')), true, 512, JSON_THROW_ON_ERROR);
-        // Validate assets and all referenced days before writing anything.
-        foreach ($data['places'] as $place) {
-            $path = public_path(ltrim($place['image']['path'], '/'));
-            if (! is_file($path) || hash_file('sha256', $path) !== $place['image']['sha256']) {
-                throw new RuntimeException('Thiếu ảnh hoặc sai checksum: '.$place['name']);
-            }
-        }
-        DB::transaction(function () use ($data) {
+        // Resolve all references before writing; Firebase mode never reads local photos or uploads.
+        $catalog = app(MediaCatalog::class);
+        $references = collect($data['places'])->mapWithKeys(fn ($place) => [$place['slug'] => $catalog->reference($place['image'])]);
+        DB::transaction(function () use ($data, $references) {
             $places = [];
             foreach ($data['places'] as $row) {
                 $place = ItineraryPlace::updateOrCreate(['slug' => $row['slug']], collect($row)->except('slug', 'image')->all());
                 $image = $row['image'];
-                $place->images()->updateOrCreate(['path' => $image['path']], [
-                    'sha256' => $image['sha256'],
-                    'path' => $image['path'], 'caption' => $image['caption'], 'source_url' => $image['source_page'],
+                $place->images()->updateOrCreate(['sha256' => $image['sha256']], array_merge($references[$row['slug']]->columns('path'), [
+                    'caption' => $image['caption'], 'source_url' => $image['source_page'],
                     'author' => $image['author'], 'license' => $image['license'], 'license_url' => $image['license_url'] ?: null,
-                ]);
+                ]));
                 $places[$row['slug']] = $place->id;
             }
             foreach ($data['tours'] as $row) {
