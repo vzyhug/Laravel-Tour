@@ -23,6 +23,11 @@ class Hotel extends Model
         return $this->belongsTo(Destination::class);
     }
 
+    public function roomTypes(): HasMany
+    {
+        return $this->hasMany(HotelRoomType::class);
+    }
+
     public function images(): HasMany
     {
         return $this->hasMany(HotelImage::class)->orderBy('id');

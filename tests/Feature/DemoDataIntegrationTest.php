@@ -21,7 +21,7 @@ class DemoDataIntegrationTest extends TestCase
         ] as [$login, $password, $role]) {
             $this->flushSession();
             $this->post(route('login.store'), compact('login', 'password'))
-                ->assertRedirect(route('admin.dashboard'))->assertSessionHas('employee_role', $role);
+                ->assertRedirect(route($role === 'Guide' ? 'operations.index' : 'admin.dashboard'))->assertSessionHas('employee_role', $role);
         }
         $this->flushSession();
         $customer = Customer::where('email', 'demo01@vietgo.test')->firstOrFail();

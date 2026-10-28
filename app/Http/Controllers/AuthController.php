@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterCustomerRequest;
 use App\Models\Customer;
+use App\Models\Employee;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
-use App\Models\Employee;
 
 class AuthController extends Controller
 {
@@ -22,7 +22,7 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-        public function login(Request $request): RedirectResponse
+    public function login(Request $request): RedirectResponse
     {
         $data = $request->validate(['login' => ['required', 'string'], 'password' => ['required', 'string']]);
 
@@ -34,13 +34,13 @@ class AuthController extends Controller
             $request->session()->regenerate();
             session(['employee_id' => $employee->getKey(), 'employee_name' => $employee->full_name, 'employee_role' => $employee->role->role_name]);
 
-            return redirect()->route('admin.dashboard');
+            return redirect()->route($employee->role->role_name === 'Guide' ? 'operations.index' : 'admin.dashboard');
         }
 
         $customer = Customer::where('email', $data['login'])->first();
         if ($customer && $customer->is_active && Hash::check($data['password'], $customer->password_hash)) {
             $request->session()->regenerate();
-            session(['customer_id' => $customer->getKey(), 'customer_name' => $customer->full_name]);
+            session(['customer_id' => $customer->getKey(), 'customer_name' => $customer->full_name, 'customer_session_version' => (int) $customer->session_version]);
 
             return redirect()->intended(route('home'))->with('success', 'Đăng nhập thành công.');
         }
@@ -55,14 +55,14 @@ class AuthController extends Controller
         unset($data['password']);
         $customer = Customer::create($data);
         $request->session()->regenerate();
-        session(['customer_id' => $customer->getKey(), 'customer_name' => $customer->full_name]);
+        session(['customer_id' => $customer->getKey(), 'customer_name' => $customer->full_name, 'customer_session_version' => (int) $customer->session_version]);
 
         return redirect()->route('home')->with('success', 'Tạo tài khoản thành công.');
     }
 
     public function logout(Request $request): RedirectResponse
     {
-        $request->session()->forget(['customer_id', 'customer_name']);
+        $request->session()->forget(['customer_id', 'customer_name', 'customer_session_version']);
         $request->session()->regenerateToken();
 
         return redirect()->route('home');

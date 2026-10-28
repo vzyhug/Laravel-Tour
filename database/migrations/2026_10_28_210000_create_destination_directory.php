@@ -62,6 +62,7 @@ return new class extends Migration
         Schema::dropIfExists('hotel_images');
         Schema::dropIfExists('hotels');
         Schema::table('itinerary_places', function (Blueprint $table) {
+            $table->dropIndex(['category']);
             $table->dropColumn(['category', 'address']);
         });
         Schema::dropIfExists('destination_itinerary_place');

@@ -21,6 +21,7 @@
             </label>
             <button class="btn-primary w-full">Đăng nhập</button>
         </form>
+        <a class="mt-4 block text-sm text-brand-700" href="{{ route('customer.password.request') }}">Quên mật khẩu khách hàng?</a>
         <p class="mt-6 text-center text-sm text-slate-500">Chưa có tài khoản? <a class="font-semibold text-brand-700 hover:underline" href="{{ route('register') }}">Đăng ký ngay</a></p>
     </div>
 </section>

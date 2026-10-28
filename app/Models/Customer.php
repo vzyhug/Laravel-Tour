@@ -2,14 +2,23 @@
 
 namespace App\Models;
 
+use App\Notifications\CustomerResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class Customer extends Model
+class Customer extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
+
+    protected $authPasswordName = 'password_hash';
+
+    public function sendPasswordResetNotification($token): void
+    {
+        $this->notify(new CustomerResetPassword($token));
+    }
 
     public const UPDATED_AT = null;
 
@@ -21,7 +30,7 @@ class Customer extends Model
 
     protected function casts(): array
     {
-        return ['created_at' => 'datetime', 'is_active' => 'boolean'];
+        return ['created_at' => 'datetime', 'is_active' => 'boolean', 'session_version' => 'integer'];
     }
 
     public function bookings(): HasMany

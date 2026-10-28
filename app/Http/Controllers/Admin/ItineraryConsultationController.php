@@ -11,7 +11,7 @@ class ItineraryConsultationController extends Controller
 {
     public function index(Request $request)
     {
-        $request->validate(['status' => ['nullable', 'in:submitted,quoted,closed']]);
+        $request->validate(['status' => ['nullable', 'in:submitted,quoted,accepted,rejected,closed']]);
         $consultations = ItineraryConsultation::with('itinerary.tour')
             ->when($request->filled('status'), fn ($query) => $query->where('status', $request->input('status')))
             ->latest()->paginate(20)->withQueryString();
@@ -37,7 +37,7 @@ class ItineraryConsultationController extends Controller
         DB::transaction(function () use ($data, $consultation) {
             $locked = ItineraryConsultation::whereKey($consultation->id)->lockForUpdate()->firstOrFail();
             abort_if($locked->version !== (int) $data['version'], 409, 'Yêu cầu đã được nhân viên khác cập nhật.');
-            abort_if($locked->status === 'closed', 422, 'Yêu cầu đã đóng, không thể sửa phản hồi.');
+            abort_unless(in_array($locked->status, ['submitted', 'quoted'], true), 422, 'Yêu cầu đã kết thúc, không thể sửa phản hồi hoặc báo giá.');
             $locked->update(['status' => $data['status'], 'reply' => $data['reply'],
                 'quoted_total' => $data['status'] === 'quoted' ? $data['quoted_total'] : null,
                 'valid_until' => $data['status'] === 'quoted' ? $data['valid_until'] : null,

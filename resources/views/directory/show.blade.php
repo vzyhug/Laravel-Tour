@@ -22,9 +22,10 @@
             <h2 class="font-serif text-2xl">Thông tin địa điểm</h2>
             @if($record->address)<p class="mt-5 text-sm leading-7"><strong>Địa chỉ:</strong> {{ $record->address }}</p><a class="text-link mt-3" href="{{ 'https://www.google.com/maps/search/?api=1&query='.rawurlencode($record->name.' '.$record->address) }}" target="_blank" rel="noopener noreferrer">Tìm trên bản đồ ↗</a>@endif
             @if($kind === 'hotels')
+                <a class="btn-primary mt-6" href="{{ route('hotel-rooms.search', $record) }}">Xem phòng trống & đặt phòng</a>
                 @if($record->phone)<p class="mt-5 text-sm"><strong>Điện thoại:</strong> <a class="underline" href="tel:{{ preg_replace('/[^+0-9]/', '', $record->phone) }}">{{ $record->phone }}</a></p>@endif
                 <a class="btn-primary mt-6" href="{{ $record->website_url }}" target="_blank" rel="noopener noreferrer">Website khách sạn ↗</a>
-                <p class="mt-4 text-xs leading-6 text-muted">Liên hệ trực tiếp khách sạn để xác nhận giá, phòng trống và dịch vụ cho ngày đi của bạn.</p>
+                <p class="mt-4 text-xs leading-6 text-muted">Chọn ngày lưu trú để xem các loại phòng đang mở bán và giá tương ứng.</p>
             @endif
         </aside>
         @endif

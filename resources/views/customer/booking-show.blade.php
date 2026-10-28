@@ -5,6 +5,7 @@
 @php
     $labels = ['pending' => 'Chờ xác nhận', 'confirmed' => 'Đã xác nhận', 'completed' => 'Hoàn thành', 'cancelled' => 'Đã hủy'];
     $departure = $booking->departure;
+    $quote = $booking->quote_snapshot ?? [];
 @endphp
 
 @section('content')
@@ -15,7 +16,7 @@
         <div class="mt-5 flex flex-wrap justify-between gap-4">
             <div>
                 <p class="text-sm text-slate-500">Mã đặt tour: <span class="font-semibold text-ink">{{ $booking->booking_code }}</span></p>
-                <h1 class="text-3xl font-black text-ink">{{ $departure->tour->title }}</h1>
+                <h1 class="text-3xl font-black text-ink">{{ $quote['tour'] ?? $departure->tour->title }}</h1>
             </div>
             <div class="flex items-center gap-3">
                 <span class="badge h-fit">{{ $labels[$booking->status] ?? $booking->status }}</span>
@@ -25,6 +26,12 @@
             </div>
         </div>
 
+        @include('itineraries.accepted-quote', ['booking' => $booking])
+
+        @if($booking->status === 'pending' && $booking->hold_expires_at)
+            <p class="mt-5 text-sm text-slate-600">Giữ chỗ đến {{ $booking->hold_expires_at->format('d/m/Y H:i') }}. Đơn chưa thanh toán sẽ tự hủy khi hết hạn.</p>
+        @endif
+
         <div class="mt-8 grid gap-6 md:grid-cols-2">
             <div class="card p-6">
                 <h2 class="text-lg font-bold">Thông tin chuyến đi</h2>
@@ -32,7 +39,7 @@
                     <div class="flex justify-between">
                         <dt>Khởi hành</dt>
                         <dd class="font-semibold">
-                            {{ $departure->departure_date->format('d/m/Y') }}@if($departure->time_label) · {{ $departure->time_label }}@endif
+                            {{ isset($quote['travel_date']) ? \Carbon\Carbon::parse($quote['travel_date'])->format('d/m/Y') : $departure->departure_date->format('d/m/Y') }}@if($departure->time_label) · {{ $departure->time_label }}@endif
                         </dd>
                     </div>
                     <div class="flex justify-between">
@@ -48,7 +55,7 @@
                                     <span class="block text-xs font-normal text-slate-500">{{ $booking->pickup_note }}</span>
                                 @endif
                             @else
-                                Tự đến: {{ $departure->tour->pickup_point ?: 'điểm tập trung sẽ thông báo' }}
+                                Tự đến: {{ $quote['pickup_point'] ?? ($departure->tour->pickup_point ?: 'điểm tập trung sẽ thông báo') }}
                             @endif
                         </dd>
                     </div>
@@ -64,8 +71,11 @@
                     </div>
                 </dl>
 
-                @if(!$booking->payment && in_array($booking->status, ['pending', 'confirmed'], true))
+                @if((!$booking->payment || in_array($booking->payment->status, ['pending', 'failed'], true)) && in_array($booking->status, ['pending', 'confirmed'], true) && !$booking->holdHasExpired())
                     <a class="btn-primary mt-5 w-full" href="{{ route('payments.create', $booking) }}">Thanh toán ngay</a>
+                @endif
+                @if($booking->status === 'pending' && !$booking->payment && !$booking->consultation_id && !$departure->is_private && !$booking->holdHasExpired())
+                    <a class="btn-secondary mt-3 w-full" href="{{ route('customer.booking-changes.edit', $booking) }}">Đổi ngày hoặc đổi tour</a>
                 @endif
             </div>
 
@@ -80,6 +90,20 @@
                 </ul>
             </div>
         </div>
+
+        @if($booking->payment && $booking->payment->refunds->isNotEmpty())
+            <section class="card mt-6 p-6" aria-label="Trạng thái hoàn tiền">
+                <h2 class="text-lg font-bold">Trạng thái hoàn tiền mô phỏng</h2>
+                <ul class="mt-4 grid gap-3 text-sm">
+                    @foreach($booking->payment->refunds as $refund)
+                        <li class="flex flex-wrap justify-between gap-3">
+                            <span>{{ number_format($refund->amount, 0, ',', '.') }}₫</span>
+                            <strong>{{ ['requested' => 'Đã yêu cầu', 'processing' => 'Đang xử lý', 'succeeded' => 'Hoàn mô phỏng thành công', 'failed' => 'Hoàn mô phỏng thất bại — đang chờ xử lý lại'][$refund->status] ?? $refund->status }}</strong>
+                        </li>
+                    @endforeach
+                </ul>
+            </section>
+        @endif
 
         {{-- Hủy tour --}}
         @if($booking->status === 'cancelled')

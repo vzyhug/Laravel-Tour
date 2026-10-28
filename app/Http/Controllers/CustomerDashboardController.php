@@ -6,6 +6,7 @@ use App\Models\Booking;
 use App\Models\Customer;
 use App\Models\Review;
 use App\Models\TourDeparture;
+use App\Services\Payments\RefundService;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -55,7 +56,7 @@ class CustomerDashboardController extends Controller
     {
         $this->owned($booking);
 
-        return view('customer.booking-show', ['booking' => $booking->load(['departure.tour', 'passengers', 'payment', 'bill'])]);
+        return view('customer.booking-show', ['booking' => $booking->load(['departure.tour', 'passengers', 'payment.refunds', 'bill'])]);
     }
 
     public function invoice(Booking $booking): View
@@ -131,6 +132,7 @@ class CustomerDashboardController extends Controller
         );
 
         $error = DB::transaction(function () use ($booking, $data) {
+            TourDeparture::whereKey($booking->departure_id)->lockForUpdate()->firstOrFail();
             $booking = Booking::with(['departure', 'payment'])->lockForUpdate()->findOrFail($booking->getKey());
 
             if (! $booking->canBeCancelled()) {
@@ -144,7 +146,7 @@ class CustomerDashboardController extends Controller
             if ($payment && $payment->status === 'completed') {
                 $percent = $booking->refundPercentNow();
                 $refund = round($payment->amount * $percent / 100);
-                $payment->update(['status' => 'refunded']);
+                app(RefundService::class)->request($booking, $refund, 'customer-cancel:'.$booking->getKey(), $data['cancel_reason']);
             }
 
             $departure = TourDeparture::lockForUpdate()->findOrFail($booking->departure_id);

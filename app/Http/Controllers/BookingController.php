@@ -13,9 +13,9 @@ use Illuminate\View\View;
 
 class BookingController extends Controller
 {
-        public function create(TourDeparture $departure): View
+    public function create(TourDeparture $departure): View
     {
-        abort_unless($departure->status === 'open' && $departure->available_seats > 0, 404);
+        abort_unless(! $departure->is_private && $departure->status === 'open' && $departure->available_seats > 0, 404);
 
         $customerId = (int) session('customer_id');
         $coupons = Coupon::all()
@@ -41,7 +41,7 @@ class BookingController extends Controller
             'code' => ['required', 'string', 'max:50'],
         ]);
 
-        $departure = TourDeparture::findOrFail($data['departure_id']);
+        $departure = TourDeparture::publiclyBookable()->findOrFail($data['departure_id']);
         $subtotal = $data['adults'] * (float) $departure->adult_price;
 
         $coupon = Coupon::where('code', Coupon::normalize($data['code']))->first();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\AcceptItineraryQuote;
 use App\Models\CustomerItinerary;
 use App\Models\ItineraryConsultation;
 use App\Models\Tour;
@@ -41,7 +42,9 @@ class TourItineraryController extends Controller
 
             return $plan->consultations()->create([
                 ...collect($data)->except('version')->all(), 'itinerary_version' => $plan->version,
-                'snapshot' => ['tour' => $tour->title, 'days' => $payload['days'], 'items' => $payload['items'], 'places' => $payload['places']],
+                'snapshot' => ['tour' => $tour->title, 'days' => $payload['days'], 'items' => $payload['items'], 'places' => $payload['places'],
+                    'duration_days' => $tour->duration_days, 'duration_nights' => $tour->duration_nights,
+                    'departure_time' => config('booking.default_departure_time', '06:00'), 'pickup_point' => $tour->pickup_point],
             ]);
         });
 
@@ -51,10 +54,35 @@ class TourItineraryController extends Controller
 
     public function consultation(ItineraryConsultation $consultation)
     {
-        $consultation->load('itinerary');
+        $consultation->load('itinerary', 'booking');
         abort_unless($consultation->itinerary->customer_id === (int) session('customer_id'), 403);
 
         return view('itineraries.consultation', compact('consultation'));
+    }
+
+    public function accept(Request $request, ItineraryConsultation $consultation, AcceptItineraryQuote $acceptQuote)
+    {
+        $booking = $acceptQuote->handle((int) session('customer_id'), $consultation, $request->all());
+
+        return redirect()->route($booking->status === 'pending' ? 'payments.create' : 'customer.bookings.show', $booking)
+            ->with('success', 'Đã chấp nhận báo giá và tạo đơn theo lịch trình đã gửi.');
+    }
+
+    public function reject(Request $request, ItineraryConsultation $consultation)
+    {
+        $data = $request->validate(['version' => ['required', 'integer', 'min:1']]);
+        DB::transaction(function () use ($consultation, $data) {
+            $quote = ItineraryConsultation::query()->lockForUpdate()->findOrFail($consultation->getKey());
+            abort_unless($quote->itinerary->customer_id === (int) session('customer_id'), 403);
+            if ($quote->status === 'rejected') {
+                return;
+            }
+            abort_if($quote->version !== (int) $data['version'], 409, 'Báo giá đã thay đổi. Vui lòng tải lại trang.');
+            abort_unless($quote->status === 'quoted', 422, 'Yêu cầu này không thể từ chối báo giá.');
+            $quote->update(['status' => 'rejected', 'rejected_at' => now(), 'version' => $quote->version + 1]);
+        });
+
+        return redirect()->route('itinerary-consultations.show', $consultation)->with('success', 'Đã từ chối báo giá. Bạn có thể chỉnh lịch trình và gửi yêu cầu tư vấn mới.');
     }
 
     public function index()
