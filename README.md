@@ -67,3 +67,7 @@ Xem [hướng dẫn seeder, factory và tải lại ảnh](docs/SEEDING.md) đ�
 ## Dữ liệu Spring cũ
 
 File SQL ban đầu nằm tại `legacy-spring/src/main/resources/mysql_query/Java_data_query.sql`. Schema Laravel giữ tên bảng và khóa chính tương thích để thuận tiện tái sử dụng dữ liệu hiện có. Các password dạng BCrypt của Spring có thể được Laravel xác thực; các chuỗi demo như `hash123` phải được reset/hash lại.
+
+## Thanh toán QR demo
+
+Có luồng VietQR mô phỏng: tạo QR theo đơn, chờ kết quả, mô phỏng thành công/thất bại/hết hạn và tạo hóa đơn sau thành công. Bật `PAYMENT_DEMO_ENABLED=true` trong môi trường local, chạy migration và build giao diện. Xem [hướng dẫn trình diễn trước giảng viên](docs/QR_PAYMENT_DEMO.md).

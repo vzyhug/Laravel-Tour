@@ -1,3 +1,4 @@
+import './qr-payment';
 import './image-viewer';
 import './itinerary';
 import Sortable from 'sortablejs';

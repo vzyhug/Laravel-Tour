@@ -104,3 +104,11 @@ Máy chủ kiểm tra lại cả khi JavaScript không chạy hoặc URL bị s�
 - Hướng dẫn cập nhật: [PLACE_GALLERIES.md](PLACE_GALLERIES.md). Chạy chuyển ảnh trước khi chạy seeder; không reset database đang có đơn.
 
 Nghiệm thu thư viện ảnh trên máy demo: đủ 459 mapping/438 object đã tải công khai và so SHA-256 khi chuyển; `media:verify` xác nhận không còn tham chiếu local; audit 32 tour/88 ngày/133 điểm dừng/335 ảnh không có vấn đề. Snapshot dữ liệu trước/sau xác nhận giữ nguyên tour, đơn, hành khách, thanh toán, lịch khởi hành và lịch chương trình đã có. Trình duyệt kiểm tra Phong Nha, Cầu Rồng, chợ Sa Pa, khách sạn Pullman và ảnh trong lịch tour; mở/đóng/chuyển ảnh, phím mũi tên/Escape, focus, URL cloud và bố cục 390px đạt. Web demo ở cổng 8001.
+
+## Thanh toán QR demo
+
+Thêm luồng VietQR mô phỏng dành cho trình diễn học tập: QR SVG riêng theo đơn/số tiền sau giảm giá, thời hạn 10 phút, chờ kết quả rồi mới ghi payment/xác nhận booking/tạo hóa đơn. Tab ngân hàng mô phỏng có ba kết quả thành công, thất bại và hết hạn. Có polling trạng thái, tạo lại mã, tải QR và tiếp tục QR từ chi tiết đơn. Dùng BIN/tài khoản giả, không kết nối hoặc chuyển tiền qua ngân hàng thật. Flag `PAYMENT_DEMO_ENABLED` mặc định tắt và bị chặn trong production.
+
+Chạy `composer install`, `php artisan migrate`, `npm install` và `npm run build`; môi trường local bật flag theo [QR_PAYMENT_DEMO.md](QR_PAYMENT_DEMO.md). Đã thêm bảng `payment_intents`, không reset bảng cũ. Thêm BaconQrCode 3.1.1, dasprid/enum và yêu cầu PHP XMLWriter.
+
+13 kiểm thử liên quan thanh toán đạt trên MySQL (176 assertions). Toàn bộ SQLite có 82/90 đạt (5.512 assertions), 8 trường hợp lỗi trùng baseline trước đợt QR. Trình duyệt kiểm tra trên database riêng `tour_qr_demo_preview`: tạo đơn qua luồng web, giải mã ảnh SVG bằng công cụ độc lập, chờ thanh toán, kết quả thành công tự cập nhật, kết quả lặp, chỉ phát hành hóa đơn sau thành công, thất bại/hết hạn/tạo lại QR, CSRF, quyền chủ đơn, lỗi mạng và bố cục điện thoại. Web chính cổng 8001 đã bật demo và migration mới; dữ liệu tour/booking đã có được đối chiếu không thay đổi.

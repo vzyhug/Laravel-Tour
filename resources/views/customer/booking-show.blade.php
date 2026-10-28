@@ -64,8 +64,16 @@
                     </div>
                 </dl>
 
+                @if($booking->payment)
+                    <p class="mt-5 break-all text-xs leading-7 text-muted">Mã giao dịch: <strong class="text-ink">{{ $booking->payment->transaction_code }}</strong></p>
+                    @if($booking->payment->payment_method === 'bank_transfer' && str_starts_with($booking->payment->transaction_code ?? '', 'DEMO-'))<p class="mt-1 text-xs text-muted">Chuyển khoản VietQR · Demo</p>@endif
+                @endif
                 @if(!$booking->payment && in_array($booking->status, ['pending', 'confirmed'], true))
+                    @if($pendingQr)
+                    <a class="btn-primary mt-5 w-full" href="{{ route('payments.qr.show', [$booking, $pendingQr]) }}">Tiếp tục thanh toán QR</a>
+                    @else
                     <a class="btn-primary mt-5 w-full" href="{{ route('payments.create', $booking) }}">Thanh toán ngay</a>
+                    @endif
                 @endif
             </div>
 

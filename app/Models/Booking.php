@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -43,12 +44,17 @@ class Booking extends Model
         return $this->hasOne(Payment::class, 'booking_id');
     }
 
+    public function paymentIntents(): HasMany
+    {
+        return $this->hasMany(PaymentIntent::class, 'booking_id');
+    }
+
     public function bill(): HasOne
     {
         return $this->hasOne(Bill::class, 'booking_id');
     }
 
-    public function cancelDeadline(): \Carbon\Carbon
+    public function cancelDeadline(): Carbon
     {
         return $this->departure->departure_date->copy()
             ->subDays((int) config('booking.cancel_before_days'))
