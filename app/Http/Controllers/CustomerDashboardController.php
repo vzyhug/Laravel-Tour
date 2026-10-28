@@ -66,7 +66,29 @@ class CustomerDashboardController extends Controller
             ? $booking->paymentIntents()->where('provider', SePaySandbox::PROVIDER)->whereIn('status', ['pending', 'review'])->latest('id')->first()
             : null;
 
-        return view('customer.booking-show', ['booking' => $booking->load(['departure.tour', 'passengers', 'payment.attempts', 'payment.refunds', 'bill']), 'pendingQr' => $pendingQr, 'pendingSePay' => $pendingSePay]);
+        $booking->load(['departure.tour', 'passengers', 'payment.attempts.vnpaySession', 'payment.refunds', 'bill']);
+        $bankPromotion = null;
+
+        foreach ($booking->payment?->attempts ?? [] as $attempt) {
+            $session = $attempt->vnpaySession;
+            $response = $session?->gateway_response ?? [];
+            $promotionAmount = $response['vnp_PromotionAmount'] ?? null;
+
+            if ($session?->status === 'succeeded'
+                && is_string($promotionAmount)
+                && ctype_digit($promotionAmount)
+                && (int) $promotionAmount > 0
+                && (int) $promotionAmount <= (int) $session->amount_vnd) {
+                $bankPromotion = [
+                    'code' => $response['vnp_PromotionCode'] ?? null,
+                    'amount' => (int) $promotionAmount,
+                    'paid_amount' => max(0, (int) $session->amount_vnd - (int) $promotionAmount),
+                ];
+                break;
+            }
+        }
+
+        return view('customer.booking-show', ['booking' => $booking, 'pendingQr' => $pendingQr, 'pendingSePay' => $pendingSePay, 'bankPromotion' => $bankPromotion]);
     }
 
     public function invoice(Booking $booking): View

@@ -13,6 +13,6 @@ class AdminAuthController extends Controller
         $request->session()->forget(['employee_id', 'employee_name', 'employee_role']);
         $request->session()->regenerateToken();
 
-        return redirect()->route('login');
+        return redirect()->route('login')->with('success', 'Đăng xuất thành công.');
     }
 }

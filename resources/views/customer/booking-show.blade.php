@@ -69,6 +69,18 @@
                         <dt>Tổng tiền</dt>
                         <dd class="font-bold text-orange-600">{{ number_format($booking->total_amount, 0, ',', '.') }}₫</dd>
                     </div>
+                    @if($bankPromotion)
+                        <div class="mt-2 rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-900">
+                            <div class="flex justify-between gap-3">
+                                <span>Ưu đãi ngân hàng/VNPay{{ $bankPromotion['code'] ? ' · '.$bankPromotion['code'] : '' }}</span>
+                                <strong>−{{ number_format($bankPromotion['amount'], 0, ',', '.') }}₫</strong>
+                            </div>
+                            <div class="mt-1 flex justify-between gap-3">
+                                <span>Số tiền sau ưu đãi thanh toán</span>
+                                <strong>{{ number_format($bankPromotion['paid_amount'], 0, ',', '.') }}₫</strong>
+                            </div>
+                        </div>
+                    @endif
                 </dl>
 
                 @if($booking->payment)

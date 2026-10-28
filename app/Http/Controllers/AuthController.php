@@ -34,7 +34,7 @@ class AuthController extends Controller
             $request->session()->regenerate();
             session(['employee_id' => $employee->getKey(), 'employee_name' => $employee->full_name, 'employee_role' => $employee->role->role_name]);
 
-            return redirect()->route($employee->role->role_name === 'Guide' ? 'operations.index' : 'admin.dashboard');
+            return redirect()->route($employee->role->role_name === 'Guide' ? 'operations.index' : 'admin.dashboard')->with('success', 'Đăng nhập thành công.');
         }
 
         $customer = Customer::where('email', $data['login'])->first();
@@ -65,6 +65,6 @@ class AuthController extends Controller
         $request->session()->forget(['customer_id', 'customer_name', 'customer_session_version']);
         $request->session()->regenerateToken();
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success', 'Đăng xuất thành công.');
     }
 }
