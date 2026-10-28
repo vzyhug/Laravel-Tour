@@ -32,6 +32,82 @@
 }
 
 @layer components {
+    .admin-app { --admin-green: #28745a; --admin-green-soft: #eaf4ee; --admin-border: #e6eae6; }
+    .admin-sidebar { position: relative; }
+    .admin-brand-mark { @apply grid size-10 place-items-center rounded-xl bg-[#eaf4ee] text-[#28745a]; }
+    .admin-navigation { position: absolute; top: 76px; left: 0; right: 0; z-index: 50; max-height: calc(100vh - 76px); overflow-y: auto; border-bottom: 1px solid var(--admin-border); background: white; box-shadow: 0 18px 30px rgba(28, 43, 34, .12); }
+    .admin-nav-heading { @apply mb-2 mt-4 px-3 text-[9px] font-bold uppercase tracking-[.15em] text-[#929a94] first:mt-0; }
+    .admin-nav-link { @apply relative flex min-h-10 items-center gap-3 rounded-lg px-3 py-2 text-[11px] font-medium text-[#667169] transition hover:bg-[#f5f8f5] hover:text-[#28745a]; }
+    .admin-nav-link-active { @apply bg-[#eaf4ee] font-semibold text-[#24694f] hover:bg-[#eaf4ee] hover:text-[#24694f]; }
+    .admin-nav-indicator { @apply ml-auto size-1.5 rounded-full bg-[#28745a]; }
+    .admin-sidebar-footer { @apply mt-5 flex items-center gap-3 border-t border-[#eef0ed] px-3 pt-4; }
+    .admin-avatar { @apply grid size-9 shrink-0 place-items-center rounded-full bg-[#eaf4ee] text-xs font-bold uppercase text-[#28745a]; }
+    .admin-topbar-menu { @apply grid size-9 shrink-0 place-items-center rounded-lg border border-[#e7ebe7] text-[#566159] hover:bg-[#f5f8f5]; }
+    .admin-role-chip { @apply hidden items-center gap-2 rounded-full border border-[#e4e9e4] bg-white px-3 py-2 text-[9px] font-semibold text-[#59645c] sm:flex; }
+    .admin-role-chip > span { @apply size-1.5 rounded-full bg-[#38a273]; }
+    .admin-site-link { @apply inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-[#dce8df] bg-[#f4f8f5] px-3 text-[10px] font-semibold text-[#28745a] transition hover:border-[#b6d3c0] hover:bg-[#eaf4ee]; }
+    .admin-main { min-height: calc(100vh - 76px); }
+    .admin-page-heading { @apply flex flex-wrap items-end justify-between gap-4; }
+    .admin-page-eyebrow { @apply text-[9px] font-bold uppercase tracking-[.16em] text-[#78837b]; }
+    .admin-page-title { @apply mt-1 font-serif text-3xl font-medium tracking-tight text-[#222923] sm:text-[34px]; }
+    .admin-kpi-card { @apply relative overflow-hidden rounded-2xl border border-[#e7ebe7] bg-white p-5 shadow-[0_2px_8px_rgba(32,48,38,.025)] sm:p-6; }
+    .admin-kpi-icon { @apply grid size-10 place-items-center rounded-xl bg-[#edf5ef] text-[#28745a]; }
+    .admin-quick-link { @apply flex min-h-[78px] items-center gap-3 rounded-xl border border-[#e7ebe7] bg-white p-4 transition hover:-translate-y-0.5 hover:border-[#bdd6c5] hover:shadow-[0_8px_20px_rgba(32,48,38,.06)]; }
+    .admin-quick-icon { @apply grid size-10 shrink-0 place-items-center rounded-xl bg-[#edf5ef] text-[#28745a]; }
+    .admin-panel { @apply overflow-hidden rounded-2xl border border-[#e7ebe7] bg-white shadow-[0_2px_8px_rgba(32,48,38,.025)]; }
+    .admin-panel-heading { @apply flex flex-wrap items-center justify-between gap-3 border-b border-[#edf0ed] px-5 py-4 sm:px-6; }
+    .admin-data-table { @apply w-full min-w-[700px] text-left text-[11px]; }
+    .admin-data-table thead { @apply bg-[#f8faf8] text-[9px] font-bold uppercase tracking-[.08em] text-[#78837b]; }
+    .admin-data-table th { @apply px-5 py-3.5 font-bold; }
+    .admin-data-table tbody tr { @apply border-t border-[#f0f2f0] transition hover:bg-[#fbfcfb]; }
+    .admin-data-table td { @apply px-5 py-4 align-middle; }
+    .admin-status { @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-[9px] font-semibold; }
+    .admin-status::before { content: ''; @apply size-1.5 rounded-full bg-current; }
+    .admin-status-pending { @apply bg-amber-50 text-amber-700; }
+    .admin-status-confirmed { @apply bg-sky-50 text-sky-700; }
+    .admin-status-completed { @apply bg-emerald-50 text-emerald-700; }
+    .admin-status-cancelled { @apply bg-rose-50 text-rose-700; }
+    .operations-heading { @apply flex flex-wrap items-end justify-between gap-5; }
+    .operations-heading-note { @apply flex items-center gap-3 rounded-xl border border-[#e7ebe7] bg-white px-4 py-3 shadow-[0_2px_8px_rgba(32,48,38,.025)]; }
+    .operations-heading-note-icon { @apply grid size-10 place-items-center rounded-xl bg-[#edf5ef] text-[#28745a]; }
+    .operations-heading-note strong { @apply block text-lg leading-5 text-[#29312c]; }
+    .operations-heading-note small { @apply mt-1 block text-[9px] text-[#818b83]; }
+    .operations-trip-card { @apply flex min-h-[150px] items-center gap-4 rounded-2xl border border-[#e7ebe7] bg-white p-4 shadow-[0_2px_8px_rgba(32,48,38,.025)] transition hover:-translate-y-0.5 hover:border-[#bdd6c5] hover:shadow-[0_10px_25px_rgba(32,48,38,.07)] sm:gap-5 sm:p-5; }
+    .operations-trip-date { @apply grid size-[66px] shrink-0 content-center justify-items-center rounded-xl border border-[#e2ede5] bg-[#f3f8f4] text-[#28745a]; }
+    .operations-trip-date > span { @apply text-[8px] font-bold tracking-[.12em]; }
+    .operations-trip-date > strong { @apply mt-0.5 font-serif text-2xl leading-7 text-[#29312c]; }
+    .operations-trip-date > small { @apply mt-0.5 text-[8px] text-[#78837b]; }
+    .operations-trip-arrow { @apply grid size-8 shrink-0 place-items-center rounded-full bg-[#f5f8f5] text-[#78837b] transition group-hover:bg-[#eaf4ee] group-hover:text-[#28745a]; }
+    .operations-status { @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[8px] font-semibold; }
+    .operations-status > i { @apply size-1.5 rounded-full bg-current; }
+    .operations-status-open, .operations-status-progress { @apply bg-emerald-50 text-emerald-700; }
+    .operations-status-closed { @apply bg-amber-50 text-amber-700; }
+    .operations-status-cancelled { @apply bg-rose-50 text-rose-700; }
+    .operations-status-scheduled { @apply bg-sky-50 text-sky-700; }
+    .operations-status-completed { @apply bg-slate-100 text-slate-600; }
+    .operations-empty-state { @apply flex min-h-[280px] flex-col items-center justify-center rounded-2xl border border-dashed border-[#dce5de] bg-white px-6 py-12 text-center; }
+    .operations-empty-icon { @apply grid size-12 place-items-center rounded-2xl bg-[#edf5ef] text-[#28745a]; }
+    .hotel-count-chip { @apply inline-flex items-center rounded-full border border-[#e3ebe4] bg-[#f5f9f6] px-3 py-1.5 text-[9px] font-semibold text-[#52715d]; }
+    .hotel-source-demo { @apply inline-flex rounded-full bg-amber-50 px-2.5 py-1.5 text-[8px] font-semibold text-amber-700; }
+    .hotel-source-live { @apply inline-flex rounded-full bg-emerald-50 px-2.5 py-1.5 text-[8px] font-semibold text-emerald-700; }
+    .hotel-manage-link { @apply inline-flex min-h-8 items-center gap-1.5 rounded-lg px-2.5 text-[9px] font-semibold text-[#28745a] transition hover:bg-[#edf5ef]; }
+    .hotel-create-panel { @apply rounded-2xl border border-[#e2ebe4] bg-white p-5 shadow-[0_2px_8px_rgba(32,48,38,.025)] sm:p-6; }
+    .hotel-create-icon { @apply grid size-10 place-items-center rounded-xl bg-[#edf5ef] text-[#28745a]; }
+    .hotel-form-label { @apply grid gap-1.5 text-[9px] font-semibold text-[#59645c]; }
+    .hotel-form-control { @apply min-h-10 w-full rounded-lg border border-[#e1e7e1] bg-white px-3 py-2 text-[10px] font-normal text-[#303832] outline-none transition placeholder:text-[#a1aaa2] focus:border-[#8eb69a] focus:ring-2 focus:ring-[#eaf4ee]; }
+    .hotel-input-suffix { @apply pointer-events-none absolute inset-y-0 right-3 flex items-center text-[9px] font-normal text-[#89928b]; }
+    .hotel-demo-toggle { @apply flex cursor-pointer items-start gap-2.5 rounded-lg border border-[#edf0ed] bg-[#fafbfa] p-3; }
+    .hotel-demo-toggle input { @apply mt-0.5 size-3.5; }
+    .hotel-demo-toggle strong { @apply block text-[9px] font-semibold text-[#4b554d]; }
+    .hotel-demo-toggle small { @apply mt-0.5 block text-[8px] font-normal text-[#89928b]; }
+    .hotel-booking-status { @apply inline-flex rounded-full px-2.5 py-1.5 text-[8px] font-semibold; }
+    .hotel-status-pending { @apply bg-amber-50 text-amber-700; }
+    .hotel-status-confirmed { @apply bg-sky-50 text-sky-700; }
+    .hotel-status-completed { @apply bg-emerald-50 text-emerald-700; }
+    .hotel-status-cancelled { @apply bg-rose-50 text-rose-700; }
+    .hotel-status-expired { @apply bg-slate-100 text-slate-600; }
+    .hotel-complete-button { @apply min-h-8 whitespace-nowrap rounded-lg border border-[#cfe2d4] bg-[#f3f8f4] px-3 text-[9px] font-semibold text-[#28745a] transition hover:bg-[#e5f1e8]; }
+
     .container-page { @apply mx-auto w-full max-w-[1360px] px-5 sm:px-8 lg:px-14; }
     .btn-primary { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-700 disabled:opacity-50; }
     .btn-secondary { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#dccdc1] bg-white/70 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-500 hover:bg-brand-50 hover:text-brand-700; }
@@ -176,6 +252,16 @@
     .tour-route-heading h3 { font-size: 1.7rem; }
     .tour-route-map-canvas { height: 380px; }
     .map-route-panel { max-height: 360px; }
+}
+
+@media (min-width: 1024px) {
+    .admin-navigation {
+        position: static;
+        max-height: calc(100vh - 76px);
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+    }
 }
 
 @keyframes hotel-hero-drift {

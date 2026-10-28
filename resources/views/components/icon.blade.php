@@ -21,6 +21,12 @@
         'plus' => 'M12 5v14M5 12h14',
         'phone' => 'M22 16.9v3a2 2 0 0 1-2.2 2A20 20 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.4 2.8a2 2 0 0 1-.6 1.7L7.6 9.5a16 16 0 0 0 6.9 6.9l1.3-1.3a2 2 0 0 1 1.7-.6l2.8.4a2 2 0 0 1 1.7 2Z',
         'sparkle' => 'm12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z',
+        'dashboard' => 'M3 3h8v8H3zM13 3h8v5h-8zM13 10h8v11h-8zM3 13h8v8H3z',
+        'briefcase' => 'M3 7h18v13H3zM8 7V4h8v3M3 12h18M10 12v2h4v-2',
+        'ticket' => 'M3 7V4h18v3a3 3 0 0 0 0 6v3H3v-3a3 3 0 0 0 0-6Zm9-3v2m0 3v2m0 3v2m0 3v1',
+        'bed' => 'M3 20V5m0 10h18v5M3 11h18v4M7 11V8h5v3m3 0V8a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v3',
+        'tag' => 'm20 13-7 7L3 10V3h7l10 10Zm-12-6h.01',
+        'credit-card' => 'M2 7h20M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm2 12h5',
     ];
 @endphp
 <svg {{ $attributes->class($class) }} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{ $paths[$name] ?? $paths['arrow'] }}"/></svg>
