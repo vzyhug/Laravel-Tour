@@ -35,4 +35,12 @@ return [
         ],
     ],
 
+    'graphhopper' => [
+        'key' => env('GRAPHHOPPER_API_KEY'),
+    ],
+
+    'serpapi' => [
+        'key' => env('SERPAPI_API_KEY'),
+    ],
+
 ];
