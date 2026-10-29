@@ -34,4 +34,11 @@ class PaymentController extends Controller
 
         return back()->with('success', $result->status === 'succeeded' ? 'Đã hoàn tiền mô phỏng thành công.' : 'Hoàn tiền mô phỏng thất bại; có thể thử lại.');
     }
+
+    public function show(\App\Models\Payment $payment): \Illuminate\View\View
+    {
+        $payment->load(['booking.customer', 'booking.departure.tour', 'attempts', 'refunds']);
+
+        return view('admin.payments.show', ['payment' => $payment]);
+    }
 }

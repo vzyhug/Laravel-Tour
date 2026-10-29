@@ -13,7 +13,7 @@ class DemoAccountSeeder extends Seeder
     public function run(): void
     {
         $roles = [];
-        foreach (['Admin' => 'Quản trị hệ thống', 'Sale' => 'Tư vấn và bán tour', 'Guide' => 'Hướng dẫn viên'] as $name => $description) {
+        foreach (['Admin' => 'Quản trị hệ thống', 'Guide' => 'Hướng dẫn viên'] as $name => $description) {
             $roles[$name] = Role::firstOrCreate(['role_name' => $name], ['description' => $description]);
         }
 

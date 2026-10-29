@@ -1,12 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.admin')
+@section('title','Đặt khách sạn')
 @section('content')
-<section class="container-page py-10 space-y-8"><h1 class="section-title">Quản trị đặt khách sạn</h1>
+<section class="space-y-8"><div><p class="font-semibold text-brand-700">Khách sạn</p><h1 class="text-3xl font-black text-ink">Quản trị đặt khách sạn</h1></div>
 <p>Thanh toán và hoàn tiền khách sạn hiện chỉ mô phỏng.</p>
 <h2 class="text-2xl">Thêm loại phòng</h2>
 <form method="POST" action="{{ route('admin.hotel-booking.room-types.store') }}" class="grid gap-3 sm:grid-cols-2">@csrf
-<label>Khách sạn<select class="w-full border p-3" name="hotel_id">@foreach($hotels as $hotel)<option value="{{ $hotel->id }}">{{ $hotel->name }}</option>@endforeach</select></label>
-<label>Tên loại phòng<input class="w-full border p-3" name="name" maxlength="120" required></label>
-<label>Sức chứa/phòng<input class="w-full border p-3" type="number" name="max_guests" min="1" max="20" required></label>
+<label>Khách sạn<select class="field" name="hotel_id">@foreach($hotels as $hotel)<option value="{{ $hotel->id }}">{{ $hotel->name }}</option>@endforeach</select></label>
+<label>Tên loại phòng<input class="field" name="name" maxlength="120" required></label>
+<label>Sức chứa/phòng<input class="field" type="number" name="max_guests" min="1" max="20" required></label>
 <label><input type="checkbox" name="is_demo" value="1"> Dữ liệu demo (giá và tồn minh họa)</label><button class="btn-primary">Thêm</button></form>
 <h2 class="text-2xl">Tồn và giá</h2>
 @foreach($types as $type)<p><a class="text-link" href="{{ route('admin.hotel-booking.inventory', $type) }}">{{ $type->hotel->name }} · {{ $type->name }}</a> @if($type->is_demo) · DEMO @endif</p>@endforeach

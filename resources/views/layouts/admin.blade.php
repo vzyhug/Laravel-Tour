@@ -26,5 +26,62 @@
         <main class="p-5 lg:p-8">@yield('content')</main>
     </div>
 </div>
+<script>
+(function () {
+    // --- Tín hiệu "còn mở" ---
+    var PING_URL = @json(route('admin.ping'));
+    function ping() {
+        fetch(PING_URL, { credentials: 'same-origin', cache: 'no-store' })
+            .then(function (r) { if (r.redirected) { location.href = r.url; } })
+            .catch(function () {});
+    }
+    ping();
+    setInterval(ping, 5000);
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) { ping(); } });
+
+    // --- Lưu nháp form ---
+    var PREFIX = 'vietgo-draft:';
+    function skip(el) {
+        return !el.name || ['_token', '_method'].indexOf(el.name) > -1
+            || ['password', 'file', 'hidden', 'submit', 'button'].indexOf(el.type) > -1;
+    }
+    document.querySelectorAll('main form').forEach(function (form, i) {
+        if ((form.getAttribute('method') || 'get').toLowerCase() !== 'post') { return; }
+        var key = PREFIX + location.pathname + ':' + i;
+        try {
+            var saved = JSON.parse(localStorage.getItem(key) || 'null');
+            if (saved && Date.now() - saved.t < 86400000) {
+                Array.prototype.forEach.call(form.elements, function (el, idx) {
+                    if (skip(el) || saved.v[idx] === null || saved.v[idx] === undefined) { return; }
+                    if (el.type === 'checkbox' || el.type === 'radio') { el.checked = saved.v[idx]; } else { el.value = saved.v[idx]; }
+                });
+            }
+        } catch (e) {}
+        function save() {
+            try {
+                var v = Array.prototype.map.call(form.elements, function (el) {
+                    if (skip(el)) { return null; }
+                    return (el.type === 'checkbox' || el.type === 'radio') ? el.checked : el.value;
+                });
+                localStorage.setItem(key, JSON.stringify({ t: Date.now(), v: v }));
+            } catch (e) {}
+        }
+        form.addEventListener('input', save);
+        form.addEventListener('change', save);
+        form.addEventListener('submit', function () { try { localStorage.removeItem(key); } catch (e) {} });
+    });
+
+    // Bấm Đăng xuất thủ công thì xóa hết nháp (máy dùng chung cho an toàn)
+    var logout = document.querySelector('form[action="{{ route('admin.logout') }}"]');
+    if (logout) {
+        logout.addEventListener('submit', function () {
+            try {
+                Object.keys(localStorage).filter(function (k) { return k.indexOf(PREFIX) === 0; })
+                    .forEach(function (k) { localStorage.removeItem(k); });
+            } catch (e) {}
+        });
+    }
+})();
+</script>
 </body>
 </html>
