@@ -16,7 +16,7 @@
             <svg class="hidden size-9 text-brand-600 min-[380px]:block" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M5 29 20 6l15 23H5ZM12 29 20 17l8 12M8 35h24" stroke="currentColor" stroke-width="1.5"/><circle cx="29" cy="9" r="3" fill="currentColor"/></svg>
             <span><span class="block font-serif text-[24px] font-medium uppercase leading-none tracking-[.12em]">VietGo</span><span class="mt-1.5 block text-[8px] uppercase tracking-[.28em] text-muted">Hành trình chọn lọc</span></span>
         </a>
-        <nav id="main-menu" class="absolute inset-x-0 top-20 hidden border-b border-[#e7dcd1] bg-sand p-5 shadow-lg lg:static lg:flex lg:items-center lg:gap-1 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none" aria-label="Điều hướng chính">
+        <nav id="main-menu" class="absolute inset-x-0 top-20 hidden border-b border-[#e7dcd1] bg-sand p-5 shadow-lg xl:static xl:flex xl:items-center xl:gap-1 xl:border-0 xl:bg-transparent xl:p-0 xl:shadow-none" aria-label="Điều hướng chính">
             <a href="{{ route('home') }}" @class(['nav-link', 'nav-link-active' => request()->routeIs('home')]) @if(request()->routeIs('home')) aria-current="page" @endif>Khám phá</a>
             <a href="{{ route('tours.index') }}" @class(['nav-link', 'nav-link-active' => request()->routeIs('tours.*', 'provinces.tours')]) @if(request()->routeIs('tours.*', 'provinces.tours')) aria-current="page" @endif>Tour du lịch</a>
             <a href="{{ route('destinations.index') }}" @class(['nav-link', 'nav-link-active' => request()->routeIs('destinations.*', 'places.*')])>Điểm đến</a>
@@ -28,20 +28,33 @@
         </nav>
         <div class="flex items-center gap-1.5 sm:gap-3">
             <a href="{{ route('tours.index') }}" class="hidden items-center gap-2 rounded-lg bg-linen px-3 py-2.5 text-[11px] text-muted xl:flex"><x-icon name="search" class="size-4"/> Tìm hành trình</a>
-            <span class="hidden text-[10px] font-semibold text-muted sm:block">VND ₫</span>
             <a href="{{ route('favorites.index') }}" class="icon-button size-10 border-0 bg-transparent" aria-label="Yêu thích"><x-icon name="bookmark"/></a>
-            @if(session('customer_id'))
-                <a href="{{ route('customer.dashboard') }}" class="grid size-9 place-items-center rounded-full bg-brand-100 font-serif text-lg text-brand-700" aria-label="Tài khoản của tôi">{{ mb_substr(session('customer_name', 'V'), 0, 1) }}</a>
-            @elseif(session('employee_id'))
-                @if(session('employee_role') === 'Guide')
-                    <a href="{{ route('operations.index') }}" class="text-xs font-semibold text-brand-600">Điều hành</a>
-                @else
-                    <a href="{{ route('admin.dashboard') }}" class="text-xs font-semibold text-brand-600">Quản trị</a>
-                @endif
+            @if(session('customer_id') || session('employee_id'))
+                @php
+                    $isCustomer = (bool) session('customer_id');
+                    $accountName = $isCustomer ? session('customer_name', 'Khách hàng') : session('employee_name', 'VietGo');
+                    $accountRole = $isCustomer ? 'Khách hàng' : (session('employee_role') === 'Guide' ? 'Hướng dẫn viên' : 'Quản trị viên');
+                    $accountRoute = $isCustomer ? 'customer.dashboard' : (session('employee_role') === 'Guide' ? 'operations.index' : 'admin.dashboard');
+                @endphp
+                <details class="relative" data-account-menu>
+                    <summary class="grid size-10 cursor-pointer list-none place-items-center rounded-full border border-brand-100 bg-brand-100 font-serif text-lg text-brand-700 transition hover:border-brand-500 [&::-webkit-details-marker]:hidden" aria-label="Mở tài khoản: {{ $accountName }}">
+                        {{ mb_substr((string) $accountName, 0, 1) }}
+                    </summary>
+                    <div class="absolute right-0 top-full z-50 w-60 max-w-[calc(100vw-32px)] pt-2">
+                        <nav class="rounded-2xl border border-[#e7dcd1] bg-white p-2 shadow-xl" aria-label="Tài khoản cá nhân">
+                            <div class="border-b border-[#eee5dd] px-3 py-3"><p class="truncate text-xs font-semibold text-ink">{{ $accountName }}</p><p class="mt-1 text-[10px] text-muted">{{ $accountRole }}</p></div>
+                            <a href="{{ route($accountRoute) }}" class="mt-1 flex min-h-11 items-center gap-2 rounded-lg px-3 text-xs font-semibold text-ink hover:bg-linen"><x-icon name="user" class="size-4 text-brand-600"/>{{ $isCustomer ? 'Tài khoản của tôi' : (session('employee_role') === 'Guide' ? 'Điều hành chuyến đi' : 'Trang quản trị') }}</a>
+                            <form method="POST" action="{{ route($isCustomer ? 'logout' : 'admin.logout') }}">
+                                @csrf
+                                <button type="submit" class="flex min-h-11 w-full items-center gap-2 rounded-lg px-3 text-left text-xs font-semibold text-brand-700 hover:bg-brand-50"><x-icon name="arrow" class="size-4"/>Đăng xuất</button>
+                            </form>
+                        </nav>
+                    </div>
+                </details>
             @else
                 <a href="{{ route('login') }}" class="text-xs font-semibold text-brand-600">Đăng nhập</a>
             @endif
-            <button type="button" class="icon-button size-10 border-0 bg-transparent lg:hidden" data-menu-toggle="main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Mở menu"><x-icon name="menu"/></button>
+            <button type="button" class="icon-button size-10 border-0 bg-transparent xl:hidden" data-menu-toggle="main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Mở menu"><x-icon name="menu"/></button>
         </div>
     </div>
 </header>

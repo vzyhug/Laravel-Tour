@@ -32,12 +32,12 @@ class TourMapPoiController extends Controller
             return $knownPlaces->get($this->coordinateKey($point[0], $point[1]));
         });
         if ($places->contains(null)) {
-            return response()->json(['message' => 'A map point is not part of this tour.'], 422);
+            return response()->json(['message' => 'Một địa điểm trên bản đồ không thuộc tour này.'], 422);
         }
 
         $apiKey = $keyResolver->resolve();
         if (! $apiKey) {
-            return response()->json(['message' => 'SerpApi is not configured on the server.'], 503);
+            return response()->json(['message' => 'Tính năng tìm địa điểm xung quanh chưa được cấu hình.'], 503);
         }
 
         $center = [
@@ -113,7 +113,7 @@ class TourMapPoiController extends Controller
                 'cached_for_minutes' => 60,
             ])->header('Cache-Control', 'private, max-age=300');
         } catch (Throwable) {
-            return response()->json(['message' => 'Could not retrieve nearby businesses from SerpApi.'], 502);
+            return response()->json(['message' => 'Chưa thể tải địa điểm xung quanh. Vui lòng thử lại sau.'], 502);
         }
     }
 

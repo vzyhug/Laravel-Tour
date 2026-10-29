@@ -14,7 +14,7 @@
                 <span class="hotel-card-arrow" aria-hidden="true"><x-icon name="arrow-up" class="size-4"/></span>
             </div>
             <div class="flex min-h-52 flex-col p-5 sm:p-6">
-                <p class="eyebrow text-[9px]">VietGo stay <span class="px-1 text-[#ccb6a8]">/</span> {{ $area }}</p>
+                <p class="eyebrow text-[9px]">VietGo · Lưu trú <span class="px-1 text-[#ccb6a8]">/</span> {{ $area }}</p>
                 <h3 class="mt-2 line-clamp-2 font-serif text-[23px] leading-snug transition group-hover:text-brand-600">{{ $record->name }}</h3>
                 @if($record->address)<p class="mt-2 flex items-start gap-2 text-[11px] leading-5 text-muted"><x-icon name="pin" class="mt-0.5 size-3.5 shrink-0"/><span class="line-clamp-1">{{ $record->address }}</span></p>@endif
                 <p class="mt-3 line-clamp-2 text-xs leading-6 text-muted">{{ $record->description }}</p>

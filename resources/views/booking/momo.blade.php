@@ -32,7 +32,7 @@
             <h2 class="mt-2 font-serif text-2xl">{{ $booking->departure->tour->title }}</h2>
             <dl class="mt-6 grid gap-4 text-sm">
                 <div class="flex justify-between gap-3"><dt class="text-muted">Mã đặt tour</dt><dd class="font-semibold">{{ $booking->booking_code }}</dd></div>
-                <div class="flex justify-between gap-3"><dt class="text-muted">Trạng thái</dt><dd class="font-semibold">{{ $session->status === 'pending' ? 'Đang chờ' : $session->status }}</dd></div>
+                <div class="flex justify-between gap-3"><dt class="text-muted">Trạng thái</dt><dd class="font-semibold">{{ \App\Support\UiText::status($session->status) }}</dd></div>
             </dl>
             <div class="mt-6 rounded-lg bg-sand p-5"><p class="eyebrow text-[9px] text-muted">Số tiền đã thiết lập</p><p class="mt-2 font-serif text-3xl text-brand-600">{{ number_format($session->amount, 0, ',', '.') }}₫</p></div>
             <a class="text-link mt-5 inline-flex" href="{{ route('payments.create', $booking) }}">Quay lại trang thanh toán</a>

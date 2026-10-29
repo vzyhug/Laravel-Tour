@@ -22,7 +22,7 @@ class ItineraryRoadRouteController extends Controller
 
         $apiKey = config('services.graphhopper.key');
         if (! is_string($apiKey) || trim($apiKey) === '') {
-            return response()->json(['message' => 'Road routing is not configured.'], 503);
+            return response()->json(['message' => 'Tính năng tìm đường chưa được cấu hình.'], 503);
         }
 
         $points = array_map(
@@ -38,7 +38,7 @@ class ItineraryRoadRouteController extends Controller
             ]);
         foreach ($points as [$latitude, $longitude]) {
             if (! $knownPoints->has(sprintf('%.6f,%.6f', $latitude, $longitude))) {
-                return response()->json(['message' => 'A route point is not part of the itinerary catalog.'], 422);
+                return response()->json(['message' => 'Một điểm trong tuyến đường không thuộc danh mục lịch trình.'], 422);
             }
         }
         $cacheKey = 'itinerary-road-route:'.hash('sha256', json_encode($points, JSON_THROW_ON_ERROR));
@@ -80,7 +80,7 @@ class ItineraryRoadRouteController extends Controller
 
             return response()->json($route)->header('Cache-Control', 'private, max-age=3600');
         } catch (Throwable) {
-            return response()->json(['message' => 'Unable to calculate the road route.'], 502);
+            return response()->json(['message' => 'Chưa thể tính tuyến đường. Vui lòng thử lại sau.'], 502);
         }
     }
 }
