@@ -1,9 +1,13 @@
 /* Header: website 80px; operations/admin 76px. Keep controls below menus. */
 .sticky-search {
     position: sticky;
-    top: 88px;
+    top: 84px;
     z-index: 20;
-    max-height: min(48dvh, calc(100dvh - 104px));
+    max-height: min(30dvh, calc(100dvh - 100px));
+    padding: 10px 12px;
+    gap: 10px;
+    font-size: 11px;
+    line-height: 1.5;
     overflow-y: auto;
     overscroll-behavior-y: auto;
     background-color: #fffdf9;
@@ -11,14 +15,35 @@
     scrollbar-width: thin;
     scroll-padding-block: 12px;
 }
-.admin-app .sticky-search { top: 84px; }
+.admin-app .sticky-search { top: 80px; }
 .sticky-search:focus-within { z-index: 21; }
+.sticky-search .field,
+.sticky-search .btn-primary,
+.sticky-search .btn-secondary {
+    min-height: 36px;
+    padding: 7px 12px;
+    font-size: 11px;
+    line-height: 1.5;
+}
+.sticky-search .label { margin-bottom: 4px; font-size: 10px; }
+.sticky-search .hotel-search-field { padding: 4px 8px; }
+.sticky-search input, .sticky-search select { min-height: 32px; font-size: 12px; }
+.sticky-search-sidebar form { margin-top: 12px; gap: 12px; }
+.sticky-search-sidebar fieldset { gap: 8px; }
+.sticky-search-sidebar h2 { font-size: 18px; }
+.sticky-search h2:not(.sticky-search-sidebar h2) { font-size: 22px; margin-top: 4px; }
+.sticky-search .eyebrow { font-size: 9px; }
+.sticky-search > div > p:last-child { margin-top: 4px; font-size: 11px; line-height: 1.6; }
+.sticky-search form[role='search'] { padding: 4px; }
 @media (min-width: 1024px) {
     .sticky-search-sidebar {
-        top: 96px;
-        max-height: calc(100dvh - 112px);
+        top: 88px;
+        max-height: calc(100dvh - 104px);
     }
 }
 @media (max-width: 639px) {
-    .sticky-search { max-height: min(40dvh, calc(100dvh - 104px)); }
+    .sticky-search { max-height: min(30dvh, calc(100dvh - 100px)); padding: 8px 10px; }
+    .sticky-search h2 { font-size: 18px; }
+    .sticky-search input, .sticky-search select { font-size: 16px; min-height: 40px; }
+    .sticky-search .btn-primary, .sticky-search .btn-secondary { min-height: 40px; }
 }
