@@ -116,6 +116,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('/customers', [AdminCustomerController::class, 'index'])->name('customers.index');
             Route::patch('/customers/{customer}/status', [AdminCustomerController::class, 'update'])->name('customers.status');
             Route::get('/payments', [AdminPaymentController::class, 'index'])->name('payments.index');
+            Route::get('/payments/{payment}', [AdminPaymentController::class, 'show'])->name('payments.show');
             Route::get('/bookings', [AdminBookingController::class, 'index'])->name('bookings.index');
             Route::get('/bookings/{booking}', [AdminBookingController::class, 'show'])->name('bookings.show');
             Route::patch('/bookings/{booking}/status', [AdminBookingController::class, 'updateStatus'])->name('bookings.status');
@@ -125,7 +126,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::resource('employees', AdminEmployeeController::class)->except(['show', 'destroy']);
             Route::get('/provinces', [AdminProvinceController::class, 'index'])->name('provinces.index');
             Route::post('/provinces', [AdminProvinceController::class, 'store'])->name('provinces.store');
+            Route::get('/provinces/{province}/edit', [AdminProvinceController::class, 'edit'])->name('provinces.edit');
+            Route::put('/provinces/{province}', [AdminProvinceController::class, 'update'])->name('provinces.update');
             Route::resource('coupons', AdminCouponController::class)->except(['show', 'destroy']);
+
         });
+        Route::get('/ping', fn () => response()->noContent())->name('ping');
     });
 });

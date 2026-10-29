@@ -26,9 +26,28 @@ class HotelBookingController extends Controller
         return back()->with('success', 'Đã thêm loại phòng. Cần nhập tồn và giá trước khi mở bán theo ngày.');
     }
 
-    public function inventory(HotelRoomType $roomType)
+    public function inventory(Request $request, HotelRoomType $roomType)
     {
-        return view('admin.hotel-booking.inventory', ['type' => $roomType->load('hotel'), 'nights' => $roomType->inventory()->orderBy('stay_date')->paginate(31)]);
+        $filters = $request->validate([
+            'from' => ['nullable', 'date_format:Y-m-d'],
+            'availability' => ['nullable', 'in:available,full'],
+            'min_price' => ['nullable', 'integer', 'min:0'],
+            'max_price' => ['nullable', 'integer', 'min:0'],
+        ]);
+
+        $nights = $roomType->inventory()
+            ->when(! empty($filters['from']), fn ($q) => $q->whereDate('stay_date', '>=', $filters['from']))
+            ->when(($filters['availability'] ?? null) === 'available', fn ($q) => $q->where('available_rooms', '>', 0))
+            ->when(($filters['availability'] ?? null) === 'full', fn ($q) => $q->where('available_rooms', '<=', 0))
+            ->when(isset($filters['min_price']), fn ($q) => $q->where('nightly_price', '>=', $filters['min_price']))
+            ->when(isset($filters['max_price']), fn ($q) => $q->where('nightly_price', '<=', $filters['max_price']))
+            ->orderBy('stay_date')
+            ->paginate(31);
+
+        return view('admin.hotel-booking.inventory', [
+            'type' => $roomType->load('hotel'),
+            'nights' => $nights,
+        ]);
     }
 
     public function saveInventory(Request $request, HotelRoomType $roomType)

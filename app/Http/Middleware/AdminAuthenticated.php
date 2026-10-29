@@ -9,9 +9,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AdminAuthenticated
 {
+    private const IDLE_LIMIT = 15; // giây, muốn đổi thời gian thì sửa số này
+
     public function handle(Request $request, Closure $next): Response
     {
         if (! session()->has('employee_id')) {
+            session()->forget('admin_last_seen');
+
             return redirect()->route('login')->with('error', 'Vui lòng đăng nhập trang quản trị.');
         }
 

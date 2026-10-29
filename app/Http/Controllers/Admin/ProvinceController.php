@@ -11,15 +11,34 @@ use Illuminate\View\View;
 
 class ProvinceController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
-        return view('admin.provinces.index', ['provinces' => Province::withCount('tours')->orderBy('region')->orderBy('province_name')->get()]);
+        $keyword = trim((string) $request->query('q', ''));
+
+        $provinces = Province::withCount('tours')
+            ->when($keyword !== '', fn ($query) => $query->where('province_name', 'like', "%{$keyword}%"))
+            ->orderBy('region')
+            ->orderBy('province_name')
+            ->get();
+
+        return view('admin.provinces.index', [
+            'provinces' => $provinces,
+            'keyword' => $keyword,
+        ]);
     }
 
-    public function store(Request $request): RedirectResponse
+    public function edit(Province $province): View
     {
-        Province::create($request->validate(['province_name' => ['required', 'string', 'max:50', 'unique:provinces'], 'region' => ['required', Rule::in(['Bắc', 'Trung', 'Nam'])]]));
+        return view('admin.provinces.edit', ['province' => $province]);
+    }
 
-        return back()->with('success', 'Đã thêm tỉnh/thành.');
+    public function update(Request $request, Province $province): RedirectResponse
+    {
+        $province->update($request->validate([
+            'province_name' => ['required', 'string', 'max:50', Rule::unique('provinces', 'province_name')->ignore($province)],
+            'region' => ['required', Rule::in(['Bắc', 'Trung', 'Nam'])],
+        ]));
+
+        return redirect()->route('admin.provinces.index')->with('success', 'Đã cập nhật tỉnh/thành.');
     }
 }
