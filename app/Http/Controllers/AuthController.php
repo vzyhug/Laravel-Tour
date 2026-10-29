@@ -26,9 +26,8 @@ class AuthController extends Controller
     {
         $data = $request->validate(['login' => ['required', 'string'], 'password' => ['required', 'string']]);
 
-        $employee = Employee::with('role')
-            ->where('username', $data['login'])
-            ->orWhere('email', $data['login'])
+        $employee = Employee::with('role')->whereHas('role', fn ($query) => $query->whereIn('role_name', ['Admin', 'Guide']))
+            ->where(fn ($query) => $query->where('username', $data['login'])->orWhere('email', $data['login']))
             ->first();
         if ($employee && $employee->is_active && Hash::check($data['password'], $employee->password_hash)) {
             $request->session()->regenerate();

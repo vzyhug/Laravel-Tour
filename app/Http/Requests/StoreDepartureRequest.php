@@ -14,7 +14,7 @@ class StoreDepartureRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return session()->has('employee_id') && Employee::whereKey(session('employee_id'))->where('is_active', true)->whereHas('role', fn ($q) => $q->whereIn('role_name', ['Admin', 'Staff']))->exists();
+        return session()->has('employee_id') && Employee::whereKey(session('employee_id'))->where('is_active', true)->whereHas('role', fn ($q) => $q->where('role_name', 'Admin'))->exists();
     }
 
     protected function prepareForValidation(): void

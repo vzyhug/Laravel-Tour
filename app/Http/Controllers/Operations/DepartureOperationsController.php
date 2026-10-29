@@ -18,7 +18,7 @@ class DepartureOperationsController extends Controller
     private function actor(): Employee
     {
         $employee = Employee::with('role')->find(session('employee_id'));
-        abort_unless($employee && $employee->is_active && in_array($employee->role->role_name, ['Admin', 'Staff', 'Guide'], true), 403);
+        abort_unless($employee && $employee->is_active && in_array($employee->role->role_name, ['Admin', 'Guide'], true), 403);
 
         return $employee;
     }
