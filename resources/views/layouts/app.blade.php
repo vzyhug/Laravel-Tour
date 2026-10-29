@@ -33,7 +33,11 @@
             @if(session('customer_id'))
                 <a href="{{ route('customer.dashboard') }}" class="grid size-9 place-items-center rounded-full bg-brand-100 font-serif text-lg text-brand-700" aria-label="Tài khoản của tôi">{{ mb_substr(session('customer_name', 'V'), 0, 1) }}</a>
             @elseif(session('employee_id'))
-                <a href="{{ route('admin.dashboard') }}" class="text-xs font-semibold text-brand-600">Quản trị</a>
+                @if(session('employee_role') === 'Guide')
+                    <a href="{{ route('operations.index') }}" class="text-xs font-semibold text-brand-600">Điều hành</a>
+                @else
+                    <a href="{{ route('admin.dashboard') }}" class="text-xs font-semibold text-brand-600">Quản trị</a>
+                @endif
             @else
                 <a href="{{ route('login') }}" class="text-xs font-semibold text-brand-600">Đăng nhập</a>
             @endif
@@ -53,7 +57,7 @@
                 <a class="text-link mt-4" href="{{ route('tours.index') }}">Tìm hành trình của bạn <x-icon name="arrow" class="size-4"/></a>
             </div>
             <div><p class="eyebrow text-muted">Điểm đến</p><div class="mt-5 grid gap-3 text-xs text-muted"><a href="{{ route('tours.index', ['region' => 'Bắc']) }}" class="hover:text-brand-600">Miền Bắc · Núi rừng & di sản</a><a href="{{ route('tours.index', ['region' => 'Trung']) }}" class="hover:text-brand-600">Miền Trung · Biển & văn hóa</a><a href="{{ route('tours.index', ['region' => 'Nam']) }}" class="hover:text-brand-600">Miền Nam · Miệt vườn & đảo</a><a href="{{ route('tours.index') }}" class="hover:text-brand-600">Tất cả hành trình</a></div></div>
-            <div><p class="eyebrow text-muted">Cùng VietGo</p><div class="mt-5 grid gap-3 text-xs text-muted"><a href="{{ route('home') }}#why-vietgo" class="hover:text-brand-600">Cam kết của chúng tôi</a><a href="{{ route('customer.dashboard') }}" class="hover:text-brand-600">Quản lý chuyến đi</a><a href="{{ route('favorites.index') }}" class="hover:text-brand-600">Tour yêu thích</a></div></div>
+            <div><p class="eyebrow text-muted">Cùng VietGo</p><div class="mt-5 grid gap-3 text-xs text-muted"><a href="{{ route('home') }}#why-vietgo" class="hover:text-brand-600">Cam kết của chúng tôi</a>@if(session('employee_role') === 'Guide')<a href="{{ route('operations.index') }}" class="hover:text-brand-600">Chuyến được phân công</a>@else<a href="{{ route('customer.dashboard') }}" class="hover:text-brand-600">Quản lý chuyến đi</a>@endif<a href="{{ route('favorites.index') }}" class="hover:text-brand-600">Tour yêu thích</a></div></div>
             <div><p class="eyebrow text-muted">Kết nối & tư vấn</p><p class="mt-5 text-xs leading-7 text-muted"><a href="mailto:hello@vietgo.test">hello@vietgo.test</a><br><a href="tel:19006868">Hotline: 1900 6868</a></p><p class="mt-5 font-serif text-lg italic text-brand-600">Đi xa hơn, an tâm hơn.</p></div>
         </div>
         <div class="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-[#e5d9cf] pt-6 text-[10px] text-muted"><p>© {{ date('Y') }} VietGo Travel. Đồng hành trên mọi hành trình.</p><span class="flex items-center gap-2"><x-icon name="leaf" class="size-4 text-sage"/> Trân trọng thiên nhiên, kết nối văn hóa.</span></div>
