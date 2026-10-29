@@ -62,6 +62,20 @@
                 <p id="coupon-message" class="mt-3 text-xs leading-6 text-muted" role="status" aria-live="polite"></p>
                 @error('coupon_code')<p class="mt-2 text-xs text-red-700">{{ $message }}</p>@enderror
             </section>
+            <section class="card mt-5 p-5 sm:p-6">
+                <p class="eyebrow">Trước khi giữ chỗ</p>
+                <h2 class="mt-2 font-serif text-2xl">Chính sách hủy và hoàn tiền.</h2>
+                <ul class="mt-4 list-disc space-y-2 pl-5 text-xs leading-6 text-muted">
+                    <li>Được hủy khi còn cách ngày khởi hành tối thiểu {{ config('booking.cancel_before_days') }} ngày.</li>
+                    <li>Đơn đã thanh toán: hủy trong vòng {{ config('booking.full_refund_hours') }} giờ sau khi đặt được hoàn 100%.</li>
+                    <li>Hủy sau thời gian trên: được hoàn {{ config('booking.partial_refund_percent') }}%.</li>
+                </ul>
+                <label class="mt-5 flex cursor-pointer items-start gap-3 text-xs leading-6">
+                    <input type="checkbox" name="accept_policy" value="1" class="mt-1 size-4" @checked(old('accept_policy')) required>
+                    <span>Tôi đã đọc và đồng ý với chính sách hủy và hoàn tiền nêu trên.</span>
+                </label>
+                @error('accept_policy')<p class="mt-2 text-xs text-red-700">{{ $message }}</p>@enderror
+            </section>
             <div class="mt-8 rounded-xl bg-linen/60 p-5"><h3 class="flex items-center gap-2 font-serif text-lg"><x-icon name="shield" class="size-5 text-sage"/> Thông tin được bảo mật</h3><p class="mt-2 text-xs leading-7 text-muted">Thông tin hành khách phục vụ việc đặt tour và chuẩn bị chuyến đi. Hãy kiểm tra họ tên, ngày sinh và giấy tờ trước khi tiếp tục.</p></div>
             <button class="btn-primary mt-6 w-full lg:hidden">Tiếp tục thanh toán <x-icon name="arrow" class="size-4"/></button>
         </form>
