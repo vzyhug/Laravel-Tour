@@ -1,3 +1,5 @@
+import { showFlashAlert } from './flash-alert';
+
 document.querySelectorAll('[data-qr-payment]').forEach((root) => {
     let state = JSON.parse(root.querySelector('[data-qr-state]').textContent);
     const labels = JSON.parse(root.querySelector('[data-qr-labels]').textContent);
@@ -9,6 +11,7 @@ document.querySelectorAll('[data-qr-payment]').forEach((root) => {
     let timer;
     let busy = false;
     let stopped = false;
+    const announcedStatuses = new Set();
     const render = () => {
         const pending = state.status === 'pending';
         const paid = ['paid', 'superseded'].includes(state.status);
@@ -31,6 +34,14 @@ document.querySelectorAll('[data-qr-payment]').forEach((root) => {
         if (state.invoice_url) invoice.href = state.invoice_url;
         const retry = root.querySelector('[data-qr-retry]');
         if (retry) retry.hidden = !state.can_retry;
+        if (!pending && !announcedStatuses.has(state.status)) {
+            announcedStatuses.add(state.status);
+            showFlashAlert({
+                variant: paid ? 'success' : state.status === 'failed' ? 'error' : 'warning',
+                title: labels[state.status],
+                message: root.querySelector('[data-qr-result-description]').textContent,
+            });
+        }
     };
     const tick = () => {
         const seconds = Math.max(0, state.seconds_remaining - Math.floor((performance.now() - receivedAt) / 1000));

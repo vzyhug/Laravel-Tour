@@ -68,6 +68,14 @@ class QrPaymentController extends Controller
             'booking_id' => ['prohibited'], 'reference' => ['prohibited']]);
         $payments->simulate($intent, $data['outcome']);
 
-        return redirect()->route('payments.qr.demo', [$booking, $intent])->with('success', 'Đã cập nhật trạng thái thanh toán.');
+        $state = $payments->state($booking->fresh(), $intent->fresh());
+        [$variant, $title, $message] = match ($state['status']) {
+            'paid', 'superseded' => ['success', 'Thanh toán thành công', 'Đơn đặt tour đã được xác nhận. Bạn có thể xem hóa đơn.'],
+            'failed' => ['error', 'Thanh toán không thành công', 'Giao dịch chưa hoàn tất. Bạn có thể tạo mã QR mới để thử lại.'],
+            'expired' => ['warning', 'Mã QR đã hết hạn', 'Không ghi nhận thanh toán thành công. Vui lòng kiểm tra đơn trước khi tạo mã mới.'],
+            default => ['warning', 'Phiên thanh toán đã đóng', 'Vui lòng xem lại trạng thái đơn đặt tour trước khi thanh toán tiếp.'],
+        };
+
+        return redirect()->route('payments.qr.demo', [$booking, $intent])->with($variant, $message)->with('alert_title', $title);
     }
 }

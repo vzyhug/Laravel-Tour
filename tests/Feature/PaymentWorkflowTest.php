@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Actions\ExpireBooking;
 use App\Models\Booking;
 use App\Models\Customer;
+use App\Models\Employee;
 use App\Models\Payment;
 use App\Models\TourDeparture;
 use App\Services\Payments\PaymentWorkflow;
@@ -103,10 +104,12 @@ class PaymentWorkflowTest extends TestCase
     public function test_admin_reconciliation_requires_role_and_renders_audit_results(): void
     {
         $this->post(route('admin.payments.reconcile'))->assertRedirect(route('login'));
-        $this->withSession(['employee_id' => 1, 'employee_role' => 'Guide'])->post(route('admin.payments.reconcile'))->assertForbidden();
+        $guide = Employee::factory()->guide()->create();
+        $this->withSession(['employee_id' => $guide->getKey(), 'employee_role' => 'Guide'])->post(route('admin.payments.reconcile'))->assertForbidden();
         $booking = Booking::factory()->create();
         app(PaymentWorkflow::class)->pay($booking, 'card', (string) Str::uuid(), 'succeeded');
-        $this->withSession(['employee_id' => 1, 'employee_role' => 'Admin'])->post(route('admin.payments.reconcile'))->assertRedirect();
+        $admin = Employee::factory()->admin()->create();
+        $this->withSession(['employee_id' => $admin->getKey(), 'employee_role' => 'Admin'])->post(route('admin.payments.reconcile'))->assertRedirect();
         $this->get(route('admin.payments.index'))->assertOk()->assertSee('Đối soát mô phỏng')->assertSee('matched');
     }
 

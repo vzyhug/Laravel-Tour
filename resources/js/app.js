@@ -1,3 +1,4 @@
+import './flash-alert';
 import './sepay-checkout';
 import './qr-payment';
 import './image-viewer';
@@ -17,17 +18,6 @@ document.querySelectorAll('[data-auto-filter]').forEach((form) => {
         }
     });
 });
-
-const flashAlert = document.querySelector('[data-flash-alert]');
-if (flashAlert instanceof HTMLDialogElement) {
-    flashAlert.showModal();
-    flashAlert.querySelectorAll('[data-flash-close]').forEach((button) => {
-        button.addEventListener('click', () => flashAlert.close());
-    });
-    flashAlert.addEventListener('click', (event) => {
-        if (event.target === flashAlert) flashAlert.close();
-    });
-}
 
 const closeMainMenu = () => {
     const toggle = document.querySelector('[data-menu-toggle]');

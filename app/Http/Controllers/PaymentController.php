@@ -96,11 +96,10 @@ class PaymentController extends Controller
         ]);
         $attempt = app(PaymentWorkflow::class)->pay($booking, $data['payment_method'], $key, $data['demo_outcome']);
 
-        return redirect()->route($attempt->status === 'succeeded' ? 'customer.bookings.show' : 'payments.create', $booking)->with('success', match ($attempt->status) {
-            'succeeded' => 'Thanh toán thành công.',
-            'failed' => 'Thanh toán không thành công. Bạn có thể thử lại.',
-            default => 'Giao dịch đang chờ xử lý.',
-        });
+        return $this->withPaymentResult(
+            redirect()->route($attempt->status === 'succeeded' ? 'customer.bookings.show' : 'payments.create', $booking),
+            $booking, $attempt
+        );
     }
 
     public function resolve(Request $request, PaymentAttempt $attempt): RedirectResponse
@@ -111,8 +110,21 @@ class PaymentController extends Controller
         abort_unless($attempt->provider === 'mock', 403, 'Kết quả giao dịch từ cổng thanh toán phải được xác nhận qua callback đã ký.');
         $data = $request->validate(['outcome' => ['required', 'in:succeeded,failed']]);
         app(ExpireBooking::class)->handle($booking);
-        app(PaymentWorkflow::class)->settle($attempt, $data['outcome']);
+        $attempt = app(PaymentWorkflow::class)->settle($attempt, $data['outcome']);
 
-        return redirect()->route('customer.bookings.show', $booking)->with('success', 'Đã cập nhật trạng thái giao dịch.');
+        return $this->withPaymentResult(redirect()->route('customer.bookings.show', $booking), $booking, $attempt);
+    }
+
+    private function withPaymentResult(RedirectResponse $redirect, Booking $booking, PaymentAttempt $attempt): RedirectResponse
+    {
+        $status = $booking->fresh()->status === 'cancelled' ? 'cancelled' : $attempt->status;
+        [$variant, $title, $message] = match ($status) {
+            'succeeded' => ['success', 'Thanh toán thành công', 'Đơn đặt tour đã được xác nhận. Bạn có thể xem thông tin chuyến đi và hóa đơn.'],
+            'failed' => ['error', 'Thanh toán không thành công', 'Giao dịch chưa hoàn tất. Bạn có thể kiểm tra thông tin và thử thanh toán lại.'],
+            'cancelled' => ['warning', 'Đơn đặt tour đã đóng', 'Vui lòng xem trạng thái thanh toán và hoàn tiền trong chi tiết chuyến đi.'],
+            default => ['warning', 'Đang chờ thanh toán', 'Giao dịch đang chờ xử lý. Đơn chỉ được xác nhận sau khi thanh toán thành công.'],
+        };
+
+        return $redirect->with($variant, $message)->with('alert_title', $title);
     }
 }

@@ -15,6 +15,7 @@ class BookingController extends Controller
 {
     public function create(TourDeparture $departure): View
     {
+        $departure->loadMissing('tour.images');
         abort_unless($departure->canBeBooked(), 404);
 
         $customerId = (int) session('customer_id');
@@ -22,7 +23,7 @@ class BookingController extends Controller
             ->filter(fn (Coupon $coupon) => $coupon->check($customerId, (float) $coupon->min_order) === null)
             ->values();
 
-        return view('booking.create', ['departure' => $departure->load('tour.images'), 'coupons' => $coupons]);
+        return view('booking.create', ['departure' => $departure, 'coupons' => $coupons]);
     }
 
     public function store(StoreBookingRequest $request, CreateBooking $createBooking): RedirectResponse
@@ -41,7 +42,7 @@ class BookingController extends Controller
             'code' => ['required', 'string', 'max:50'],
         ]);
 
-        $departure = TourDeparture::publiclyBookable()->findOrFail($data['departure_id']);
+        $departure = TourDeparture::publiclyBookable()->with('tour')->findOrFail($data['departure_id']);
         abort_unless($departure->canBeBooked(), 404);
         $subtotal = $data['adults'] * (float) $departure->adult_price;
 

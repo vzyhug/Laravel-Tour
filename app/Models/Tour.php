@@ -50,7 +50,7 @@ class Tour extends Model
 
     public function departures(): HasMany
     {
-        return $this->hasMany(TourDeparture::class, 'tour_id');
+        return $this->hasMany(TourDeparture::class, 'tour_id')->chaperone('tour');
     }
 
     public function personalItineraries(): HasMany
