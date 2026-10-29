@@ -5,7 +5,7 @@
     $featured = $destinations->getCollection()->filter(fn ($item) => $item->places->flatMap->images->isNotEmpty() || $item->hotels->flatMap->images->isNotEmpty())->take(3)->values();
 @endphp
 <section class="container-page pb-12 pt-8 sm:pb-16 sm:pt-12">
-    <div class="grid items-center gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-12">
+    <div class="destination-intro grid items-center gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-12">
         <div class="py-3 lg:py-10">
             <span class="inline-flex items-center gap-2 rounded-full border border-[#dfd8cc] px-3 py-2 text-[10px] font-semibold uppercase tracking-widest text-brand-700"><x-icon name="pin" class="size-3.5"/> Việt Nam · Những miền đáng đến</span>
             <h1 class="mt-6 font-serif text-5xl leading-[1.15] tracking-tight text-ink sm:text-6xl xl:text-7xl">Đi đâu cũng được.<br><em class="text-brand-600">Miễn là cùng nhau.</em></h1>

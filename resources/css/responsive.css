@@ -1,0 +1,66 @@
+/* Shared device rules. Preserve local table/map scrolling rather than clipping the page. */
+body { overflow-wrap: break-word; }
+.travel-site main, .admin-main, .admin-shell > div { min-width: 0; }
+.travel-site img, .admin-app img { max-width: 100%; }
+input, select, textarea { min-width: 0; max-width: 100%; }
+.travel-site .grid > *, .admin-main .grid > * { min-width: 0; }
+.travel-site .overflow-x-auto, .admin-main .overflow-x-auto {
+    max-width: 100%;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+}
+@media (max-width: 1279px) {
+    #main-menu { max-height: calc(100dvh - 80px); overflow-y: auto; }
+    #main-menu .nav-link { min-height: 44px; font-size: 14px; }
+}
+@media (max-width: 1023px) {
+    .admin-sidebar > div:first-child { display: none; }
+    .admin-sidebar { border-bottom: 0; }
+    .admin-navigation { position: fixed; top: 76px; max-height: calc(100dvh - 76px); overscroll-behavior: contain; }
+    .admin-nav-link { min-height: 44px; font-size: 13px; }
+    .admin-topbar-menu { width: 44px; height: 44px; }
+    .sticky-search-sidebar { max-height: min(32dvh, calc(100dvh - 100px)); }
+}
+@media (max-width: 639px) {
+    .destination-intro { gap: 24px; }
+    .destination-intro h1 { font-size: clamp(2.25rem, 8.5vw, 3rem); line-height: 1.15; }
+    .container-page { padding-left: 16px; padding-right: 16px; }
+    .travel-site > header .container-page { gap: 8px; }
+    .travel-site > header .icon-button { width: 40px; height: 44px; }
+    .travel-site > header a[aria-label] { min-width: 0; }
+    .field, .input, .sticky-search input, .sticky-search select,
+    .hotel-search-field input, .hotel-search-field select { font-size: 16px; }
+    .field, .input { min-height: 44px; }
+    .btn-primary, .btn-secondary { min-height: 44px; padding: 11px 16px; font-size: 13px; white-space: normal; text-align: center; }
+    .sticky-search .btn-primary, .sticky-search .btn-secondary { min-height: 44px; }
+    .sticky-search { max-height: min(32dvh, calc(100dvh - 100px)); }
+    .sticky-search:has(> form[role='search']) > div { display: none; }
+    .sticky-search form[role='search'] { max-width: none; }
+    .sticky-search-sidebar h2 { font-size: 17px; }
+    .account-tab { padding: 10px 12px; min-height: 44px; font-size: 11px; }
+    .hotel-catalog-hero { min-height: 340px; }
+    .hotel-card-image { aspect-ratio: 4 / 3; }
+    .tour-route-map-canvas { height: min(65dvh, 360px); min-height: 260px; }
+    .map-route-panel { max-height: 280px; }
+    .operations-trip-card { gap: 12px; padding: 14px; }
+    .operations-trip-date { width: 56px; height: 64px; }
+    .operations-trip-arrow { display: none; }
+    .operations-status { font-size: 10px; }
+    .admin-main { padding-left: 12px; padding-right: 12px; }
+    .admin-page-title { font-size: 28px; }
+    .admin-topbar { padding-left: 12px; padding-right: 12px; }
+    .flash-alert { width: calc(100% - 24px); max-height: calc(100dvh - 32px); overflow-y: auto; }
+    .flash-alert__title { font-size: 24px; }
+}
+@media (max-width: 359px) {
+    .travel-site > header a[aria-label] > span > span:first-child { font-size: 20px; }
+    .travel-site > header a[aria-label] > span > span:last-child { letter-spacing: .12em; }
+    .travel-site .text-5xl { font-size: 2.5rem; }
+    .travel-site .text-4xl { font-size: 2rem; }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+    .sticky-search:not(.sticky-search-sidebar) { position: relative; top: auto; max-height: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

@@ -5,6 +5,25 @@ import './image-viewer';
 import './itinerary';
 import Sortable from 'sortablejs';
 
+document.querySelectorAll('[data-account-menu]').forEach((menu) => {
+    const hover = window.matchMedia('(hover: hover) and (pointer: fine)');
+    menu.addEventListener('mouseenter', () => { if (hover.matches) menu.open = true; });
+    menu.addEventListener('mouseleave', () => { if (hover.matches) menu.open = false; });
+    menu.addEventListener('focusout', (event) => {
+        if (!menu.contains(event.relatedTarget)) menu.open = false;
+    });
+    menu.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            menu.open = false;
+            menu.querySelector('summary')?.focus();
+            event.stopPropagation();
+        }
+    });
+    document.addEventListener('click', (event) => {
+        if (!menu.contains(event.target)) menu.open = false;
+    });
+});
+
 document.querySelectorAll('[data-auto-filter]').forEach((form) => {
     form.addEventListener('keydown', (event) => {
         if (event.target.matches('input[name="q"]') && event.key === 'Enter') {
@@ -20,10 +39,10 @@ document.querySelectorAll('[data-auto-filter]').forEach((form) => {
 });
 
 const closeMainMenu = () => {
-    const toggle = document.querySelector('[data-menu-toggle]');
-    const menu = toggle && document.getElementById(toggle.dataset.menuToggle);
-    menu?.classList.add('hidden');
-    toggle?.setAttribute('aria-expanded', 'false');
+    document.querySelectorAll('[data-menu-toggle]').forEach((toggle) => {
+        document.getElementById(toggle.dataset.menuToggle)?.classList.add('hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+    });
 };
 
 document.addEventListener('click', (event) => {
@@ -35,10 +54,17 @@ document.addEventListener('click', (event) => {
         toggle.setAttribute('aria-expanded', String(!expanded));
         return;
     }
-    if (event.target.closest('#main-menu a') || !event.target.closest('header')) {
+    const inMenu = event.target.closest('#main-menu, #admin-menu');
+    if (event.target.closest('#main-menu a, #admin-menu a') || (!inMenu && !event.target.closest('header'))) {
         closeMainMenu();
     }
 });
+
+// Do not leave a mobile menu open when switching device orientation or layout.
+const webNavigationBreakpoint = window.matchMedia('(min-width: 1280px)');
+const adminNavigationBreakpoint = window.matchMedia('(min-width: 1024px)');
+webNavigationBreakpoint.addEventListener('change', closeMainMenu);
+adminNavigationBreakpoint.addEventListener('change', closeMainMenu);
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {

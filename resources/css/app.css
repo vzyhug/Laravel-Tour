@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @import '../../public/fonts/fonts.css';
 @import './sticky-search.css';
+@import './responsive.css';
 
 @source '../views/**/*.blade.php';
 @source '../js/**/*.js';

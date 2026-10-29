@@ -10,7 +10,7 @@
         <div class="max-w-3xl py-12 sm:py-16">
             <p class="eyebrow mb-5">Đi để cảm nhận. Ở lại để yêu.</p>
             <h1 class="font-serif text-[44px] font-normal leading-[1.12] tracking-tight sm:text-[64px] lg:text-[72px]">Mỗi hành trình,<br>một <em class="text-brand-600">miền cảm hứng.</em></h1>
-            <p class="mt-6 max-w-lg text-sm leading-7 text-[#56433c] sm:text-base sm:leading-8">Từ những thung lũng mờ sương đến bờ biển ngập nắng. Khám phá Việt Nam qua những hành trình chọn lọc, theo nhịp điệu của riêng bạn.</p>
+            <p class="mt-6 max-w-xl text-pretty text-sm leading-7 text-[#56433c] sm:text-base sm:leading-8">Từ những thung lũng mờ sương đến bờ biển ngập nắng. Khám phá Việt Nam qua những hành trình chọn lọc, theo nhịp điệu của riêng bạn.</p>
             <a class="text-link mt-5" href="#collections">Khám phá bộ sưu tập <x-icon name="arrow" class="size-4"/></a>
         </div>
         <form action="{{ route('tours.index') }}" method="GET" class="grid gap-3 rounded-2xl bg-white/95 p-4 shadow-[0_15px_60px_rgba(58,40,25,.09)] sm:grid-cols-2 sm:p-5 lg:grid-cols-[1.4fr_1.1fr_1fr_auto]" aria-label="Tìm kiếm tour">

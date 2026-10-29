@@ -9,7 +9,7 @@
             @if($heroImage)<img src="{{ $heroImage->url }}" alt="{{ $heroImage->caption }}" class="absolute inset-0 -z-20 size-full object-cover" fetchpriority="high">@endif
             <div class="absolute inset-0 -z-10 bg-gradient-to-r from-[#211a17]/90 via-[#211a17]/65 to-[#211a17]/10"></div>
             <div class="px-6 py-12 sm:px-12 sm:py-16 lg:px-16 lg:py-20">
-                <p class="eyebrow text-brand-100">VietGo stays · Nghỉ ngơi theo cách của bạn</p>
+                <p class="eyebrow text-brand-100">VietGo · Lưu trú · Nghỉ ngơi theo cách của bạn</p>
                 <h1 class="mt-4 max-w-2xl font-serif text-4xl leading-tight sm:text-5xl lg:text-6xl">Một chốn dừng chân,<br><em class="font-normal text-[#ffd9c4]">một phần của chuyến đi.</em></h1>
                 <p class="mt-5 max-w-xl text-sm leading-7 text-white/80">Tìm nơi lưu trú theo điểm đến. Xem ảnh, thông tin và mức giá phòng tham khảo trước khi chọn ngày.</p>
                 <div class="mt-7 flex flex-wrap gap-3 text-xs">

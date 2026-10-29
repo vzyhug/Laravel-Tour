@@ -48,7 +48,7 @@
                 @foreach($roles as $role)
                     <option value="{{ $role->getKey() }}"
                         @selected(old('role_id', $employee->role_id) == $role->getKey())>
-                        {{ $role->role_name }}
+                        {{ \App\Support\UiText::role($role->role_name) }}
                     </option>
                 @endforeach
             </select>

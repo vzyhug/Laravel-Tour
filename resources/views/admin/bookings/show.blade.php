@@ -56,7 +56,7 @@
             @endif
             @if($booking->payment)
                 <p class="text-sm text-slate-500">
-                    {{ str_replace('_', ' ', $booking->payment->payment_method) }} · {{ $booking->payment->status }}
+                    {{ \App\Support\UiText::paymentMethod($booking->payment->payment_method) }} · {{ \App\Support\UiText::paymentStatus($booking->payment->status) }}
                 </p>
             @else
                 <p class="text-sm text-slate-500">Chưa có giao dịch thanh toán.</p>

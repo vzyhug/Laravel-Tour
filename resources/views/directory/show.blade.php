@@ -20,7 +20,7 @@
                     @endforeach</div>@endif
                 </div>
                 <div class="mt-8">
-                    <p class="eyebrow flex items-center gap-2"><x-icon name="pin" class="size-4"/> VietGo stay <span class="text-[#ccb6a8]">/</span> {{ $record->destination->name }}</p>
+                    <p class="eyebrow flex items-center gap-2"><x-icon name="pin" class="size-4"/> VietGo · Lưu trú <span class="text-[#ccb6a8]">/</span> {{ $record->destination->name }}</p>
                     <h1 class="mt-3 max-w-3xl font-serif text-4xl leading-tight sm:text-5xl">{{ $record->name }}</h1>
                     <p class="mt-5 max-w-3xl text-sm leading-8 text-muted">{{ $record->description }}</p>
                     <div class="mt-6 flex flex-wrap gap-2"><span class="hotel-info-chip"><x-icon name="map" class="size-4 text-brand-600"/> {{ $record->destination->name }}</span>@if($record->address)<span class="hotel-info-chip"><x-icon name="pin" class="size-4 text-brand-600"/> {{ $record->address }}</span>@endif</div>
