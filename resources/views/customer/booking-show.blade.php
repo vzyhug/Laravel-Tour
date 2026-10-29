@@ -178,7 +178,7 @@
             </div>
         @endif
 
-        @if($booking->status === 'completed' || ($booking->status === 'confirmed' && $booking->departure->return_date->isPast()))
+        @if($booking->status === 'completed' || ($booking->status === 'confirmed' && $booking->departure->return_date->lt(today())))
             <form class="card mt-6 p-6" method="POST" action="{{ route('customer.bookings.review', $booking) }}">
                 @csrf
                 <h2 class="text-lg font-bold">Đánh giá chuyến đi</h2>

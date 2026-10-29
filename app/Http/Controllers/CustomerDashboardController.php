@@ -100,7 +100,7 @@ class CustomerDashboardController extends Controller
         $this->owned($booking);
         $booking->loadMissing('departure');
 
-        $canReview = $booking->status === 'completed' || ($booking->status === 'confirmed' && $booking->departure->return_date->isPast());
+        $canReview = $booking->status === 'completed' || ($booking->status === 'confirmed' && $booking->departure->return_date->lt(today()));
         abort_unless($canReview, 403, 'Chuyến đi chưa kết thúc, bạn chưa thể đánh giá.');
 
         $data = $request->validate([
