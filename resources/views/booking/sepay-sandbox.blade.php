@@ -1,16 +1,15 @@
 @extends('layouts.app')
-@section('title', 'SePay Sandbox · VietGo')
+@section('title', 'Thanh toán qua SePay · VietGo')
 @section('content')
 @php
-    $labels = ['pending' => 'Đang kiểm tra thanh toán', 'paid' => 'Thanh toán sandbox thành công', 'expired' => 'Phiên thanh toán hết hạn', 'cancelled' => 'Phiên thanh toán đã đóng', 'failed' => 'Thanh toán không thành công', 'superseded' => 'Đơn đã được thanh toán', 'review' => 'Giao dịch cần kiểm tra'];
+    $labels = ['pending' => 'Đang kiểm tra thanh toán', 'paid' => 'Thanh toán thành công', 'expired' => 'Phiên thanh toán hết hạn', 'cancelled' => 'Phiên thanh toán đã đóng', 'failed' => 'Thanh toán không thành công', 'superseded' => 'Đơn đã được thanh toán', 'review' => 'Giao dịch cần kiểm tra'];
     $pending = $state['status'] === 'pending';
 @endphp
 <section class="container-page py-10 sm:py-14" data-qr-payment data-status-url="{{ route('payments.sepay.status', [$booking, $intent]) }}">
     <script type="application/json" data-qr-state>{!! json_encode($state, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) !!}</script>
     <script type="application/json" data-qr-labels>{!! json_encode($labels, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) !!}</script>
     <a class="text-link" href="{{ $state['booking_url'] }}">← Chi tiết chuyến đi</a>
-    <p class="eyebrow mt-7">Thanh toán thử nghiệm</p><h1 class="section-title mt-2">Kết quả thanh toán SePay.</h1>
-    <p class="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-xs leading-7 text-amber-900"><strong>Môi trường Sandbox.</strong> Đây là giao dịch thử nghiệm, không cần chuyển tiền thật. Thực hiện thanh toán bằng công cụ giả lập trên trang SePay.</p>
+    <p class="eyebrow mt-7">Thanh toán trực tuyến</p><h1 class="section-title mt-2">Kết quả thanh toán SePay.</h1>
     <div class="mt-8 grid items-start gap-7 lg:grid-cols-2">
         <div class="card p-5 sm:p-8">
             <h2 class="font-serif text-2xl">{{ $booking->departure->tour->title }}</h2>

@@ -1,6 +1,8 @@
 <?php
 
 return [
+    // Only these methods can open a customer tour checkout. Legacy receipts remain readable.
+    'checkout_methods' => ['sepay', 'cash', 'card', 'vietqr_demo'],
     // All QR payment actions are disabled in production, even if this flag is true.
     'demo_enabled' => env('PAYMENT_DEMO_ENABLED', false),
     'sepay_sandbox' => [

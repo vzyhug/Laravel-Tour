@@ -19,6 +19,7 @@ class FavoriteController extends Controller
 
     public function toggle(Tour $tour): RedirectResponse
     {
+        abort_unless($tour->is_active, 404);
         $customer = Customer::findOrFail(session('customer_id'));
         $customer->favoriteTours()->toggle($tour->getKey());
 

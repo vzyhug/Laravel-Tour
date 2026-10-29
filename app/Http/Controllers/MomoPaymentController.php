@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Models\MomoPaymentSession;
 use App\Services\Payments\MomoPaymentGateway;
+use BaconQrCode\Renderer\Image\SvgImageBackEnd;
+use BaconQrCode\Renderer\ImageRenderer;
+use BaconQrCode\Renderer\RendererStyle\RendererStyle;
+use BaconQrCode\Writer;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -27,11 +31,11 @@ class MomoPaymentController extends Controller
         $this->authorizeSession($booking, $session);
         abort_unless($session->qr_payload, 404);
 
-        $renderer = new \BaconQrCode\Renderer\ImageRenderer(
-            new \BaconQrCode\Renderer\RendererStyle\RendererStyle(360, 8),
-            new \BaconQrCode\Renderer\Image\SvgImageBackEnd,
+        $renderer = new ImageRenderer(
+            new RendererStyle(360, 8),
+            new SvgImageBackEnd,
         );
-        $svg = (new \BaconQrCode\Writer($renderer))->writeString($session->qr_payload);
+        $svg = (new Writer($renderer))->writeString($session->qr_payload);
 
         return response($svg, 200, [
             'Content-Type' => 'image/svg+xml; charset=UTF-8',
@@ -57,8 +61,8 @@ class MomoPaymentController extends Controller
     {
         $this->authorizeSession($booking, $session);
 
-        return redirect()->route('payments.momo.show', [$booking, $session])
-            ->with('success', 'MoMo đã chuyển kết quả về. Trang sẽ cập nhật khi IPN được xác nhận.');
+        return redirect()->route('customer.bookings.show', $booking)
+            ->with('success', 'Đã nhận phản hồi cho giao dịch trước đây. Kết quả thanh toán sẽ được cập nhật khi xác minh hoàn tất.');
     }
 
     public function ipn(Request $request, MomoPaymentGateway $gateway): JsonResponse

@@ -16,18 +16,18 @@ class CreateBooking
         return DB::transaction(function () use ($customerId, $data) {
             $departure = TourDeparture::query()->lockForUpdate()->findOrFail($data['departure_id']);
             $passengers = collect($data['passengers'])->map(fn (array $passenger) => [
-                ...$passenger,
+                ...array_intersect_key($passenger, array_flip(['full_name', 'id_card', 'date_of_birth'])),
                 'passenger_type' => 'adult', // Retained for legacy booking records; new bookings have one passenger category.
             ]);
             $adults = $passengers->count();
             $children = 0;
             $seats = $adults;
 
-            if ($departure->departure_date->lt(today())) {
+            if ($departure->hasDeparted()) {
                 throw ValidationException::withMessages(['departure_id' => 'Lịch khởi hành đã qua, vui lòng chọn lịch khác.']);
             }
 
-            if ($departure->operation_status !== 'scheduled' || $departure->is_private || $departure->status !== 'open' || $departure->available_seats < $seats) {
+            if (! $departure->canBeBooked() || $departure->available_seats < $seats) {
                 throw ValidationException::withMessages(['passengers' => 'Lịch khởi hành không còn đủ chỗ.']);
             }
 

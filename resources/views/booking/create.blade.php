@@ -35,10 +35,10 @@
                 </div>
                 @error('pickup_type')<p class="mt-2 text-xs text-red-700">{{ $message }}</p>@enderror
                 <div data-pickup-fields class="mt-4 {{ old('pickup_type') === 'door' ? '' : 'hidden' }}">
-                    <label><span class="label">Địa chỉ đón <span class="text-brand-600">*</span></span><input class="field" name="pickup_address" value="{{ old('pickup_address') }}" maxlength="255" @required(old('pickup_type') === 'door')></label>
+                    <label><span class="label">Địa chỉ đón <span class="text-brand-600">*</span></span><input class="field" name="pickup_address" value="{{ \App\Support\CustomerValidation::text(old('pickup_address')) }}" maxlength="255" @required(old('pickup_type') === 'door')></label>
                     @error('pickup_address')<p class="mt-2 text-xs text-red-700">{{ $message }}</p>@enderror
                 </div>
-                <label class="mt-4 block"><span class="label">Ghi chú cho chuyến đi (không bắt buộc)</span><input class="field" name="pickup_note" value="{{ old('pickup_note') }}" maxlength="255" placeholder="Thông tin cần nhắn nhân viên hỗ trợ"></label>
+                <label class="mt-4 block"><span class="label">Ghi chú cho chuyến đi (không bắt buộc)</span><input class="field" name="pickup_note" value="{{ \App\Support\CustomerValidation::text(old('pickup_note')) }}" maxlength="255" placeholder="Thông tin cần nhắn nhân viên hỗ trợ"></label>
                 @error('pickup_note')<p class="mt-2 text-xs text-red-700">{{ $message }}</p>@enderror
             </section>
             <section class="card mt-5 p-5 sm:p-6">
@@ -56,7 +56,7 @@
                     </div>
                 @endif
                 <div class="mt-4 flex gap-2">
-                    <label class="min-w-0 flex-1"><span class="sr-only">Nhập mã giảm giá</span><input class="field uppercase" id="coupon-code" name="coupon_code" value="{{ old('coupon_code') }}" placeholder="Nhập mã ưu đãi" maxlength="50" autocomplete="off"></label>
+                    <label class="min-w-0 flex-1"><span class="sr-only">Nhập mã giảm giá</span><input class="field uppercase" id="coupon-code" name="coupon_code" value="{{ \App\Support\CustomerValidation::text(old('coupon_code')) }}" placeholder="Nhập mã ưu đãi" maxlength="50" autocomplete="off"></label>
                     <button type="button" id="apply-coupon" class="btn-secondary shrink-0">Áp dụng</button>
                 </div>
                 <p id="coupon-message" class="mt-3 text-xs leading-6 text-muted" role="status" aria-live="polite"></p>

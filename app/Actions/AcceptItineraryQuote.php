@@ -30,13 +30,14 @@ class AcceptItineraryQuote
                 'passengers' => ['required', 'array', 'min:1', 'max:100'],
                 'passengers.*' => ['array'],
                 'passengers.*.full_name' => ['required', 'string', 'max:100'],
-                'passengers.*.id_card' => ['required', 'string', 'max:20', 'regex:/^[0-9A-Za-z]{8,20}$/'],
-                'passengers.*.date_of_birth' => ['nullable', 'date', 'before:today'],
+                'passengers.*.id_card' => ['required', 'string', 'max:20', 'distinct:ignore_case', 'regex:/^[0-9A-Za-z]{8,20}$/'],
+                'passengers.*.date_of_birth' => ['nullable', 'date_format:Y-m-d', 'before:today'],
                 'pickup_type' => ['nullable', 'in:self,door'],
                 'pickup_address' => ['nullable', 'required_if:pickup_type,door', 'string', 'max:255'],
                 'pickup_note' => ['nullable', 'string', 'max:255'],
             ], [
                 'terms_accepted.accepted' => 'Vui lòng đồng ý với lịch trình và điều kiện báo giá.',
+                'passengers.*.id_card.distinct' => 'CCCD hoặc Hộ chiếu của các hành khách không được trùng nhau.',
                 'passengers.*.id_card.regex' => 'CCCD hoặc Hộ chiếu phải từ 8 đến 20 ký tự chữ và số.',
             ])->validate();
 

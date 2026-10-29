@@ -16,6 +16,12 @@ class CustomTourCheckoutTest extends TestCase
 {
     use RefreshDatabase;
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+        config(['payments.checkout_methods' => ['sepay', 'vietqr_demo', 'bank_transfer', 'momo', 'cash', 'card']]);
+    }
+
     private function quotedPlan(array $attributes = []): array
     {
         $this->withoutVite();
@@ -154,7 +160,7 @@ class CustomTourCheckoutTest extends TestCase
         $tour->update(['title' => 'Tên tour mới', 'duration_days' => 5]);
         $plan->items()->create(['day_number' => 1, 'position' => 1, 'title' => 'Hoạt động mới']);
         $this->withSession(['customer_id' => $customer->getKey()]);
-        $this->post(route('payments.store', $booking), ['payment_method' => 'cash'])->assertRedirect();
+        $this->post(route('payments.store', $booking), ['payment_method' => 'cash', 'demo_outcome' => 'succeeded'])->assertRedirect();
         $booking->refresh();
         $this->assertSame('5500001.00', $booking->payment->amount);
         $this->assertSame('5500001.00', $booking->bill->final_amount);
@@ -181,7 +187,7 @@ class CustomTourCheckoutTest extends TestCase
         $this->assertSame('5500001.00', $booking->total_amount);
         $this->withSession(['customer_id' => $customer->getKey()]);
         $this->get(route('customer.bookings.show', $booking))->assertOk()->assertDontSee('Điểm đón mới sau báo giá')->assertSee('điểm tập trung sẽ thông báo');
-        $this->post(route('payments.store', $booking), ['payment_method' => 'cash'])->assertRedirect();
+        $this->post(route('payments.store', $booking), ['payment_method' => 'cash', 'demo_outcome' => 'succeeded'])->assertRedirect();
         $this->get(route('customer.bookings.invoice', $booking))->assertOk()->assertDontSee('Điểm đón mới sau báo giá')->assertSee('sẽ thông báo');
     }
 

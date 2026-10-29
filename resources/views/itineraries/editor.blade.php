@@ -30,7 +30,7 @@
                 <label><span class="label">Ngày dự kiến bắt đầu</span><input type="date" name="travel_date" min="{{ today()->toDateString() }}" class="field" required></label>
                 <label><span class="label">Họ tên liên hệ</span><input name="contact_name" class="field" maxlength="100" value="{{ $itineraryCustomer?->full_name }}" required></label>
                 <label><span class="label">Người lớn</span><input type="number" name="adults" class="field" value="1" min="1" max="50" required></label>
-                <label><span class="label">Điện thoại</span><input type="tel" name="contact_phone" class="field" maxlength="30" value="{{ $itineraryCustomer?->phone }}" required></label>
+                <label><span class="label">Điện thoại</span><input type="tel" name="contact_phone" class="field" maxlength="12" pattern="(0|\+84)[0-9]{9}" title="Ví dụ: 0901234567 hoặc +84901234567" value="{{ $itineraryCustomer?->phone }}" required></label>
                 <label><span class="label">Email</span><input type="email" name="contact_email" class="field" maxlength="255" value="{{ $itineraryCustomer?->email }}" required></label>
                 <label class="sm:col-span-2"><span class="label">Mong muốn thêm (ăn uống, nơi ở…)</span><textarea name="message" class="field" maxlength="2000" rows="3"></textarea></label>
             </div>

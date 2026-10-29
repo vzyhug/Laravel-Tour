@@ -9,12 +9,12 @@
             @csrf
             <label>
                 <span class="label">Email hoặc tên đăng nhập</span>
-                <input class="field" type="text" name="login" value="{{ old('login') }}" autocomplete="username" required>
+                <input class="field" type="text" name="login" maxlength="255" value="{{ \App\Support\CustomerValidation::text(old('login')) }}" autocomplete="username" required>
             </label>
             <label>
                 <span class="label">Mật khẩu</span>
                 <span style="position:relative;display:block">
-                    <input id="password" class="field" style="padding-right:4.5rem" type="password" name="password" autocomplete="current-password" required>
+                    <input id="password" class="field" style="padding-right:4.5rem" type="password" name="password" maxlength="1000" autocomplete="current-password" required>
                     <button type="button" class="text-brand-700" style="position:absolute;top:0;bottom:0;right:1rem;font-size:.875rem;font-weight:600"
                         onclick="const i=document.getElementById('password');const s=i.type==='password';i.type=s?'text':'password';this.textContent=s?'Ẩn':'Hiện';">Hiện</button>
                 </span>

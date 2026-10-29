@@ -32,14 +32,14 @@
             @for($index = 0; $index < $consultation->adults + $consultation->children; $index++)
                 <fieldset class="grid gap-4 rounded-lg border p-4 sm:grid-cols-3">
                     <legend class="px-2 text-sm font-semibold">Hành khách {{ $index + 1 }}{{ $index >= $consultation->adults ? ' · Trẻ em' : '' }}</legend>
-                    <label><span class="label">Họ và tên</span><input class="field" name="passengers[{{ $index }}][full_name]" value="{{ old('passengers.'.$index.'.full_name') }}" maxlength="100" required></label>
-                    <label><span class="label">CCCD / Hộ chiếu</span><input class="field" name="passengers[{{ $index }}][id_card]" value="{{ old('passengers.'.$index.'.id_card') }}" minlength="8" maxlength="20" pattern="[0-9A-Za-z]{8,20}" required></label>
-                    <label><span class="label">Ngày sinh (không bắt buộc)</span><input class="field" type="date" name="passengers[{{ $index }}][date_of_birth]" value="{{ old('passengers.'.$index.'.date_of_birth') }}" max="{{ today()->subDay()->toDateString() }}"></label>
+                    <label><span class="label">Họ và tên</span><input class="field" name="passengers[{{ $index }}][full_name]" value="{{ \App\Support\CustomerValidation::text(old('passengers.'.$index.'.full_name')) }}" maxlength="100" required></label>
+                    <label><span class="label">CCCD / Hộ chiếu</span><input class="field" name="passengers[{{ $index }}][id_card]" value="{{ \App\Support\CustomerValidation::text(old('passengers.'.$index.'.id_card')) }}" minlength="8" maxlength="20" pattern="[0-9A-Za-z]{8,20}" required></label>
+                    <label><span class="label">Ngày sinh (không bắt buộc)</span><input class="field" type="date" name="passengers[{{ $index }}][date_of_birth]" value="{{ \App\Support\CustomerValidation::text(old('passengers.'.$index.'.date_of_birth')) }}" max="{{ today()->subDay()->toDateString() }}"></label>
                 </fieldset>
             @endfor
             <label><span class="label">Cách tham gia</span><select class="field" name="pickup_type"><option value="self" @selected(old('pickup_type', 'self') === 'self')>Tự đến điểm tập trung</option><option value="door" @selected(old('pickup_type') === 'door')>Đón theo địa chỉ đã thống nhất trong báo giá</option></select></label>
-            <label><span class="label">Địa chỉ đón (nếu chọn đón tận nơi)</span><input class="field" name="pickup_address" maxlength="255" value="{{ old('pickup_address') }}"></label>
-            <label><span class="label">Ghi chú đón khách</span><textarea class="field" name="pickup_note" maxlength="255" rows="2">{{ old('pickup_note') }}</textarea></label>
+            <label><span class="label">Địa chỉ đón (nếu chọn đón tận nơi)</span><input class="field" name="pickup_address" maxlength="255" value="{{ \App\Support\CustomerValidation::text(old('pickup_address')) }}"></label>
+            <label><span class="label">Ghi chú đón khách</span><textarea class="field" name="pickup_note" maxlength="255" rows="2">{{ \App\Support\CustomerValidation::text(old('pickup_note')) }}</textarea></label>
             <label class="flex items-start gap-3 text-sm leading-7"><input type="checkbox" name="terms_accepted" value="1" class="mt-2" required @checked(old('terms_accepted'))><span>Tôi đã đọc và đồng ý với lịch trình, tổng giá và điều kiện báo giá này.</span></label>
             <button class="btn-primary">Chấp nhận báo giá & tiếp tục thanh toán</button>
         </form>

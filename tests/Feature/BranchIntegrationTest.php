@@ -19,6 +19,7 @@ class BranchIntegrationTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+        config(['payments.checkout_methods' => ['sepay', 'vietqr_demo', 'bank_transfer', 'momo', 'cash', 'card']]);
         $this->withoutVite();
     }
 
@@ -57,7 +58,7 @@ class BranchIntegrationTest extends TestCase
         $this->assertSame('123 Đường Mới', $booking->pickup_address);
         $this->assertSame(7, $departure->fresh()->available_seats);
         $this->get(route('payments.create', $booking))->assertOk()->assertSee($coupon->code)->assertSee('2.800.000₫');
-        $this->post(route('payments.store', $booking), ['payment_method' => 'bank_transfer'])
+        $this->post(route('payments.store', $booking), ['payment_method' => 'cash', 'demo_outcome' => 'succeeded'])
             ->assertRedirect(route('customer.bookings.show', $booking));
         $this->assertDatabaseHas('payments', ['booking_id' => $booking->getKey(), 'amount' => 2800000, 'status' => 'completed']);
         $this->get(route('customer.bookings.show', $booking))->assertOk()
@@ -74,7 +75,7 @@ class BranchIntegrationTest extends TestCase
             ->assertSessionHasErrors('cancel');
         $this->assertSame(10, $departure->fresh()->available_seats);
         $this->get(route('payments.create', $booking))->assertRedirect(route('customer.bookings.show', $booking));
-        $this->post(route('payments.store', $booking), ['payment_method' => 'cash'])->assertStatus(409);
+        $this->post(route('payments.store', $booking), ['payment_method' => 'cash', 'demo_outcome' => 'succeeded'])->assertStatus(409);
     }
 
     public function test_coupon_cannot_be_reused_or_overbooked_but_cancellation_releases_it(): void

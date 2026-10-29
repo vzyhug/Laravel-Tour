@@ -13,6 +13,7 @@ class VnpayPaymentController extends Controller
 {
     public function returned(Request $request, VnpayPaymentGateway $gateway): RedirectResponse
     {
+        $request->validate(['vnp_TxnRef' => ['required', 'string', 'max:100']]);
         $session = VnpayPaymentSession::query()
             ->with('attempt.payment.booking')
             ->where('txn_ref', (string) $request->query('vnp_TxnRef'))

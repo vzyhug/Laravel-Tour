@@ -47,7 +47,7 @@ class QrPaymentController extends Controller
             ->header('Cache-Control', 'no-store, private')->header('X-Content-Type-Options', 'nosniff')
             ->header('Content-Security-Policy', "default-src 'none'; sandbox");
         if ($request->boolean('download')) {
-            $response->header('Content-Disposition', 'attachment; filename="vietgo-demo-'.$intent->reference.'.svg"');
+            $response->header('Content-Disposition', 'attachment; filename="vietgo-qr-'.$intent->reference.'.svg"');
         }
 
         return $response;
@@ -68,6 +68,6 @@ class QrPaymentController extends Controller
             'booking_id' => ['prohibited'], 'reference' => ['prohibited']]);
         $payments->simulate($intent, $data['outcome']);
 
-        return redirect()->route('payments.qr.demo', [$booking, $intent])->with('success', 'Đã xử lý kết quả từ ngân hàng mô phỏng.');
+        return redirect()->route('payments.qr.demo', [$booking, $intent])->with('success', 'Đã cập nhật trạng thái thanh toán.');
     }
 }

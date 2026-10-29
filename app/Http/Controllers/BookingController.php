@@ -15,7 +15,7 @@ class BookingController extends Controller
 {
     public function create(TourDeparture $departure): View
     {
-        abort_unless($departure->operation_status === 'scheduled' && ! $departure->is_private && $departure->status === 'open' && $departure->available_seats > 0 && $departure->departure_date->gte(today()), 404);
+        abort_unless($departure->canBeBooked(), 404);
 
         $customerId = (int) session('customer_id');
         $coupons = Coupon::all()
@@ -42,6 +42,7 @@ class BookingController extends Controller
         ]);
 
         $departure = TourDeparture::publiclyBookable()->findOrFail($data['departure_id']);
+        abort_unless($departure->canBeBooked(), 404);
         $subtotal = $data['adults'] * (float) $departure->adult_price;
 
         $coupon = Coupon::where('code', Coupon::normalize($data['code']))->first();

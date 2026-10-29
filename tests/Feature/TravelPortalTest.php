@@ -16,6 +16,12 @@ class TravelPortalTest extends TestCase
 {
     use RefreshDatabase;
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+        config(['payments.checkout_methods' => ['sepay', 'vietqr_demo', 'bank_transfer', 'momo', 'cash', 'card']]);
+    }
+
     public function test_dashboard_requires_a_customer_session(): void
     {
         $this->get(route('customer.dashboard'))->assertRedirect(route('login'));
@@ -110,7 +116,7 @@ class TravelPortalTest extends TestCase
 
         $this->get(route('tours.show', $tour))->assertOk()
             ->assertSee($tour->title)->assertSee($image->img_url)
-            ->assertSee($schedule->activities)
+            ->assertViewHas('itineraryData', fn ($payload) => collect($payload['days'])->contains(fn ($day) => $day['activities'] === $schedule->activities))
             ->assertSee(route('bookings.create', $departure), false);
     }
 
@@ -135,7 +141,7 @@ class TravelPortalTest extends TestCase
             ->get(route('payments.create', $booking))->assertOk()
             ->assertSee('1.500.000₫')->assertSeeText('Mã đặt tour:')->assertSee('name="payment_method"', false);
 
-        $response = $this->post(route('payments.store', $booking), ['payment_method' => 'bank_transfer']);
+        $response = $this->post(route('payments.store', $booking), ['payment_method' => 'vietqr_demo']);
         $intent = PaymentIntent::where('booking_id', $booking->getKey())->firstOrFail();
         $response->assertRedirect(route('payments.qr.show', [$booking, $intent]));
         $this->assertSame('pending', $booking->fresh()->status);

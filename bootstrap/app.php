@@ -3,6 +3,7 @@
 use App\Http\Middleware\AdminAuthenticated;
 use App\Http\Middleware\AdminRole;
 use App\Http\Middleware\CustomerAuthenticated;
+use App\Http\Middleware\PaymentMethodEnabled;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -18,6 +19,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->validateCsrfTokens(except: ['payments/momo/ipn']);
         $middleware->alias([
             'customer.auth' => CustomerAuthenticated::class,
+            'payment.method' => PaymentMethodEnabled::class,
             'admin.auth' => AdminAuthenticated::class,
             'admin.role' => AdminRole::class,
         ]);

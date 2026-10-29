@@ -35,8 +35,8 @@ class DestinationDirectoryTest extends TestCase
         $this->assertDatabaseCount('destinations', 31);
         $this->assertDatabaseCount('itinerary_places', 120);
         $this->assertDatabaseCount('itinerary_place_images', 120);
-        $this->assertDatabaseCount('hotels', 64);
-        $this->assertDatabaseCount('hotel_images', 64);
+        $this->assertDatabaseCount('hotels', 58);
+        $this->assertDatabaseCount('hotel_images', 58);
         $this->assertDatabaseCount('tours', 30);
         $this->assertSame(120, ItineraryPlace::has('destinations')->count());
         $this->assertSame($original, ItineraryPlace::whereIn('slug', array_keys($original))->pluck('id', 'slug')->all());
@@ -44,7 +44,9 @@ class DestinationDirectoryTest extends TestCase
         $vungTau = Destination::where('slug', 'vung-tau')->firstOrFail();
         $this->assertSame(8, $vungTau->places()->count());
         $this->assertSame(4, $vungTau->hotels()->count());
-        $this->assertSame(31, Destination::has('hotels', '>=', 2)->count());
+        $this->assertSame(25, Destination::has('hotels', '>=', 2)->count());
+        $this->assertSame(6, Destination::has('hotels', '=', 1)->count());
+        $this->assertSame(0, Hotel::where('slug', 'like', 'muong-thanh-%')->count());
         $this->assertSame(0, Destination::doesntHave('hotels')->count());
     }
 
@@ -60,9 +62,9 @@ class DestinationDirectoryTest extends TestCase
         $this->get('/places?page=2&destination=vung-tau')->assertOk()->assertSee('Chưa tìm thấy kết quả phù hợp');
         $this->get('/hotels?destination=ba-be')->assertOk()->assertSee('2 khách sạn')->assertSee('Ba Be Lakeside Bungalow')->assertSee('Ba Be Jungle Houses');
         $this->get('/hotels?destination=mang-den')->assertOk()->assertSee('2 khách sạn')->assertSee('Toong Dam')->assertSee('Đắk Ke');
-        $this->get('/hotels?q=khongcokhachsan')->assertOk()->assertSee('Chưa tìm thấy kết quả phù hợp');
-        $this->get('/places/hon-ba-vung-tau')->assertOk()->assertDontSee('Nguồn ảnh')->assertDontSee('CC BY')->assertDontSee('Đối chiếu nguồn')->assertSee('Khách sạn cùng điểm đến');
-        $this->get('/hotels/pullman-vung-tau')->assertOk()->assertSee('15 Thi Sách')->assertSee('Website khách sạn')->assertSee('https://www.pullmanvungtau.com/', false)->assertDontSee('Nguồn thông tin')->assertDontSee('giấy phép')->assertSee('Địa danh cùng điểm đến');
+        $this->get('/hotels?q=khongcokhachsan')->assertOk()->assertSee('Chưa tìm thấy nơi phù hợp');
+        $this->get('/places/hon-ba-vung-tau')->assertOk()->assertDontSee('Nguồn ảnh')->assertDontSee('CC BY')->assertDontSee('Đối chiếu nguồn')->assertSee('Khách sạn trong khu vực');
+        $this->get('/hotels/pullman-vung-tau')->assertOk()->assertSee('15 Thi Sách')->assertSee('Website khách sạn')->assertSee('https://www.pullmanvungtau.com/', false)->assertDontSee('Nguồn thông tin')->assertDontSee('giấy phép')->assertSee('Điểm dừng chân quanh đây');
         $this->get('/places/bao-tang-vu-khi-co-robert-taylor')->assertOk()->assertSee('Hiện vật giáp trưng bày tại Bảo tàng Vũ khí cổ Robert Taylor');
         $this->get('/destinations?page=2')->assertOk()->assertSee('page=3', false);
     }

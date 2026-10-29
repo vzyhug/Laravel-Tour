@@ -121,3 +121,7 @@ Chọn SePay sẽ mở thẳng trang thanh toán thử ở tab mới; tab VietGo
 ## Tích hợp SePay vào main mới — 29/10/2026
 
 Đã đưa SePay không cần ngrok từ dev-Loc `8a58ea5` vào main `c665b7f`, giữ MoMo/VNPAY và cơ chế giữ chỗ mới. Xem cấu hình, quy trình demo và kết quả kiểm thử hiện tại tại [SEPAY_SANDBOX.md](SEPAY_SANDBOX.md). Các số liệu và giới hạn trong các mục bàn giao phía trên là lịch sử của từng đợt, không thay thế kết quả của bản main mới.
+
+## Rà soát chức năng khách hàng — 29/10/2026
+
+Kết quả, các lỗi đã sửa, kiểm thử và phần còn thiếu theo sơ đồ được ghi tại [CUSTOMER_VALIDATION_AUDIT.md](CUSTOMER_VALIDATION_AUDIT.md). Chưa nghiệm thu đầy đủ sơ đồ: cần xử lý ngày nghiệp vụ Việt Nam/UTC và bổ sung voucher tour, chứng từ khách sạn. Các con số kiểm thử ở các mục trước là lịch sử từng đợt.

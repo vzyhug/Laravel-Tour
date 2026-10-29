@@ -23,6 +23,7 @@ class SePaySandboxTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+        config(['payments.checkout_methods' => ['sepay', 'vietqr_demo', 'bank_transfer', 'momo', 'cash', 'card']]);
         $this->withoutVite();
         config(['payments.sepay_sandbox' => ['enabled' => true, 'merchant_id' => 'TEST-MERCHANT', 'secret_key' => 'test-checkout-secret']]);
         Http::preventStrayRequests();
@@ -105,7 +106,7 @@ class SePaySandboxTest extends TestCase
         Http::assertSent(fn ($request) => $request->url() === SePaySandbox::API_URL.$intent->reference
             && $request->hasHeader('Authorization', 'Basic '.base64_encode('TEST-MERCHANT:test-checkout-secret')));
         Http::assertSentCount(1);
-        $this->get(route('customer.bookings.invoice', $booking))->assertOk()->assertSee('Hóa đơn demo');
+        $this->get(route('customer.bookings.invoice', $booking))->assertOk()->assertSee('Hóa đơn dịch vụ du lịch');
         $this->get(route('payments.sepay.checkout', [$booking, $intent]))->assertRedirect(route('payments.sepay.show', [$booking, $intent]));
     }
 

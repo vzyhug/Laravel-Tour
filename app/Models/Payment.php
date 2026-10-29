@@ -21,6 +21,11 @@ class Payment extends Model
         return ['payment_date' => 'datetime', 'amount' => 'decimal:2'];
     }
 
+    public function getStatusLabelAttribute(): string
+    {
+        return ['pending' => 'Đang chờ xử lý', 'failed' => 'Thanh toán thất bại', 'completed' => 'Đã thanh toán', 'refunded' => 'Đã hoàn tiền'][$this->status] ?? 'Chưa xác định';
+    }
+
     public function attempts()
     {
         return $this->hasMany(PaymentAttempt::class, 'payment_id');

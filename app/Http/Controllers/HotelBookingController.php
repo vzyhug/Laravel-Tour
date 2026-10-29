@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Hotel;
 use App\Models\HotelBooking;
 use App\Services\HotelBookingService;
+use App\Services\Payments\DemoQrPayment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -53,9 +54,10 @@ class HotelBookingController extends Controller
     public function pay(HotelBooking $hotelBooking, HotelBookingService $service)
     {
         $this->owned($hotelBooking);
+        abort_unless(DemoQrPayment::enabled(), 404);
         $paid = $service->pay($hotelBooking);
 
-        return back()->with('success', $paid ? 'Đã xác nhận thanh toán mô phỏng. Không thu tiền thật.' : 'Đơn không còn hiệu lực để thanh toán.');
+        return back()->with($paid ? 'success' : 'error', $paid ? 'Đã xác nhận thanh toán.' : 'Đơn không còn hiệu lực để thanh toán.');
     }
 
     public function cancel(HotelBooking $hotelBooking, HotelBookingService $service)
@@ -63,6 +65,6 @@ class HotelBookingController extends Controller
         $this->owned($hotelBooking);
         $service->cancel($hotelBooking);
 
-        return back()->with('success', 'Đã xử lý hủy đơn. Nếu có thanh toán, hoàn tiền cũng chỉ là mô phỏng.');
+        return back()->with('success', 'Đã hủy đơn đặt phòng.');
     }
 }

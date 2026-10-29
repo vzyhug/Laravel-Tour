@@ -12,6 +12,8 @@ class HomeController extends Controller
 {
     public function index(Request $request): View
     {
+        $request->validate(['q' => ['nullable', 'string', 'max:200'],
+            'province' => ['nullable', 'integer', 'exists:provinces,province_id']]);
         $tours = Tour::query()->active()->with(['province', 'category', 'images'])
             ->when($request->filled('q'), fn ($query) => $query->where('title', 'like', '%'.$request->string('q')->trim().'%'))
             ->when($request->filled('province'), fn ($query) => $query->where('province_id', $request->integer('province')))

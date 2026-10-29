@@ -27,7 +27,8 @@ class DemoQrPayment
         abort_unless(self::enabled(), 404);
 
         return DB::transaction(function () use ($booking) {
-            $locked = Booking::lockForUpdate()->findOrFail($booking->getKey());
+            $locked = app(PaymentWorkflow::class)->lockBooking($booking->getKey());
+            abort_if($locked->holdHasExpired() || $locked->departure->status === 'cancelled', 409, 'Đã hết hạn giữ chỗ hoặc chuyến đi đã hủy.');
             $this->assertPayable($locked);
             $payment = $locked->payment()->lockForUpdate()->first();
             abort_if($payment && $payment->status !== 'failed', 409, 'Đơn đã có giao dịch thanh toán.');
@@ -58,7 +59,7 @@ class DemoQrPayment
         abort_unless(in_array($outcome, ['success', 'failed', 'expired'], true), 422);
         // Every writer locks the booking first, including cancellation and legacy payments.
         DB::transaction(function () use ($intent, $outcome) {
-            $booking = Booking::lockForUpdate()->findOrFail($intent->booking_id);
+            $booking = app(PaymentWorkflow::class)->lockBooking($intent->booking_id);
             $locked = PaymentIntent::lockForUpdate()->findOrFail($intent->id);
             $this->assertPayable($booking);
             abort_if($booking->status === 'pending' && $booking->holdHasExpired(), 409, 'Thời hạn giữ chỗ đã hết.');

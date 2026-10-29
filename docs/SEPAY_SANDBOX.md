@@ -77,3 +77,13 @@ Tài liệu chính thức:
 Chuyển phần SePay từ commit `8a58ea5` của dev-Loc vào main `c665b7f`. Giữ nguyên MoMo, VNPAY, phương thức mô phỏng nội bộ và các tuyến nghiệp vụ mới. SePay tuân thủ thời hạn giữ chỗ, chặn giao dịch đang chờ ở phương thức khác, cho phép thử lại sau Payment thất bại và cập nhật bản ghi đó thay vì tạo Payment trùng. Giao dịch đến sau khi hết hạn giữ chỗ hoặc chuyến bị hủy chuyển sang kiểm tra thủ công.
 
 Đã kiểm tra trên database preview riêng: mở SePay trực tiếp, giả lập thanh toán, VietGo xác minh qua API, giữ đúng một Payment/Bill/event và xóa thời hạn giữ chỗ. Không cần IPN, ngrok hoặc gateway Python. Các báo cáo nội bộ và `.env` không được commit.
+
+## Cập nhật lựa chọn thanh toán tour — 29/10/2026
+
+Theo lựa chọn cuối cùng của người dùng, giữ bốn phương án: SePay Sandbox, thanh toán tại văn phòng (mô phỏng), thẻ tín dụng/ghi nợ (mô phỏng) và VietQR demo nội bộ. Chỉ bỏ VNPAY và MoMo khỏi lựa chọn và chặn khởi tạo/mở lại giao dịch bằng hai phương thức đó. `payments.checkout_methods` mặc định là `sepay`, `cash`, `card`, `vietqr_demo`.
+
+Đã khôi phục chọn kịch bản thành công/thất bại/chờ xử lý cho tiền mặt và thẻ; nút xử lý giao dịch mô phỏng đang chờ; tạo, tiếp tục và xác nhận QR demo. Các phương thức mô phỏng vẫn tuân thủ `PAYMENT_DEMO_ENABLED` và bị khóa trong production như trước. SePay được chọn sẵn khi sẵn sàng; nếu thiếu cấu hình, người dùng vẫn có thể chọn phương thức mô phỏng đang khả dụng.
+
+Giữ hóa đơn và dữ liệu giao dịch cũ. Endpoint nhận kết quả đã ký của MoMo/VNPAY vẫn được giữ để xử lý giao dịch đã tạo trước đây. Đơn có giao dịch cũ đang chờ cần đối soát trước khi thu thêm tiền. Chức năng đặt khách sạn không đổi.
+
+Đã kiểm tra giao diện 1440px/390px hiển thị đúng bốn phương thức, chuyển kịch bản theo phương thức và chặn VNPAY/MoMo ở server. Theo yêu cầu khôi phục nhanh, không chạy lại toàn bộ bộ kiểm thử sau xác nhận lựa chọn cuối cùng.

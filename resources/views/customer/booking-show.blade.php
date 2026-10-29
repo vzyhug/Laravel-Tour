@@ -84,17 +84,21 @@
                 </dl>
 
                 @if($booking->payment)
-                    @if(str_starts_with($booking->payment->transaction_code ?? '', 'SEPAY-SBX-'))<p class="mt-3 text-xs text-muted">SePay Sandbox · Giao dịch thử nghiệm, không chuyển tiền thật.</p>@endif
-                    <p class="mt-3 break-all text-xs leading-7 text-muted">{{ str_starts_with($booking->payment->transaction_code ?? '', 'SEPAY-SBX-ORDER-') ? 'Mã đơn thanh toán SePay' : 'Mã giao dịch' }}: <strong class="text-ink">{{ $booking->payment->transaction_code }}</strong></p>
-                    @if($booking->payment->payment_method === 'bank_transfer' && str_starts_with($booking->payment->transaction_code ?? '', 'DEMO-'))<p class="mt-1 text-xs text-muted">Chuyển khoản VietQR · Demo</p>@endif
+                    <p class="mt-3 text-sm">Trạng thái thanh toán: {{ $booking->payment->status_label }}</p>
+                    @if(str_starts_with($booking->payment->transaction_code ?? '', 'DEMO-'))
+                        <p class="mt-3 text-xs leading-7 text-muted">Tham chiếu thanh toán: <strong class="text-ink">{{ $booking->booking_code }}</strong></p>
+                    @else
+                    <p class="mt-3 break-all text-xs leading-7 text-muted">{{ str_starts_with($booking->payment->transaction_code ?? '', 'SEPAY-SBX-ORDER-') ? 'Mã đơn thanh toán SePay' : 'Mã giao dịch' }}: <strong class="text-ink">{{ $booking->payment->transaction_code ?: 'Chưa có giao dịch hoàn tất' }}</strong></p>
+                    @endif
+                    @if($booking->payment->payment_method === 'bank_transfer' && str_starts_with($booking->payment->transaction_code ?? '', 'DEMO-'))<p class="mt-1 text-xs text-muted">Chuyển khoản VietQR</p>@endif
                 @endif
                 @if($pendingSePay && $pendingSePay->status === 'review')
                     <p class="mt-5 rounded-lg bg-amber-50 p-4 text-sm text-amber-900">Giao dịch SePay đang cần nhân viên kiểm tra trước khi có thể thanh toán lại.</p>
                 @elseif((!$booking->payment || in_array($booking->payment->status, ['pending', 'failed'], true)) && in_array($booking->status, ['pending', 'confirmed'], true) && !$booking->holdHasExpired())
-                    @if(!$booking->payment && $pendingSePay)
-                        <a class="btn-primary mt-5 w-full" href="{{ route('payments.sepay.show', [$booking, $pendingSePay]) }}">Xem thanh toán SePay Sandbox</a>
-                    @elseif(!$booking->payment && $pendingQr)
-                        <a class="btn-primary mt-5 w-full" href="{{ route('payments.qr.show', [$booking, $pendingQr]) }}">Tiếp tục thanh toán QR</a>
+                    @if((!$booking->payment || $booking->payment->status === 'failed') && $pendingSePay)
+                        <a class="btn-primary mt-5 w-full" href="{{ route('payments.sepay.show', [$booking, $pendingSePay]) }}">Xem thanh toán SePay</a>
+                    @elseif((!$booking->payment || $booking->payment->status === 'failed') && $pendingQr)
+                        <a class="btn-primary mt-5 w-full" href="{{ route('payments.qr.show', [$booking, $pendingQr]) }}">Xem mã VietQR</a>
                     @else
                         <a class="btn-primary mt-5 w-full" href="{{ route('payments.create', $booking) }}">Thanh toán ngay</a>
                     @endif
@@ -118,12 +122,12 @@
 
         @if($booking->payment && $booking->payment->refunds->isNotEmpty())
             <section class="card mt-6 p-6" aria-label="Trạng thái hoàn tiền">
-                <h2 class="text-lg font-bold">Trạng thái hoàn tiền mô phỏng</h2>
+                <h2 class="text-lg font-bold">Trạng thái hoàn tiền</h2>
                 <ul class="mt-4 grid gap-3 text-sm">
                     @foreach($booking->payment->refunds as $refund)
                         <li class="flex flex-wrap justify-between gap-3">
                             <span>{{ number_format($refund->amount, 0, ',', '.') }}₫</span>
-                            <strong>{{ ['requested' => 'Đã yêu cầu', 'processing' => 'Đang xử lý', 'succeeded' => 'Hoàn mô phỏng thành công', 'failed' => 'Hoàn mô phỏng thất bại — đang chờ xử lý lại'][$refund->status] ?? $refund->status }}</strong>
+                            <strong>{{ ['requested' => 'Đã yêu cầu', 'processing' => 'Đang xử lý', 'succeeded' => 'Hoàn tiền thành công', 'failed' => 'Hoàn tiền chưa thành công — đang chờ xử lý lại'][$refund->status] ?? $refund->status }}</strong>
                         </li>
                     @endforeach
                 </ul>
@@ -183,7 +187,7 @@
                         @csrf
                         <label>
                             <span class="label">Lý do hủy</span>
-                            <textarea class="field" name="cancel_reason" rows="3" required>{{ old('cancel_reason') }}</textarea>
+                            <textarea class="field" name="cancel_reason" rows="3" maxlength="255" required>{{ \App\Support\CustomerValidation::text(old('cancel_reason')) }}</textarea>
                         </label>
                         @error('cancel_reason')
                             <p class="text-sm text-red-600">{{ $message }}</p>
@@ -203,7 +207,7 @@
             </div>
         @endif
 
-        @if($booking->status === 'completed' || ($booking->status === 'confirmed' && $booking->departure->return_date->isPast()))
+        @if($booking->canBeReviewed())
             <form class="card mt-6 p-6" method="POST" action="{{ route('customer.bookings.review', $booking) }}">
                 @csrf
                 <h2 class="text-lg font-bold">Đánh giá chuyến đi</h2>
@@ -218,7 +222,7 @@
                     </label>
                     <label>
                         <span class="label">Chia sẻ trải nghiệm</span>
-                        <textarea class="field" name="feedback" rows="4" minlength="5" maxlength="2000" required>{{ old('feedback') }}</textarea>
+                        <textarea class="field" name="feedback" rows="4" minlength="5" maxlength="2000" required>{{ \App\Support\CustomerValidation::text(old('feedback')) }}</textarea>
                         @error('feedback')<p class="mt-2 text-xs text-red-700">{{ $message }}</p>@enderror
                     </label>
                     <button class="btn-primary">Gửi đánh giá</button>

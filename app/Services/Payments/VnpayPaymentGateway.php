@@ -107,6 +107,7 @@ class VnpayPaymentGateway
 
     public function settleReturn(array $query): VnpayPaymentSession
     {
+        abort_unless(filled(config('payments.vnpay.hash_secret')) && filled(config('payments.vnpay.tmn_code')), 503, 'VNPay chưa được cấu hình để xác minh giao dịch.');
         foreach ($query as $value) {
             abort_unless(is_scalar($value) || $value === null, 400, 'Invalid VNPay response data.');
         }

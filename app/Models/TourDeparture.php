@@ -29,6 +29,18 @@ class TourDeparture extends Model
         return $query->where('is_private', false);
     }
 
+    public function hasDeparted(): bool
+    {
+        return $this->departure_date->lt(today()) || ($this->departure_date->isToday() && $this->departure_time
+            && $this->departure_date->copy()->setTimeFromTimeString($this->departure_time)->lte(now()));
+    }
+
+    public function canBeBooked(): bool
+    {
+        return ! $this->is_private && $this->tour->is_active && $this->operation_status === 'scheduled'
+            && $this->status === 'open' && $this->available_seats > 0 && ! $this->hasDeparted();
+    }
+
     public function tour(): BelongsTo
     {
         return $this->belongsTo(Tour::class, 'tour_id');

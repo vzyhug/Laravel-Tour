@@ -27,7 +27,7 @@
                     @endforeach
                 </select>
             </label>
-            <label class="block">Lý do đổi<textarea name="reason" required maxlength="255" class="mt-1 block w-full rounded border p-3">{{ old('reason') }}</textarea></label>
+            <label class="block">Lý do đổi<textarea name="reason" required maxlength="255" class="mt-1 block w-full rounded border p-3">{{ \App\Support\CustomerValidation::text(old('reason')) }}</textarea></label>
             <p class="text-sm text-slate-600">Tổng tiền được tính lại theo giá lịch mới và mã giảm giá còn hợp lệ. Điểm đón chuyển về điểm tập trung của tour mới. Hạn giữ chỗ không được gia hạn.</p>
             <label class="flex gap-2"><input type="checkbox" name="accept_price" value="1" required> Tôi đồng ý tính lại giá và đổi điểm đón theo lịch mới.</label>
             <button class="rounded bg-blue-700 px-5 py-3 font-semibold text-white">Xác nhận đổi lịch</button>

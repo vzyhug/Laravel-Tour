@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\ExpireBooking;
 use App\Models\Booking;
 use App\Models\Customer;
 use App\Models\Review;
@@ -9,6 +10,7 @@ use App\Models\TourDeparture;
 use App\Services\Payments\DemoQrPayment;
 use App\Services\Payments\RefundService;
 use App\Services\Payments\SePaySandbox;
+use App\Support\CustomerValidation;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -57,11 +59,10 @@ class CustomerDashboardController extends Controller
     public function show(Booking $booking): View
     {
         $this->owned($booking);
+        app(ExpireBooking::class)->handle($booking);
+        $booking->refresh();
 
-        $pendingQr = DemoQrPayment::enabled()
-            ? $booking->paymentIntents()->where('provider', 'vietqr_demo')->where('status', 'pending')->where('expires_at', '>', now())->latest('id')->first()
-            : null;
-
+        $pendingQr = DemoQrPayment::enabled() ? $booking->paymentIntents()->where('provider', 'vietqr_demo')->where('status', 'pending')->where('expires_at', '>', now())->latest('id')->first() : null;
         $pendingSePay = SePaySandbox::enabled()
             ? $booking->paymentIntents()->where('provider', SePaySandbox::PROVIDER)->whereIn('status', ['pending', 'review'])->latest('id')->first()
             : null;
@@ -107,10 +108,12 @@ class CustomerDashboardController extends Controller
     public function updateProfile(Request $request): RedirectResponse
     {
         $customer = $this->customer();
+        $request->merge(['email' => is_string($request->email) ? mb_strtolower($request->email) : $request->email,
+            'phone' => CustomerValidation::normalizePhone($request->phone)]);
         $data = $request->validate([
             'full_name' => ['required', 'string', 'max:100'],
             'email' => ['required', 'email', 'max:100', Rule::unique('customers', 'email')->ignore($customer->getKey(), 'customer_id')],
-            'phone' => ['required', 'regex:/^(0|\+84)[0-9]{9}$/', Rule::unique('customers', 'phone')->ignore($customer->getKey(), 'customer_id')],
+            'phone' => CustomerValidation::phoneRules(unique: true, ignoreCustomer: $customer->getKey()),
             'address' => ['nullable', 'string', 'max:255'],
         ], [
             'full_name.required' => 'Họ và tên không được để trống.',
@@ -132,7 +135,7 @@ class CustomerDashboardController extends Controller
         $this->owned($booking);
         $booking->loadMissing('departure');
 
-        $canReview = $booking->status === 'completed' || ($booking->status === 'confirmed' && $booking->departure->return_date->isPast());
+        $canReview = $booking->canBeReviewed();
         abort_unless($canReview, 403, 'Chuyến đi chưa kết thúc, bạn chưa thể đánh giá.');
 
         $data = $request->validate([

@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Support\CustomerValidation;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Password;
-use Illuminate\Validation\Rules\Password as PasswordRule;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 
@@ -23,6 +23,7 @@ class CustomerPasswordController extends Controller
     public function email(Request $request)
     {
         $data = $request->validate(['email' => ['required', 'email', 'max:100']]);
+        $data['email'] = mb_strtolower($data['email']);
         try {
             Password::broker('customers')->sendResetLink([...$data, 'is_active' => true]);
         } catch (TransportExceptionInterface $exception) {
@@ -35,16 +36,19 @@ class CustomerPasswordController extends Controller
 
     public function resetForm(Request $request, string $token)
     {
-        return view('auth.recovery.reset', ['token' => $token, 'email' => $request->query('email', '')]);
+        $data = $request->validate(['email' => ['nullable', 'string', 'email', 'max:100']]);
+
+        return view('auth.recovery.reset', ['token' => $token, 'email' => $data['email'] ?? '']);
     }
 
     public function reset(Request $request)
     {
         $data = $request->validate([
             'email' => ['required', 'email', 'max:100'],
-            'token' => ['required', 'string'],
-            'password' => ['required', 'confirmed', PasswordRule::min(8)],
+            'token' => ['required', 'string', 'max:1000'],
+            'password' => CustomerValidation::passwordRules(),
         ]);
+        $data['email'] = mb_strtolower($data['email']);
         // Lock the customer before validating and consuming the token, so parallel resets cannot reuse it.
         $status = DB::transaction(function () use ($data) {
             $customer = Customer::where('email', $data['email'])->lockForUpdate()->first();
@@ -74,8 +78,8 @@ class CustomerPasswordController extends Controller
     public function change(Request $request)
     {
         $data = $request->validate([
-            'current_password' => ['required', 'string'],
-            'password' => ['required', 'confirmed', 'different:current_password', PasswordRule::min(8)],
+            'current_password' => ['required', 'string', 'max:1000'],
+            'password' => [...CustomerValidation::passwordRules(), 'different:current_password'],
         ]);
         $version = DB::transaction(function () use ($request, $data) {
             $customer = Customer::whereKey($request->session()->get('customer_id'))->lockForUpdate()->firstOrFail();

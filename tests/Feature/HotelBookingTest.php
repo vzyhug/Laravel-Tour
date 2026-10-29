@@ -128,7 +128,7 @@ class HotelBookingTest extends TestCase
     public function test_room_search_customer_checkout_and_ownership(): void
     {
         [$customer, $hotel, $type, $data] = $this->fixture();
-        $this->get(route('hotel-rooms.search', $hotel).'?'.http_build_query(collect($data)->only(['check_in', 'check_out', 'rooms', 'guests'])->all()))->assertOk()->assertSee('Test room')->assertSee('mô phỏng');
+        $this->get(route('hotel-rooms.search', $hotel).'?'.http_build_query(collect($data)->only(['check_in', 'check_out', 'rooms', 'guests'])->all()))->assertOk()->assertSee('Test room')->assertDontSee('mô phỏng');
         $this->withSession(['customer_id' => $customer->getKey()])->post(route('hotel-bookings.store'), $data)->assertRedirect();
         $booking = HotelBooking::firstOrFail();
         $this->get(route('hotel-bookings.show', $booking))->assertOk()->assertSee($booking->code);

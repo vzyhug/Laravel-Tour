@@ -171,6 +171,11 @@ document.querySelectorAll('[data-hotel-gallery]').forEach((gallery) => {
         button.addEventListener('click', () => {
             mainImage.src = button.dataset.src;
             mainImage.alt = button.dataset.alt || '';
+            const zoomLink = mainImage.closest('[data-gallery-item]');
+            if (zoomLink) {
+                zoomLink.href = button.dataset.src;
+                zoomLink.setAttribute('aria-label', 'Phóng to ảnh: ' + mainImage.alt);
+            }
             if (caption) caption.textContent = button.dataset.caption || '';
             gallery.querySelectorAll('[data-gallery-pick]').forEach((thumb) => thumb.setAttribute('aria-pressed', String(thumb === button)));
         });
@@ -762,3 +767,11 @@ if (bookingForm) {
     renumberPassengers();
     if (couponInput?.value.trim()) { checkCoupon(); }
 }
+
+// Match the server's bcrypt byte limit; maxlength alone counts characters.
+document.querySelectorAll('[data-new-password]').forEach((input) => {
+    input.addEventListener('input', () => {
+        input.setCustomValidity(new TextEncoder().encode(input.value).length > 72
+            ? 'Mật khẩu không được vượt quá 72 byte.' : '');
+    });
+});

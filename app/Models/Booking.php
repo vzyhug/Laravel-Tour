@@ -82,6 +82,11 @@ class Booking extends Model
             && now()->lte($this->cancelDeadline());
     }
 
+    public function canBeReviewed(): bool
+    {
+        return $this->status === 'completed' || ($this->status === 'confirmed' && $this->departure->return_date->lt(today()));
+    }
+
     public function refundPercentNow(): int
     {
         $fullRefundUntil = $this->booking_date->copy()->addHours((int) config('booking.full_refund_hours'));

@@ -7,6 +7,7 @@ use App\Models\CustomerItinerary;
 use App\Models\ItineraryConsultation;
 use App\Models\Tour;
 use App\Services\TourItineraryService;
+use App\Support\CustomerValidation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -24,9 +25,10 @@ class TourItineraryController extends Controller
             'version' => ['required', 'integer', 'min:1'], 'request_key' => ['required', 'uuid'],
             'travel_date' => ['required', 'date_format:Y-m-d', 'after_or_equal:today'],
             'adults' => ['required', 'integer', 'between:1,50'],
-            'contact_name' => ['required', 'string', 'max:100'], 'contact_phone' => ['required', 'regex:/^[0-9+ ().-]{8,30}$/'],
+            'contact_name' => ['required', 'string', 'max:100'], 'contact_phone' => CustomerValidation::phoneRules(),
             'contact_email' => ['required', 'email', 'max:255'], 'message' => ['nullable', 'string', 'max:2000'],
         ]);
+        $data['contact_phone'] = CustomerValidation::normalizePhone($data['contact_phone']);
         $data['children'] = 0; // Legacy column retained for previously submitted consultations.
         $consultation = DB::transaction(function () use ($data, $tour, $service) {
             $plan = CustomerItinerary::where('customer_id', session('customer_id'))->where('tour_id', $tour->getKey())->lockForUpdate()->firstOrFail();

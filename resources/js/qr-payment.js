@@ -24,7 +24,7 @@ document.querySelectorAll('[data-qr-payment]').forEach((root) => {
         root.querySelector('[data-qr-result-description]').textContent = state.status === 'review'
             ? 'Kết quả từ SePay cần được đối soát. Vui lòng liên hệ nhân viên; chưa thể tự động xác nhận hoặc tạo phiên thanh toán mới.'
             : paid
-            ? 'Đã ghi nhận giao dịch demo và xác nhận đơn. Bạn có thể xem lại chuyến đi và hóa đơn.'
+            ? 'Đã xác nhận thanh toán. Bạn có thể xem thông tin chuyến đi và hóa đơn.'
             : 'Không ghi nhận khoản thanh toán thành công từ mã QR này. Bạn có thể xem lại đơn hoặc tạo mã mới nếu đơn vẫn đang chờ thanh toán.';
         const invoice = root.querySelector('[data-qr-invoice]');
         invoice.hidden = !state.invoice_url;
@@ -69,7 +69,7 @@ document.querySelectorAll('[data-qr-payment]').forEach((root) => {
     const interval = setInterval(tick, 1000);
     window.addEventListener('pagehide', () => { stopped = true; clearTimeout(timer); clearInterval(interval); });
     window.addEventListener('pageshow', (event) => { if (event.persisted) location.reload(); });
-    root.querySelector('[data-copy-qr-reference]').addEventListener('click', async () => {
+    root.querySelector('[data-copy-qr-reference]')?.addEventListener('click', async () => {
         const feedback = root.querySelector('[data-copy-qr-status]');
         try {
             await navigator.clipboard.writeText(state.reference);

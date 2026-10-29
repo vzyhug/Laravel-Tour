@@ -7,9 +7,10 @@
     <form method="POST" action="{{ route('customer.password.change.update') }}" class="mt-6 grid gap-5">
         @csrf @method('PUT')
         <label><span class="label">Mật khẩu hiện tại</span><input class="field" type="password" name="current_password" autocomplete="current-password" required></label>
-        <label><span class="label">Mật khẩu mới</span><input class="field" type="password" name="password" minlength="8" autocomplete="new-password" required></label>
-        <label><span class="label">Xác nhận mật khẩu mới</span><input class="field" type="password" name="password_confirmation" minlength="8" autocomplete="new-password" required></label>
-        <button class="btn-primary">Đổi mật khẩu</button>
+        <label><span class="label">Mật khẩu mới</span><input class="field" type="password" name="password" data-new-password maxlength="72" minlength="8" autocomplete="new-password" required></label>
+        <label><span class="label">Xác nhận mật khẩu mới</span><input class="field" type="password" name="password_confirmation" maxlength="72" minlength="8" autocomplete="new-password" required></label>
+        <p class="text-xs text-muted sm:col-span-2">Mật khẩu cần ít nhất 8 ký tự, gồm chữ và số, tối đa 72 byte.</p>
+    <button class="btn-primary">Đổi mật khẩu</button>
     </form>
 </div></section>
 @endsection

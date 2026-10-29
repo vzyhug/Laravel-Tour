@@ -24,7 +24,10 @@ class AuthController extends Controller
 
     public function login(Request $request): RedirectResponse
     {
-        $data = $request->validate(['login' => ['required', 'string'], 'password' => ['required', 'string']]);
+        $data = $request->validate(['login' => ['required', 'string', 'max:255'], 'password' => ['required', 'string', 'max:1000']]);
+        if (str_contains($data['login'], '@')) {
+            $data['login'] = mb_strtolower($data['login']);
+        }
 
         $employee = Employee::with('role')
             ->where('username', $data['login'])
@@ -32,6 +35,7 @@ class AuthController extends Controller
             ->first();
         if ($employee && $employee->is_active && Hash::check($data['password'], $employee->password_hash)) {
             $request->session()->regenerate();
+            $request->session()->forget(['customer_id', 'customer_name', 'customer_session_version']);
             session(['employee_id' => $employee->getKey(), 'employee_name' => $employee->full_name, 'employee_role' => $employee->role->role_name]);
 
             return redirect()->route($employee->role->role_name === 'Guide' ? 'operations.index' : 'admin.dashboard')->with('success', 'Đăng nhập thành công.');
@@ -40,6 +44,7 @@ class AuthController extends Controller
         $customer = Customer::where('email', $data['login'])->first();
         if ($customer && $customer->is_active && Hash::check($data['password'], $customer->password_hash)) {
             $request->session()->regenerate();
+            $request->session()->forget(['employee_id', 'employee_name', 'employee_role']);
             session(['customer_id' => $customer->getKey(), 'customer_name' => $customer->full_name, 'customer_session_version' => (int) $customer->session_version]);
 
             return redirect()->intended(route('home'))->with('success', 'Đăng nhập thành công.');
@@ -55,6 +60,7 @@ class AuthController extends Controller
         unset($data['password']);
         $customer = Customer::create($data);
         $request->session()->regenerate();
+        $request->session()->forget(['employee_id', 'employee_name', 'employee_role']);
         session(['customer_id' => $customer->getKey(), 'customer_name' => $customer->full_name, 'customer_session_version' => (int) $customer->session_version]);
 
         return redirect()->route('home')->with('success', 'Tạo tài khoản thành công.');

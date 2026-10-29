@@ -20,6 +20,7 @@ class QrPaymentTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+        config(['payments.checkout_methods' => ['sepay', 'vietqr_demo', 'bank_transfer', 'momo', 'cash', 'card']]);
         $this->withoutVite();
         config(['payments.demo_enabled' => true, 'payments.qr_lifetime_minutes' => 10]);
         Http::preventStrayRequests();
@@ -38,7 +39,7 @@ class QrPaymentTest extends TestCase
 
     private function start(Booking $booking): PaymentIntent
     {
-        $response = $this->post(route('payments.store', $booking), ['payment_method' => 'bank_transfer', 'amount' => 1, 'total_amount' => 1]);
+        $response = $this->post(route('payments.store', $booking), ['payment_method' => 'vietqr_demo', 'amount' => 1, 'total_amount' => 1]);
         $intent = $booking->paymentIntents()->latest('id')->firstOrFail();
         $response->assertRedirect(route('payments.qr.show', [$booking, $intent]));
 
@@ -61,9 +62,9 @@ class QrPaymentTest extends TestCase
         $this->assertStringContainsString('0006000000', $intent->qr_payload);
         $this->assertStringContainsString('VIETGODEMO', $intent->qr_payload);
         $this->assertStringContainsString($intent->reference, $intent->qr_payload);
-        $this->get(route('payments.qr.show', [$booking, $intent]))->assertOk()->assertSee('1.500.000₫')->assertSee('Chế độ demo học tập')
-            ->assertSee('data-qr-payment', false)->assertSee('Ngân hàng mô phỏng')->assertHeader('Cache-Control', 'no-store, private');
-        $this->get(route('payments.qr.demo', [$booking, $intent]))->assertOk()->assertSee('Mô phỏng thanh toán thành công');
+        $this->get(route('payments.qr.show', [$booking, $intent]))->assertOk()->assertSee('1.500.000₫')->assertDontSee('Chế độ demo học tập')
+            ->assertSee('data-qr-payment', false)->assertSee('Tiếp tục thanh toán')->assertHeader('Cache-Control', 'no-store, private');
+        $this->get(route('payments.qr.demo', [$booking, $intent]))->assertOk()->assertSee('Xác nhận thanh toán');
         $this->get(route('payments.qr.image', [$booking, $intent]))->assertOk()->assertHeader('Content-Type', 'image/svg+xml')->assertSee('<svg', false);
         $this->getJson(route('payments.qr.status', [$booking, $intent]))->assertOk()->assertJsonPath('status', 'pending')->assertJsonPath('invoice_url', null);
         $this->assertSame('pending', $booking->fresh()->status);
@@ -92,9 +93,9 @@ class QrPaymentTest extends TestCase
         $this->assertSame(18, $booking->departure->fresh()->available_seats);
         $this->getJson(route('payments.qr.status', [$booking, $intent]))->assertOk()->assertJsonPath('status', 'paid')
             ->assertJsonPath('invoice_url', route('customer.bookings.invoice', $booking))->assertJsonPath('can_retry', false);
-        $this->get(route('customer.bookings.invoice', $booking))->assertOk()->assertSee('1.500.000')->assertSee('Hóa đơn demo');
+        $this->get(route('customer.bookings.invoice', $booking))->assertOk()->assertSee('1.500.000')->assertSee('Hóa đơn dịch vụ du lịch');
         $this->get(route('payments.qr.image', [$booking, $intent]))->assertGone();
-        $this->post(route('payments.store', $booking), ['payment_method' => 'bank_transfer'])->assertConflict();
+        $this->post(route('payments.store', $booking), ['payment_method' => 'vietqr_demo'])->assertConflict();
     }
 
     public function test_failure_and_expiry_allow_new_qr_but_old_attempts_cannot_be_revived(): void
@@ -184,7 +185,7 @@ class QrPaymentTest extends TestCase
                 $this->get(route('payments.qr.'.$route, [$booking, $intent]))->assertNotFound();
             }
             $this->post(route('payments.qr.simulate', [$booking, $intent]), ['outcome' => 'success', '_token' => 'qr-demo-test'])->assertNotFound();
-            $this->post(route('payments.store', $booking), ['payment_method' => 'bank_transfer', '_token' => 'qr-demo-test'])->assertNotFound();
+            $this->post(route('payments.store', $booking), ['payment_method' => 'vietqr_demo', '_token' => 'qr-demo-test'])->assertNotFound();
         }
         $this->app->instance('env', 'testing');
         $this->assertDatabaseCount('payments', 0);
@@ -208,7 +209,7 @@ class QrPaymentTest extends TestCase
     {
         $booking = $this->booking();
         $intent = $this->start($booking);
-        $this->post(route('payments.store', $booking), ['payment_method' => 'cash'])->assertRedirect(route('customer.bookings.show', $booking));
+        $this->post(route('payments.store', $booking), ['payment_method' => 'cash', 'demo_outcome' => 'succeeded'])->assertRedirect(route('customer.bookings.show', $booking));
         $this->getJson(route('payments.qr.status', [$booking, $intent]))->assertJsonPath('status', 'superseded')->assertJsonPath('can_retry', false);
         $this->post(route('payments.qr.simulate', [$booking, $intent]), ['outcome' => 'success'])->assertConflict();
         $this->assertDatabaseCount('payments', 1);

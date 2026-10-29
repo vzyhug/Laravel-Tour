@@ -3,8 +3,8 @@
 @section('content')
 <section class="container-page py-14">
     <div class="card mx-auto max-w-xl p-6 sm:p-9">
-        <p class="eyebrow">SePay Sandbox</p><h1 class="mt-3 font-serif text-3xl">Đang mở trang thanh toán…</h1>
-        <p class="mt-4 text-sm leading-7 text-muted">Bạn sẽ được chuyển tới SePay để thanh toán thử. Không cần chuyển tiền thật.</p>
+        <p class="eyebrow">SePay</p><h1 class="mt-3 font-serif text-3xl">Đang mở trang thanh toán…</h1>
+        <p class="mt-4 text-sm leading-7 text-muted">Bạn sẽ được chuyển tới SePay để hoàn tất thanh toán.</p>
         <form action="{{ \App\Services\Payments\SePaySandbox::CHECKOUT_URL }}" method="POST" class="mt-6" data-sepay-checkout-form data-booking-id="{{ $booking->getKey() }}" data-return-url="{{ route('payments.sepay.show', [$booking, $intent]) }}">
             @foreach($fields as $name => $value)<input type="hidden" name="{{ $name }}" value="{{ $value }}">@endforeach
             <button type="submit" class="btn-primary w-full">Tiếp tục tới SePay</button>

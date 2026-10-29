@@ -58,7 +58,7 @@ Route::group([], function () {
     Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
     Route::post('/login', [AuthController::class, 'login'])->middleware('throttle:6,1')->name('login.store');
     Route::get('/register', [AuthController::class, 'registerForm'])->name('register');
-    Route::post('/register', [AuthController::class, 'register'])->name('register.store');
+    Route::post('/register', [AuthController::class, 'register'])->middleware('throttle:6,1')->name('register.store');
 });
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/payments/momo/ipn', [MomoPaymentController::class, 'ipn'])
@@ -78,17 +78,17 @@ Route::middleware('customer.auth')->group(function () {
     Route::get('/payments/{booking}/sepay/{intent}/checkout', [SePaySandboxController::class, 'checkout'])->name('payments.sepay.checkout');
     Route::get('/payments/{booking}/sepay/{intent}', [SePaySandboxController::class, 'show'])->name('payments.sepay.show');
     Route::get('/payments/{booking}/sepay/{intent}/status', [SePaySandboxController::class, 'status'])->middleware('throttle:120,1')->name('payments.sepay.status');
-    Route::get('/payments/{booking}/qr/{intent}', [QrPaymentController::class, 'show'])->name('payments.qr.show');
-    Route::get('/payments/{booking}/qr/{intent}/status', [QrPaymentController::class, 'status'])->middleware('throttle:120,1')->name('payments.qr.status');
-    Route::get('/payments/{booking}/qr/{intent}/image.svg', [QrPaymentController::class, 'image'])->name('payments.qr.image');
-    Route::get('/payments/{booking}/qr/{intent}/demo-bank', [QrPaymentController::class, 'demoBank'])->name('payments.qr.demo');
-    Route::post('/payments/{booking}/qr/{intent}/demo-bank', [QrPaymentController::class, 'simulate'])->middleware('throttle:20,1')->name('payments.qr.simulate');
+    Route::get('/payments/{booking}/qr/{intent}', [QrPaymentController::class, 'show'])->middleware('payment.method:vietqr_demo')->name('payments.qr.show');
+    Route::get('/payments/{booking}/qr/{intent}/status', [QrPaymentController::class, 'status'])->middleware('throttle:120,1')->middleware('payment.method:vietqr_demo')->name('payments.qr.status');
+    Route::get('/payments/{booking}/qr/{intent}/image.svg', [QrPaymentController::class, 'image'])->middleware('payment.method:vietqr_demo')->name('payments.qr.image');
+    Route::get('/payments/{booking}/qr/{intent}/demo-bank', [QrPaymentController::class, 'demoBank'])->middleware('payment.method:vietqr_demo')->name('payments.qr.demo');
+    Route::post('/payments/{booking}/qr/{intent}/demo-bank', [QrPaymentController::class, 'simulate'])->middleware('throttle:20,1')->middleware('payment.method:vietqr_demo')->name('payments.qr.simulate');
     Route::get('/payments/vnpay/return', [VnpayPaymentController::class, 'returned'])->name('payments.vnpay.return');
-    Route::get('/payments/{booking}/vnpay/{session}', [VnpayPaymentController::class, 'resume'])->name('payments.vnpay.resume');
-    Route::post('/payments/{booking}/vnpay/{session}/restart', [VnpayPaymentController::class, 'restart'])->name('payments.vnpay.restart');
-    Route::get('/payments/{booking}/momo/{session}', [MomoPaymentController::class, 'show'])->name('payments.momo.show');
-    Route::get('/payments/{booking}/momo/{session}/qr.svg', [MomoPaymentController::class, 'qr'])->name('payments.momo.qr');
-    Route::get('/payments/{booking}/momo/{session}/status', [MomoPaymentController::class, 'status'])->middleware('throttle:10,1')->name('payments.momo.status');
+    Route::get('/payments/{booking}/vnpay/{session}', [VnpayPaymentController::class, 'resume'])->middleware('payment.method:bank_transfer')->name('payments.vnpay.resume');
+    Route::post('/payments/{booking}/vnpay/{session}/restart', [VnpayPaymentController::class, 'restart'])->middleware('payment.method:bank_transfer')->name('payments.vnpay.restart');
+    Route::get('/payments/{booking}/momo/{session}', [MomoPaymentController::class, 'show'])->middleware('payment.method:momo')->name('payments.momo.show');
+    Route::get('/payments/{booking}/momo/{session}/qr.svg', [MomoPaymentController::class, 'qr'])->middleware('payment.method:momo')->name('payments.momo.qr');
+    Route::get('/payments/{booking}/momo/{session}/status', [MomoPaymentController::class, 'status'])->middleware('throttle:10,1')->middleware('payment.method:momo')->name('payments.momo.status');
     Route::get('/payments/{booking}/momo/{session}/return', [MomoPaymentController::class, 'returned'])->name('payments.momo.return');
     Route::get('/account', [CustomerDashboardController::class, 'index'])->name('customer.dashboard');
     Route::get('/account/profile', [CustomerDashboardController::class, 'profile'])->name('customer.profile');

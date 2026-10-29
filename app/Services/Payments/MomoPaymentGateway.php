@@ -140,6 +140,9 @@ class MomoPaymentGateway
     public function refreshStatus(MomoPaymentSession $session): void
     {
         $session->refresh();
+        if (! filled(config('payments.momo.secret_key')) || ! filled(config('payments.momo.access_key')) || ! filled(config('payments.momo.partner_code'))) {
+            return;
+        }
         if ($session->status !== 'pending' || ! $session->qr_payload) {
             return;
         }
@@ -234,6 +237,14 @@ class MomoPaymentGateway
 
     public function verifyIpnSignature(array $data): bool
     {
+        if (! filled(config('payments.momo.secret_key')) || ! filled(config('payments.momo.access_key')) || ! filled(config('payments.momo.partner_code'))) {
+            return false;
+        }
+        foreach ($data as $value) {
+            if (! is_scalar($value) && $value !== null) {
+                return false;
+            }
+        }
         $fields = [
             'accessKey' => config('payments.momo.access_key'),
             'amount' => $data['amount'] ?? '',

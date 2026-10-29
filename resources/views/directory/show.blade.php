@@ -9,9 +9,9 @@
         @php($fromPrice = $record->roomTypes->pluck('min_nightly_price')->filter()->min())
         <div class="mt-5 grid items-start gap-8 lg:grid-cols-[minmax(0,1.55fr)_minmax(310px,.75fr)]">
             <div class="min-w-0">
-                <div class="hotel-gallery" data-hotel-gallery>
+                <div class="hotel-gallery" data-hotel-gallery data-image-gallery>
                     <div class="hotel-gallery-main" data-gallery-main-wrap>
-                        @if($mainImage)<img data-gallery-main src="{{ $mainImage->url }}" alt="{{ $mainImage->caption }}" fetchpriority="high"><span class="hotel-gallery-caption" data-gallery-caption>{{ $mainImage->caption }}</span>
+                        @if($mainImage)<a href="{{ $mainImage->url }}" class="absolute inset-0 block" data-gallery-item aria-label="Phóng to ảnh: {{ $mainImage->caption }}"><img data-gallery-main src="{{ $mainImage->url }}" alt="{{ $mainImage->caption }}" fetchpriority="high"></a><span class="hotel-gallery-caption" data-gallery-caption>{{ $mainImage->caption }}</span>
                         @else<div class="absolute inset-0 grid place-items-center text-sm text-muted">Ảnh khách sạn đang được bổ sung</div>@endif
                         <span class="hotel-gallery-count"><x-icon name="map" class="size-3.5"/> {{ $record->destination->name }} <span class="mx-1 text-white/50">·</span> {{ $gallery->count() }} ảnh</span>
                     </div>
@@ -32,7 +32,6 @@
                 @if($fromPrice)<p class="mt-7 text-xs text-muted">Giá tham khảo từ</p><p class="mt-1 font-serif text-4xl text-brand-700">{{ number_format((float) $fromPrice, 0, ',', '.') }}<span class="ml-1 font-sans text-sm font-medium">₫</span></p><p class="mt-1 text-[11px] text-muted">mỗi phòng · mỗi đêm</p>@endif
                 <div class="mt-6 grid gap-3 border-y border-[#eee3da] py-5 text-xs"><div class="flex items-center gap-3"><span class="grid size-9 place-items-center rounded-full bg-linen"><x-icon name="users" class="size-4 text-sage"/></span><span>Phòng có sức chứa tối đa <strong class="text-ink">{{ $record->roomTypes->max('max_guests') }} khách</strong></span></div><div class="flex items-center gap-3"><span class="grid size-9 place-items-center rounded-full bg-linen"><x-icon name="check" class="size-4 text-sage"/></span><span>Kiểm tra giá và tình trạng theo ngày</span></div></div>
                 @if($record->roomTypes->isNotEmpty())<a href="{{ route('hotel-rooms.search', $record) }}" class="btn-primary mt-5 w-full">Chọn ngày & xem phòng <x-icon name="arrow" class="size-4"/></a>@else<p class="mt-5 rounded-xl bg-linen p-4 text-xs leading-6 text-muted">Khách sạn chưa có phòng mở bán qua VietGo.</p>@endif
-                <p class="mt-4 text-[10px] leading-5 text-muted">Giá và tồn là mức tham khảo VietGo thiết lập, chưa kết nối với hệ thống bán phòng của khách sạn. Thanh toán trên phiên bản này được mô phỏng.</p>
                 <div class="mt-5 flex flex-wrap gap-x-5 gap-y-2 border-t border-[#eee3da] pt-4"><a class="text-link" href="{{ $record->website_url }}" target="_blank" rel="noopener noreferrer">Website khách sạn <x-icon name="arrow-up" class="size-3.5"/></a>@if($record->address)<a class="text-link" href="{{ $record->google_maps_url ?: 'https://www.google.com/maps/search/?api=1&query='.rawurlencode($record->name.' '.$record->address) }}" target="_blank" rel="noopener noreferrer">Mở bản đồ <x-icon name="arrow-up" class="size-3.5"/></a>@endif</div>
             </aside>
         </div>

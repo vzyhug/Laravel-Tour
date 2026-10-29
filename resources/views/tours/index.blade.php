@@ -8,7 +8,7 @@
     <aside class="card p-5 lg:sticky lg:top-28">
         <div class="flex items-center justify-between border-b border-[#e9dfd6] pb-4"><h2 class="font-serif text-xl">Chọn hành trình</h2><a href="{{ route('tours.index') }}" class="text-[10px] font-semibold text-brand-600">Xóa bộ lọc</a></div>
         <form action="{{ route('tours.index') }}" method="GET" id="tour-filters" class="mt-5 grid gap-5">
-            <label><span class="label">Điểm đến / Từ khóa</span><input class="field" name="q" value="{{ request('q') }}" placeholder="Bạn muốn khám phá đâu?"></label>
+            <label><span class="label">Điểm đến / Từ khóa</span><input class="field" name="q" maxlength="200" value="{{ request('q') }}" placeholder="Bạn muốn khám phá đâu?"></label>
             <label><span class="label">Tỉnh thành</span><select class="field" name="province"><option value="">Mọi tỉnh thành</option>@foreach($provinces as $province)<option value="{{ $province->getKey() }}" data-region="{{ $province->region }}" @selected($selectedProvince?->getKey() === $province->getKey())>{{ $province->province_name }}</option>@endforeach</select></label>
             <div>
                 <label><span class="label">Vùng miền</span><select class="field disabled:cursor-not-allowed disabled:bg-linen disabled:text-muted" name="region" aria-describedby="province-region-help" @disabled($selectedProvince)><option value="">Tất cả vùng miền</option>@foreach(['Bắc', 'Trung', 'Nam'] as $region)<option value="{{ $region }}" @selected(($selectedProvince?->region ?? request('region')) === $region)>Miền {{ $region }}</option>@endforeach</select></label>

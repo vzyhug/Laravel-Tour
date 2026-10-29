@@ -17,6 +17,11 @@ class TourController extends Controller
     public function index(Request $request): View|RedirectResponse
     {
         $request->validate([
+            'q' => ['nullable', 'string', 'max:200'],
+            'category' => ['nullable', 'integer', 'exists:tour_categories,category_id'],
+            'days' => ['nullable', 'integer', 'between:1,365'],
+            'sort' => ['nullable', 'string', Rule::in(['price_asc', 'price_desc'])],
+            'page' => ['nullable', 'integer', 'between:1,100000'],
             'province' => ['nullable', 'integer', 'exists:provinces,province_id'],
             'region' => ['nullable', 'string', Rule::in(['Bắc', 'Trung', 'Nam'])],
         ], [

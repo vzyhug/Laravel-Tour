@@ -21,6 +21,12 @@ class PaymentWorkflowTest extends TestCase
 {
     use RefreshDatabase;
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+        config(['payments.checkout_methods' => ['sepay', 'vietqr_demo', 'bank_transfer', 'momo', 'cash', 'card']]);
+    }
+
     public function test_failed_attempt_can_retry_and_replayed_success_only_creates_one_invoice(): void
     {
         $booking = Booking::factory()->create(['total_amount' => 1500000]);
@@ -108,7 +114,7 @@ class PaymentWorkflowTest extends TestCase
     {
         $booking = Booking::factory()->create();
         app(PaymentWorkflow::class)->pay($booking, 'card', (string) Str::uuid(), 'pending');
-        $this->withSession(['customer_id' => $booking->customer_id])->post(route('payments.store', $booking), ['payment_method' => 'card'])->assertStatus(409);
+        $this->withSession(['customer_id' => $booking->customer_id])->post(route('payments.store', $booking), ['payment_method' => 'card', 'demo_outcome' => 'succeeded'])->assertStatus(409);
         $this->assertDatabaseCount('payment_attempts', 1);
         $this->assertDatabaseCount('bill', 0);
     }
@@ -123,7 +129,7 @@ class PaymentWorkflowTest extends TestCase
         $attempt->payment->setRelation('booking', $booking); // Deliberately cached old departure.
         $lockedDepartures = [];
         DB::listen(function ($query) use (&$lockedDepartures) {
-            if (str_contains($query->sql, 'select') && str_contains($query->sql, '"tour_departures"')) {
+            if (str_contains($query->sql, 'select') && str_contains(str_replace(['"', '`'], '', $query->sql), 'tour_departures')) {
                 $lockedDepartures[] = (int) $query->bindings[0];
             }
         });
@@ -140,7 +146,7 @@ class PaymentWorkflowTest extends TestCase
         $target = TourDeparture::factory()->create();
         $changed = false;
         DB::listen(function ($query) use ($booking, $target, &$changed) {
-            if (! $changed && str_contains($query->sql, 'select') && str_contains($query->sql, '"tour_departures"')) {
+            if (! $changed && str_contains($query->sql, 'select') && str_contains(str_replace(['"', '`'], '', $query->sql), 'tour_departures')) {
                 $changed = true;
                 DB::table('bookings')->where('booking_id', $booking->getKey())->update(['departure_id' => $target->getKey()]);
             }
@@ -183,7 +189,7 @@ class PaymentWorkflowTest extends TestCase
     {
         $booking = Booking::factory()->create();
         app(PaymentWorkflow::class)->pay($booking, 'card', (string) Str::uuid(), 'pending');
-        $this->withSession(['customer_id' => $booking->customer_id])->get(route('payments.create', $booking))->assertOk()->assertSee('Mô phỏng thành công')->assertDontSee('Thanh toán đã hoàn tất.');
+        $this->withSession(['customer_id' => $booking->customer_id])->get(route('payments.create', $booking))->assertOk()->assertSee('Xác nhận thanh toán')->assertDontSee('Thanh toán đã hoàn tất.');
     }
 
     public function test_pending_settlement_rejects_a_ledger_amount_mismatch_without_confirming_the_booking(): void
