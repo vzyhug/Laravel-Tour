@@ -97,7 +97,7 @@ class SePaySandboxTest extends TestCase
         $this->fakeApi([SePaySandbox::API_URL.$intent->reference => Http::response(['data' => $data])]);
         $this->paymentState($booking, $intent)->assertOk()->assertJsonPath('status', 'paid')->assertJsonPath('verification_available', true);
         $this->paymentState($booking, $intent)->assertJsonPath('status', 'paid');
-        $this->get(route('payments.sepay.show', [$booking, $intent]))->assertOk()->assertSee('Thanh toán sandbox thành công');
+        $this->get(route('payments.sepay.show', [$booking, $intent]))->assertOk()->assertSee('Thanh toán thành công');
         $this->assertDatabaseCount('payments', 1);
         $this->assertDatabaseCount('bill', 1);
         $this->assertDatabaseCount('payment_gateway_events', 1);
