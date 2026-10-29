@@ -76,7 +76,7 @@
 
             <div class="grid grid-cols-2 border-t border-[#eadfd4] bg-[#fcf7f3] sm:grid-cols-4">
                 <div class="border-b border-[#eadfd4] px-5 py-4 sm:border-b-0 sm:px-7">
-                    <p class="text-[10px] font-semibold text-muted">Hành khách</p><p class="mt-1 text-xl font-extrabold text-ink">{{ $passengerCount }}</p>
+                    <p class="text-[10px] font-semibold text-muted">Khách hiện tại / sức chứa</p><p class="mt-1 text-xl font-extrabold text-ink">{{ $passengerCount }} <span class="text-sm font-medium text-muted">/ {{ $departure->max_seats }}</span></p>
                 </div>
                 <div class="border-b border-l border-[#eadfd4] px-5 py-4 sm:border-b-0 sm:px-7">
                     <p class="text-[10px] font-semibold text-muted">Có mặt</p><p class="mt-1 text-xl font-extrabold text-emerald-700">{{ $presentCount }}</p>
@@ -159,6 +159,26 @@
                     <p class="mt-1 max-w-sm text-xs leading-5 text-muted">Danh sách hành khách sẽ xuất hiện ở đây khi có đơn đặt tour được xác nhận.</p>
                 </div>
             @endforelse
+        </section>
+
+        <section class="rounded-2xl border border-[#eadfd4] bg-[#fffdf9] p-5 sm:p-7" aria-labelledby="departure-reviews-title">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+                <h2 id="departure-reviews-title" class="font-serif text-2xl">Đánh giá sau chuyến đi</h2>
+                <span class="rounded-full bg-brand-50 px-3 py-2 text-xs font-semibold text-brand-700">{{ $reviews->count() }} đánh giá @if($reviews->isNotEmpty()) · {{ number_format($reviews->avg('rating'), 1) }}/5 sao @endif</span>
+            </div>
+            <div class="mt-5 grid gap-4">
+                @forelse($reviews as $review)
+                    <article class="rounded-xl border border-[#eadfd4] bg-white p-4">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <strong class="text-sm">{{ $review->customer?->full_name ?? 'Khách hàng' }}</strong>
+                            <span class="text-xs font-semibold text-brand-700">{{ $review->rating }}/5 sao ? {{ $review->created_at?->format('d/m/Y') }}</span>
+                        </div>
+                        <p class="mt-3 whitespace-pre-line text-sm leading-6 text-muted">{{ $review->feedback }}</p>
+                    </article>
+                @empty
+                    <p class="rounded-xl bg-sand p-4 text-sm text-muted">Chưa có đánh giá cho chuyến này. Khách có thể gửi sau khi đã thanh toán, được điểm danh có mặt và hoàn thành chuyến.</p>
+                @endforelse
+            </div>
         </section>
 
         @if($departure->status !== 'cancelled' && $departure->operation_status === 'completed')

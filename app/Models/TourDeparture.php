@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class TourDeparture extends Model
 {
@@ -103,6 +104,12 @@ class TourDeparture extends Model
     public function bookings(): HasMany
     {
         return $this->hasMany(Booking::class, 'departure_id');
+    }
+
+    public function confirmedPassengers(): HasManyThrough
+    {
+        return $this->hasManyThrough(BookingPassenger::class, Booking::class, 'departure_id', 'booking_id', 'departure_id', 'booking_id')
+            ->whereIn('bookings.status', ['confirmed', 'completed']);
     }
 
     public function getTimeLabelAttribute(): ?string

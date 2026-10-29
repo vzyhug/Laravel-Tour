@@ -61,6 +61,6 @@ class RoleAccessRegressionTest extends TestCase
         ]);
         $this->withSession(['customer_id' => $customer->getKey()])
             ->post(route('customer.bookings.review', $booking), ['rating' => 5, 'feedback' => 'Very good tour'])
-            ->assertForbidden();
+            ->assertRedirect()->assertSessionHas('warning');
     }
 }

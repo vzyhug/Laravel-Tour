@@ -88,6 +88,10 @@
                                 @if($salesLabel !== $operationLabel)<span class="operations-status {{ $salesClass }}">{{ $salesLabel }}</span>@endif
                             </div>
                             <h3 class="mt-3 line-clamp-2 text-sm font-bold leading-5 text-[#29312c] transition group-hover:text-[#28745a]">{{ $departure->tour->title }}</h3>
+                            <div class="mt-3 inline-flex items-center gap-2 rounded-lg bg-brand-50 px-3 py-2 text-xs font-semibold text-brand-700">
+                                <x-icon name="users" class="size-4" />
+                                {{ $departure->confirmed_passengers_count }} / {{ $departure->max_seats }} khách
+                            </div>
                             <div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] text-[#78837b]">
                                 <span class="inline-flex items-center gap-1.5"><x-icon name="calendar" class="size-3.5" />{{ $departure->departure_date->format('d/m/Y') }} – {{ $departure->return_date->format('d/m/Y') }}</span>
                                 <span class="inline-flex items-center gap-1.5"><x-icon name="user" class="size-3.5" />{{ $departure->guide?->full_name ?? 'Chưa phân công hướng dẫn viên' }}</span>

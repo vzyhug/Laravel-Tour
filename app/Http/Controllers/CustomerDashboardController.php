@@ -100,8 +100,10 @@ class CustomerDashboardController extends Controller
         $this->owned($booking);
         $booking->loadMissing('departure');
 
-        $canReview = $booking->status === 'completed' || ($booking->status === 'confirmed' && $booking->departure->return_date->lt(today()));
-        abort_unless($canReview, 403, 'Chuyến đi chưa kết thúc, bạn chưa thể đánh giá.');
+        $canReview = $booking->canReview();
+        if (! $canReview) {
+            return back()->with('warning', 'Chỉ đánh giá sau khi đã thanh toán, có hành khách được điểm danh có mặt và chuyến đi đã hoàn thành.');
+        }
 
         $data = $request->validate([
             'rating' => ['required', 'integer', 'between:1,5'],
@@ -114,7 +116,7 @@ class CustomerDashboardController extends Controller
             'feedback.max' => 'Cảm nhận không được vượt quá 2000 ký tự.',
         ]);
 
-        Review::updateOrCreate(['customer_id' => $booking->customer_id, 'tour_id' => $booking->departure->tour_id], $data);
+        Review::updateOrCreate(['booking_id' => $booking->getKey()], [...$data, 'customer_id' => $booking->customer_id, 'tour_id' => $booking->departure->tour_id]);
 
         return back()->with('success', 'Cảm ơn bạn đã đánh giá chuyến đi.');
     }

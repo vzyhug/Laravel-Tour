@@ -42,6 +42,7 @@ class DepartureOperationsController extends Controller
         ]);
 
         $departures = TourDeparture::with(['tour', 'guide'])
+            ->withCount('confirmedPassengers')
             ->when($actor->role->role_name === 'Guide', fn ($q) => $q->where('guide_id', $actor->getKey()))
             ->when(filled($filters['q'] ?? null), fn ($q) => $q->whereHas('tour', fn ($tour) => $tour->where('title', 'like', '%'.trim($filters['q']).'%')))
             ->when(filled($filters['from'] ?? null), fn ($q) => $q->whereDate('departure_date', '>=', $filters['from']))
@@ -60,7 +61,11 @@ class DepartureOperationsController extends Controller
         $attendance = PassengerAttendance::whereIn('passenger_id', $passengerIds)->get()->keyBy('passenger_id');
         $report = DepartureReport::where('departure_id', $departure->getKey())->first();
 
-        return view('operations.show', compact('departure', 'attendance', 'report'));
+        $reviews = \App\Models\Review::with('customer')
+            ->whereHas('booking', fn ($query) => $query->where('departure_id', $departure->getKey()))
+            ->latest('created_at')->get();
+
+        return view('operations.show', compact('departure', 'attendance', 'report', 'reviews'));
     }
 
     public function attendance(Request $request, TourDeparture $departure, BookingPassenger $passenger): RedirectResponse
