@@ -10,6 +10,20 @@ class BookingReviewTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function test_guide_ended_filter_includes_completed_and_unclosed_past_departures(): void
+    {
+        $this->withoutVite();
+        $guide = Employee::factory()->guide()->create();
+        $past = TourDeparture::factory()->create(['guide_id' => $guide->getKey(), 'departure_date' => today()->subDays(4), 'return_date' => today()->subDay()]);
+        $completed = TourDeparture::factory()->create(['guide_id' => $guide->getKey(), 'operation_status' => 'completed']);
+        TourDeparture::factory()->create(['guide_id' => $guide->getKey()]);
+        $this->withSession(['employee_id' => $guide->getKey(), 'employee_role' => 'Guide'])
+            ->get(route('operations.index', ['trip_status' => 'ended']))->assertOk()
+            ->assertViewHas('departures', fn ($rows) => $rows->total() === 2
+                && $rows->contains('departure_id', $past->getKey())
+                && $rows->contains('departure_id', $completed->getKey()));
+    }
+
     public function test_guide_passenger_count_excludes_pending_and_cancelled_bookings(): void
     {
         $this->withoutVite();

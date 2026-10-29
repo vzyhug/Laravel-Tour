@@ -41,13 +41,24 @@ class DepartureOperationsController extends Controller
             'trip_status' => ['nullable', 'in:scheduled,in_progress,ended,completed,cancelled'],
         ]);
 
+        if ($actor->role->role_name === 'Guide' && ($filters['trip_status'] ?? null) === 'completed') {
+            $filters['trip_status'] = 'ended';
+        }
+
         $departures = TourDeparture::with(['tour', 'guide'])
             ->withCount('confirmedPassengers')
             ->when($actor->role->role_name === 'Guide', fn ($q) => $q->where('guide_id', $actor->getKey()))
             ->when(filled($filters['q'] ?? null), fn ($q) => $q->whereHas('tour', fn ($tour) => $tour->where('title', 'like', '%'.trim($filters['q']).'%')))
             ->when(filled($filters['from'] ?? null), fn ($q) => $q->whereDate('departure_date', '>=', $filters['from']))
             ->when(filled($filters['to'] ?? null), fn ($q) => $q->whereDate('departure_date', '<=', $filters['to']))
-            ->when(filled($filters['trip_status'] ?? null), fn ($q) => $q->effectiveTripStatus($filters['trip_status']))
+            ->when(filled($filters['trip_status'] ?? null), function ($query) use ($filters, $actor) {
+                if ($actor->role->role_name === 'Guide' && $filters['trip_status'] === 'ended') {
+                    $query->where(fn ($group) => $group->where(fn ($ended) => $ended->effectiveTripStatus('ended'))
+                        ->orWhere(fn ($completed) => $completed->effectiveTripStatus('completed')));
+                } else {
+                    $query->effectiveTripStatus($filters['trip_status']);
+                }
+            })
             ->orderByDesc('departure_date')->paginate(15)->withQueryString();
 
         return view('operations.index', compact('departures', 'filters'));

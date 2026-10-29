@@ -49,7 +49,9 @@
             Trạng thái chuyến đi
             <select class="field min-h-10" name="trip_status">
                 <option value="">Tất cả trạng thái</option>
-                @foreach(['scheduled' => 'Sắp khởi hành', 'in_progress' => 'Đang diễn ra', 'ended' => 'Đã kết thúc', 'completed' => 'Đã hoàn thành', 'cancelled' => 'Đã hủy'] as $value => $label)
+                @foreach((session('employee_role') === 'Guide'
+                    ? ['scheduled' => 'Sắp khởi hành', 'in_progress' => 'Đang đi', 'ended' => 'Đã kết thúc', 'cancelled' => 'Đã hủy']
+                    : ['scheduled' => 'Sắp khởi hành', 'in_progress' => 'Đang diễn ra', 'ended' => 'Đã kết thúc', 'completed' => 'Đã hoàn thành', 'cancelled' => 'Đã hủy']) as $value => $label)
                     <option value="{{ $value }}" @selected(($filters['trip_status'] ?? '') === $value)>{{ $label }}</option>
                 @endforeach
             </select>
