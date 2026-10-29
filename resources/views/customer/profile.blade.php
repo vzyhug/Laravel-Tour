@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Hồ sơ cá nhân · VietGo')
 @section('content')
-<section class="container-page py-12"><div class="mx-auto max-w-2xl"><h1 class="text-3xl font-black text-ink">Hồ sơ cá nhân</h1><form method="POST" action="{{ route('customer.profile.update') }}" class="card mt-7 grid gap-5 p-7">@csrf @method('PUT')
+<section class="container-page py-8 sm:py-12"><x-account-navigation/><div class="mx-auto max-w-3xl"><x-page-intro title="Một chút về bạn." eyebrow="Tài khoản · Hồ sơ cá nhân" icon="user" description="Cập nhật thông tin liên hệ để việc đặt chỗ và hỗ trợ trong hành trình luôn thuận tiện."/><form method="POST" action="{{ route('customer.profile.update') }}" class="card mt-7 grid gap-5 p-6 sm:p-9">@csrf @method('PUT')
     <label>
         <span class="label">Họ và tên</span>
         <input class="field @error('full_name') border-red-500 @enderror" name="full_name" maxlength="100" value="{{ \App\Support\CustomerValidation::text(old('full_name', $customer->full_name)) }}" required>

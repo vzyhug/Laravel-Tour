@@ -11,7 +11,7 @@
         @if($hotel->images->count() > 1)<span class="absolute bottom-5 right-5 z-10 rounded-full bg-black/45 px-3 py-2 text-[10px] text-white backdrop-blur"><x-icon name="map" class="mr-1 inline size-3.5"/> {{ $hotel->images->count() }} ảnh khách sạn</span>@endif
     </div>
 
-    <form class="hotel-stay-form relative z-10 -mt-6 grid gap-3 rounded-2xl border border-[#eadfd6] bg-white p-4 shadow-[0_18px_55px_rgba(58,40,25,.14)] md:grid-cols-[1fr_1fr_.8fr_.8fr_auto] md:items-end md:p-5" method="GET" data-hotel-search>
+    <form class="sticky-search hotel-stay-form relative z-10 -mt-6 grid gap-3 rounded-2xl border border-[#eadfd6] bg-white p-4 shadow-[0_18px_55px_rgba(58,40,25,.14)] md:grid-cols-[1fr_1fr_.8fr_.8fr_auto] md:items-end md:p-5" method="GET" data-hotel-search>
         <label><span class="label flex items-center gap-2"><x-icon name="calendar" class="size-4 text-brand-600"/> Nhận phòng</span><input class="field" type="date" name="check_in" min="{{ today()->toDateString() }}" required value="{{ $data['check_in'] ?? '' }}" data-hotel-check-in></label>
         <label><span class="label flex items-center gap-2"><x-icon name="calendar" class="size-4 text-brand-600"/> Trả phòng</span><input class="field" type="date" name="check_out" required value="{{ $data['check_out'] ?? '' }}" data-hotel-check-out></label>
         <label><span class="label flex items-center gap-2"><x-icon name="map" class="size-4 text-brand-600"/> Số phòng</span><select class="field" name="rooms">@for($count = 1; $count <= 10; $count++)<option value="{{ $count }}" @selected((int) $data['rooms'] === $count)>{{ $count }} phòng</option>@endfor</select></label>

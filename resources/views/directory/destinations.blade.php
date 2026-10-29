@@ -29,7 +29,7 @@
     </div>
 
     <section id="destination-list" class="scroll-mt-28 pt-12 sm:pt-20">
-        <div class="flex flex-wrap items-end justify-between gap-6">
+        <div class="sticky-search flex flex-wrap items-end justify-between gap-4 rounded-2xl border border-[#e7dcd1] bg-sand p-4 sm:p-5">
             <div><p class="eyebrow">Bản đồ những cuộc hẹn</p><h2 class="mt-3 font-serif text-3xl sm:text-4xl">Miền nào đang gọi bạn?</h2><p class="mt-3 text-xs leading-6 text-muted">{{ $destinations->total() }} điểm đến{{ filled(request('q')) ? ' phù hợp với tìm kiếm' : ' để chọn nơi dừng chân và khám phá' }}.</p></div>
             <form method="GET" action="{{ route('destinations.index') }}#destination-list" class="flex w-full items-center gap-2 rounded-2xl border border-[#e7dcd1] bg-white p-2 shadow-sm sm:max-w-md" role="search">
                 <x-icon name="search" class="ml-2 size-5 shrink-0 text-brand-600"/>

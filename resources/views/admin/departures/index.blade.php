@@ -11,7 +11,7 @@
         <a class="btn-primary" href="{{ route('admin.departures.create') }}">+ Thêm lịch</a>
     </div>
 
-    <form method="GET" action="{{ route('admin.departures.index') }}" data-auto-filter class="card mt-6 grid gap-3 p-4 sm:grid-cols-2 xl:grid-cols-[minmax(220px,1.5fr)_minmax(145px,1fr)_minmax(145px,1fr)_minmax(180px,1.2fr)_minmax(150px,1fr)_auto] sm:p-5" aria-label="Lọc lịch khởi hành">
+    <form method="GET" action="{{ route('admin.departures.index') }}" data-auto-filter class="sticky-search card mt-6 grid gap-3 p-4 sm:grid-cols-2 xl:grid-cols-[minmax(220px,1.5fr)_minmax(145px,1fr)_minmax(145px,1fr)_minmax(180px,1.2fr)_minmax(150px,1fr)_auto] sm:p-5" aria-label="Lọc lịch khởi hành">
         <label class="grid gap-1.5 text-xs font-semibold text-muted sm:col-span-2 xl:col-span-1">
             Tìm tour
             <input class="field min-h-10" type="search" name="q" value="{{ $filters['q'] ?? '' }}" placeholder="Nhập tên tour...">

@@ -2,7 +2,8 @@
 @section('title', 'Lịch trình của tôi')
 @section('content')
 <section class="container-page py-10">
-    <p class="eyebrow">Theo cách của bạn</p><h1 class="section-title mt-3">Lịch trình đã lưu.</h1>
+    <x-account-navigation/>
+    <x-page-intro title="Hành trình mang dấu ấn riêng." eyebrow="Theo cách của bạn · Lịch trình đã lưu" icon="map" description="Những điểm muốn ghé, những ngày muốn đi. Mở lịch trình để tiếp tục sắp xếp hoặc theo dõi yêu cầu tư vấn của bạn."/>
     <div class="mt-7 grid gap-5 sm:grid-cols-2">
     @forelse($plans as $plan)
         <article class="card p-6"><h2 class="font-serif text-2xl">{{ $plan->tour->title }}</h2><p class="mt-3 text-xs text-muted">Phiên bản {{ $plan->version }} · Cập nhật {{ $plan->updated_at->format('d/m/Y H:i') }}</p><a class="btn-secondary mt-4" href="{{ route('tours.show', $plan->tour) }}#itinerary">Xem & chỉnh lịch</a>

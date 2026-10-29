@@ -1,0 +1,24 @@
+/* Header: website 80px; operations/admin 76px. Keep controls below menus. */
+.sticky-search {
+    position: sticky;
+    top: 88px;
+    z-index: 20;
+    max-height: min(48dvh, calc(100dvh - 104px));
+    overflow-y: auto;
+    overscroll-behavior-y: auto;
+    background-color: #fffdf9;
+    box-shadow: 0 8px 24px rgb(58 40 25 / 0.08);
+    scrollbar-width: thin;
+    scroll-padding-block: 12px;
+}
+.admin-app .sticky-search { top: 84px; }
+.sticky-search:focus-within { z-index: 21; }
+@media (min-width: 1024px) {
+    .sticky-search-sidebar {
+        top: 96px;
+        max-height: calc(100dvh - 112px);
+    }
+}
+@media (max-width: 639px) {
+    .sticky-search { max-height: min(40dvh, calc(100dvh - 104px)); }
+}

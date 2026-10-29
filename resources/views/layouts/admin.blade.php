@@ -13,7 +13,7 @@
     $navigation = [
         'Vận hành' => [
             ['admin.dashboard', 'Tổng quan', 'dashboard'],
-            ['operations.reviews', 'Reviews', 'bookmark'],
+            ['operations.reviews', 'Đánh giá của khách', 'bookmark'],
             ['operations.index', 'Điều hành chuyến đi', 'briefcase'],
             ['admin.itinerary-consultations.index', 'Tư vấn lịch trình', 'map'],
             ['admin.departures.index', 'Lịch khởi hành', 'calendar'],
@@ -74,7 +74,7 @@
                     <button class="admin-nav-link w-full text-left"><x-icon name="close" class="size-[18px] shrink-0"/><span>Đăng xuất</span></button>
                 </form>
             </div>
-            <div class="admin-sidebar-footer"><span class="admin-avatar">{{ mb_substr((string) session('employee_name', 'V'), 0, 1) }}</span><span class="min-w-0"><strong class="block truncate text-[11px] text-[#29312c]">{{ session('employee_name') }}</strong><small class="mt-0.5 block text-[9px] text-[#7d8780]">{{ $employeeRole === 'Admin' ? 'Qu?n tr? vi?n' : 'H??ng d?n vi?n' }}</small></span></div>
+            <div class="admin-sidebar-footer"><span class="admin-avatar">{{ mb_substr((string) session('employee_name', 'V'), 0, 1) }}</span><span class="min-w-0"><strong class="block truncate text-[11px] text-[#29312c]">{{ session('employee_name') }}</strong><small class="mt-0.5 block text-[9px] text-[#7d8780]">{{ $employeeRole === 'Admin' ? 'Quản trị viên' : 'Hướng dẫn viên' }}</small></span></div>
         </nav>
     </aside>
 
@@ -85,7 +85,7 @@
                 <div class="min-w-0"><p class="truncate text-[9px] font-bold uppercase tracking-[.16em] text-[#8a948d]">VietGo <span class="px-1 text-[#c3c9c4]">/</span> {{ $employeeRole === 'Guide' ? 'Điều hành chuyến đi' : 'Quản trị' }}</p><p class="mt-0.5 truncate text-xs font-semibold text-[#303832]">{{ session('employee_name') }}</p></div>
             </div>
             <div class="flex shrink-0 items-center gap-2 sm:gap-3">
-                <span class="admin-role-chip"><span></span>{{ $employeeRole === 'Admin' ? 'Qu?n tr? vi?n' : 'H??ng d?n vi?n' }}</span>
+                <span class="admin-role-chip"><span></span>{{ $employeeRole === 'Admin' ? 'Quản trị viên' : 'Hướng dẫn viên' }}</span>
                 <a class="admin-site-link" href="{{ route('home') }}">Mở website <span aria-hidden="true">↗</span></a>
             </div>
         </header>

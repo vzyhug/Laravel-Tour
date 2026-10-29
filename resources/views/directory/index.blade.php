@@ -21,11 +21,7 @@
             <span class="pointer-events-none absolute bottom-7 right-8 hidden font-serif text-7xl italic text-white/20 lg:block">Đi & ở</span>
         </div>
 
-        <form method="GET" class="hotel-search-panel relative z-10 -mt-7 grid gap-3 rounded-2xl border border-[#eadfd6] bg-white p-4 shadow-[0_18px_55px_rgba(58,40,25,.12)] sm:grid-cols-[1.1fr_1fr_auto] sm:p-5" role="search">
-            <label class="hotel-search-field"><span class="eyebrow text-[9px] text-muted">Bạn muốn nghỉ ở đâu?</span><span class="mt-1 flex items-center gap-3"><x-icon name="search" class="size-5 text-brand-600"/><input name="q" maxlength="100" value="{{ request('q') }}" placeholder="Tên khách sạn hoặc địa chỉ" class="min-h-9 w-full bg-transparent text-sm outline-none placeholder:text-muted/70"></span></label>
-            <label class="hotel-search-field"><span class="eyebrow text-[9px] text-muted">Chọn điểm đến</span><span class="mt-1 flex items-center gap-3"><x-icon name="pin" class="size-5 text-brand-600"/><select name="destination" class="min-h-9 w-full appearance-none bg-transparent text-sm outline-none"><option value="">Tất cả điểm đến</option>@foreach($destinations as $destination)<option value="{{ $destination->slug }}" @selected(request('destination') === $destination->slug)>{{ $destination->name }}</option>@endforeach</select><x-icon name="chevron" class="size-4 text-muted"/></span></label>
-            <div class="flex items-center gap-2 sm:justify-end"><button class="btn-primary min-h-14 w-full sm:w-auto"><x-icon name="search" class="size-4"/> Tìm khách sạn</button>@if(request()->hasAny(['q', 'destination']))<a href="{{ route('hotels.index') }}" class="icon-button" aria-label="Xóa bộ lọc"><x-icon name="close" class="size-4"/></a>@endif</div>
-        </form>
+
     </section>
 
     <section class="container-page pt-14 sm:pt-16">
@@ -39,6 +35,11 @@
     </section>
 
     <section class="container-page py-12 sm:py-16">
+        <form method="GET" class="sticky-search hotel-search-panel mb-7  grid gap-3 rounded-2xl border border-[#eadfd6] bg-white p-4 shadow-[0_18px_55px_rgba(58,40,25,.12)] sm:grid-cols-[1.1fr_1fr_auto] sm:p-5" role="search">
+            <label class="hotel-search-field"><span class="eyebrow text-[9px] text-muted">Bạn muốn nghỉ ở đâu?</span><span class="mt-1 flex items-center gap-3"><x-icon name="search" class="size-5 text-brand-600"/><input name="q" maxlength="100" value="{{ request('q') }}" placeholder="Tên khách sạn hoặc địa chỉ" class="min-h-9 w-full bg-transparent text-sm outline-none placeholder:text-muted/70"></span></label>
+            <label class="hotel-search-field"><span class="eyebrow text-[9px] text-muted">Chọn điểm đến</span><span class="mt-1 flex items-center gap-3"><x-icon name="pin" class="size-5 text-brand-600"/><select name="destination" class="min-h-9 w-full appearance-none bg-transparent text-sm outline-none"><option value="">Tất cả điểm đến</option>@foreach($destinations as $destination)<option value="{{ $destination->slug }}" @selected(request('destination') === $destination->slug)>{{ $destination->name }}</option>@endforeach</select><x-icon name="chevron" class="size-4 text-muted"/></span></label>
+            <div class="flex items-center gap-2 sm:justify-end"><button class="btn-primary min-h-14 w-full sm:w-auto"><x-icon name="search" class="size-4"/> Tìm khách sạn</button>@if(request()->hasAny(['q', 'destination']))<a href="{{ route('hotels.index') }}" class="icon-button" aria-label="Xóa bộ lọc"><x-icon name="close" class="size-4"/></a>@endif</div>
+        </form>
         <div class="flex flex-wrap items-end justify-between gap-4 border-b border-[#e7dcd1] pb-5"><div><p class="eyebrow">Nơi lưu trú được tuyển chọn</p><h2 class="mt-2 font-serif text-3xl sm:text-4xl">{{ request('destination') ? 'Ở lại tại '.$destinations->firstWhere('slug', request('destination'))?->name : 'Khám phá khách sạn' }}</h2></div><p class="rounded-full bg-linen px-4 py-2 text-xs text-muted"><strong class="text-ink">{{ $records->total() }}</strong> kết quả</p></div>
         <div class="mt-7 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
             @forelse($records as $record) @include('directory.card', ['kind' => 'hotels']) @empty
@@ -51,7 +52,7 @@
     <section class="container-page py-10 sm:py-14">
         <a href="{{ route('destinations.index') }}" class="text-link">← Khám phá điểm đến</a><p class="eyebrow mt-8">Cẩm nang Việt Nam</p>
         <h1 class="section-title mt-3">Khám phá những địa danh.</h1>
-        <form method="GET" class="mt-8 grid gap-4 rounded-2xl bg-linen p-5 sm:grid-cols-2 lg:grid-cols-4" role="search">
+        <form method="GET" class="sticky-search mt-8 grid gap-4 rounded-2xl bg-linen p-5 sm:grid-cols-2 lg:grid-cols-4" role="search">
             <label class="text-sm">Tên hoặc địa chỉ<input name="q" maxlength="100" value="{{ request('q') }}" placeholder="Bạn muốn tìm gì?" class="field mt-2"></label>
             <label class="text-sm">Điểm đến<select name="destination" class="field mt-2"><option value="">Tất cả điểm đến</option>@foreach($destinations as $destination)<option value="{{ $destination->slug }}" @selected(request('destination') === $destination->slug)>{{ $destination->name }}</option>@endforeach</select></label>
             <label class="text-sm">Loại địa danh<select name="category" class="field mt-2"><option value="">Tất cả loại</option>@foreach($categories as $value => $label)<option value="{{ $value }}" @selected(request('category') === $value)>{{ $label }}</option>@endforeach</select></label>

@@ -12,7 +12,7 @@
         <h1 class="text-3xl font-black text-ink">Đơn đặt tour</h1>
     </div>
 
-    <form method="GET" class="card mt-8 flex flex-wrap items-end gap-4 p-4">
+    <form method="GET" class="sticky-search card mt-8 flex flex-wrap items-end gap-4 p-4">
         <label class="grow">
             <span class="label">Tìm kiếm</span>
             <input class="field" name="q" value="{{ request('q') }}" placeholder="Mã đơn, tên hoặc email khách">

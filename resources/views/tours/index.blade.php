@@ -1,11 +1,19 @@
 @extends('layouts.app')
 @section('title', ($heading ?? 'Tour du lịch').' · VietGo')
 @section('content')
-<section class="border-b border-[#e5d9cf] bg-linen/45 py-12 sm:py-16">
-    <div class="container-page"><p class="eyebrow">Bộ sưu tập hành trình · VietGo</p><h1 class="section-title mt-3 sm:text-5xl">{{ $heading ?? 'Tìm miền cảm hứng của bạn.' }}</h1>@if($selectedProvince)<p class="mt-4 max-w-2xl text-sm leading-7 text-muted">Tìm thấy <strong class="font-semibold text-ink">{{ $tours->total() }} hành trình</strong> tại {{ $selectedProvince->province_name }}.</p>@else<p class="mt-4 max-w-2xl text-sm leading-7 text-muted">Những hành trình kết nối thiên nhiên, văn hóa và con người. Chọn điểm đến phù hợp, chúng tôi cùng bạn viết tiếp câu chuyện.</p>@endif</div>
+@php($heroTour = collect($tours->items())->first(fn ($tour) => filled($tour->thumbnail_url)))
+<section class="container-page pt-8 sm:pt-12">
+    <div class="relative isolate overflow-hidden rounded-3xl bg-[#eee6dc] p-6 sm:p-10 lg:p-14">
+        @if($heroTour)
+            <div class="absolute inset-y-0 right-0 -z-20 hidden w-1/2 lg:block"><img src="{{ $heroTour->thumbnail_url }}" alt="" class="size-full object-cover"><div class="absolute inset-0 bg-gradient-to-r from-[#eee6dc] via-[#eee6dc]/15 to-transparent"></div></div>
+        @endif
+        <div class="max-w-2xl lg:max-w-[60%]"><p class="eyebrow">Bộ sưu tập hành trình · VietGo</p><h1 class="mt-4 font-serif text-4xl leading-tight sm:text-5xl">{{ $heading ?? 'Tìm miền cảm hứng của bạn.' }}</h1>
+        @if($selectedProvince)<p class="mt-5 text-sm leading-7 text-muted">Tìm thấy <strong class="font-semibold text-ink">{{ $tours->total() }} hành trình</strong> tại {{ $selectedProvince->province_name }}.</p>@else<p class="mt-5 max-w-lg text-sm leading-7 text-muted">Những hành trình kết nối thiên nhiên, văn hóa và con người. Chọn điểm đến phù hợp, chúng tôi cùng bạn viết tiếp câu chuyện.</p>@endif
+        <div class="mt-6 flex flex-wrap gap-2"><span class="rounded-full border border-[#d9caba] bg-white/70 px-4 py-2 text-[10px] font-semibold text-brand-700">{{ $tours->total() }} hành trình phù hợp</span><a href="{{ route('destinations.index') }}" class="rounded-full border border-[#d9caba] bg-white/70 px-4 py-2 text-[10px] font-semibold text-ink transition hover:bg-white">Khám phá theo điểm đến →</a></div></div>
+    </div>
 </section>
 <section class="container-page grid items-start gap-8 py-10 lg:grid-cols-[250px_minmax(0,1fr)]">
-    <aside class="card p-5 lg:sticky lg:top-28">
+    <aside class="sticky-search sticky-search-sidebar card p-5">
         <div class="flex items-center justify-between border-b border-[#e9dfd6] pb-4"><h2 class="font-serif text-xl">Chọn hành trình</h2><a href="{{ route('tours.index') }}" class="text-[10px] font-semibold text-brand-600">Xóa bộ lọc</a></div>
         <form action="{{ route('tours.index') }}" method="GET" id="tour-filters" class="mt-5 grid gap-5">
             <label><span class="label">Điểm đến / Từ khóa</span><input class="field" name="q" maxlength="200" value="{{ request('q') }}" placeholder="Bạn muốn khám phá đâu?"></label>

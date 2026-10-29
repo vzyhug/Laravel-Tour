@@ -6,12 +6,13 @@
     <title>403 · Không có quyền truy cập · VietGo</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="min-h-screen bg-slate-100">
+<body class="travel-site min-h-screen bg-sand text-ink">
     <main class="flex min-h-screen items-center justify-center p-6">
-        <div class="card w-full max-w-lg p-10 text-center">
-            <p class="text-7xl font-black text-brand-600">403</p>
+        <div class="card w-full max-w-lg rounded-3xl p-8 text-center sm:p-12">
+            <p class="eyebrow">VietGo · Giới hạn truy cập</p>
+            <p class="mt-5 font-serif text-8xl text-brand-600">403</p>
 
-            <h1 class="mt-4 text-2xl font-black text-ink">
+            <h1 class="mt-4 font-serif text-3xl text-ink">
                 Bạn không có quyền truy cập
             </h1>
 
@@ -24,7 +25,7 @@
 
             <div class="mt-8 flex flex-wrap justify-center gap-3">
                 <a href="javascript:history.back()"
-                   class="rounded-xl border border-slate-300 px-5 py-3 font-semibold text-slate-700 hover:bg-slate-50">
+                   class="btn-secondary">
                     ← Quay lại
                 </a>
                 <a href="{{ route('home') }}" class="btn-primary">Về trang chủ</a>
