@@ -207,7 +207,8 @@
             </div>
         @endif
 
-        @if($booking->canBeReviewed())
+        @if($booking->canReview())
+            @php($existingReview = $booking->review)
             <form class="card mt-6 p-6" method="POST" action="{{ route('customer.bookings.review', $booking) }}">
                 @csrf
                 <h2 class="text-lg font-bold">Đánh giá chuyến đi</h2>
@@ -216,16 +217,16 @@
                         <span class="label">Số sao</span>
                         <select class="field" name="rating" required>
                             @foreach(range(5, 1) as $rating)
-                                <option value="{{ $rating }}">{{ $rating }} sao</option>
+                                <option value="{{ $rating }}" @selected((int) old('rating', $existingReview?->rating ?? 5) === $rating)>{{ $rating }} sao</option>
                             @endforeach
                         </select>
                     </label>
                     <label>
                         <span class="label">Chia sẻ trải nghiệm</span>
-                        <textarea class="field" name="feedback" rows="4" minlength="5" maxlength="2000" required>{{ \App\Support\CustomerValidation::text(old('feedback')) }}</textarea>
+                        <textarea class="field" name="feedback" rows="4" minlength="5" maxlength="2000" required>{{ \App\Support\CustomerValidation::text(old('feedback', $existingReview?->feedback)) }}</textarea>
                         @error('feedback')<p class="mt-2 text-xs text-red-700">{{ $message }}</p>@enderror
                     </label>
-                    <button class="btn-primary">Gửi đánh giá</button>
+                    <button class="btn-primary">{{ $existingReview ? 'Cập nhật đánh giá' : 'Gửi đánh giá' }}</button>
                 </div>
             </form>
         @endif

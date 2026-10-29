@@ -6,7 +6,7 @@
     <a class="text-link" href="{{ route('customer.booking-changes.index') }}">Đổi lịch tour & lịch sử thay đổi</a>
     <a class="text-link" href="{{ route('hotel-bookings.index') }}">Đơn đặt phòng</a>
 </nav>
-<div class="relative isolate overflow-hidden">
+<div class="relative isolate overflow-clip">
     <div class="pointer-events-none absolute -top-20 left-1/4 -z-10 size-96 rounded-full bg-brand-100/20 blur-3xl"></div>
     <div class="container-page py-8 sm:py-10">
         <section class="card p-5 sm:p-8">
@@ -18,7 +18,7 @@
                 @foreach([['Đã hoàn thành', $summary['completed'], 'Những ký ức đáng nhớ'], ['Chuyến đi sắp tới', $summary['upcoming'], 'Hành trình đang chờ bạn'], ['Tour đã lưu', $summary['saved'], 'Miền cảm hứng tiếp theo'], ['Tổng hành trình', $summary['total'], 'Cùng VietGo khám phá']] as [$label, $count, $description])<div><p class="text-[9px] font-semibold uppercase tracking-widest text-muted">{{ $label }}</p><p class="mt-2 font-serif text-3xl {{ $loop->iteration === 2 ? 'text-brand-600' : '' }}">{{ str_pad($count, 2, '0', STR_PAD_LEFT) }}</p><p class="mt-1 text-[10px] leading-5 text-muted">{{ $description }}</p></div>@endforeach
             </div>
         </section>
-        <nav class="my-7 flex w-fit max-w-full flex-wrap gap-1 rounded-xl bg-linen p-1.5" aria-label="Chuyến đi của tôi">
+        <nav class="sticky top-20 z-30 my-7 flex w-fit max-w-full flex-wrap gap-1 rounded-xl bg-linen/95 p-1.5 shadow-sm backdrop-blur-md" aria-label="Chuyến đi của tôi">
             @foreach(['upcoming' => ['Sắp tới & đang đi', $summary['upcoming']], 'saved' => ['Bộ sưu tập yêu thích', $summary['saved']], 'history' => ['Lịch sử hành trình', $summary['history']]] as $key => [$label, $count])<a href="{{ route('customer.dashboard', ['tab' => $key]) }}" class="account-tab" @if($tab === $key) aria-current="page" @endif>{{ $label }}<span class="grid min-w-5 place-items-center rounded-full bg-sand px-1.5 py-0.5 text-[9px] text-brand-600">{{ $count }}</span></a>@endforeach
         </nav>
 

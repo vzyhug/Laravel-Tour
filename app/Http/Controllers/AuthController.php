@@ -29,13 +29,12 @@ class AuthController extends Controller
             $data['login'] = mb_strtolower($data['login']);
         }
 
-        $employee = Employee::with('role')
-            ->where('username', $data['login'])
-            ->orWhere('email', $data['login'])
+        $employee = Employee::with('role')->whereHas('role', fn ($query) => $query->whereIn('role_name', ['Admin', 'Guide']))
+            ->where(fn ($query) => $query->where('username', $data['login'])->orWhere('email', $data['login']))
             ->first();
         if ($employee && $employee->is_active && Hash::check($data['password'], $employee->password_hash)) {
             $request->session()->regenerate();
-            $request->session()->forget(['customer_id', 'customer_name', 'customer_session_version']);
+            $request->session()->forget(['customer_id', 'customer_name', 'customer_session_version', 'url.intended']);
             session(['employee_id' => $employee->getKey(), 'employee_name' => $employee->full_name, 'employee_role' => $employee->role->role_name]);
 
             return redirect()->route($employee->role->role_name === 'Guide' ? 'operations.index' : 'admin.dashboard')->with('success', 'Đăng nhập thành công.');

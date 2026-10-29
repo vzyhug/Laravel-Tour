@@ -24,6 +24,21 @@ class Booking extends Model
         return ['quote_snapshot' => 'array', 'hold_expires_at' => 'datetime', 'booking_date' => 'datetime', 'cancelled_at' => 'datetime', 'total_amount' => 'decimal:2', 'refund_amount' => 'decimal:2', 'discount_amount' => 'decimal:2'];
     }
 
+    public function review(): HasOne
+    {
+        return $this->hasOne(Review::class, 'booking_id');
+    }
+
+    public function canReview(): bool
+    {
+        return $this->status === 'completed'
+            && $this->departure->status !== 'cancelled'
+            && $this->departure->operation_status === 'completed'
+            && $this->payment()->where('status', 'completed')->exists()
+            && PassengerAttendance::where('status', 'present')
+                ->whereIn('passenger_id', $this->passengers()->select('passenger_id'))->exists();
+    }
+
     public function holdHasExpired(): bool
     {
         return $this->hold_expires_at !== null && $this->hold_expires_at->lte(now());

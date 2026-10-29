@@ -16,11 +16,16 @@ class Review extends Model
 
     protected $primaryKey = 'review_id';
 
-    protected $fillable = ['customer_id', 'tour_id', 'feedback', 'rating'];
+    protected $fillable = ['booking_id', 'customer_id', 'tour_id', 'feedback', 'rating'];
 
     protected function casts(): array
     {
         return ['created_at' => 'datetime', 'rating' => 'integer'];
+    }
+
+    public function booking(): BelongsTo
+    {
+        return $this->belongsTo(Booking::class, 'booking_id');
     }
 
     public function customer(): BelongsTo

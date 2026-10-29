@@ -4,6 +4,20 @@ import './image-viewer';
 import './itinerary';
 import Sortable from 'sortablejs';
 
+document.querySelectorAll('[data-auto-filter]').forEach((form) => {
+    form.addEventListener('keydown', (event) => {
+        if (event.target.matches('input[name="q"]') && event.key === 'Enter') {
+            event.preventDefault();
+            form.requestSubmit();
+        }
+    });
+    form.addEventListener('change', (event) => {
+        if (event.target.matches('input[name="q"]') || event.target.matches('input[type="date"], select')) {
+            form.requestSubmit();
+        }
+    });
+});
+
 const flashAlert = document.querySelector('[data-flash-alert]');
 if (flashAlert instanceof HTMLDialogElement) {
     flashAlert.showModal();

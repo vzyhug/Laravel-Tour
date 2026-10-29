@@ -12,7 +12,7 @@ Route::middleware('customer.auth')->group(function () {
     Route::post('/account/hotel-bookings/{hotelBooking}/simulate-payment', [HotelBookingController::class, 'pay'])->name('hotel-bookings.pay');
     Route::post('/account/hotel-bookings/{hotelBooking}/cancel', [HotelBookingController::class, 'cancel'])->name('hotel-bookings.cancel');
 });
-Route::prefix('admin/hotel-booking')->name('admin.hotel-booking.')->middleware(['admin.auth', 'admin.role:Admin,Staff'])->group(function () {
+Route::prefix('admin/hotel-booking')->name('admin.hotel-booking.')->middleware(['admin.auth', 'admin.role:Admin'])->group(function () {
     Route::get('/', [AdminHotelBookingController::class, 'index'])->name('index');
     Route::post('/room-types', [AdminHotelBookingController::class, 'storeRoomType'])->name('room-types.store');
     Route::get('/room-types/{roomType}/inventory', [AdminHotelBookingController::class, 'inventory'])->name('inventory');

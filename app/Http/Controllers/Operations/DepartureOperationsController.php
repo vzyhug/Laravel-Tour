@@ -18,7 +18,7 @@ class DepartureOperationsController extends Controller
     private function actor(): Employee
     {
         $employee = Employee::with('role')->find(session('employee_id'));
-        abort_unless($employee && $employee->is_active && in_array($employee->role->role_name, ['Admin', 'Staff', 'Guide'], true), 403);
+        abort_unless($employee && $employee->is_active && in_array($employee->role->role_name, ['Admin', 'Guide'], true), 403);
 
         return $employee;
     }
@@ -31,14 +31,37 @@ class DepartureOperationsController extends Controller
         return $actor;
     }
 
-    public function index(): View
+    public function index(Request $request): View
     {
         $actor = $this->actor();
-        $departures = TourDeparture::with(['tour', 'guide'])
-            ->when($actor->role->role_name === 'Guide', fn ($q) => $q->where('guide_id', $actor->getKey()))
-            ->orderByDesc('departure_date')->paginate(15);
+        $filters = $request->validate([
+            'q' => ['nullable', 'string', 'max:120'],
+            'from' => ['nullable', 'date_format:Y-m-d'],
+            'to' => ['nullable', 'date_format:Y-m-d'],
+            'trip_status' => ['nullable', 'in:scheduled,in_progress,ended,completed,cancelled'],
+        ]);
 
-        return view('operations.index', compact('departures'));
+        if ($actor->role->role_name === 'Guide' && ($filters['trip_status'] ?? null) === 'completed') {
+            $filters['trip_status'] = 'ended';
+        }
+
+        $departures = TourDeparture::with(['tour', 'guide'])
+            ->withCount('confirmedPassengers')
+            ->when($actor->role->role_name === 'Guide', fn ($q) => $q->where('guide_id', $actor->getKey()))
+            ->when(filled($filters['q'] ?? null), fn ($q) => $q->whereHas('tour', fn ($tour) => $tour->where('title', 'like', '%'.trim($filters['q']).'%')))
+            ->when(filled($filters['from'] ?? null), fn ($q) => $q->whereDate('departure_date', '>=', $filters['from']))
+            ->when(filled($filters['to'] ?? null), fn ($q) => $q->whereDate('departure_date', '<=', $filters['to']))
+            ->when(filled($filters['trip_status'] ?? null), function ($query) use ($filters, $actor) {
+                if ($actor->role->role_name === 'Guide' && $filters['trip_status'] === 'ended') {
+                    $query->where(fn ($group) => $group->where(fn ($ended) => $ended->effectiveTripStatus('ended'))
+                        ->orWhere(fn ($completed) => $completed->effectiveTripStatus('completed')));
+                } else {
+                    $query->effectiveTripStatus($filters['trip_status']);
+                }
+            })
+            ->orderByDesc('departure_date')->paginate(15)->withQueryString();
+
+        return view('operations.index', compact('departures', 'filters'));
     }
 
     public function show(TourDeparture $departure): View
@@ -49,12 +72,21 @@ class DepartureOperationsController extends Controller
         $attendance = PassengerAttendance::whereIn('passenger_id', $passengerIds)->get()->keyBy('passenger_id');
         $report = DepartureReport::where('departure_id', $departure->getKey())->first();
 
-        return view('operations.show', compact('departure', 'attendance', 'report'));
+        $reviews = \App\Models\Review::with('customer')
+            ->whereHas('booking', fn ($query) => $query->where('departure_id', $departure->getKey()))
+            ->latest('created_at')->get();
+
+        return view('operations.show', compact('departure', 'attendance', 'report', 'reviews'));
     }
 
     public function attendance(Request $request, TourDeparture $departure, BookingPassenger $passenger): RedirectResponse
     {
         $data = $request->validate(['status' => ['required', 'in:present,absent'], 'notes' => ['nullable', 'string', 'max:500']]);
+        $this->authorizeDeparture($departure);
+        if ($departure->departure_date->isFuture()) {
+            return back()->with('warning', 'Chưa đến ngày khởi hành. Bạn có thể điểm danh từ ngày bắt đầu chuyến.');
+        }
+
         DB::transaction(function () use ($departure, $passenger, $data) {
             $departure = TourDeparture::lockForUpdate()->findOrFail($departure->getKey());
             $actor = $this->authorizeDeparture($departure);
@@ -73,6 +105,31 @@ class DepartureOperationsController extends Controller
     public function status(Request $request, TourDeparture $departure): RedirectResponse
     {
         $data = $request->validate(['operation_status' => ['required', 'in:in_progress,completed']]);
+        $this->authorizeDeparture($departure);
+
+        if ($departure->status === 'cancelled') {
+            return back()->with('warning', 'Chuyến đã hủy nên không thể cập nhật trạng thái.');
+        }
+
+        $next = ['scheduled' => 'in_progress', 'in_progress' => 'completed'];
+        if (($next[$departure->operation_status] ?? null) !== $data['operation_status']) {
+            return back()->with('warning', 'Trạng thái chuyến đã thay đổi. Tải lại trang rồi thử lại.');
+        }
+        if ($departure->departure_date->isFuture()) {
+            return back()->with('warning', 'Chưa đến ngày khởi hành. Bạn có thể bắt đầu chuyến từ ngày khởi hành.');
+        }
+        if ($data['operation_status'] === 'completed') {
+            if ($departure->return_date->isFuture()) {
+                return back()->with('warning', 'Chưa đến ngày kết thúc chuyến nên chưa thể hoàn thành.');
+            }
+
+            $confirmedBookings = $departure->bookings()->where('status', 'confirmed')->orderBy('booking_id')->get();
+            $passengerIds = BookingPassenger::whereIn('booking_id', $confirmedBookings->modelKeys())->pluck('passenger_id');
+            if (PassengerAttendance::whereIn('passenger_id', $passengerIds)->count() !== $passengerIds->count()) {
+                return back()->with('warning', 'Hãy điểm danh đầy đủ hành khách trước khi hoàn thành chuyến.');
+            }
+        }
+
         DB::transaction(function () use ($departure, $data) {
             $departure = TourDeparture::lockForUpdate()->findOrFail($departure->getKey());
             $this->authorizeDeparture($departure);

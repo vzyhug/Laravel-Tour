@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f5f6f7">
-    <title>@yield('title', 'Quản trị') · VietGo</title>
+    <title>@yield('title', session('employee_role') === 'Guide' ? 'Điều hành chuyến đi' : 'Quản trị') · VietGo</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="admin-app min-h-screen bg-[#f5f6f7] text-[#202522] antialiased">
+<body @class(['admin-app min-h-screen antialiased', 'guide-app bg-sand text-ink' => session('employee_role') === 'Guide', 'bg-[#f5f6f7] text-[#202522]' => session('employee_role') !== 'Guide'])>
 @php
     $employeeRole = session('employee_role');
     $navigation = [
@@ -36,7 +36,7 @@
 <div class="admin-shell min-h-screen lg:grid lg:grid-cols-[264px_minmax(0,1fr)]">
     <aside class="admin-sidebar z-40 border-b border-[#e8eae7] bg-white lg:sticky lg:top-0 lg:h-screen lg:border-b-0 lg:border-r">
         <div class="flex h-[76px] items-center border-b border-[#eef0ed] px-5 lg:px-6">
-            <a href="{{ route($employeeRole === 'Guide' ? 'operations.index' : 'admin.dashboard') }}" class="flex items-center gap-3 rounded-lg" aria-label="VietGo Admin - trang chính">
+            <a href="{{ route($employeeRole === 'Guide' ? 'operations.index' : 'admin.dashboard') }}" class="flex items-center gap-3 rounded-lg" aria-label="{{ $employeeRole === 'Guide' ? 'VietGo Điều hành chuyến đi' : 'VietGo Quản trị' }}">
                 <span class="admin-brand-mark"><x-icon name="pin" class="size-5"/></span>
                 <span><strong class="block text-[15px] font-extrabold tracking-tight text-[#252a26]">VietGo</strong><small class="block text-[9px] font-bold uppercase tracking-[.17em] text-[#818a83]">Bảng điều hành</small></span>
             </a>
@@ -73,7 +73,7 @@
                     <button class="admin-nav-link w-full text-left"><x-icon name="close" class="size-[18px] shrink-0"/><span>Đăng xuất</span></button>
                 </form>
             </div>
-            <div class="admin-sidebar-footer"><span class="admin-avatar">{{ mb_substr((string) session('employee_name', 'V'), 0, 1) }}</span><span class="min-w-0"><strong class="block truncate text-[11px] text-[#29312c]">{{ session('employee_name') }}</strong><small class="mt-0.5 block text-[9px] text-[#7d8780]">{{ $employeeRole === 'Admin' ? 'Quản trị viên' : ($employeeRole === 'Guide' ? 'Hướng dẫn viên' : 'Nhân viên') }}</small></span></div>
+            <div class="admin-sidebar-footer"><span class="admin-avatar">{{ mb_substr((string) session('employee_name', 'V'), 0, 1) }}</span><span class="min-w-0"><strong class="block truncate text-[11px] text-[#29312c]">{{ session('employee_name') }}</strong><small class="mt-0.5 block text-[9px] text-[#7d8780]">{{ $employeeRole === 'Admin' ? 'Qu?n tr? vi?n' : 'H??ng d?n vi?n' }}</small></span></div>
         </nav>
     </aside>
 
@@ -81,10 +81,10 @@
         <header class="admin-topbar sticky top-0 z-30 flex h-[76px] items-center justify-between gap-4 border-b border-[#e8eae7] bg-white/95 px-5 backdrop-blur-md sm:px-7 xl:px-10">
             <div class="flex min-w-0 items-center gap-3">
                 <button class="admin-topbar-menu lg:hidden" data-menu-toggle="admin-menu" aria-expanded="false" aria-label="Mở menu"><x-icon name="menu" class="size-5"/></button>
-                <div class="min-w-0"><p class="truncate text-[9px] font-bold uppercase tracking-[.16em] text-[#8a948d]">VietGo <span class="px-1 text-[#c3c9c4]">/</span> Quản trị</p><p class="mt-0.5 truncate text-xs font-semibold text-[#303832]">{{ session('employee_name') }}</p></div>
+                <div class="min-w-0"><p class="truncate text-[9px] font-bold uppercase tracking-[.16em] text-[#8a948d]">VietGo <span class="px-1 text-[#c3c9c4]">/</span> {{ $employeeRole === 'Guide' ? 'Điều hành chuyến đi' : 'Quản trị' }}</p><p class="mt-0.5 truncate text-xs font-semibold text-[#303832]">{{ session('employee_name') }}</p></div>
             </div>
             <div class="flex shrink-0 items-center gap-2 sm:gap-3">
-                <span class="admin-role-chip"><span></span>{{ $employeeRole === 'Admin' ? 'Quản trị viên' : ($employeeRole === 'Guide' ? 'Hướng dẫn viên' : 'Nhân viên') }}</span>
+                <span class="admin-role-chip"><span></span>{{ $employeeRole === 'Admin' ? 'Qu?n tr? vi?n' : 'H??ng d?n vi?n' }}</span>
                 <a class="admin-site-link" href="{{ route('home') }}">Mở website <span aria-hidden="true">↗</span></a>
             </div>
         </header>

@@ -20,12 +20,12 @@ class EmployeeController extends Controller
 
     public function create(): View
     {
-        return view('admin.employees.form', ['employee' => new Employee(['is_active' => true]), 'roles' => Role::orderBy('role_name')->get()]);
+        return view('admin.employees.form', ['employee' => new Employee(['is_active' => true]), 'roles' => Role::whereIn('role_name', ['Admin', 'Guide'])->orderBy('role_name')->get()]);
     }
 
     public function edit(Employee $employee): View
     {
-        return view('admin.employees.form', ['employee' => $employee, 'roles' => Role::orderBy('role_name')->get()]);
+        return view('admin.employees.form', ['employee' => $employee, 'roles' => Role::whereIn('role_name', ['Admin', 'Guide'])->orderBy('role_name')->get()]);
     }
 
     public function store(Request $request): RedirectResponse
@@ -59,7 +59,7 @@ class EmployeeController extends Controller
             'email' => ['required', 'email', Rule::unique('employees', 'email')->ignore($id, 'employee_id')],
             'full_name' => ['required', 'string', 'max:100'],
             'phone' => ['nullable', 'regex:/^(0|\+84)[0-9]{9}$/'],
-            'role_id' => ['required', 'exists:roles,role_id'],
+            'role_id' => ['required', Rule::exists('roles', 'role_id')->where(fn ($query) => $query->whereIn('role_name', ['Admin', 'Guide']))],
             'is_active' => ['nullable', 'boolean'],
             'password' => [$employee ? 'nullable' : 'required', 'string', 'min:8', 'confirmed'],
         ], [

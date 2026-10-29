@@ -24,6 +24,7 @@ class SePaySandboxTest extends TestCase
     {
         parent::setUp();
         config(['payments.checkout_methods' => ['sepay', 'vietqr_demo', 'bank_transfer', 'momo', 'cash', 'card']]);
+        config(['payments.qr_lifetime_minutes' => 10]);
         $this->withoutVite();
         config(['payments.sepay_sandbox' => ['enabled' => true, 'merchant_id' => 'TEST-MERCHANT', 'secret_key' => 'test-checkout-secret']]);
         Http::preventStrayRequests();

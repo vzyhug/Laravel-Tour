@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class TourDeparture extends Model
 {
@@ -41,6 +42,67 @@ class TourDeparture extends Model
             && $this->status === 'open' && $this->available_seats > 0 && ! $this->hasDeparted();
     }
 
+    public function scopeEffectiveSalesStatus(Builder $query, string $status): Builder
+    {
+        return match ($status) {
+            'open' => $query->where('status', 'open')->where('operation_status', 'scheduled')
+                ->whereDate('departure_date', '>=', today())->whereDate('return_date', '>=', today())->where('available_seats', '>', 0),
+            'full' => $query->whereDate('departure_date', '>=', today())->whereDate('return_date', '>=', today())
+                ->where('operation_status', 'scheduled')
+                ->where(fn (Builder $q) => $q->where('status', 'full')->orWhere(fn (Builder $q) => $q->where('status', 'open')->where('available_seats', '<=', 0))),
+            'departed' => $query->where('status', '!=', 'cancelled')->whereDate('return_date', '>=', today())
+                ->where(fn (Builder $q) => $q->whereDate('departure_date', '<', today())->orWhere('operation_status', '!=', 'scheduled')),
+            'ended' => $query->where('status', '!=', 'cancelled')->whereDate('return_date', '<', today()),
+            'cancelled' => $query->where('status', 'cancelled'),
+            default => $query,
+        };
+    }
+
+    public function scopeEffectiveTripStatus(Builder $query, string $status): Builder
+    {
+        return match ($status) {
+            'cancelled' => $query->where('status', 'cancelled'),
+            'completed' => $query->where('status', '!=', 'cancelled')->where('operation_status', 'completed'),
+            'ended' => $query->where('status', '!=', 'cancelled')->where('operation_status', '!=', 'completed')->whereDate('return_date', '<', today()),
+            'in_progress' => $query->where('status', '!=', 'cancelled')->where('operation_status', 'in_progress')->whereDate('return_date', '>=', today()),
+            'scheduled' => $query->where('status', '!=', 'cancelled')->where('operation_status', 'scheduled')->whereDate('return_date', '>=', today()),
+            default => $query,
+        };
+    }
+
+    public function getEffectiveSalesStatusAttribute(): string
+    {
+        if ($this->status === 'cancelled') {
+            return 'cancelled';
+        }
+        if ($this->return_date->lt(today())) {
+            return 'ended';
+        }
+        if ($this->departure_date->lt(today()) || $this->operation_status !== 'scheduled') {
+            return 'departed';
+        }
+        if ($this->status === 'full' || (int) $this->available_seats <= 0) {
+            return 'full';
+        }
+
+        return 'open';
+    }
+
+    public function getEffectiveTripStatusAttribute(): string
+    {
+        if ($this->status === 'cancelled') {
+            return 'cancelled';
+        }
+        if ($this->operation_status === 'completed') {
+            return 'completed';
+        }
+        if ($this->return_date->lt(today())) {
+            return 'ended';
+        }
+
+        return $this->operation_status === 'in_progress' ? 'in_progress' : 'scheduled';
+    }
+
     public function tour(): BelongsTo
     {
         return $this->belongsTo(Tour::class, 'tour_id');
@@ -54,6 +116,12 @@ class TourDeparture extends Model
     public function bookings(): HasMany
     {
         return $this->hasMany(Booking::class, 'departure_id');
+    }
+
+    public function confirmedPassengers(): HasManyThrough
+    {
+        return $this->hasManyThrough(BookingPassenger::class, Booking::class, 'departure_id', 'booking_id', 'departure_id', 'booking_id')
+            ->whereIn('bookings.status', ['confirmed', 'completed']);
     }
 
     public function getTimeLabelAttribute(): ?string

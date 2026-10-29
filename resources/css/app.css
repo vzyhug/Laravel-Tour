@@ -87,6 +87,36 @@
     .operations-status-completed { @apply bg-slate-100 text-slate-600; }
     .operations-empty-state { @apply flex min-h-[280px] flex-col items-center justify-center rounded-2xl border border-dashed border-[#dce5de] bg-white px-6 py-12 text-center; }
     .operations-empty-icon { @apply grid size-12 place-items-center rounded-2xl bg-[#edf5ef] text-[#28745a]; }
+    .guide-app { --admin-green: #98421c; --admin-green-soft: #fcf0e9; --admin-border: #eadfd4; background: #fff8f3; color: #1d1b18; }
+    .guide-app .admin-sidebar, .guide-app .admin-topbar { border-color: #eadfd4; background: #fffdf9; }
+    .guide-app .admin-brand-mark, .guide-app .admin-avatar { background: #fcf0e9; color: #98421c; }
+    .guide-app .admin-nav-link { color: #76675e; }
+    .guide-app .admin-nav-link:hover { background: #fcf0e9; color: #98421c; }
+    .guide-app .admin-nav-link-active { background: #fcf0e9; color: #7c2e08; }
+    .guide-app .admin-nav-indicator { background: #b85a32; }
+    .guide-app .admin-sidebar-footer { border-color: #eadfd4; }
+    .guide-app .admin-topbar-menu, .guide-app .admin-role-chip { border-color: #eadfd4; color: #76675e; }
+    .guide-app .admin-role-chip > span { background: #b85a32; }
+    .guide-app .admin-topbar-menu:hover { background: #fcf0e9; }
+    .guide-app .admin-site-link { border-color: #f0d5c6; background: #fcf0e9; color: #7c2e08; }
+    .guide-app .admin-site-link:hover { border-color: #deb59e; background: #f8e5da; }
+    .guide-app .admin-main { background: #fff8f3; }
+    .guide-app .admin-main h1 { color: #1d1b18; font-family: var(--font-serif); font-weight: 500; }
+    .guide-app .admin-main .card { border-color: #eadfd4; background: #fffdf9; }
+    .guide-app .admin-page-eyebrow { color: #98421c; }
+    .guide-app .admin-page-title { color: #1d1b18; }
+    .guide-app .operations-heading-note { border-color: #eadfd4; background: #fffdf9; }
+    .guide-app .operations-heading-note-icon, .guide-app .operations-empty-icon { background: #fcf0e9; color: #98421c; }
+    .guide-app .operations-heading-note strong, .guide-app .operations-trip-date > strong { color: #1d1b18; }
+    .guide-app .operations-trip-card { border-color: #eadfd4; background: #fffdf9; }
+    .guide-app .operations-trip-card:hover { border-color: #ddb49d; box-shadow: 0 10px 25px rgb(152 66 28 / .09); }
+    .guide-app .operations-trip-card:hover h3 { color: #98421c; }
+    .guide-app .operations-trip-date { border-color: #f0d5c6; background: #fcf0e9; color: #98421c; }
+    .guide-app .operations-trip-arrow { background: #f3ede7; color: #76675e; }
+    .guide-app .operations-trip-card:hover .operations-trip-arrow { background: #fcf0e9; color: #98421c; }
+    .guide-app .operations-empty-state { border-color: #eadfd4; background: #fffdf9; }
+    .guide-app .admin-data-table thead { background: #fcf7f3; }
+    .guide-app .admin-nav-heading { color: #9b897c; }
     .hotel-count-chip { @apply inline-flex items-center rounded-full border border-[#e3ebe4] bg-[#f5f9f6] px-3 py-1.5 text-[9px] font-semibold text-[#52715d]; }
     .hotel-source-demo { @apply inline-flex rounded-full bg-amber-50 px-2.5 py-1.5 text-[8px] font-semibold text-amber-700; }
     .hotel-source-live { @apply inline-flex rounded-full bg-emerald-50 px-2.5 py-1.5 text-[8px] font-semibold text-emerald-700; }
@@ -278,28 +308,18 @@
 .image-viewer { width: min(96vw, 1400px); max-width: none; max-height: 96dvh; margin: auto; }
 .image-viewer::backdrop { background: rgb(0 0 0 / 0.85); }
 
-.flash-alert {
-    width: min(92vw, 440px);
-    max-width: none;
-    margin: auto;
-    padding: 28px;
-    border: 1px solid #eadfd4;
-    border-radius: 24px;
-    background: #fffdf9;
-    color: #29231f;
-    box-shadow: 0 24px 80px rgb(35 25 18 / 0.24);
-}
-.flash-alert::backdrop { background: rgb(31 27 24 / 0.48); backdrop-filter: blur(3px); }
+.flash-alert { width: min(92vw, 440px); max-width: none; margin: auto; padding: 28px; border: 1px solid #eadfd4; border-radius: 24px; background: #fffdf9; color: #29231f; box-shadow: 0 24px 80px rgb(35 25 18 / .24); }
+.flash-alert::backdrop { background: rgb(31 27 24 / .48); backdrop-filter: blur(3px); }
 .flash-alert__topline { display: flex; align-items: flex-start; justify-content: space-between; }
-.flash-alert__icon { display: grid; width: 52px; height: 52px; place-items: center; border-radius: 17px; }
+.flash-alert__icon { display: grid; width: 52px; height: 52px; place-items: center; border-radius: 17px; background: #e9f4ed; color: #28744d; }
 .flash-alert__icon svg { width: 26px; height: 26px; }
-.flash-alert__icon--success { background: #e9f4ed; color: #28744d; }
-.flash-alert__icon--error { background: #fff0e9; color: #b44d31; }
+.flash-alert--warning .flash-alert__icon { background: #fff4dc; color: #9a6500; }
+.flash-alert--error .flash-alert__icon { background: #fff0e9; color: #b44d31; }
 .flash-alert__close { display: grid; width: 38px; height: 38px; place-items: center; border: 0; border-radius: 12px; background: transparent; color: #766d66; font-size: 26px; line-height: 1; transition: background .18s, color .18s; }
 .flash-alert__close:hover { background: #f3eee8; color: #29231f; }
 .flash-alert__close:focus-visible, .flash-alert__confirm:focus-visible { outline: 3px solid #d78a58; outline-offset: 3px; }
 .flash-alert__eyebrow { margin: 20px 0 5px; color: #8b786b; font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
-.flash-alert__title { margin: 0; font-family: Georgia, serif; font-size: 27px; font-weight: 600; line-height: 1.2; }
+.flash-alert__title { margin: 0; font-family: var(--font-serif); font-size: 27px; font-weight: 600; line-height: 1.2; }
 .flash-alert__message { display: grid; gap: 8px; margin-top: 11px; color: #6b625b; font-size: 14px; line-height: 1.65; overflow-wrap: anywhere; }
 .flash-alert__message p { margin: 0; }
 .flash-alert__confirm { display: flex; width: 100%; min-height: 48px; align-items: center; justify-content: center; margin-top: 24px; border: 0; border-radius: 14px; background: #a64c32; color: #fff; font-size: 13px; font-weight: 750; transition: background .18s, transform .18s; }
