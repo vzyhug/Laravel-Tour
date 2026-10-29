@@ -71,7 +71,13 @@ class BookingController extends Controller
                 return 'Chuyến đi chưa đến ngày kết thúc nên chưa thể hoàn thành đơn.';
             }
 
-            $booking->update(['status' => $data['status']]);
+            if ($data['status'] === 'confirmed' && (! $booking->payment()->where('status', 'completed')->exists() || $booking->departure->operation_status !== 'scheduled')) {
+                return 'Đơn cần thanh toán thành công và chuyến chưa bắt đầu mới được xác nhận.';
+            }
+            if ($data['status'] === 'completed' && ($booking->departure->operation_status !== 'completed' || ! $booking->payment()->where('status', 'completed')->exists())) {
+                return 'Chỉ hoàn thành đơn đã thanh toán sau khi Guide hoàn tất chuyến.';
+            }
+            $booking->update(['status' => $data['status'], 'hold_expires_at' => null]);
 
             return null;
         });

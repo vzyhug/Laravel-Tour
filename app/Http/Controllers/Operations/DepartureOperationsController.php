@@ -15,6 +15,15 @@ use Illuminate\View\View;
 
 class DepartureOperationsController extends Controller
 {
+    public function reviews(): View
+    {
+        $actor = $this->actor();
+        $reviews = \App\Models\Review::with(['customer', 'booking.departure.tour'])
+            ->whereHas('booking.departure', fn ($q) => $q->when($actor->role->role_name === 'Guide', fn ($q) => $q->where('guide_id', $actor->getKey())))
+            ->latest('created_at')->paginate(15);
+        return view('operations.reviews', compact('reviews'));
+    }
+
     private function actor(): Employee
     {
         $employee = Employee::with('role')->find(session('employee_id'));
@@ -123,6 +132,9 @@ class DepartureOperationsController extends Controller
                 return back()->with('warning', 'Chưa đến ngày kết thúc chuyến nên chưa thể hoàn thành.');
             }
 
+            if ($departure->bookings()->where('status', 'confirmed')->whereDoesntHave('payment', fn ($q) => $q->where('status', 'completed'))->exists()) {
+                return back()->with('warning', 'Còn đơn chưa thanh toán thành công. Hãy báo Admin đối soát trước khi hoàn thành chuyến.');
+            }
             $confirmedBookings = $departure->bookings()->where('status', 'confirmed')->orderBy('booking_id')->get();
             $passengerIds = BookingPassenger::whereIn('booking_id', $confirmedBookings->modelKeys())->pluck('passenger_id');
             if (PassengerAttendance::whereIn('passenger_id', $passengerIds)->count() !== $passengerIds->count()) {
@@ -143,6 +155,7 @@ class DepartureOperationsController extends Controller
                 $passengerIds = BookingPassenger::whereIn('booking_id', $bookings->modelKeys())->pluck('passenger_id');
                 abort_if(PassengerAttendance::whereIn('passenger_id', $passengerIds)->count() !== $passengerIds->count(), 422, 'Hãy điểm danh đầy đủ hành khách trước khi hoàn thành.');
                 foreach ($bookings as $booking) {
+                    abort_unless($booking->payment()->where('status', 'completed')->exists(), 422);
                     $booking->update(['status' => 'completed']);
                 }
             }

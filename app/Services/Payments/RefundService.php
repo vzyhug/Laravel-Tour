@@ -41,6 +41,9 @@ class RefundService
             // Always lock the parent before its refund, matching request().
             $payment = $refund->payment()->lockForUpdate()->firstOrFail();
             $refund = PaymentRefund::whereKey($refund->id)->lockForUpdate()->firstOrFail();
+            if (str_starts_with((string) $payment->transaction_code, 'SEPAY-SBX-')) {
+                return $refund;
+            }
             if ($refund->status === 'succeeded') {
                 return $refund;
             }

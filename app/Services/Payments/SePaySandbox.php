@@ -53,7 +53,7 @@ class SePaySandbox
             abort_if($payment && $payment->status !== 'failed', 409, 'Đơn đã có giao dịch thanh toán.');
             abort_if($payment && $payment->attempts()->where('status', 'pending')->exists(), 409, 'Đơn đang có giao dịch chờ xử lý.');
             abort_if($locked->status === 'pending' && $locked->holdHasExpired(), 409, 'Thời hạn giữ chỗ đã hết.');
-            abort_if($locked->departure->status === 'cancelled', 409, 'Chuyến đi đã hủy.');
+            abort_if($locked->departure->operation_status !== 'scheduled' || $locked->departure->hasDeparted() || $locked->departure->status === 'cancelled', 409, 'Chuyến đi đã hủy.');
             abort_if($locked->paymentIntents()->where('status', 'review')->exists(), 409, 'Đơn có giao dịch cần kiểm tra.');
             if (! preg_match('/^([1-9][0-9]{0,12})\.00$/D', $locked->total_amount)) {
                 throw ValidationException::withMessages(['payment_method' => 'SePay cần số tiền nguyên VND lớn hơn 0.']);
@@ -186,7 +186,7 @@ class SePaySandbox
                 $reason = 'currency_or_amount_mismatch';
             } elseif ($locked->status !== 'pending' || $locked->expires_at->lessThanOrEqualTo(now())
                 || ! in_array($booking->status, ['pending', 'confirmed'], true)
-                || ($booking->status === 'pending' && $booking->holdHasExpired()) || $booking->departure->status === 'cancelled'
+                || ($booking->status === 'pending' && $booking->holdHasExpired()) || $booking->departure->status === 'cancelled' || $booking->departure->operation_status !== 'scheduled' || $booking->departure->hasDeparted()
                 || ($payment && $payment->status !== 'failed') || ($payment && $payment->attempts()->where('status', 'pending')->exists())
                 || $booking->total_amount !== $locked->amount
                 || $booking->paymentIntents()->where('status', 'review')->exists()) {

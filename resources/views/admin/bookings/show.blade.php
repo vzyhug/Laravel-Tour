@@ -3,7 +3,7 @@
 @section('title', 'Đơn ' . $booking->booking_code)
 
 @php
-    $labels = ['pending' => 'Chờ xác nhận', 'confirmed' => 'Đã xác nhận', 'completed' => 'Hoàn thành', 'cancelled' => 'Đã hủy'];
+    $labels = ['pending' => 'Chờ thanh toán', 'confirmed' => 'Đã xác nhận', 'completed' => 'Hoàn thành', 'cancelled' => 'Đã hủy'];
     $actions = ['confirmed' => 'Xác nhận đơn', 'completed' => 'Hoàn thành đơn'];
     $departure = $booking->departure;
 @endphp
@@ -66,7 +66,7 @@
 
     @if($booking->status === 'cancelled')
         <div class="card mt-5 border border-red-200 p-6">
-            <h2 class="font-bold text-red-600">Khách đã hủy đơn này</h2>
+            <h2 class="font-bold text-red-600">Đơn đã hủy</h2>
             <dl class="mt-4 grid gap-3 text-sm">
                 <div class="flex justify-between gap-4">
                     <dt class="text-slate-500">Hủy lúc</dt>

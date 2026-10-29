@@ -20,7 +20,7 @@ class AdminAuthenticated
             $request->session()->forget(['employee_id', 'employee_name', 'employee_role']);
             $request->session()->regenerate();
 
-            return redirect()->route('login')->with('error', 'T?i kho?n kh?ng c?n quy?n truy c?p. Vui l?ng ??ng nh?p l?i.');
+            return redirect()->route('login')->with('error', 'Tài khoản không còn quyền truy cập. Vui lòng đăng nhập lại.');
         }
 
         session(['employee_role' => $employee->role->role_name, 'employee_name' => $employee->full_name]);

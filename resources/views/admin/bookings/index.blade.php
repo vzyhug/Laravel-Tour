@@ -3,7 +3,7 @@
 @section('title', 'Đơn đặt tour')
 
 @php
-    $labels = ['pending' => 'Chờ xác nhận', 'confirmed' => 'Đã xác nhận', 'completed' => 'Hoàn thành', 'cancelled' => 'Đã hủy'];
+    $labels = ['pending' => 'Chờ thanh toán', 'confirmed' => 'Đã xác nhận', 'completed' => 'Hoàn thành', 'cancelled' => 'Đã hủy'];
 @endphp
 
 @section('content')

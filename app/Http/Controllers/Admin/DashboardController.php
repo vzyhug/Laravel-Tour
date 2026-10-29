@@ -18,7 +18,7 @@ class DashboardController extends Controller
                 'tours' => Tour::count(),
                 'customers' => Customer::count(),
                 'bookings' => Booking::count(),
-                'revenue' => Payment::where('status', 'completed')->sum('amount'),
+                'revenue' => Payment::whereIn('status', ['completed', 'refunded'])->sum('amount') - \App\Models\PaymentRefund::where('status', 'succeeded')->sum('amount'),
             ],
             'recentBookings' => Booking::with(['customer', 'departure.tour'])->orderByDesc('booking_date')->limit(8)->get(),
         ]);

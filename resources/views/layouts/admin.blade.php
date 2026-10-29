@@ -13,6 +13,7 @@
     $navigation = [
         'Vận hành' => [
             ['admin.dashboard', 'Tổng quan', 'dashboard'],
+            ['operations.reviews', 'Reviews', 'bookmark'],
             ['operations.index', 'Điều hành chuyến đi', 'briefcase'],
             ['admin.itinerary-consultations.index', 'Tư vấn lịch trình', 'map'],
             ['admin.departures.index', 'Lịch khởi hành', 'calendar'],
@@ -47,7 +48,7 @@
                 @php
                     $visibleItems = collect($items)->filter(function ($item) use ($employeeRole) {
                         [$name] = $item;
-                        return ($employeeRole !== 'Guide' || $name === 'operations.index')
+                        return ($employeeRole !== 'Guide' || in_array($name, ['operations.index', 'operations.reviews'], true))
                             && ($employeeRole === 'Admin' || ! in_array($name, ['admin.coupons.index', 'admin.employees.index', 'admin.provinces.index'], true));
                     });
                 @endphp

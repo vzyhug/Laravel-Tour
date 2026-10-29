@@ -45,6 +45,9 @@ class EmployeeController extends Controller
             $data['password_hash'] = Hash::make($data['password']);
         }
         unset($data['password']);
+        if ((int) $employee->getKey() === (int) session('employee_id') && (! ($data['is_active'] ?? true) || (int) $data['role_id'] !== (int) $employee->role_id)) {
+            throw \Illuminate\Validation\ValidationException::withMessages(['role_id' => 'Không thể tự khóa hoặc đổi quyền tài khoản Admin đang đăng nhập.']);
+        }
         $employee->update($data);
 
         return redirect()->route('admin.employees.index')->with('success', 'Đã cập nhật nhân viên.');

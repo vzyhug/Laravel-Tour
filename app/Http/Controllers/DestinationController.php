@@ -16,7 +16,7 @@ class DestinationController extends Controller
     public function index(Request $request): View
     {
         $data = $request->validate(['q' => ['nullable', 'string', 'max:100'], 'page' => ['nullable', 'integer', 'between:1,100000']]);
-        $destinations = Destination::query()->withCount(['places', 'hotels'])->with(['places.images'])
+        $destinations = Destination::query()->withCount(['places', 'hotels'])->with(['places.images', 'hotels.images'])
             ->when($data['q'] ?? null, fn ($query, $term) => $query->where('name', 'like', '%'.trim($term).'%'))
             ->orderBy('name')->paginate(12)->withQueryString();
 
