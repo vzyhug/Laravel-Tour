@@ -22,7 +22,7 @@ class DepartureController extends Controller
             'q' => ['nullable', 'string', 'max:120'],
             'from' => ['nullable', 'date_format:Y-m-d'],
             'to' => ['nullable', 'date_format:Y-m-d'],
-            'status' => ['nullable', 'in:open,full,cancelled'],
+            'trip_status' => ['nullable', 'in:scheduled,in_progress,ended,completed,cancelled'],
             'guide_id' => ['nullable', 'integer'],
         ]);
 
@@ -30,7 +30,7 @@ class DepartureController extends Controller
             ->when(filled($filters['q'] ?? null), fn ($q) => $q->whereHas('tour', fn ($tour) => $tour->where('title', 'like', '%'.trim($filters['q']).'%')))
             ->when(filled($filters['from'] ?? null), fn ($q) => $q->whereDate('departure_date', '>=', $filters['from']))
             ->when(filled($filters['to'] ?? null), fn ($q) => $q->whereDate('departure_date', '<=', $filters['to']))
-            ->when(filled($filters['status'] ?? null), fn ($q) => $q->where('status', $filters['status']))
+            ->when(filled($filters['trip_status'] ?? null), fn ($q) => $q->effectiveTripStatus($filters['trip_status']))
             ->when(filled($filters['guide_id'] ?? null), fn ($q) => $q->where('guide_id', $filters['guide_id']))
             ->orderByDesc('departure_date')->paginate(15)->withQueryString();
 

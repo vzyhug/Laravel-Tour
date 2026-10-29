@@ -168,6 +168,12 @@
                     <option value="{{ $value }}" @selected(old('status', $departure->status) === $value)>{{ $label }}</option>
                 @endforeach
             </select>
+            @if($departure->exists && $departure->effective_sales_status !== $departure->status)
+                <p class="mt-2 rounded-lg bg-stone-100 px-3 py-2 text-xs leading-5 text-stone-700">
+                    Trạng thái áp dụng hiện tại: <strong>{{ ['ended' => 'Đã kết thúc', 'departed' => 'Đã khởi hành', 'full' => 'Đã đóng nhận khách'][$departure->effective_sales_status] ?? $departure->effective_sales_status }}</strong>.
+                    Lịch đã khởi hành hoặc qua ngày về sẽ không nhận thêm đặt chỗ.
+                </p>
+            @endif
         </label>
 
         </section>

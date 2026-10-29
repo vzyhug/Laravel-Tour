@@ -26,6 +26,9 @@ class CreateBooking
             if ($departure->departure_date->lt(today())) {
                 throw ValidationException::withMessages(['departure_id' => 'Lịch khởi hành đã qua, vui lòng chọn lịch khác.']);
             }
+            if ($departure->return_date->lt(today())) {
+                throw ValidationException::withMessages(['departure_id' => 'Lịch này đã kết thúc, vui lòng chọn lịch khác.']);
+            }
 
             if ($departure->operation_status !== 'scheduled' || $departure->is_private || $departure->status !== 'open' || $departure->available_seats < $seats) {
                 throw ValidationException::withMessages(['passengers' => 'Lịch khởi hành không còn đủ chỗ.']);

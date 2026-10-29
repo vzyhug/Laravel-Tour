@@ -24,7 +24,7 @@ class BookingLifecycleController extends Controller
         $expire->handle($booking);
         $booking->refresh()->load(['departure.tour', 'payment', 'changes.fromDeparture.tour', 'changes.toDeparture.tour']);
         $departures = TourDeparture::query()->where('is_private', false)->where('status', 'open')->where('operation_status', 'scheduled')
-            ->whereDate('departure_date', '>', today())->where('available_seats', '>=', $booking->total_adults + $booking->total_children)
+            ->whereDate('departure_date', '>', today())->whereDate('return_date', '>=', today())->where('available_seats', '>=', $booking->total_adults + $booking->total_children)
             ->where('departure_id', '!=', $booking->departure_id)->whereHas('tour', fn ($q) => $q->where('is_active', true))
             ->with('tour')->orderBy('departure_date')->get();
 

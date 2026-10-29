@@ -15,7 +15,7 @@ class BookingController extends Controller
 {
     public function create(TourDeparture $departure): View
     {
-        abort_unless($departure->operation_status === 'scheduled' && ! $departure->is_private && $departure->status === 'open' && $departure->available_seats > 0 && $departure->departure_date->gte(today()), 404);
+        abort_unless($departure->operation_status === 'scheduled' && ! $departure->is_private && $departure->status === 'open' && $departure->available_seats > 0 && $departure->departure_date->gte(today()) && $departure->return_date->gte(today()), 404);
 
         $customerId = (int) session('customer_id');
         $coupons = Coupon::all()

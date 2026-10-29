@@ -29,7 +29,7 @@ class ChangeBookingDeparture
             $target = $departures->get($targetId);
             $seats = $booking->total_adults + $booking->total_children;
             if (! $target || $source->operation_status !== 'scheduled' || $target->operation_status !== 'scheduled' || $source->is_private || $source->departure_date->lte(today()) || $source->status === 'cancelled'
-                || $target->is_private || $target->status !== 'open' || $target->departure_date->lte(today())
+                || $target->is_private || $target->status !== 'open' || $target->departure_date->lte(today()) || $target->return_date->lt(today())
                 || ! $target->tour->is_active || $target->available_seats < $seats) {
                 $reject('Lịch khởi hành không hợp lệ, đã khởi hành hoặc không đủ chỗ.');
             }

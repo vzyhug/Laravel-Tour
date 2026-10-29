@@ -6,16 +6,20 @@
     @php
         $salesStatuses = [
             'open' => ['Đang nhận khách', 'bg-emerald-50 text-emerald-700'],
-            'full' => [$departure->operation_status === 'scheduled' ? 'Đã ngừng nhận khách' : 'Đã đóng nhận khách', 'bg-amber-50 text-amber-800'],
+            'full' => ['Đã đóng nhận khách', 'bg-amber-50 text-amber-800'],
+            'departed' => ['Đã khởi hành', 'bg-sky-50 text-sky-700'],
+            'ended' => ['Đã kết thúc', 'bg-stone-100 text-stone-700'],
             'cancelled' => ['Đã hủy', 'bg-rose-50 text-rose-700'],
         ];
         $operationStatuses = [
             'scheduled' => ['Sắp khởi hành', 'bg-sky-50 text-sky-700'],
             'in_progress' => ['Đang diễn ra', 'bg-emerald-50 text-emerald-700'],
+            'ended' => ['Đã kết thúc', 'bg-stone-100 text-stone-700'],
             'completed' => ['Đã hoàn thành', 'bg-stone-100 text-stone-700'],
+            'cancelled' => ['Đã hủy', 'bg-rose-50 text-rose-700'],
         ];
-        [$salesLabel, $salesTone] = $salesStatuses[$departure->status] ?? [$departure->status, 'bg-stone-100 text-stone-700'];
-        [$operationLabel, $operationTone] = $operationStatuses[$departure->operation_status] ?? [$departure->operation_status, 'bg-stone-100 text-stone-700'];
+        [$salesLabel, $salesTone] = $salesStatuses[$departure->effective_sales_status] ?? [$departure->status, 'bg-stone-100 text-stone-700'];
+        [$operationLabel, $operationTone] = $operationStatuses[$departure->effective_trip_status] ?? [$departure->operation_status, 'bg-stone-100 text-stone-700'];
         $passengerCount = $departure->bookings->sum(fn ($booking) => $booking->passengers->count());
         $presentCount = $attendance->where('status', 'present')->count();
         $absentCount = $attendance->where('status', 'absent')->count();
@@ -40,7 +44,7 @@
                     </div>
                     <div class="mt-5 flex flex-wrap gap-2">
                         <span class="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold {{ $operationTone }}"><i class="size-1.5 rounded-full bg-current"></i>{{ $operationLabel }}</span>
-                        <span class="inline-flex items-center rounded-full px-3 py-1.5 text-xs font-bold {{ $salesTone }}">{{ $salesLabel }}</span>
+                        @if($salesLabel !== $operationLabel)<span class="inline-flex items-center rounded-full px-3 py-1.5 text-xs font-bold {{ $salesTone }}">{{ $salesLabel }}</span>@endif
                     </div>
                 </div>
 

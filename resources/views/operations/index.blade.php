@@ -7,12 +7,16 @@
         $salesStatuses = [
             'open' => ['Đang nhận khách', 'operations-status-open'],
             'full' => ['Đã đóng nhận khách', 'operations-status-closed'],
+            'departed' => ['Đã khởi hành', 'operations-status-scheduled'],
+            'ended' => ['Đã kết thúc', 'operations-status-completed'],
             'cancelled' => ['Đã hủy', 'operations-status-cancelled'],
         ];
         $operationStatuses = [
             'scheduled' => ['Sắp khởi hành', 'operations-status-scheduled'],
             'in_progress' => ['Đang diễn ra', 'operations-status-progress'],
+            'ended' => ['Đã kết thúc', 'operations-status-completed'],
             'completed' => ['Đã hoàn thành', 'operations-status-completed'],
+            'cancelled' => ['Đã hủy', 'operations-status-cancelled'],
         ];
     @endphp
 
@@ -28,7 +32,7 @@
         </div>
     </section>
 
-    <form method="GET" action="{{ route('operations.index') }}" class="card mt-7 grid gap-3 p-4 sm:grid-cols-2 xl:grid-cols-[minmax(220px,1.5fr)_minmax(150px,1fr)_minmax(150px,1fr)_minmax(160px,1fr)_auto] sm:p-5" aria-label="Lọc chuyến được phân công">
+    <form method="GET" action="{{ route('operations.index') }}" data-auto-filter class="card mt-7 grid gap-3 p-4 sm:grid-cols-2 xl:grid-cols-[minmax(220px,1.5fr)_minmax(150px,1fr)_minmax(150px,1fr)_minmax(160px,1fr)_auto] sm:p-5" aria-label="Lọc chuyến được phân công">
         <label class="grid gap-1.5 text-[10px] font-semibold text-muted sm:col-span-2 xl:col-span-1">
             Tìm tour
             <input class="field min-h-10" type="search" name="q" value="{{ $filters['q'] ?? '' }}" placeholder="Nhập tên tour...">
@@ -42,18 +46,18 @@
             <input class="field min-h-10" type="date" name="to" value="{{ $filters['to'] ?? '' }}">
         </label>
         <label class="grid gap-1.5 text-[10px] font-semibold text-muted">
-            Trạng thái chuyến
-            <select class="field min-h-10" name="status">
+            Trạng thái chuyến đi
+            <select class="field min-h-10" name="trip_status">
                 <option value="">Tất cả trạng thái</option>
-                @foreach(['scheduled' => 'Sắp khởi hành', 'in_progress' => 'Đang diễn ra', 'completed' => 'Đã hoàn thành'] as $value => $label)
-                    <option value="{{ $value }}" @selected(($filters['status'] ?? '') === $value)>{{ $label }}</option>
+                @foreach(['scheduled' => 'Sắp khởi hành', 'in_progress' => 'Đang diễn ra', 'ended' => 'Đã kết thúc', 'completed' => 'Đã hoàn thành', 'cancelled' => 'Đã hủy'] as $value => $label)
+                    <option value="{{ $value }}" @selected(($filters['trip_status'] ?? '') === $value)>{{ $label }}</option>
                 @endforeach
             </select>
         </label>
         <div class="flex items-end gap-2 sm:col-span-2 xl:col-span-1">
-            <button class="btn-primary min-h-10 flex-1 justify-center px-4 text-xs">Lọc chuyến</button>
-            <a class="btn-secondary min-h-10 px-3 text-xs" href="{{ route('operations.index') }}">Xóa</a>
+            <a class="btn-secondary min-h-10 px-3 text-xs" href="{{ route('operations.index') }}">Xóa bộ lọc</a>
         </div>
+        <p class="text-[10px] text-muted sm:col-span-2 xl:col-span-full">Chọn ngày hoặc trạng thái để lọc ngay; tìm tên tour bằng Enter hoặc rời ô.</p>
     </form>
 
     <section class="mt-7" aria-label="Danh sách chuyến đi">
@@ -69,8 +73,8 @@
             <div class="grid gap-3 xl:grid-cols-2">
                 @foreach($departures as $departure)
                     @php
-                        [$salesLabel, $salesClass] = $salesStatuses[$departure->status] ?? [$departure->status, 'operations-status-closed'];
-                        [$operationLabel, $operationClass] = $operationStatuses[$departure->operation_status] ?? [$departure->operation_status, 'operations-status-scheduled'];
+                        [$salesLabel, $salesClass] = $salesStatuses[$departure->effective_sales_status] ?? [$departure->status, 'operations-status-closed'];
+                        [$operationLabel, $operationClass] = $operationStatuses[$departure->effective_trip_status] ?? [$departure->operation_status, 'operations-status-scheduled'];
                     @endphp
                     <a href="{{ route('operations.show', $departure) }}" class="operations-trip-card group">
                         <div class="operations-trip-date">
@@ -81,7 +85,7 @@
                         <div class="min-w-0 flex-1">
                             <div class="flex flex-wrap items-center gap-2">
                                 <span class="operations-status {{ $operationClass }}"><i></i>{{ $operationLabel }}</span>
-                                <span class="operations-status {{ $salesClass }}">{{ $salesLabel }}</span>
+                                @if($salesLabel !== $operationLabel)<span class="operations-status {{ $salesClass }}">{{ $salesLabel }}</span>@endif
                             </div>
                             <h3 class="mt-3 line-clamp-2 text-sm font-bold leading-5 text-[#29312c] transition group-hover:text-[#28745a]">{{ $departure->tour->title }}</h3>
                             <div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] text-[#78837b]">
